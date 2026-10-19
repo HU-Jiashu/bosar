@@ -1,0 +1,788 @@
+{
+ "format": "bosar-tour",
+ "size": [
+  1920,
+  1080
+ ],
+ "scale": 2,
+ "bundle": "bosar-tour-4k.zip",
+ "modules": [
+  {
+   "key": "project_data",
+   "title": "Project and data",
+   "built": 3,
+   "line": "Create a project, import a stack, look at dates, baselines and a coherence preview.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "project",
+     "caption": "Open or create a project: its folder holds the products, the logs and project.json.",
+     "command": "bosar project new tour/indy_crop --name indy_crop",
+     "hero": false,
+     "files": {
+      "light": "project_data/01_project_light.png",
+      "hint_bundle": "project_data/01_project_hint.gif",
+      "dark": "project_data/01_project_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "stack",
+     "caption": "Import a stack (GAMMA/StaMPS export, SAFE, BEAM-DIMAP or a crop): dates, geometry and the baseline plot.",
+     "command": "bosar data import tour/indy_crop data/indy_downtown_crop",
+     "hero": false,
+     "files": {
+      "light": "project_data/02_stack_light.png",
+      "hint_bundle": "project_data/02_stack_hint.gif",
+      "dark": "project_data/02_stack_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "preview",
+     "caption": "A quick coherence preview of a pair tells whether it is worth processing.",
+     "command": "bosar data preview tour/indy_crop --pair 20240821_20240914",
+     "hero": true,
+     "files": {
+      "light": "project_data/03_preview_light.png",
+      "hint_bundle": "project_data/03_preview_hint.gif",
+      "dark": "project_data/03_preview_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "system_check",
+   "title": "System check",
+   "built": 6,
+   "line": "Preflight table: Python, GPU, SNAPHU, SNAP, credentials, read-only data roots.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "preflight",
+     "caption": "The preflight runs before every job: interpreter, packages, GPU, SNAPHU, SNAP, disk space, project.",
+     "command": "bosar preflight --offline",
+     "hero": true,
+     "files": {
+      "light": "system_check/01_preflight_light.png",
+      "hint_bundle": "system_check/01_preflight_hint.gif",
+      "dark": "system_check/01_preflight_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "settings",
+     "caption": "Credentials are stored in the system keyring and shown as present / missing only; read-only data roots are searched first for orbits, DEM tiles and GACOS grids.",
+     "command": "bosar auth status",
+     "hero": false,
+     "files": {
+      "light": "system_check/02_settings_light.png",
+      "dark": "system_check/02_settings_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "dinsar",
+   "title": "DInSAR",
+   "built": 4,
+   "line": "Choose a pair, set the parameters, run, read the LOS displacement on the map.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "pair",
+     "caption": "Run page, DInSAR: pick the stack and the pair. The command box shows the one command the button will run.",
+     "command": "bosar pipeline dinsar tour/indy_crop --stack crop_indy_downtown_crop --pair 20240821_20240914",
+     "hero": false,
+     "files": {
+      "light": "dinsar/01_pair_light.png",
+      "hint_bundle": "dinsar/01_pair_hint.gif",
+      "dark": "dinsar/01_pair_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "parameters",
+     "caption": "Parameters per step; an unset field shows the value that will be chosen (\"auto (\u2026)\"). Only what differs from the default is written into the command.",
+     "command": "bosar pipeline dinsar tour/indy_crop --stack crop_indy_downtown_crop --pair 20240821_20240914 --looks 2,10 --backend snaphu",
+     "hero": false,
+     "files": {
+      "light": "dinsar/02_parameters_light.png",
+      "hint_bundle": "dinsar/02_parameters_hint.gif",
+      "dark": "dinsar/02_parameters_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "running",
+     "caption": "While it runs: steps with their state and duration, the live log, progress in the status bar, Stop cancels cleanly.",
+     "command": "bosar pipeline dinsar tour/indy_crop --stack crop_indy_downtown_crop --pair 20240821_20240914",
+     "hero": false,
+     "files": {
+      "light": "dinsar/03_running_light.png",
+      "hint_bundle": "dinsar/03_running_hint.gif",
+      "dark": "dinsar/03_running_dark.png"
+     }
+    },
+    {
+     "n": 4,
+     "name": "result",
+     "caption": "Results page: the LOS displacement (positive toward the satellite) over OpenStreetMap; hover for value, unit and lat/lon.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": true,
+     "files": {
+      "light": "dinsar/04_result_light.png",
+      "hint_bundle": "dinsar/04_result_hint.gif",
+      "dark": "dinsar/04_result_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "gacos",
+   "title": "GACOS correction",
+   "built": 7,
+   "line": "What is missing, the run with --tropo gacos, displacement before and after.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "aux",
+     "caption": "Aux page: what the project has - orbits, DEM, GACOS grids - and where each came from.",
+     "command": "bosar aux status tour/indy_crop",
+     "hero": false,
+     "files": {
+      "light": "gacos/01_aux_light.png",
+      "hint_bundle": "gacos/01_aux_hint.gif",
+      "dark": "gacos/01_aux_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "assistant",
+     "caption": "Before a run the assistant lists only what this run needs, what is automatic and what needs you (the GACOS request).",
+     "command": "bosar aux status tour/indy_crop --for dinsar+gacos",
+     "hero": false,
+     "files": {
+      "light": "gacos/02_assistant_light.png",
+      "dark": "gacos/02_assistant_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "run",
+     "caption": "Tick the GACOS correction: the tropo_gacos step joins the chain before the displacement.",
+     "command": "bosar pipeline dinsar tour/indy_crop --stack crop_indy_downtown_crop --pair 20240821_20240914 --tropo gacos --tag gacos",
+     "hero": false,
+     "files": {
+      "light": "gacos/03_run_light.png",
+      "hint_bundle": "gacos/03_run_hint.gif",
+      "dark": "gacos/03_run_dark.png"
+     }
+    },
+    {
+     "n": 4,
+     "name": "before_after",
+     "caption": "Left without, right with the GACOS correction, the two views linked.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": true,
+     "files": {
+      "light": "gacos/04_before_after_light.png",
+      "hint_bundle": "gacos/04_before_after_hint.gif",
+      "dark": "gacos/04_before_after_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "ccd",
+   "title": "Coherence change detection",
+   "built": 5,
+   "line": "Pre- and co-event pairs, the run, the damage proxy map over satellite imagery.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "pairs",
+     "caption": "Coherence change: tick the pre-event pairs and the co-event pair; the planned steps list what will run and what is reused.",
+     "command": "bosar pipeline ccd tour/indy_crop --stack crop_indy_downtown_crop --pre 20240821_20240902 20240821_20240914 --co 20240821_20250723",
+     "hero": false,
+     "files": {
+      "light": "ccd/01_pairs_light.png",
+      "hint_bundle": "ccd/01_pairs_hint.gif",
+      "dark": "ccd/01_pairs_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "z_map",
+     "caption": "The coherence-change z map over the Sentinel-2 cloudless mosaic, 75 % opaque.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": false,
+     "files": {
+      "light": "ccd/02_z_map_light.png",
+      "hint_bundle": "ccd/02_z_map_hint.gif",
+      "dark": "ccd/02_z_map_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "dpm",
+     "caption": "The damage proxy map: connected groups above the threshold. Here the \"event\" is one year of urban change.",
+     "command": "bosar pipeline ccd tour/indy_crop --stack crop_indy_downtown_crop --pre 20240821_20240902 20240821_20240914 --co 20240821_20250723",
+     "hero": true,
+     "files": {
+      "light": "ccd/03_dpm_light.png",
+      "hint_bundle": "ccd/03_dpm_hint.gif",
+      "dark": "ccd/03_dpm_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "amplitude",
+   "title": "Amplitude change",
+   "built": 5,
+   "line": "Log-ratio and pre/post RGB composite over the basemap.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "dates",
+     "caption": "Amplitude change: a pre- and a post-event date; the stack is normalised to its temporal median first.",
+     "command": "bosar pipeline amplitude tour/indy_crop --stack crop_indy_downtown_crop --pre 20240821 --post 20250723",
+     "hero": false,
+     "files": {
+      "light": "amplitude/01_dates_light.png",
+      "hint_bundle": "amplitude/01_dates_hint.gif",
+      "dark": "amplitude/01_dates_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "log_ratio",
+     "caption": "Log ratio in dB over the basemap: red brighter, blue darker than before.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": false,
+     "files": {
+      "light": "amplitude/02_log_ratio_light.png",
+      "hint_bundle": "amplitude/02_log_ratio_hint.gif",
+      "dark": "amplitude/02_log_ratio_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "rgb",
+     "caption": "Pre/post RGB composite (R = before, G and B = after): new bright targets are cyan, vanished ones red.",
+     "command": "bosar pipeline amplitude tour/indy_crop --stack crop_indy_downtown_crop --pre 20240821 --post 20250723",
+     "hero": true,
+     "files": {
+      "light": "amplitude/03_rgb_light.png",
+      "hint_bundle": "amplitude/03_rgb_hint.gif",
+      "dark": "amplitude/03_rgb_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "viewer",
+   "title": "Result viewer",
+   "built": 9,
+   "line": "Basemaps, layer opacity and masks, stretch, linked views, figure export, two chains compared.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "layers",
+     "caption": "The Layers panel: basemap, and per layer visibility, opacity 0-100 %, order and an optional coherence mask.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": false,
+     "files": {
+      "light": "viewer/01_layers_light.png",
+      "hint_bundle": "viewer/01_layers_hint.gif",
+      "dark": "viewer/01_layers_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "satellite_mask",
+     "caption": "Sentinel-2 cloudless basemap, the displacement at 50 % and hidden where the coherence is below 0.4.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": true,
+     "files": {
+      "light": "viewer/02_satellite_mask_light.png",
+      "hint_bundle": "viewer/02_satellite_mask_hint.gif",
+      "dark": "viewer/02_satellite_mask_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "overlay",
+     "caption": "Any geocoded product can be laid over the map as a further layer and moved up or down.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": false,
+     "files": {
+      "light": "viewer/03_overlay_light.png",
+      "hint_bundle": "viewer/03_overlay_hint.gif",
+      "dark": "viewer/03_overlay_dark.png"
+     }
+    },
+    {
+     "n": 4,
+     "name": "stretch_linked",
+     "caption": "Stretch per view (percentile, min-max, manual, gamma), remembered per product kind; the two views pan and zoom together.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": false,
+     "files": {
+      "light": "viewer/04_stretch_linked_light.png",
+      "hint_bundle": "viewer/04_stretch_linked_hint.gif",
+      "dark": "viewer/04_stretch_linked_dark.png"
+     }
+    },
+    {
+     "n": 5,
+     "name": "figure",
+     "hero": false,
+     "files": {
+      "light": "viewer/05_figure_light.png",
+      "dark": "viewer/05_figure_dark.png"
+     },
+     "caption": "\"Export view\" writes a PNG or PDF at the chosen DPI with legend, scale bar, north arrow and attribution; the CLI commands of the layers are in the file's metadata.",
+     "command": ""
+    },
+    {
+     "n": 6,
+     "name": "compare",
+     "caption": "Compare two chains: classic PSI points against the PS / DS velocity of the same stack - every point samples the cell that contains it; the difference in mm/yr on the map (diverging, centred at 0), the scatter with the 1:1 line, n, correlation, median difference (the two reference points) and MAD-std.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": false,
+     "files": {
+      "light": "viewer/06_compare_light.png",
+      "hint_bundle": "viewer/06_compare_hint.gif",
+      "dark": "viewer/06_compare_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "sbas_prep",
+   "title": "SBAS preparation",
+   "built": 8,
+   "line": "Network designer, derived pairs, batch unwrapping, closure maps.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "network",
+     "caption": "SBAS prep: design the network (temporal and perpendicular baseline limits plus sequential links) or import a CSV; the plot shows the selected pairs.",
+     "command": "bosar sbas network tour/indy_crop --stack crop_indy_downtown_ts --name ts --max-dt 36 --max-bperp 200 --k 3",
+     "hero": false,
+     "files": {
+      "light": "sbas_prep/01_network_light.png",
+      "hint_bundle": "sbas_prep/01_network_hint.gif",
+      "dark": "sbas_prep/01_network_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "prep",
+     "caption": "One command derives every pair from the star stack, multilooks, estimates coherence, picks a common reference pixel, unwraps and checks triplet closure - resumable, in parallel workers.",
+     "command": "bosar sbas prep tour/indy_crop --network ts --looks 2,10 --backend snaphu --workers 6",
+     "hero": false,
+     "files": {
+      "light": "sbas_prep/02_prep_light.png",
+      "hint_bundle": "sbas_prep/02_prep_hint.gif",
+      "dark": "sbas_prep/02_prep_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "closure",
+     "caption": "Closure maps: RMS of the wrapped closure (phase bias) and the number of triplets that do not close (unwrapping errors).",
+     "command": "bosar sbas prep tour/indy_crop --network ts --looks 2,10 --backend snaphu --workers 6",
+     "hero": true,
+     "files": {
+      "light": "sbas_prep/03_closure_light.png",
+      "hint_bundle": "sbas_prep/03_closure_hint.gif",
+      "dark": "sbas_prep/03_closure_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "sbas_ts",
+   "title": "SBAS time series",
+   "built": 9,
+   "line": "Velocity and temporal coherence; click a pixel for its displacement history.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "run",
+     "caption": "SBAS time series of a prepared network: closure-based unwrapping correction, pixel-wise inversion, tropospheric correction, geocoding.",
+     "command": "bosar pipeline sbas tour/indy_crop --network ts --tropo gacos",
+     "hero": false,
+     "files": {
+      "light": "sbas_ts/01_run_light.png",
+      "hint_bundle": "sbas_ts/01_run_hint.gif",
+      "dark": "sbas_ts/01_run_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "velocity",
+     "caption": "LOS velocity in mm/yr (left, hidden where the temporal coherence is below 0.7) and the temporal coherence (right).",
+     "command": "bosar pipeline sbas tour/indy_crop --network ts --tropo gacos",
+     "hero": false,
+     "files": {
+      "light": "sbas_ts/02_velocity_light.png",
+      "hint_bundle": "sbas_ts/02_velocity_hint.gif",
+      "dark": "sbas_ts/02_velocity_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "time_series",
+     "caption": "Click pixels: their LOS displacement history in mm with the linear fit and rate; toggle the corrections, export the curves as CSV.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": true,
+     "files": {
+      "light": "sbas_ts/03_time_series_light.png",
+      "hint_bundle": "sbas_ts/03_time_series_hint.gif",
+      "dark": "sbas_ts/03_time_series_dark.png"
+     }
+    },
+    {
+     "n": 4,
+     "name": "quality",
+     "caption": "Quality layers in radar geometry: the mask of pixels with a connected network and good temporal coherence, and the number of pairs each pixel used after the coherence, component and closure rules.",
+     "command": "bosar pipeline sbas tour/indy_crop --network ts --tropo gacos",
+     "hero": false,
+     "files": {
+      "light": "sbas_ts/04_quality_light.png",
+      "hint_bundle": "sbas_ts/04_quality_hint.gif",
+      "dark": "sbas_ts/04_quality_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "psds",
+   "title": "PS / DS time series",
+   "built": 10,
+   "line": "Phase linking of distributed scatterers plus persistent scatterers: several times the coverage of multilooked SBAS, with a quality verdict.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "run",
+     "caption": "PS / DS time series: flattened SLC stack, statistically homogeneous pixels, phase linking (EMI), PS selection, then the SBAS unwrapping and inversion on the hybrid stack. A partially empty date is found and left out.",
+     "command": "bosar pipeline psds tour/indy_crop --stack crop_indy_downtown_ts --workers 6",
+     "hero": false,
+     "files": {
+      "light": "psds/01_run_light.png",
+      "hint_bundle": "psds/01_run_hint.gif",
+      "dark": "psds/01_run_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "linking",
+     "caption": "Phase linking in radar geometry: the temporal coherence of the fit (left; pure noise stays below 0.36 for this stack, a DS needs 0.6) and the number of statistically homogeneous pixels (right).",
+     "command": "bosar pipeline psds tour/indy_crop --stack crop_indy_downtown_ts --workers 6",
+     "hero": false,
+     "files": {
+      "light": "psds/02_linking_light.png",
+      "hint_bundle": "psds/02_linking_hint.gif",
+      "dark": "psds/02_linking_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "types",
+     "caption": "Pixel type (0 none, 1 persistent scatterer, 2 distributed scatterer) and the amplitude dispersion that selects the PS.",
+     "command": "bosar pipeline psds tour/indy_crop --stack crop_indy_downtown_ts --workers 6",
+     "hero": false,
+     "files": {
+      "light": "psds/03_types_light.png",
+      "hint_bundle": "psds/03_types_hint.gif",
+      "dark": "psds/03_types_dark.png"
+     }
+    },
+    {
+     "n": 4,
+     "name": "result",
+     "caption": "LOS velocity of the hybrid stack over the map with the persistent scatterers as points (colour = velocity, size = quality), the quality verdict above the map and the history of the clicked pixels.",
+     "command": "bosar gui tour/indy_crop",
+     "hero": true,
+     "files": {
+      "light": "psds/04_result_light.png",
+      "hint_bundle": "psds/04_result_hint.gif",
+      "dark": "psds/04_result_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "psi",
+   "title": "Classic PS-InSAR",
+   "built": 11,
+   "line": "The periodogram chain (amplitude dispersion, arcs, APS) as a workflow of the Run page; its GeoPackage is a point layer of the Results page.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "run",
+     "caption": "Classic PS-InSAR as a workflow: persistent-scatterer candidates by amplitude dispersion, a Delaunay network, the periodogram on every arc (height error and rate at once), integration from a reference point, the atmospheric screen - an independent check of the PS / DS chain on the same flattened stack.",
+     "command": "bosar pipeline psi tour/indy_crop --stack crop_indy_downtown_ts",
+     "hero": false,
+     "files": {
+      "light": "psi/01_run_light.png",
+      "hint_bundle": "psi/01_run_hint.gif",
+      "dark": "psi/01_run_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "snap_bridge",
+   "title": "SNAP bridge",
+   "built": 8,
+   "line": "Preprocess raw Sentinel-1 zips with SNAP as the engine, import, process.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "form",
+     "caption": "Coregister with the engine set to snap: raw Sentinel-1 zips, sub-swath and an AOI that picks the bursts. SNAP's gpt runs as a separate program with Bosar's orbits and DEM; everything it writes stays in the project.",
+     "command": "bosar pipeline preprocess <project> --engine snap --product <S1 zip> \u2026 --subswath IW2 --aoi-wkt \"POLYGON((\u2026))\"",
+     "hero": false,
+     "files": {
+      "light": "snap_bridge/01_form_light.png",
+      "hint_bundle": "snap_bridge/01_form_hint.gif",
+      "dark": "snap_bridge/01_form_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "imported",
+     "caption": "The coregistered stack and its interferograms are imported as a BEAM-DIMAP stack; from here every workflow runs on it.",
+     "command": "bosar data import <project> <stack.dim> --reader dimap --ifg-dim <ifg.dim>",
+     "hero": false,
+     "files": {
+      "light": "snap_bridge/02_imported_light.png",
+      "hint_bundle": "snap_bridge/02_imported_hint.gif",
+      "dark": "snap_bridge/02_imported_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "result",
+     "caption": "DInSAR on the SNAP-preprocessed subset: unwrapped phase and coherence over the DEM box.",
+     "command": "bosar pipeline dinsar <project> --stack snap_subset --pair 20240821_20240914",
+     "hero": true,
+     "files": {
+      "light": "snap_bridge/03_result_light.png",
+      "hint_bundle": "snap_bridge/03_result_hint.gif",
+      "dark": "snap_bridge/03_result_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "fetch_slc",
+   "title": "SLC download",
+   "built": 11,
+   "line": "Search Sentinel-1 scenes at ASF by the stack's track and frame or an AOI; a dry run, then a resumable, verified download that keeps running after the session.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "card",
+     "caption": "Sentinel-1 SLC scenes (ASF): the stack's relative orbit, frame and footprint pick the scenes of each date range; a dry run lists them with their sizes, the download resumes, verifies size and MD5, writes a provenance file per scene, stops below the free-space guard and keeps running after the session (`bosar fetch status`).",
+     "command": "bosar fetch slc tour/indy_crop --range 2025-08-01:2026-09-30 --range 2023-07-01:2024-06-30 --dest data/raw/s1 --dry-run",
+     "hero": false,
+     "files": {
+      "light": "fetch_slc/01_card_light.png",
+      "hint_bundle": "fetch_slc/01_card_hint.gif",
+      "dark": "fetch_slc/01_card_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "logs",
+   "title": "Logs and failures",
+   "built": 6,
+   "line": "Every run with its UTC-stamped records; a failure card says what, where and how.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "runs",
+     "caption": "Logs page: every run with its records - UTC timestamps, step, level, parameters, inputs, outputs, durations.",
+     "command": "bosar logs tour/indy_crop --tail 3",
+     "hero": false,
+     "files": {
+      "light": "logs/01_runs_light.png",
+      "hint_bundle": "logs/01_runs_hint.gif",
+      "dark": "logs/01_runs_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "failure",
+     "caption": "A failed step shows a card: the error code, what was wrong, where, and the hint for fixing it.",
+     "command": "bosar logs tour/indy_crop --level ERROR",
+     "hero": true,
+     "files": {
+      "light": "logs/02_failure_light.png",
+      "hint_bundle": "logs/02_failure_hint.gif",
+      "dark": "logs/02_failure_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "settings",
+   "title": "Settings",
+   "built": 6,
+   "line": "Theme, language, compute device, credentials, data roots.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "settings",
+     "caption": "Settings: theme (light, dark, system), language, compute device, storage mode, SNAPHU binary, basemap URL, data roots.",
+     "command": "bosar gui",
+     "hero": true,
+     "files": {
+      "light": "settings/01_settings_light.png",
+      "dark": "settings/01_settings_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "credentials",
+     "caption": "A guided dialog per service: where to register, where to find the key, fill in or import from a file. Values go to the system keyring, never to a log.",
+     "command": "bosar auth set cds",
+     "hero": false,
+     "files": {
+      "light": "settings/02_credentials_light.png",
+      "dark": "settings/02_credentials_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "native_s1",
+   "title": "Native Sentinel-1",
+   "built": 12,
+   "line": "From raw Sentinel-1 zips to a coregistered stack without SNAP - bursts, deramp, geometric coregistration, ESD, calibration, sub-swath merge - and a multi-year PS / DS time series on it.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "form",
+     "caption": "Coregister (Bosar): the native chain from raw zips - burst models from the annotation, precise orbits and the DEM for the offsets, deramp, sinc resampling, reramp, a range check, enhanced spectral diversity, deburst. Calibrated sigma nought and terrain-flattened gamma nought are written as extra layers; a re-run with more zips coregisters the new dates only.",
+     "command": "bosar pipeline s1-coregister <project> --product <S1 zip> \u2026 --subswath IW2 --aoi-wkt \"POLYGON((\u2026))\" --calibration sigma0 --terrain-flatten",
+     "hero": false,
+     "files": {
+      "light": "native_s1/01_form_light.png",
+      "hint_bundle": "native_s1/01_form_hint.gif",
+      "dark": "native_s1/01_form_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "merge",
+     "caption": "All three sub-swaths: each is coregistered, then merged onto one range / azimuth grid with the cut in the middle of each overlap; the seam check reports the phase and amplitude step across every cut.",
+     "command": "bosar pipeline s1-coregister <project> --product <S1 zip> \u2026 --subswath IW1,IW2,IW3 --tag full",
+     "hero": false,
+     "files": {
+      "light": "native_s1/02_merge_light.png",
+      "hint_bundle": "native_s1/02_merge_hint.gif",
+      "dark": "native_s1/02_merge_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "stack",
+     "caption": "The multi-year stack the native chain wrote (CINT16, ISCE layout), imported like any other: Sentinel-1A and Sentinel-1D dates on one reference grid.",
+     "command": "bosar pipeline s1-coregister <project> --products-from <folder> --crop-wkt \"POLYGON((\u2026))\" --tag multi",
+     "hero": false,
+     "files": {
+      "light": "native_s1/03_stack_light.png",
+      "hint_bundle": "native_s1/03_stack_hint.gif",
+      "dark": "native_s1/03_stack_dark.png"
+     }
+    },
+    {
+     "n": 4,
+     "name": "multi_year",
+     "caption": "Two years of downtown Indianapolis from the native stack (52 dates, Sentinel-1A and 1D): PS / DS velocity with the persistent scatterers as points and the displacement history of the clicked pixels. Nothing moves beyond the noise (1.4 mm/yr spread against 1.1 expected from the span); the red block west of the river is an unwrapping artefact across the coherence gap - the classic PSI chain does not show it.",
+     "command": "bosar pipeline psds <project> --stack native_multi --tropo era5 --no-correct --keep-unclosed",
+     "hero": true,
+     "files": {
+      "light": "native_s1/04_multi_year_light.png",
+      "hint_bundle": "native_s1/04_multi_year_hint.gif",
+      "dark": "native_s1/04_multi_year_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "sensors",
+   "title": "More sensors",
+   "built": 14,
+   "line": "ALOS-1 PALSAR (L band), ENVISAT ASAR and ERS-1/2 through the stripmap chain: the stack with its sensor, the L-band quality profile, a Mexico City interferogram of each.",
+   "steps": [
+    {
+     "n": 1,
+     "name": "stack",
+     "caption": "ALOS-1 PALSAR L1.1 (CEOS, straight from the ASF zips) through the stripmap chain - Doppler-aware geometric coregistration on the DEM, FBD oversampled onto the FBS range grid, calibration - and imported like any other stack: the sensor, the 23.6 cm wavelength and the baselines come with it. The same chain reads ENVISAT ASAR and ERS-1/2 (.N1 / .E1 / .E2 with DORIS orbits) and NISAR RSLC.",
+     "command": "bosar pipeline stripmap-coregister <project> --product <ALPSRP zip> \u2026 --reader alos --dem bosar --crop-wkt \"POLYGON((\u2026))\" --id alos_pair",
+     "hero": false,
+     "files": {
+      "light": "sensors/01_stack_light.png",
+      "hint_bundle": "sensors/01_stack_hint.gif",
+      "dark": "sensors/01_stack_dark.png"
+     }
+    },
+    {
+     "n": 2,
+     "name": "profile",
+     "caption": "Next to the stack the Run page names the sensor, the band and the quality profile the verdict will use: at L band the coherence floors, the tolerated spread and the ionospheric model (filtered rather than a plane) are the L-band set - the same thresholds in radians, scaled by the wavelength. --iono adds the split-spectrum ionosphere of every pair.",
+     "command": "bosar pipeline psds <project> --stack alos_mx --network l --k 3 --iono",
+     "hero": false,
+     "files": {
+      "light": "sensors/02_profile_light.png",
+      "hint_bundle": "sensors/02_profile_hint.gif",
+      "dark": "sensors/02_profile_dark.png"
+     }
+    },
+    {
+     "n": 3,
+     "name": "alos_pair",
+     "caption": "Mexico City, 20080214 - 20080331 (46 days, B\u22a5 \u2212111 m): the unwrapped L-band phase of the pair in radar geometry. Positive phase is motion away from the sensor: Iztapalapa in the south-east subsides by about 4 rad = 7.5 cm of LOS in 46 days - the order of the published 20-40 cm/yr - with the ionosphere still in it (the split-spectrum model of this pair is a 1.1 rad range gradient).",
+     "command": "bosar sbas prep <project> --stack alos_pair --network pair --flat-step slc_flatten_alos_pair",
+     "hero": true,
+     "files": {
+      "light": "sensors/03_alos_pair_light.png",
+      "hint_bundle": "sensors/03_alos_pair_hint.gif",
+      "dark": "sensors/03_alos_pair_dark.png"
+     }
+    },
+    {
+     "n": 4,
+     "name": "asar_pair",
+     "caption": "ENVISAT ASAR IS2, 20091225 - 20100305 (70 days), the same crop and route: the unwrapped C-band phase spans \u221212 \u2026 +10 rad, most of the basin 5 cm of LOS away from the north-west corner in 70 days - the Iztapalapa order of magnitude again, from a sensor that stopped in 2012. The ERS-1 / ERS-2 tandem day (1996) is in the same project: a turbulent \u00b16 rad atmosphere and nothing else.",
+     "command": "bosar pipeline stripmap-coregister <project> --product <ASA_IMS .N1> \u2026 --reader asar --dem bosar --crop-wkt \"POLYGON((\u2026))\" --id asar_pair",
+     "hero": false,
+     "files": {
+      "light": "sensors/04_asar_pair_light.png",
+      "hint_bundle": "sensors/04_asar_pair_hint.gif",
+      "dark": "sensors/04_asar_pair_dark.png"
+     }
+    }
+   ]
+  },
+  {
+   "key": "installer",
+   "title": "Installer",
+   "planned": 15,
+   "line": "Windows .exe and macOS .dmg installers from the Releases page; the GPU as a plug-in.",
+   "card": {
+    "light": "planned/installer_light.png",
+    "dark": "planned/installer_dark.png"
+   }
+  }
+ ]
+}

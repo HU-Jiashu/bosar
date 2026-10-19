@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use Bosar in research, please cite it as below and cite the underlying methods you used (Ferretti et al. 2001 for PS; Berardino et al. 2002 for SBAS; Chen & Zebker 2001 for SNAPHU)."
+type: software
+title: "Bosar: install-and-run SAR interferometry for Windows and macOS"
+authors:
+  - family-names: Hu
+    given-names: Jiashu
+    email: oswaldmurphy66@gmail.com
+license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0/"
+repository-code: "https://github.com/HU-Jiashu/bosar"
+version: 0.4.0-beta
+date-released: "2026-10-17"
+doi: 10.5281/zenodo.23443567
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23443567
+    description: "The concept DOI of the software (all versions)"
+  - type: doi
+    value: 10.5281/zenodo.23443568
+    description: "The DOI of version 0.4.0-beta"
+keywords:
+  - InSAR
+  - SAR
+  - Sentinel-1
+  - interferometry
+  - coherence change detection
+  - PS-InSAR
+  - SBAS
