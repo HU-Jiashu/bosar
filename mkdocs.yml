@@ -1,0 +1,110 @@
+site_name: Bosar
+site_description: Install-and-run SAR interferometry for Windows and macOS
+site_url: https://hu-jiashu.github.io/bosar/
+repo_url: https://github.com/HU-Jiashu/bosar
+repo_name: HU-Jiashu/bosar
+edit_uri: ""
+copyright: "Copyright &copy; 2026 Jiashu Hu. Free for non-commercial use (PolyForm Noncommercial 1.0.0); commercial licences on request."
+docs_dir: docs
+site_dir: site
+strict: false
+
+theme:
+  name: material
+  language: en
+  logo: assets/icons/app.png
+  favicon: assets/icons/app.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Dark theme
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Light theme
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+
+exclude_docs: |
+  assets/tour/index.json
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: [".", "docs"]
+      check_paths: false
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - Install: install.md
+      - Walkthrough: WALKTHROUGH.md
+      - Walkthrough (中文): WALKTHROUGH_zh.md
+      - Licensing: LICENSING.md
+  - Feature tour:
+      - Overview: tour/README.md
+      - Project and data: tour/project_data.md
+      - System check: tour/system_check.md
+      - DInSAR: tour/dinsar.md
+      - GACOS correction: tour/gacos.md
+      - Coherence change detection: tour/ccd.md
+      - Amplitude change: tour/amplitude.md
+      - Result viewer: tour/viewer.md
+      - SBAS preparation: tour/sbas_prep.md
+      - SBAS time series: tour/sbas_ts.md
+      - PS / DS time series: tour/psds.md
+      - Classic PS-InSAR: tour/psi.md
+      - SNAP bridge: tour/snap_bridge.md
+      - SLC download: tour/fetch_slc.md
+      - Native Sentinel-1: tour/native_s1.md
+      - More sensors: tour/sensors.md
+      - Logs and failures: tour/logs.md
+      - Settings: tour/settings.md
+      - 功能导览（中文）: tour/zh/README.md
+  - Data:
+      - Formats: data/formats.md
+      - Sensor download plan: data/sensor_download_plan.md
+      - Mexico City ESA products: data/mexico_city_esa_products.md
+  - Reference:
+      - Errors, warnings, preflight codes: ERRORS.md
+      - Log schema: LOG_SCHEMA.md
+      - Roadmap: ROADMAP.md
+      - API: api/index.md
+      - API - core: api/core.md
+      - API - pipeline: api/pipeline.md
+      - API - data and readers: api/data.md

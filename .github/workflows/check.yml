@@ -1,0 +1,21 @@
+# The content check of this documentation repository: every push and pull request is checked
+# for local paths and e-mail addresses that do not belong here (.github/scripts/check_public.py).
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Content check (the tree and the history)
+        run: python .github/scripts/check_public.py . --history
