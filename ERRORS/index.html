@@ -1,0 +1,4629 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Install-and-run SAR interferometry for Windows and macOS">
+      
+      
+      
+        <link rel="canonical" href="https://hu-jiashu.github.io/bosar/ERRORS/">
+      
+      
+        <link rel="prev" href="../data/mexico_city_esa_products/">
+      
+      
+        <link rel="next" href="../LOG_SCHEMA/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/icons/app.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Errors, warnings, preflight codes - Bosar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#error-warning-and-preflight-codes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bosar" class="md-header__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../assets/icons/app.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bosar
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Errors, warnings, preflight codes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../install/" class="md-tabs__link">
+          
+  
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../tour/" class="md-tabs__link">
+          
+  
+  
+  Feature tour
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../data/formats/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bosar" class="md-nav__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../assets/icons/app.png" alt="logo">
+
+    </a>
+    Bosar
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WALKTHROUGH_zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough (中文)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LICENSING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature tour
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Feature tour
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/project_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project and data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/system_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/dinsar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DInSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/gacos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GACOS correction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/ccd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coherence change detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/amplitude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplitude change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Result viewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sbas_prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sbas_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/psds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PS / DS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/psi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic PS-InSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/snap_bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNAP bridge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/fetch_slc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLC download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/native_s1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Sentinel-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logs and failures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    功能导览（中文）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/sensor_download_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor download plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/mexico_city_esa_products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexico City ESA products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Errors, warnings, preflight codes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Errors, warnings, preflight codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-code-appears" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How a code appears
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#families" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Families
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-codes-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error codes (E)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error codes (E)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#e000-bosarerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E000 BosarError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e001-internalerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E001 InternalError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e100-configerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E100 ConfigError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e101-paramerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E101 ParamError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e102-unknownsteperror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E102 UnknownStepError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e103-projectfileerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E103 ProjectFileError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e104-projectcorrupterror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E104 ProjectCorruptError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e105-projectschemaerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E105 ProjectSchemaError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e107-dependencyerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E107 DependencyError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e310-chainundeclarederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E310 ChainUndeclaredError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e200-inputerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E200 InputError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e201-missinginputerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E201 MissingInputError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e203-unreadableinputerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E203 UnreadableInputError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e204-implausiblemetadataerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E204 ImplausibleMetadataError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e205-metadataerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E205 MetadataError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e300-arrayerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E300 ArrayError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e301-shapeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E301 ShapeError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e302-dtypeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E302 DTypeError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e303-ndimerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E303 NDimError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e304-valuerangeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E304 ValueRangeError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e305-emptyarrayerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E305 EmptyArrayError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e306-windowspecerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E306 WindowSpecError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e400-backenderror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E400 BackendError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e401-gpuoutofmemoryerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E401 GpuOutOfMemoryError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e402-kernelcompileerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E402 KernelCompileError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e403-cudaruntimeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E403 CudaRuntimeError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e404-hostoutofmemoryerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E404 HostOutOfMemoryError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e500-externaltoolerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E500 ExternalToolError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e502-toolnotfounderror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E502 ToolNotFoundError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e510-snapnotfounderror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E510 SnapNotFoundError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e511-snaprunerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E511 SnapRunError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e512-snapoutputerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E512 SnapOutputError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e600-storageerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E600 StorageError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e601-writeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E601 WriteError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e602-permissiondeniederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E602 PermissionDeniedError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e603-diskfullerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E603 DiskFullError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e604-pathtoolongerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E604 PathTooLongError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e605-filelockederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E605 FileLockedError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e606-atomicsaveerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E606 AtomicSaveError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e607-outputmissingerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E607 OutputMissingError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e701-preflighterror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E701 PreflightError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e801-stepfailederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E801 StepFailedError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e802-stepinterruptederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E802 StepInterruptedError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e803-stepcancellederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E803 StepCancelledError
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reserved-error-codes-documented-not-yet-raised" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reserved error codes (documented, not yet raised)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reserved error codes (documented, not yet raised)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#e501-toolexiterror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E501 ToolExitError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e503-tooltimeouterror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E503 ToolTimeoutError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e804-workercrashederror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E804 WorkerCrashedError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e900-numericalerror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E900 NumericalError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e901-singularmatrixerror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E901 SingularMatrixError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e902-nonfiniteresulterror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E902 NonFiniteResultError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e904-nocandidateserror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E904 NoCandidatesError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warning-codes-w" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warning codes (W)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warning codes (W)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#w000-capturedpythonwarning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W000 CapturedPythonWarning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w101-stepskipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W101 StepSkipped
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w102-paramdefaulted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W102 ParamDefaulted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w103-versionunknown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W103 VersionUnknown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w104-interruptedstepmarkedfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W104 InterruptedStepMarkedFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w105-legacynamedeprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W105 LegacyNameDeprecated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w106-ccdonslcboxcoherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W106 CcdOnSlcBoxCoherence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w107-sbasnetworksplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W107 SbasNetworkSplit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w108-lowusablefraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W108 LowUsableFraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w109-pairsexcluded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W109 PairsExcluded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w110-velocitynoise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W110 VelocityNoise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w111-unclosedtriplets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W111 UnclosedTriplets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w112-scenetrend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W112 SceneTrend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w113-timeseriesjumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W113 TimeSeriesJumps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w114-referenceunstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W114 ReferenceUnstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w117-dateoutlier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W117 DateOutlier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w115-closurebudgetunreached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W115 ClosureBudgetUnreached
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w116-intermediatesrematerialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W116 IntermediatesRematerialized
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w201-metadatasuspicious" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W201 MetadataSuspicious
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i201-geometrycorrected-info-not-a-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I201 GeometryCorrected (info, not a warning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w202-sidecarmalformed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W202 SidecarMalformed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w203-calibrationabsent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W203 CalibrationAbsent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w204-productspacingmismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W204 ProductSpacingMismatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w205-auxdatamarginal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W205 AuxDataMarginal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w206-emptyinterferogram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W206 EmptyInterferogram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w207-partiallyemptydate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W207 PartiallyEmptyDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w208-commonzerofloor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W208 CommonZeroFloor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w209-rangeshiftlarge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W209 RangeShiftLarge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w210-offsetfieldsparse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W210 OffsetFieldSparse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w211-offsetspacingnominal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W211 OffsetSpacingNominal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w213-speckleenlnotestimated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W213 SpeckleEnlNotEstimated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w215-thermalnoiseincomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W215 ThermalNoiseIncomplete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w216-thermalnoisemixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W216 ThermalNoiseMixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w219-iononosnaphucomponents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W219 IonoNoSnaphuComponents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w220-ionofragmentedcomponents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W220 IonoFragmentedComponents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w227-ionomodelskipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W227 IonoModelSkipped
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w228-ionexgimunavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W228 IonexGimUnavailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w223-envisatmetadatainconsistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W223 EnvisatMetadataInconsistent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w224-ers2gyrodoppler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W224 Ers2GyroDoppler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w221-alosprfvaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W221 AlosPrfVaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w222-alosleaderprefixmismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W222 AlosLeaderPrefixMismatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w225-stripmaprefinenotapplied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W225 StripmapRefineNotApplied
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w226-stripmapmetadataincomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W226 StripmapMetadataIncomplete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w301-orbitfromannotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W301 OrbitFromAnnotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w302-esdnocoherentoverlap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W302 EsdNoCoherentOverlap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w401-gpuunavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W401 GpuUnavailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w501-snaphuunavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W501 SnaphuUnavailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w503-snaphunocs2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W503 SnaphuNoCs2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w502-snapheapfrominstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W502 SnapHeapFromInstall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w601-tier2kept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W601 Tier2Kept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w602-gcdeletefailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W602 GcDeleteFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w802-postfailureactionfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W802 PostFailureActionFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w803-hookfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W803 HookFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preflight-check-codes-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preflight check codes (P)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LOG_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Log schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - data and readers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-code-appears" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How a code appears
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#families" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Families
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-codes-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error codes (E)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error codes (E)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#e000-bosarerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E000 BosarError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e001-internalerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E001 InternalError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e100-configerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E100 ConfigError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e101-paramerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E101 ParamError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e102-unknownsteperror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E102 UnknownStepError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e103-projectfileerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E103 ProjectFileError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e104-projectcorrupterror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E104 ProjectCorruptError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e105-projectschemaerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E105 ProjectSchemaError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e107-dependencyerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E107 DependencyError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e310-chainundeclarederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E310 ChainUndeclaredError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e200-inputerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E200 InputError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e201-missinginputerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E201 MissingInputError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e203-unreadableinputerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E203 UnreadableInputError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e204-implausiblemetadataerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E204 ImplausibleMetadataError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e205-metadataerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E205 MetadataError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e300-arrayerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E300 ArrayError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e301-shapeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E301 ShapeError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e302-dtypeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E302 DTypeError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e303-ndimerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E303 NDimError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e304-valuerangeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E304 ValueRangeError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e305-emptyarrayerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E305 EmptyArrayError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e306-windowspecerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E306 WindowSpecError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e400-backenderror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E400 BackendError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e401-gpuoutofmemoryerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E401 GpuOutOfMemoryError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e402-kernelcompileerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E402 KernelCompileError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e403-cudaruntimeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E403 CudaRuntimeError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e404-hostoutofmemoryerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E404 HostOutOfMemoryError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e500-externaltoolerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E500 ExternalToolError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e502-toolnotfounderror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E502 ToolNotFoundError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e510-snapnotfounderror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E510 SnapNotFoundError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e511-snaprunerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E511 SnapRunError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e512-snapoutputerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E512 SnapOutputError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e600-storageerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E600 StorageError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e601-writeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E601 WriteError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e602-permissiondeniederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E602 PermissionDeniedError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e603-diskfullerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E603 DiskFullError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e604-pathtoolongerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E604 PathTooLongError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e605-filelockederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E605 FileLockedError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e606-atomicsaveerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E606 AtomicSaveError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e607-outputmissingerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E607 OutputMissingError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e701-preflighterror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E701 PreflightError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e801-stepfailederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E801 StepFailedError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e802-stepinterruptederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E802 StepInterruptedError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e803-stepcancellederror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E803 StepCancelledError
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reserved-error-codes-documented-not-yet-raised" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reserved error codes (documented, not yet raised)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reserved error codes (documented, not yet raised)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#e501-toolexiterror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E501 ToolExitError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e503-tooltimeouterror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E503 ToolTimeoutError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e804-workercrashederror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E804 WorkerCrashedError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e900-numericalerror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E900 NumericalError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e901-singularmatrixerror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E901 SingularMatrixError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e902-nonfiniteresulterror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E902 NonFiniteResultError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e904-nocandidateserror-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E904 NoCandidatesError (reserved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warning-codes-w" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warning codes (W)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warning codes (W)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#w000-capturedpythonwarning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W000 CapturedPythonWarning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w101-stepskipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W101 StepSkipped
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w102-paramdefaulted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W102 ParamDefaulted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w103-versionunknown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W103 VersionUnknown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w104-interruptedstepmarkedfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W104 InterruptedStepMarkedFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w105-legacynamedeprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W105 LegacyNameDeprecated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w106-ccdonslcboxcoherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W106 CcdOnSlcBoxCoherence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w107-sbasnetworksplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W107 SbasNetworkSplit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w108-lowusablefraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W108 LowUsableFraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w109-pairsexcluded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W109 PairsExcluded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w110-velocitynoise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W110 VelocityNoise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w111-unclosedtriplets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W111 UnclosedTriplets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w112-scenetrend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W112 SceneTrend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w113-timeseriesjumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W113 TimeSeriesJumps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w114-referenceunstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W114 ReferenceUnstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w117-dateoutlier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W117 DateOutlier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w115-closurebudgetunreached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W115 ClosureBudgetUnreached
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w116-intermediatesrematerialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W116 IntermediatesRematerialized
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w201-metadatasuspicious" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W201 MetadataSuspicious
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i201-geometrycorrected-info-not-a-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I201 GeometryCorrected (info, not a warning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w202-sidecarmalformed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W202 SidecarMalformed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w203-calibrationabsent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W203 CalibrationAbsent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w204-productspacingmismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W204 ProductSpacingMismatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w205-auxdatamarginal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W205 AuxDataMarginal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w206-emptyinterferogram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W206 EmptyInterferogram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w207-partiallyemptydate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W207 PartiallyEmptyDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w208-commonzerofloor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W208 CommonZeroFloor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w209-rangeshiftlarge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W209 RangeShiftLarge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w210-offsetfieldsparse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W210 OffsetFieldSparse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w211-offsetspacingnominal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W211 OffsetSpacingNominal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w213-speckleenlnotestimated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W213 SpeckleEnlNotEstimated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w215-thermalnoiseincomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W215 ThermalNoiseIncomplete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w216-thermalnoisemixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W216 ThermalNoiseMixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w219-iononosnaphucomponents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W219 IonoNoSnaphuComponents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w220-ionofragmentedcomponents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W220 IonoFragmentedComponents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w227-ionomodelskipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W227 IonoModelSkipped
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w228-ionexgimunavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W228 IonexGimUnavailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w223-envisatmetadatainconsistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W223 EnvisatMetadataInconsistent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w224-ers2gyrodoppler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W224 Ers2GyroDoppler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w221-alosprfvaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W221 AlosPrfVaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w222-alosleaderprefixmismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W222 AlosLeaderPrefixMismatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w225-stripmaprefinenotapplied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W225 StripmapRefineNotApplied
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w226-stripmapmetadataincomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W226 StripmapMetadataIncomplete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w301-orbitfromannotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W301 OrbitFromAnnotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w302-esdnocoherentoverlap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W302 EsdNoCoherentOverlap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w401-gpuunavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W401 GpuUnavailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w501-snaphuunavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W501 SnaphuUnavailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w503-snaphunocs2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W503 SnaphuNoCs2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w502-snapheapfrominstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W502 SnapHeapFromInstall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w601-tier2kept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W601 Tier2Kept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w602-gcdeletefailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W602 GcDeleteFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w802-postfailureactionfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W802 PostFailureActionFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w803-hookfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        W803 HookFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preflight-check-codes-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preflight check codes (P)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="error-warning-and-preflight-codes">Error, warning and preflight codes<a class="headerlink" href="#error-warning-and-preflight-codes" title="Permanent link">&para;</a></h1>
+<p>Every failure in Bosar answers five questions on one screen: <strong>what</strong> (message + code), <strong>where</strong>
+(project → run → step → function → tile window → file/dataset → parameter), <strong>why</strong> (expected vs
+actual), <strong>next</strong> (hint + link to this page) and <strong>where to look</strong> (run-log path + record <code>#seq</code>).</p>
+<p>Codes are stable across versions: once a code is published here it is never reused for a different
+meaning. <code>tests/test_errors_catalogue.py</code> keeps this file, <code>src/bosar/errors.py</code>, the warning
+and preflight registries and the exit-code table in sync.</p>
+<h2 id="how-a-code-appears">How a code appears<a class="headerlink" href="#how-a-code-appears" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Place</th>
+<th>Form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exception text</td>
+<td><code>window_coherence(): argument 'cpx_sec' has shape (512, 500), expected (512, 512) [E301]</code></td>
+</tr>
+<tr>
+<td>Run log (JSONL)</td>
+<td><code>step_failed</code> record → <code>error.code</code>; <code>warning</code> records → <code>code</code>; every preflight check → <code>code</code></td>
+</tr>
+<tr>
+<td>Human mirror (<code>.log</code>)</td>
+<td><code>#000057 … ERROR step_failed step=dummy_001 code=E301 ShapeError …</code></td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>header line, WHERE table, HINT line, <code>→ docs/ERRORS.md#e301</code></td>
+</tr>
+<tr>
+<td><code>project.json</code></td>
+<td><code>steps[].error = {type, code, msg, where, hint, log_seq}</code></td>
+</tr>
+<tr>
+<td>Run report (<code>logs/run_&lt;id&gt;.md</code>)</td>
+<td>section <code>## Failure — E301 ShapeError (record #57)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exit-codes">Exit codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Exit</th>
+<th>Meaning</th>
+<th>Error codes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>success</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1</td>
+<td>unexpected error outside a step</td>
+<td>E000, E001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>usage error (click) or invalid CLI parameter / unknown step kind</td>
+<td>E101, E102</td>
+</tr>
+<tr>
+<td>3</td>
+<td>preflight blocked the run</td>
+<td>E701</td>
+</tr>
+<tr>
+<td>4</td>
+<td>step failed; the failure record was written</td>
+<td>E801, E802</td>
+</tr>
+<tr>
+<td>5</td>
+<td>project, configuration or input file error before the run started</td>
+<td>E103, E104, E105, E107, E200, E201, E203, E204, E205</td>
+</tr>
+<tr>
+<td>130</td>
+<td>cancelled (Ctrl-C); record written, status cancelled</td>
+<td>E803</td>
+</tr>
+</tbody>
+</table>
+<h2 id="families">Families<a class="headerlink" href="#families" title="Permanent link">&para;</a></h2>
+<p><code>E0xx</code> internal · <code>E1xx</code> configuration / project file · <code>E2xx</code> inputs · <code>E3xx</code> array / kernel entry ·
+<code>E4xx</code> backend / memory · <code>E5xx</code> external tools · <code>E6xx</code> storage · <code>E7xx</code> preflight · <code>E8xx</code> runner ·
+<code>E9xx</code> numerical · <code>Wxxx</code> warnings (same hundreds) · <code>Pgnn</code> preflight checks (<code>g</code> = group).</p>
+<p>Foreign exceptions are classified by <code>errors.classify()</code> in this order: package error →
+Windows <code>winerror</code> (206 → E604, 3/2 → E201, 5 → E602, 32 → E605, 112 → E603) → <code>errno</code>
+(ENOSPC → E603, ENAMETOOLONG → E604, EACCES/EPERM → E602) → exception module (<code>pydantic</code> → E101,
+<code>cupy</code> → E401/E402/E403, <code>numpy.linalg</code> → E901, <code>subprocess</code> → E501/E503) → <code>MemoryError</code> → E404 →
+<code>KeyboardInterrupt</code> → E803 → builtin <code>FileNotFoundError</code> → E201, <code>PermissionError</code> → E602 → E000.
+Python folds WinError 206 and 3 into <code>FileNotFoundError</code> and 5 and 32 into <code>PermissionError</code>, and the
+<code>strerror</code> text is localised, which is why the number is checked first.</p>
+<h2 id="error-codes-e">Error codes (E)<a class="headerlink" href="#error-codes-e" title="Permanent link">&para;</a></h2>
+<h3 id="e000-bosarerror">E000 BosarError<a class="headerlink" href="#e000-bosarerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the base class, and the code given to any foreign exception that no rule matches.
+Meaning: unclassified failure. Hint: re-run with <code>-v</code>; attach the run log when reporting.</p>
+<h3 id="e001-internalerror">E001 InternalError<a class="headerlink" href="#e001-internalerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: library code in place of a bare <code>assert</code>. Meaning: an invariant the package guarantees was violated — a bug.</p>
+<h3 id="e100-configerror">E100 ConfigError<a class="headerlink" href="#e100-configerror" title="Permanent link">&para;</a></h3>
+<p>Family base for configuration and project-file problems.</p>
+<h3 id="e101-paramerror">E101 ParamError<a class="headerlink" href="#e101-paramerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: step parameter validation (pydantic) and CLI option parsing. Meaning: one parameter is wrong; <code>where.param</code> is the dotted field path, <code>param.expected</code> the validator message, <code>extra.errors</code> the full list. Guards against unit mistakes. Also raised by the ALOS-1 / ALOS-2 PALSAR L1.1 reader (<code>data/ceos_alos.py</code>) for several L1.1 products in one folder or zip (two products extracted into one folder, or a zip holding two): the members of different products are never mixed, so the folder or zip itself is refused (<code>where.param</code> = <code>path</code>, the message lists the products); name one of the product's files (its <code>LED-</code> or <code>IMG-</code> file), which opens that product, or extract every product into a folder of its own. Also raised by <code>pipeline stripmap-coregister</code> (without <code>--force</code>) when its step - <code>stripmap_coregister_&lt;tag&gt;</code>, <code>stripmap_coregister_native</code> without <code>--tag</code> - is already <code>done</code> at the current step version with its products on disk but was recorded with other products, another reader, another crop window or (only when <code>--pol</code> is given) another polarisation: the Runner would skip such a step (W101) and the command would import the old stack again, under a new <code>--id</code> too, so it refuses instead. <code>where.param</code> names the first differing parameter with its recorded (<code>expected</code>) and requested (<code>actual</code>) value, <code>extra.changed</code> lists all of them; <code>--tag &lt;name&gt;</code> keeps both results (step <code>stripmap_coregister_&lt;name&gt;</code>), <code>--force</code> re-runs the step with the new parameters. The same parameters pass (the step is skipped and its stack re-imported). The <code>stripmap_coregister</code> step itself raises it when the opened scenes do not share one polarisation (<code>where.param</code> = <code>products</code>, the message names every date with its polarisation: a stack is coregistered in one polarisation - list products of one polarisation, or name one that every product holds with <code>--pol</code>), and when <code>--pol</code> names a polarisation that the scene of a single-polarisation reader does not hold (<code>where.param</code> = <code>pol</code>).</p>
+<h3 id="e102-unknownsteperror">E102 UnknownStepError<a class="headerlink" href="#e102-unknownsteperror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>pipeline.registry.get_step</code>. Meaning: the step kind is not registered; the message lists the known kinds.</p>
+<h3 id="e103-projectfileerror">E103 ProjectFileError<a class="headerlink" href="#e103-projectfileerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>project.store</code> and <code>Project.step()</code>. Meaning: project directory or step id problem (e.g. unknown step id, listing the known ids).</p>
+<h3 id="e104-projectcorrupterror">E104 ProjectCorruptError<a class="headerlink" href="#e104-projectcorrupterror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>project.store.load_project</code>. Meaning: <code>project.json</code> is not valid JSON; <code>extra.line/column/snippet</code> locate the damage; restore from <code>project.json.bak</code>.</p>
+<h3 id="e105-projectschemaerror">E105 ProjectSchemaError<a class="headerlink" href="#e105-projectschemaerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>project.store.load_project</code>. Meaning: the file does not match the schema (every failing field is listed) or its <code>schema_version</code> is newer than the software.</p>
+<h3 id="e107-dependencyerror">E107 DependencyError<a class="headerlink" href="#e107-dependencyerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the Runner while resolving <code>requires</code>. Meaning: a required product kind is not available from a <code>done</code> step.</p>
+<h3 id="e310-chainundeclarederror">E310 ChainUndeclaredError<a class="headerlink" href="#e310-chainundeclarederror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the Runner before a time-series step (<code>psds_link</code>, <code>psds_pairs</code>, <code>pair_batch</code>, <code>closure</code>, <code>unw_correct</code>, <code>sbas_invert</code>, <code>ts_correct</code>, <code>psi_classic</code>) in a <code>storage_mode=minimal</code> project that no declared plan names. Meaning: the step belongs to a multi-command chain whose intermediates minimal storage would collect too early. Remedy: <code>bosar project new --storage-mode full</code>, or the chain command (<code>sbas prep</code>, <code>pipeline sbas | psds | psi</code>), which declares its steps.</p>
+<h3 id="e200-inputerror">E200 InputError<a class="headerlink" href="#e200-inputerror" title="Permanent link">&para;</a></h3>
+<p>Family base for input problems.</p>
+<h3 id="e201-missinginputerror">E201 MissingInputError<a class="headerlink" href="#e201-missinginputerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the Runner, <code>core._check.check_path</code>, readers. Meaning: a file or directory named in WHERE does not exist.</p>
+<h3 id="e203-unreadableinputerror">E203 UnreadableInputError<a class="headerlink" href="#e203-unreadableinputerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>data.raster</code> (rasterio/GDAL failures). Meaning: the file exists but cannot be read; the GDAL message is the cause.</p>
+<h3 id="e204-implausiblemetadataerror">E204 ImplausibleMetadataError<a class="headerlink" href="#e204-implausiblemetadataerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>data.model.check_plausible</code> at every reader exit when a parsed value is outside the physical range: wavelength ∉ [0.02, 0.35] m (unit slips: SNAP MHz, GAMMA GHz), incidence ∉ [15°, 65°], slant range ∉ [500, 1500] km, |B⊥| ≥ 5 km, or a scene shape that differs from the stack geometry. WHERE names the file, the field, the expected range and the actual value. Also raised by the ENVISAT / ERS reader (<code>data/asar.py</code>) when a precise orbit file is more than 1 km from the product's own state vectors at mid scene - not this product's orbit (see W223) - and by the ALOS reader for an ALOS-2 observation-mode code it does not know.</p>
+<h3 id="e205-metadataerror">E205 MetadataError<a class="headerlink" href="#e205-metadataerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: readers. Meaning: a required metadata key is absent (<code>where.dataset</code> names the key). Guards against metadata unit and sign traps. Since: v0.1.0 (class), raised from v0.1.0. Also raised by the ALOS PALSAR L1.1 reader (<code>data/ceos_alos.py</code>) for an ALOS-2 PALSAR-2 product it does not serve, named by its product id: a processing level other than 1.1 (<code>where.param</code> = <code>product_level</code>), a spotlight (SBS) or ScanSAR (WBS / WBD / WWS / WWD / VBS / VBD) product, and a product with one image file per scan whatever its product id says (<code>where.param</code> = <code>mode</code>). The message names the mode and its kind; these are not stripmap scenes, and the hint lists the stripmap modes the reader takes (UBS / UBD, HBS / HBD / HBQ, FBS / FBD / FBQ). An observation-mode code the reader does not know at all is E204.</p>
+<h3 id="e300-arrayerror">E300 ArrayError<a class="headerlink" href="#e300-arrayerror" title="Permanent link">&para;</a></h3>
+<p>Family base for kernel-entry checks (<code>core._check</code>).</p>
+<h3 id="e301-shapeerror">E301 ShapeError<a class="headerlink" href="#e301-shapeerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>check_array</code>, <code>check_shapes_match</code>, <code>apply_tiled</code>. Meaning: the named argument has the wrong shape; the message names the partner argument it must match.</p>
+<h3 id="e302-dtypeerror">E302 DTypeError<a class="headerlink" href="#e302-dtypeerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>check_array</code>, <code>data.raster.RasterWriter</code>. Meaning: wrong dtype (complex64 for phasors, float32 for phase/coherence — <code>np.angle</code> on a float array is silent).</p>
+<h3 id="e303-ndimerror">E303 NDimError<a class="headerlink" href="#e303-ndimerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>check_array</code>. Meaning: wrong number of dimensions.</p>
+<h3 id="e304-valuerangeerror">E304 ValueRangeError<a class="headerlink" href="#e304-valuerangeerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>check_array(finite=True, min_value, max_value)</code>, <code>check_scalar</code>. Meaning: non-finite values or a value outside the allowed range/choices.</p>
+<h3 id="e305-emptyarrayerror">E305 EmptyArrayError<a class="headerlink" href="#e305-emptyarrayerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>check_array</code>, <code>data.raster.array_stats</code> consumers. Meaning: zero-size array or no valid pixel.</p>
+<h3 id="e306-windowspecerror">E306 WindowSpecError<a class="headerlink" href="#e306-windowspecerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>core.tiling.Tiler</code>, <code>check_pair</code>. Meaning: invalid <code>(rows, cols)</code> tile/halo/window.</p>
+<h3 id="e400-backenderror">E400 BackendError<a class="headerlink" href="#e400-backenderror" title="Permanent link">&para;</a></h3>
+<p>Family base for CPU/GPU backend problems.</p>
+<h3 id="e401-gpuoutofmemoryerror">E401 GpuOutOfMemoryError<a class="headerlink" href="#e401-gpuoutofmemoryerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: classification of CuPy <code>OutOfMemoryError</code> (and <code>apply_tiled</code>). Meaning: the GPU allocation failed; the hint carries the current tile and free memory.</p>
+<h3 id="e402-kernelcompileerror">E402 KernelCompileError<a class="headerlink" href="#e402-kernelcompileerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: classification of CuPy <code>CompileException</code>. Meaning: NVRTC could not compile a kernel — usually the CUDA headers are missing (<code>pip install "cupy-cuda12x[ctk]"</code>).</p>
+<h3 id="e403-cudaruntimeerror">E403 CudaRuntimeError<a class="headerlink" href="#e403-cudaruntimeerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: classification of CuPy runtime/driver errors. Meaning: driver/runtime mismatch or device error.</p>
+<h3 id="e404-hostoutofmemoryerror">E404 HostOutOfMemoryError<a class="headerlink" href="#e404-hostoutofmemoryerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: classification of <code>MemoryError</code> (host). Meaning: RAM allocation failed; retry with a smaller tile.</p>
+<h3 id="e500-externaltoolerror">E500 ExternalToolError<a class="headerlink" href="#e500-externaltoolerror" title="Permanent link">&para;</a></h3>
+<p>Family base for subprocess tools (SNAPHU).</p>
+<h3 id="e502-toolnotfounderror">E502 ToolNotFoundError<a class="headerlink" href="#e502-toolnotfounderror" title="Permanent link">&para;</a></h3>
+<p>Raised by: binary discovery (preflight <code>binaries</code>). Meaning: no usable binary found in the discovery order <code>BOSAR_&lt;NAME&gt;_EXE</code> → bundled → PATH → package → fallback.</p>
+<h3 id="e510-snapnotfounderror">E510 SnapNotFoundError<a class="headerlink" href="#e510-snapnotfounderror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the SNAP bridge (<code>external/snap</code>) and preflight P402 when no <code>gpt</code> is found (<code>BOSAR_SNAP_GPT</code> → PATH → typical installs).</p>
+<h3 id="e511-snaprunerror">E511 SnapRunError<a class="headerlink" href="#e511-snaprunerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>external/snap/run.py</code> when <code>gpt</code> exits non-zero, is cancelled or times out; <code>extra</code> carries the argv, exit code, duration and the last Java exception; the hint is matched on that exception (heap, orbit, DEM, unknown operator, missing file).</p>
+<h3 id="e512-snapoutputerror">E512 SnapOutputError<a class="headerlink" href="#e512-snapoutputerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the SNAP Steps when <code>gpt</code> exited 0 but the expected BEAM-DIMAP product is absent or empty.</p>
+<h3 id="e600-storageerror">E600 StorageError<a class="headerlink" href="#e600-storageerror" title="Permanent link">&para;</a></h3>
+<p>Family base for filesystem problems.</p>
+<h3 id="e601-writeerror">E601 WriteError<a class="headerlink" href="#e601-writeerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: writers. Meaning: a file could not be written.</p>
+<h3 id="e602-permissiondeniederror">E602 PermissionDeniedError<a class="headerlink" href="#e602-permissiondeniederror" title="Permanent link">&para;</a></h3>
+<p>Raised by: classification of WinError 5 / EACCES / EPERM, <code>safe_unlink</code>. Meaning: permission denied.</p>
+<h3 id="e603-diskfullerror">E603 DiskFullError<a class="headerlink" href="#e603-diskfullerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: classification of WinError 112 / ENOSPC, preflight disk check. Meaning: no space left.</p>
+<h3 id="e604-pathtoolongerror">E604 PathTooLongError<a class="headerlink" href="#e604-pathtoolongerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: classification of WinError 206 / ENAMETOOLONG, preflight path check. Meaning: the path exceeds the platform limit.</p>
+<h3 id="e605-filelockederror">E605 FileLockedError<a class="headerlink" href="#e605-filelockederror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>utils.fs.replace_with_retry</code>, <code>safe_unlink</code>. Meaning: another process holds the file (WinError 32, or 5 on some volumes); the message counts the attempts.</p>
+<h3 id="e606-atomicsaveerror">E606 AtomicSaveError<a class="headerlink" href="#e606-atomicsaveerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>utils.fs.atomic_write_text</code>. Meaning: the temp-file/replace sequence failed; the previous file is intact.</p>
+<h3 id="e607-outputmissingerror">E607 OutputMissingError<a class="headerlink" href="#e607-outputmissingerror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the Runner after <code>Step.run</code>. Meaning: a declared product was not written.</p>
+<h3 id="e701-preflighterror">E701 PreflightError<a class="headerlink" href="#e701-preflighterror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the Runner / CLI when a blocking preflight check fails (<code>extra.checks</code> lists the P-codes).</p>
+<h3 id="e801-stepfailederror">E801 StepFailedError<a class="headerlink" href="#e801-stepfailederror" title="Permanent link">&para;</a></h3>
+<p>Raised by: <code>Runner.run</code> after persisting the failure record (<code>__cause__</code> is the original exception).</p>
+<h3 id="e802-stepinterruptederror">E802 StepInterruptedError<a class="headerlink" href="#e802-stepinterruptederror" title="Permanent link">&para;</a></h3>
+<p>Recorded by: the Runner when a step is found <code>running</code> without a <code>run_end</code> in its log (process killed, drive unplugged); the step becomes <code>failed</code> and is re-executed.</p>
+<h3 id="e803-stepcancellederror">E803 StepCancelledError<a class="headerlink" href="#e803-stepcancellederror" title="Permanent link">&para;</a></h3>
+<p>Raised by: the Runner on <code>KeyboardInterrupt</code>; status <code>cancelled</code>.</p>
+<h2 id="reserved-error-codes-documented-not-yet-raised">Reserved error codes (documented, not yet raised)<a class="headerlink" href="#reserved-error-codes-documented-not-yet-raised" title="Permanent link">&para;</a></h2>
+<h3 id="e501-toolexiterror-reserved">E501 ToolExitError (reserved)<a class="headerlink" href="#e501-toolexiterror-reserved" title="Permanent link">&para;</a></h3>
+<p>External tool exited with an error; <code>extra.returncode/argv/stderr_tail</code>. Classification of <code>subprocess.CalledProcessError</code> already yields this code. Planned for the unwrapping step.</p>
+<h3 id="e503-tooltimeouterror-reserved">E503 ToolTimeoutError (reserved)<a class="headerlink" href="#e503-tooltimeouterror-reserved" title="Permanent link">&para;</a></h3>
+<p>External tool exceeded its time limit. Planned for the unwrapping step.</p>
+<h3 id="e804-workercrashederror-reserved">E804 WorkerCrashedError (reserved)<a class="headerlink" href="#e804-workercrashederror-reserved" title="Permanent link">&para;</a></h3>
+<p>A worker process died (<code>BrokenProcessPool</code>). Planned for multi-process execution.</p>
+<h3 id="e900-numericalerror-reserved">E900 NumericalError (reserved)<a class="headerlink" href="#e900-numericalerror-reserved" title="Permanent link">&para;</a></h3>
+<p>Family base for numerical failures.</p>
+<h3 id="e901-singularmatrixerror-reserved">E901 SingularMatrixError (reserved)<a class="headerlink" href="#e901-singularmatrixerror-reserved" title="Permanent link">&para;</a></h3>
+<p><code>numpy.linalg.LinAlgError</code>; the network/design matrix is singular. Planned for the SBAS inversion.</p>
+<h3 id="e902-nonfiniteresulterror-reserved">E902 NonFiniteResultError (reserved)<a class="headerlink" href="#e902-nonfiniteresulterror-reserved" title="Permanent link">&para;</a></h3>
+<p>A kernel produced NaN/Inf where finite values were required. Planned for the DInSAR kernels.</p>
+<h3 id="e904-nocandidateserror-reserved">E904 NoCandidatesError (reserved)<a class="headerlink" href="#e904-nocandidateserror-reserved" title="Permanent link">&para;</a></h3>
+<p>Zero PS candidates after thresholds. Planned for the PS chain.</p>
+<h2 id="warning-codes-w">Warning codes (W)<a class="headerlink" href="#warning-codes-w" title="Permanent link">&para;</a></h2>
+<p>Emitted as <code>warning</code> records in the run log; they never stop a run.</p>
+<h3 id="w000-capturedpythonwarning">W000 CapturedPythonWarning<a class="headerlink" href="#w000-capturedpythonwarning" title="Permanent link">&para;</a></h3>
+<p>A Python <code>warnings</code> message raised inside <code>Step.run</code>. Warnings whose file lies inside this package or a <code>tests/</code> tree are recorded one by one (<code>category</code>, <code>filename</code>, <code>lineno</code>) and counted in <code>step_end.summary.n_warnings</code>. Third-party warnings (site-packages: CuPy <code>compiler.py</code> EncodingWarnings, NumPy deprecations) are not recorded individually: they are counted per module into one W000 record (<code>detail.third_party = {module: count}</code>) and into <code>step_end.summary.n_warnings_third_party</code>.</p>
+<h3 id="w101-stepskipped">W101 StepSkipped<a class="headerlink" href="#w101-stepskipped" title="Permanent link">&para;</a></h3>
+<p>The step was <code>done</code> with existing outputs and the same version; nothing was re-run (<code>--force</code> overrides). The parameters are compared but do not decide: when the requested parameters differ from the recorded ones, the message names the differing keys and the record carries them in <code>detail.changed_params</code> (null when nothing differs); the recorded result is still kept and the step is still skipped. Re-run with <code>--force</code>, or give the step another id to keep both results. <code>pipeline stripmap-coregister</code> refuses such a skip instead (E101): its old stack would be imported again.</p>
+<h3 id="w102-paramdefaulted">W102 ParamDefaulted<a class="headerlink" href="#w102-paramdefaulted" title="Permanent link">&para;</a></h3>
+<p>A parameter fell back to its default because the given value was empty.</p>
+<h3 id="w103-versionunknown">W103 VersionUnknown<a class="headerlink" href="#w103-versionunknown" title="Permanent link">&para;</a></h3>
+<p>The package version is the fallback <code>0.0.0</code> (installed without git history); set <code>SETUPTOOLS_SCM_PRETEND_VERSION</code> or install from a checkout.</p>
+<h3 id="w104-interruptedstepmarkedfailed">W104 InterruptedStepMarkedFailed<a class="headerlink" href="#w104-interruptedstepmarkedfailed" title="Permanent link">&para;</a></h3>
+<p>A <code>running</code> step from a crashed run was diagnosed (E802) and marked <code>failed</code> before this run continued.</p>
+<h3 id="w105-legacynamedeprecated">W105 LegacyNameDeprecated<a class="headerlink" href="#w105-legacynamedeprecated" title="Permanent link">&para;</a></h3>
+<p>A name from before the rename to Bosar was read: an environment variable with the
+old prefix (read only while the <code>BOSAR_*</code> variable of the same suffix is unset), raster tags in the
+old GDAL metadata namespace, or a product reference / <code>crop.json</code> whose <code>format</code> carries the old
+name. The old names are listed in <code>src/bosar/_legacy.py</code>; nothing is written under them. Rename the
+variable or re-run the step that wrote the file; <code>bosar preflight</code> lists old-prefix variables
+(check <code>system.legacy_env</code>). Support ends in 0.2.0.</p>
+<h3 id="w106-ccdonslcboxcoherence">W106 CcdOnSlcBoxCoherence<a class="headerlink" href="#w106-ccdonslcboxcoherence" title="Permanent link">&para;</a></h3>
+<p>The <code>ccd</code> step read a coherence product whose <code>estimator</code> tag is <code>slc-box</code> (the author's MintPy
+recipe: a full-resolution box larger than the looks, then the block mean). Neighbouring looked
+pixels then share samples, so <code>ccd_z</code> is spatially correlated (null-case Moran's I ≈ 0.37 instead
+of &lt; 0.1) and detections reach about one looked pixel beyond a real change (precision ≈ 0.72 on
+the injected patch, recall 1). <code>pipeline ccd</code> therefore defaults to <code>--recipe looks</code>; the warning names the pairs. Re-run the coherence steps with <code>--recipe looks</code> (a
+<code>--tag</code>) when the statistics must be pixel-independent.</p>
+<h3 id="w107-sbasnetworksplit">W107 SbasNetworkSplit<a class="headerlink" href="#w107-sbasnetworksplit" title="Permanent link">&para;</a></h3>
+<p><code>sbas_invert</code> found that the pairs left after the pair-level rules (empty, weak and unreliable pairs) no longer connect all the dates: the network has two or more parts and the offset between them is unknown for every pixel. The time series is still written (zero velocity across the gap, the minimum-norm solution), the velocity is fitted with one common rate and one offset per part, and <code>ts_mask</code> counts a pixel as connected when its network is connected inside every part. To bridge the gap, keep more pairs: design the network with more links across the period (<code>sbas network --k</code>, <code>--max-dt</code>), lower <code>sbas prep --min-coherent-fraction</code>, raise <code>unw_correct --pair-max-error</code>, or name the pairs to exclude yourself with <code>sbas_invert --exclude-pairs</code>.</p>
+<h3 id="w108-lowusablefraction">W108 LowUsableFraction<a class="headerlink" href="#w108-lowusablefraction" title="Permanent link">&para;</a></h3>
+<p>The <strong>quality verdict</strong> of a time-series chain (<code>core/sbas/quality.py</code>). <code>sbas_invert</code>, <code>ts_correct</code> and the PS/DS chain judge what they measured and write <code>summary.quality = {verdict, findings, indicators}</code>; every finding is logged under its code with the measured value, the threshold and a remedy, the CLI prints the verdict after the chain and the Results page shows it above the map. Verdicts: <code>usable</code> (no finding), <code>marginal</code> (read the result only with the stated limits), <code>not_usable</code> (do not interpret as deformation).</p>
+<table>
+<thead>
+<tr>
+<th>code</th>
+<th>indicator</th>
+<th>marginal</th>
+<th>not usable</th>
+<th>usual remedy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W108</td>
+<td>fraction of the image that is connected with temporal coherence above the threshold</td>
+<td>&lt; 20 %</td>
+<td>&lt; 2 %</td>
+<td>PS / DS chain, Goldstein filter before unwrapping, fewer looks, a smaller area</td>
+</tr>
+<tr>
+<td>W109</td>
+<td>share of the designed pairs left out (empty, weak, unreliable), or a date without pairs</td>
+<td>&gt; 30 % or any lost date</td>
+<td>-</td>
+<td><code>bosar sbas quality</code> per-date table; drop or re-coregister the date; shorter links or a season rule</td>
+</tr>
+<tr>
+<td>W110</td>
+<td>standard deviation of the velocity over the good pixels</td>
+<td>&gt; 4 mm/yr</td>
+<td>&gt; 10 mm/yr</td>
+<td>longer series, tropospheric correction, deramp, an independent chain</td>
+</tr>
+<tr>
+<td>W111</td>
+<td>pair-pixels in triplets that do not close after the correction</td>
+<td>&gt; 15 %</td>
+<td>-</td>
+<td>filter, more looks, mask before unwrapping, shorter baselines</td>
+</tr>
+<tr>
+<td>W112</td>
+<td>median velocity of the good pixels, when larger than 3 mm/yr and than the spread</td>
+<td>yes</td>
+<td>-</td>
+<td>before deramping: <code>--deramp</code>, a reference inside the area (<code>--ref-latlon</code>); after deramping the reference pixel itself is off: another reference</td>
+</tr>
+<tr>
+<td>—</td>
+<td><code>sbas quality --area deforming</code>: W110 judges the spread of the velocity residual about a smooth field (<code>smooth_km</code>, 1 km) and W113 the whole-cycle steps relative to each pixel's fitted line; <code>--area auto</code> picks it when the raw spread exceeds three times a stable area's expectation; the reference moves to the most coherent cell of the stable quintile when the chain chose it</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W117</td>
+<td>a date whose residual to the fitted line exceeds 3 robust standard deviations at more than 20 % of the sampled good pixels; marginal at 35 % and more; the verdict drops when two or more dates are marginal</td>
+<td>yes</td>
+<td>-</td>
+<td><code>--exclude-dates</code>, <code>--fit huber</code>, <code>--tropo gacos|era5</code></td>
+</tr>
+</tbody>
+</table>
+<p>The thresholds are judgement values for C-band 12-day stacks (<code>quality.THRESHOLDS</code>), not physical limits.</p>
+<h3 id="w109-pairsexcluded">W109 PairsExcluded<a class="headerlink" href="#w109-pairsexcluded" title="Permanent link">&para;</a></h3>
+<p>Quality verdict: see the table under W108.</p>
+<h3 id="w110-velocitynoise">W110 VelocityNoise<a class="headerlink" href="#w110-velocitynoise" title="Permanent link">&para;</a></h3>
+<p>Quality verdict: see the table under W108.</p>
+<h3 id="w111-unclosedtriplets">W111 UnclosedTriplets<a class="headerlink" href="#w111-unclosedtriplets" title="Permanent link">&para;</a></h3>
+<p>Quality verdict: see the table under W108.</p>
+<h3 id="w112-scenetrend">W112 SceneTrend<a class="headerlink" href="#w112-scenetrend" title="Permanent link">&para;</a></h3>
+<p>Quality verdict: see the table under W108.</p>
+<h3 id="w113-timeseriesjumps">W113 TimeSeriesJumps<a class="headerlink" href="#w113-timeseriesjumps" title="Permanent link">&para;</a></h3>
+<p>Quality verdict: after the step common to all pixels is removed (see W114), more than 3 % of the good pixels have a step larger than three quarters of a cycle (0.75 × λ/2 in range, 21 mm at C band) that is still there one date later (a single noisy date steps out and back and is not counted) between two consecutive dates of one network part. Deformation of that size in one revisit is rare; a unwrapping error in time or a date with missing / corrupted data is the usual cause. The message names the dates at which most jumps occur (<code>summary.jumps_by_date</code>). Found on the downtown test area: 20250430 holds a zero-filled strip, and one cycle of error starts at that date in patches of the image.</p>
+<h3 id="w114-referenceunstable">W114 ReferenceUnstable<a class="headerlink" href="#w114-referenceunstable" title="Permanent link">&para;</a></h3>
+<p>Quality verdict: between consecutive dates the good pixels move together against the reference pixel by more than 5 mm (standard deviation over the dates of their median step, <code>summary.reference_step_std_mm</code>). The reference itself is unstable - on the downtown test area the automatic choice fell on a strong scatterer on a tall building, whose uncompensated height error changes phase with every baseline. Velocities are little affected (a common offset), single dates are. W113 counts jumps after this common step is removed.</p>
+<h3 id="w117-dateoutlier">W117 DateOutlier<a class="headerlink" href="#w117-dateoutlier" title="Permanent link">&para;</a></h3>
+<p>Quality verdict: the inversion keeps a sample of the good pixels (every n-th, about 200 000 at most) and the residual of their series to the fitted velocity line (one intercept per network part; the median offset for a Huber fit). One robust scale is taken over the whole sample (1.4826 × MAD, <code>summary.date_outliers.scale_mm</code>; the test needs six dates or more, a shorter series has degenerate residuals); a date at which more than 20 % of the sampled pixels lie further than 3 scales from the sample median is an outlier - its atmosphere (or bad data) has moved the whole scene, which deformation does not do in one revisit. <code>summary.date_outliers</code> lists the flagged dates and the fraction of every date; <code>bosar sbas quality</code> prints them. The message says whether the least-squares velocity leans on the date or the Huber fit (<code>--fit huber</code>) has down-weighted it; either way the series at that date stays biased - leave the date out with <code>--exclude-dates</code> or correct the troposphere. The temporal reference is never such a date: with no <code>--ref-date</code>, the reference is the date whose common mode (the scene-wide median) lies closest to the median over the dates (<code>summary.ref_date_rule = common_mode_median</code>, the common modes in <code>summary.common_mode_mm</code>). Found on the three-year Indianapolis product: the first date, 2023-07-10, sat 4 mm below the rest and one 2026-06 date 14 mm above at three landmarks. Two levels since v0.4.0: a date beyond 20 % is <em>noted</em> (the finding is informational, printed with <code>(info)</code>, the verdict stands); a date at 35 % or more is <em>marginal</em> and named as such; the verdict drops to MARGINAL only when two or more dates are marginal - one atmospheric date is tolerated because <code>--fit huber</code> or <code>--exclude-dates</code> handles it and the per-date fractions ship with the product (<code>summary.date_outliers</code>) either way.</p>
+<h3 id="w115-closurebudgetunreached">W115 ClosureBudgetUnreached<a class="headerlink" href="#w115-closurebudgetunreached" title="Permanent link">&para;</a></h3>
+<p>Closure correction (<code>unw_correct</code>): the exact L1 programs run under a wall-clock budget (<code>--correct-budget-s</code>, 900 s by default), the closure patterns covering most pixels first; the patterns not reached stay uncorrected and the warning carries their share of the pixels with errors. A longer budget or more workers reaches them.</p>
+<h3 id="w116-intermediatesrematerialized">W116 IntermediatesRematerialized<a class="headerlink" href="#w116-intermediatesrematerialized" title="Permanent link">&para;</a></h3>
+<p>Chains in <code>storage_mode=minimal</code>: a step of the chain is done, but the tier-2 products it made were collected after the chain that declared them had finished (the producer's <code>summary.collected</code> lists the kinds), and a later step of this chain requires them - e.g. <code>pipeline psi</code> after a completed <code>pipeline psds</code> needs the flattened stack again. The chain re-runs that step with the same parameters instead of failing with E107; the record gets <code>summary.rematerialized_for</code>, and the re-made products are collected again when their new dependents are done. Declaring both chains before the first one runs avoids the re-run, as does <code>storage_mode=full</code>.</p>
+<h3 id="w201-metadatasuspicious">W201 MetadataSuspicious<a class="headerlink" href="#w201-metadatasuspicious" title="Permanent link">&para;</a></h3>
+<p>Recorded on a dataset (and in the run log when imported) when a reader detects metadata that is nominal rather than measured — e.g. the SNAP StaMPS export writes <code>near_range_slc</code>/<code>far_range_slc</code> as centre ∓ (N−1)/2 × the nominal 2 m spacing, so the slant-range axis and every incidence angle derived from it are approximate; or every <code>.rslc.par</code> carries the reference scene's date/time header (then <code>acq_utc</code> is the file-name date). Never corrected silently; the warning text says what to verify. <code>bosar data import --annotation &lt;SAFE&gt;</code> resolves the range-axis case from the Sentinel-1 annotation and records <strong>I201</strong> instead (see <em>Info records</em> below and <code>docs/data/formats.md</code>).</p>
+<h3 id="i201-geometrycorrected-info-not-a-warning">I201 GeometryCorrected (info, not a warning)<a class="headerlink" href="#i201-geometrycorrected-info-not-a-warning" title="Permanent link">&para;</a></h3>
+<p>Appended to a stack's <code>info</code> list (and to the <code>StackRecord</code>) when <code>data import --annotation</code> or <code>data crop --annotation</code> overwrote the nominal GAMMA/StaMPS geometry from the matching Sentinel-1 swath annotation: range spacing, near/mid/far range, azimuth spacing, both radii, incidence angles, the re-projected B⊥ of every pair (first pair before → after in the text) and <code>acq_utc</code> from the SAFE <code>startTime</code>. <code>geometry.provenance</code> becomes <code>safe-annotation:&lt;file&gt;</code>.</p>
+<h3 id="w202-sidecarmalformed">W202 SidecarMalformed<a class="headerlink" href="#w202-sidecarmalformed" title="Permanent link">&para;</a></h3>
+<p>Recorded on a stack when one metadata sidecar cannot be parsed or holds a non-physical value while the rest of the stack is fine — e.g. the author's <code>diff0/20240821_20240809.base</code> carries TCN components of ~1e11 m (the same pair MintPy reported as B⊥ = −1.3e11). The affected pair keeps its interferogram but has no baseline row; the warning names the file and the value. A stack whose <em>reference</em> metadata is broken still fails hard (E204/E205).</p>
+<h3 id="w203-calibrationabsent">W203 CalibrationAbsent<a class="headerlink" href="#w203-calibrationabsent" title="Permanent link">&para;</a></h3>
+<p>Recorded on a Sentinel-1 SAFE product whose <code>annotation/calibration/</code> folder (σ⁰/β⁰/γ⁰ LUTs and noise vectors) is absent — the author's VV-only unzips are like this. Interferometry proceeds; radiometric calibration steps will refuse the product until the full SAFE (or the zip) is supplied.</p>
+<h3 id="w204-productspacingmismatch">W204 ProductSpacingMismatch<a class="headerlink" href="#w204-productspacingmismatch" title="Permanent link">&para;</a></h3>
+<p>Reported by <code>bosar info &lt;product.tif&gt;</code> when a Step product's per-look pixel spacing (tags <code>pixel_spacing_*_m</code> / <code>looks_*</code>) differs by more than 0.1 % from the project stack that has the same <code>geometry_provenance</code>. This is the v0.1.0 regression (Steps re-opened the raw export and wrote the nominal 2 × 14 m grid although the stack had been corrected with <code>--annotation</code>); it is fixed by <code>reapply_from_provenance</code> and the check keeps it from returning. <code>info</code> also prints a W201 line when a product carries the reader's nominal geometry (<code>geometry_provenance = reader</code>).</p>
+<h3 id="w205-auxdatamarginal">W205 AuxDataMarginal<a class="headerlink" href="#w205-auxdatamarginal" title="Permanent link">&para;</a></h3>
+<p>Reported by <code>bosar aux gacos-check</code> when a delivered file is usable but not clean: the GACOS grid leaves less than 0.05 deg between the stack footprint and its edge, more than 1 % of the grid inside the area is NaN or zero, the grid steps differ between dates, grids exist for dates outside the stack, or the acquisition time is unknown so <code>TIME_OF_DAY</code> could not be checked. The same check reports hard problems with the input codes: <strong>E201</strong> a date's <code>.ztd</code> or <code>.ztd.rsc</code> is missing, <strong>E204</strong> wrong file size, <code>TIME_OF_DAY</code> more than <code>--time-tolerance-h</code> (1 h) from the acquisition, grid not covering the footprint or a median delay outside 1-3 m, <strong>E205</strong> unreadable <code>.rsc</code> header; any E makes the folder unusable (exit 5).</p>
+<h3 id="w206-emptyinterferogram">W206 EmptyInterferogram<a class="headerlink" href="#w206-emptyinterferogram" title="Permanent link">&para;</a></h3>
+<p>Reported by <code>bosar data import</code> (GAMMA/StaMPS reader) when a <code>&lt;ref&gt;_&lt;date&gt;.diff</code> or a <code>&lt;date&gt;.rslc</code> holds only zeros in 25 small windows sampled across the raster: the export wrote an empty interferogram for that date (seen for three dates of the author's SNAP export, the same dates whose <code>.base</code> is malformed). The stack still imports; <code>bosar sbas prep</code> drops every pair derived from such an interferogram (<code>empty_pairs</code>) and <code>ifg_flatten</code> can rebuild an empty <code>.diff</code> from the SLCs when those are valid; an empty <code>.rslc</code> cannot be rebuilt from the stack - re-export that date or preprocess it again.</p>
+<h3 id="w207-partiallyemptydate">W207 PartiallyEmptyDate<a class="headerlink" href="#w207-partiallyemptydate" title="Permanent link">&para;</a></h3>
+<p><code>slc_flatten</code> scans every date of the stack and reports the fraction of zero pixels (<code>summary.missing_fraction_by_date</code>). A date with more than 0.1 % zero pixels inside the stack's common area is partially empty: a strip the export did not fill, a burst that failed. <code>bosar pipeline psds</code> leaves such dates out by default and says so (<code>--keep-partial-dates</code> keeps them: every pixel of the empty area is then lost for all dates). Re-coregister the date from the raw product to get it back.</p>
+<h3 id="w208-commonzerofloor">W208 CommonZeroFloor<a class="headerlink" href="#w208-commonzerofloor" title="Permanent link">&para;</a></h3>
+<p><code>slc_flatten</code> (v3) and <code>bosar data import</code> (every reader) measure the zero pixels of every date against the common floor: the median zero fraction of the non-empty dates, which is the scene edge / burst-gap area the export leaves empty on every date (6.5 % on the full 9-burst IW2 swath). W208 reports that floor once; W207 is then raised only for a date lacking more than two percentage points beyond it. Nothing is left out because of W208 alone.</p>
+<h3 id="w209-rangeshiftlarge">W209 RangeShiftLarge<a class="headerlink" href="#w209-rangeshiftlarge" title="Permanent link">&para;</a></h3>
+<p><code>s1_coregister</code>: the amplitude cross-correlation of a date against the reference reads a range shift above 0.1 px. The shift is still applied only under the gate (above <code>range_cc_min_px</code> = 0.02 px and the bursts agreeing within <code>range_cc_max_spread_px</code> = 0.01 px); W209 says that a shift this large is a change of the propagation delay between the date and the reference rather than a coregistration error: on the Indianapolis stack the ionospheric group delay (GIM slant TEC) and the ERA5 tropospheric delay explain the per-date shifts with r 0.87 and a 0.034-px residual, while the IPF version does not (table and regression in <code>docs/data/formats.md</code>). The carrier phase is baseband after deramping, so the correction moves the envelope only.</p>
+<h3 id="w210-offsetfieldsparse">W210 OffsetFieldSparse<a class="headerlink" href="#w210-offsetfieldsparse" title="Permanent link">&para;</a></h3>
+<p><code>offset_tracking</code> found that fewer than half of the patches with data carry a valid offset: the rest have an SNR below <code>snr_min</code>, a correlation peak on the edge of the search area, or deviate from the 3 × 3 median of the field by more than <code>mad_k</code> MAD. The products are written as usual (rejected patches are NaN, the classes are in <code>offset_mask</code>) and the summary counts every class, but the field is dominated by decorrelation and its median / std are not representative. It is also raised when no patch of the area has data (every class 255). Use a larger <code>window</code>, a shorter time span, or restrict the run to the coherent area (<code>region</code>, <code>bbox</code>).</p>
+<h3 id="w211-offsetspacingnominal">W211 OffsetSpacingNominal<a class="headerlink" href="#w211-offsetspacingnominal" title="Permanent link">&para;</a></h3>
+<p><code>offset_tracking</code> ran on a stack without lat / lon layers (<code>--geocode false</code>): the azimuth offsets are converted to metres with the stack's nominal azimuth pixel spacing (14.0 m for an ISCE-layout stack, whose <code>reference/IW*.xml</code> carries no azimuth spacing) instead of the along-track spacing measured from the layers, and nothing is geocoded. Range offsets use the slant-range spacing of the metadata and are exact.</p>
+<h3 id="w213-speckleenlnotestimated">W213 SpeckleEnlNotEstimated<a class="headerlink" href="#w213-speckleenlnotestimated" title="Permanent link">&para;</a></h3>
+<p>The <code>amplitude</code> step was asked for a speckle filter that uses the ENL (<code>--speckle</code> lee, refined_lee, gamma_map or nlmeans; boxcar and frost do not use it and never raise W213) without an ENL (<code>enl</code>), and the automatic estimate on the reference date found no 32 × 32 block (or, on a small image, no block of the image's size) with at least 90 % valid pixels - the image is smaller than 8 × 8 multilooked pixels or mostly no-data (layover, shadow, zero fill). The filter ran with the nominal number of looks (azimuth × range looks) as the ENL, an upper bound (neighbouring looked pixels are correlated): the filter then takes the speckle for weaker than it is and keeps more of it. Pass the ENL with <code>--set amplitude.enl=&lt;looks&gt;</code> (measured with <code>bosar.core.speckle.enl_window</code> on a homogeneous area) to silence it.</p>
+<h3 id="w215-thermalnoiseincomplete">W215 ThermalNoiseIncomplete<a class="headerlink" href="#w215-thermalnoiseincomplete" title="Permanent link">&para;</a></h3>
+<p><code>s1_coregister</code> with calibrated layers: thermal-noise removal was requested - <code>thermal_noise=on</code>, or <code>auto</code> on an IPF 2.90 or later product - but the SAFE cannot provide it as asked. Either the noise annotation (<code>annotation/calibration/noise-*.xml</code>) is missing or unusable: the calibrated layers of that date are written without noise subtraction; or it holds range vectors only (IPF before 2.90, <code>noiseVectorList</code>; or a new-style file without azimuth vectors): the range noise is subtracted and the azimuth component (the TOPS scalloping) is not. The message names the date and the reason; the date's record (<code>written.&lt;date&gt;.calibrated.thermal_noise</code>) carries the decision, the IPF version and the clamped fraction.</p>
+<h3 id="w216-thermalnoisemixed">W216 ThermalNoiseMixed<a class="headerlink" href="#w216-thermalnoisemixed" title="Permanent link">&para;</a></h3>
+<p><code>s1_coregister</code>: the calibrated layers of some dates of the stack have the thermal noise removed and those of others do not - typically <code>thermal_noise=auto</code> on a stack that spans IPF 2.90 (March 2018), or a date without a usable noise annotation (W215). Areas near the noise floor (water, shadow) then step between the two groups of dates. The message lists the dates without removal; re-run with <code>--thermal-noise off</code> (none) or <code>on</code> (range-only noise for the older products) for one rule across the stack.</p>
+<h3 id="w219-iononosnaphucomponents">W219 IonoNoSnaphuComponents<a class="headerlink" href="#w219-iononosnaphucomponents" title="Permanent link">&para;</a></h3>
+<p><code>iono_split</code> (version 2, <code>components=snaphu</code>) found no SNAPHU executable (or the unwrapping backend was set to scikit-image): the full band was unwrapped with scikit-image, which unwraps every 4-connected region of coherent cells on its own (probe: two regions split by a masked band came out 2 cycles apart). Those regions are taken as the components; each one's weighted median is removed before the low-pass, as with SNAPHU's connected components. The estimate is usable; SNAPHU decides better which cells belong together (it grows components by cost, across thin decorrelated gaps). Install or point to the binary (<code>BOSAR_SNAPHU_EXE</code>, <code>packaging/bin/&lt;platform&gt;/</code>) and re-run the step.</p>
+<h3 id="w220-ionofragmentedcomponents">W220 IonoFragmentedComponents<a class="headerlink" href="#w220-ionofragmentedcomponents" title="Permanent link">&para;</a></h3>
+<p><code>iono_split</code>: the estimate rests on more than one connected component and the largest holds less than half of the used cells. Each component's median was removed (regions unwrapped independently differ by <code>k</code> half-cycles of dispersive phase, <code>core.iono.ambiguity_step_rad</code>), so the ionosphere <em>between</em> components - its long wavelengths across the scene - is not measured; <code>summary.component_list</code> gives each component's constant split into whole ambiguity steps and a remainder. Prefer a pair with more coherent area (winter, short temporal baseline), more looks, or a lower <code>coh_min</code>.</p>
+<h3 id="w227-ionomodelskipped">W227 IonoModelSkipped<a class="headerlink" href="#w227-ionomodelskipped" title="Permanent link">&para;</a></h3>
+<p>The plausibility gate of <code>sbas_invert --iono</code> refused one or more ionospheric models: a model's span (<code>max - min</code> of the model grid that is subtracted) exceeded what a plausible TEC difference makes at the carrier (<code>rad_per_tecu(f) x max(floor, k x |GIM difference|)</code>), its gradient per 100 km of ground (the range slope taken from slant to ground range with the stack's mid-swath incidence) exceeded the ionosphere's (a fixed <code>iono_gate_gradient</code>, 2 TECU per 100 km by default; the GIM enters only the span bound), or the triplet closure vetoed it: a triplet whose three models do not close (the span of <code>m_ab + m_bc - m_ac</code> above the larger of <code>iono_gate_closure_factor</code> - 3 by default - times the median over the triplets and the phase of 1 TECU, <code>rad_per_tecu(f)</code>) names its pair of the largest span as the suspect, and a pair named so by failing triplets in at least half of all the triplets it belongs to (those whose three models are defined) is vetoed. A model that is undefined (its fit could not be made) is skipped as <code>span</code>. Nothing is subtracted for those pairs; the inversion runs on; the summary's <code>iono.gate</code> names them with the reasons and the bounds. <code>--no-iono-gate</code> subtracts every model without judging it and fails the step (E201) on a pair whose model is undefined. A GIM term of the span bounds that was lost before any model was judged is W228.</p>
+<h3 id="w228-ionexgimunavailable">W228 IonexGimUnavailable<a class="headerlink" href="#w228-ionexgimunavailable" title="Permanent link">&para;</a></h3>
+<p><code>sbas_invert --iono</code> with the plausibility gate on: the GIM term of the span bounds (W227) was lost for some pairs before any model was judged - the IONEX folder named by <code>--ionex-dir</code> (or found at <code>&lt;project&gt;/aux/ionex</code>) is not a folder, the stack has no footprint centre, or some dates have no usable map (no file for the day, the acquisition time outside the maps, an unreadable file, no VTEC at the centre of a regional map). The message names the folder and a date with its reason; the detail carries <code>gim_pairs</code> (pairs with a finite GIM difference at both dates), <code>ionex_dir</code>, <code>gim_error</code> and up to 20 <code>dates_without_map</code>, and the summary's <code>iono.gate</code> keeps <code>gim_error</code>, <code>gim_dates_without_map</code> and <code>ionex_dir_source</code>. Those pairs' span bounds rest on the floor (<code>iono_gate_tec_floor</code>, 10 TECU by default): the gate is stricter for them, never looser, so a model of a strongly ionised date may be skipped that its map would have let through. Put the daily IONEX file of every date into the folder (or name the right one) and re-run the inversion with <code>--force</code>. Without any IONEX folder, named or found, the floor applies silently.</p>
+<h3 id="w223-envisatmetadatainconsistent">W223 EnvisatMetadataInconsistent<a class="headerlink" href="#w223-envisatmetadatainconsistent" title="Permanent link">&para;</a></h3>
+<p><code>data/asar.py</code>: a metadata check of an ENVISAT ASAR IMS or ERS-1/2 IMS product in the Envisat format failed - the SPH disagrees with the annotation data sets (<code>FIRST_LINE_TIME</code>, <code>LINE_LENGTH</code>, <code>PASS</code> against the sign of the orbit's vertical velocity), the annotated <code>line_time_interval</code> does not match the stamped first-to-last-line span, the PRF is not the line rate, the radar frequency or the range sampling rate is off the sensor's nominal value by more than 0.1 %, the processed range bandwidth is off the chirp by more than 5 %, the geolocation grid is off the uniform range axis (0.05 samples) or the line timing (0.5 lines), the data type is not <code>SWORD</code>, the CHIRP PARAMS ADS is missing, or fewer than four product state vectors are usable (the orbit is then extended by two-body + J2 propagation). The message names the field and both values; the annotation data set wins over the SPH and nothing is corrected silently. The strings sit in <code>extra["warnings"]</code> of the <code>StripmapScene</code>; the chain logs them. None of the author's 26 products raises it. The same code checks an external precise orbit (a DORIS <code>DOR_VOR_AX</code> / <code>DOR_POR_AX</code> or ERS PRC file given as <code>orbit_file</code>, or the one <code>open_asar(orbit_dir=...)</code> - the stripmap chain's <code>--orbits &lt;folder&gt;</code> - takes from a folder) against the product's own state vectors at mid scene: more than 100 m apart (<code>ORBIT_FILE_WARN_M</code>) is a W223 naming the file and the distance; more than 1 km (<code>ORBIT_FILE_REFUSE_M</code>) is not this product's orbit - a file named as <code>orbit_file</code> is refused (E204), a folder's file is skipped for the next covering one with a W223 naming it, and E204 follows when every covering file is that far. On real products the matching precise orbit is about 10 m from the product's vectors (ERS PRC) or a few centimetres (ENVISAT DORIS); the other ERS satellite's PRC file of a tandem day is about 11 950 km away. A product without a usable state vector of its own raises a W223 saying that the orbit file is not checked.</p>
+<h3 id="w224-ers2gyrodoppler">W224 Ers2GyroDoppler<a class="headerlink" href="#w224-ers2gyrodoppler" title="Permanent link">&para;</a></h3>
+<p><code>data/asar.py</code>: an ERS-2 scene dated 2001-01-01 or later. ERS-2 lost its gyroscopes in January 2001 and flew in zero-gyro / degraded attitude modes afterwards: the Doppler centroid can be several PRF ambiguities large and the processor's annotation (<code>DOP CENTROID COEFFS ADS</code>, <code>extra["processed_doppler_centroid"]</code>) less reliable; a pair with such a scene needs its Doppler checked before the azimuth spectra are trusted. The message carries the mid-swath value and the confidence. The author's ERS-2 scenes on disk (1996-05 ... 2000-03) all predate that date; note that the 2000-03-17 scene, acquired after the February 2000 switch to one-gyro piloting, already shows a mid-swath Doppler of -349 Hz (0.21 PRF, the other ERS-2 scenes -91 ... -148 Hz) and is not flagged by the date rule.</p>
+<h3 id="w221-alosprfvaries">W221 AlosPrfVaries<a class="headerlink" href="#w221-alosprfvaries" title="Permanent link">&para;</a></h3>
+<p><code>data/ceos_alos.py</code>: the ALOS-1 PALSAR L1.1 reader reads the PRF field of every line header (an integer in mHz) and compares the lines with each other and with the leader's PRF (<code>Pulse Repetition Frequency in mHz</code>, with decimals). A variation across the lines above <code>PRF_TOLERANCE</code> = 1e-6 relative is <strong>E205</strong> (one <code>StripmapScene</code> has one PRF; such a file is not one scene). A smaller variation, or a difference between the lines and the leader, is W221: the leader's PRF is used for the azimuth time interval and the line times. On the real products the field is constant and 1e-7 from the leader (the millihertz rounding). The warning is kept in <code>scene.extra["warnings"]</code>. v0.4.0 (ALOS-2): the same code reports the microsecond line stamps' own clock when its rate differs from the leader's PRF by more than the tolerance on a scene spanning at least one second (the Greenland scenes: 8.8e-6 fast, ±44 µs at the ends); the leader's PRF and the centre-weighted fit are used.</p>
+<h3 id="w222-alosleaderprefixmismatch">W222 AlosLeaderPrefixMismatch<a class="headerlink" href="#w222-alosleaderprefixmismatch" title="Permanent link">&para;</a></h3>
+<p><code>data/ceos_alos.py</code>: the leader and the image file's line headers describe the same scene twice and the reader checks them against each other. Scene centre time: the least-squares fit of the per-line millisecond stamps puts the scene centre line more than 2 ms from the leader's <code>Scene centre time</code> (E205 above 1 s) - the line times are used. Slant range to the first sample: the leader's range gate delay times c/2 differs by more than 1 m from the integer-metre field of the line headers (E205 above 100 m) - the leader's value is used. On the real products both agree within the quantisation of the header fields (0.5 ms, 0.5 m). v0.4.0 (ALOS-2): the same code reports the leader's <code>Doppler center frequency</code> fields (<code>a + b R</code>) disagreeing with its cross-track polynomial at the first sample by more than 5 Hz, and the millisecond and microsecond stamps disagreeing on the first line by more than 2 ms (the polynomial and the microseconds are used); the ALOS-2 range gate delay is not checked at all - it is not the delay to the first sample. v0.4.0 review (ALOS-2 range bandwidth): the reader takes the range bandwidth from the leader, not from the mode's nominal table - the chirp's <code>|rate| x pulse length</code> and the <code>total processor bandwidth in range</code> field are each plausible when positive, not above the range sampling rate and within <code>ALOS2_BANDWIDTH_TOLERANCE</code> (25 %) of the mode's nominal bandwidth. The same code reports a chirp that is blank or implausible (the total processor bandwidth is used when it is plausible, else the nominal value), and a chirp and a total processor bandwidth that are both plausible but differ by more than <code>BANDWIDTH_CHECK_REL</code> (2 % of the chirp): the smaller of the two is used, since the image's range spectrum is no wider than either. A plausible chirp next to a total that differs from it by more than 2 % but is not plausible itself is reported too, and the chirp is kept. <code>scene.extra</code> records <code>chirp_bandwidth_hz</code>, <code>total_bandwidth_range_leader_hz</code>, <code>nominal_bandwidth_hz</code> and <code>range_bandwidth_source</code>. The Greenland FBS products give 24.9 MHz from both fields (nominal 28 MHz) and raise nothing; ALOS-1 keeps its nominal 28 / 14 MHz without a check.</p>
+<h3 id="w225-stripmaprefinenotapplied">W225 StripmapRefineNotApplied<a class="headerlink" href="#w225-stripmaprefinenotapplied" title="Permanent link">&para;</a></h3>
+<p><code>stripmap_coregister</code>: the amplitude cross-correlation refinement of a date (<code>core.offsets.track</code> between the reference and the geometrically coregistered secondary on a coarse patch grid, then <code>core.stripmap.fit_offset_plane</code>) was not applied - fewer than <code>refine_min_patches</code> valid patches survived the SNR / edge / MAD culling (water, snow, a decorrelated pair, an empty scene), the written window holds no patch at all (a crop smaller than <code>refine_window + 2 refine_search</code>), or the fitted constant exceeded the search radius minus one pixel (the correlation peak sits against the search border: the geometric offsets are off by more than <code>refine_search</code> pixels, which points at a timing or orbit problem of that product rather than at a sub-pixel residual). The geometric offsets alone are used for that date; the record keeps the rejected fit (<code>refinement.reason</code>). Inspect <code>refinement.n_valid</code> / <code>rms_px</code> in the stack record; a larger <code>--refine-search</code>, or <code>--no-refine</code>, is the way round a product with a known timing error. Since v0.4.0 a third reason: the residual rms of the kept patches exceeds <code>refine_max_rms_px</code> (2 px by default) in azimuth or range - the patches found no correlation peak (the VV band of a NISAR river-delta scene scattered by 9 px on 250 patches), and the plane fitted through noise would misregister the date; the geometric offsets alone are kept.</p>
+<h3 id="w226-stripmapmetadataincomplete">W226 StripmapMetadataIncomplete<a class="headerlink" href="#w226-stripmapmetadataincomplete" title="Permanent link">&para;</a></h3>
+<p><code>stripmap_coregister</code>: a scene's metadata does not fully determine the chain's inputs and an assumption was made. (a) The products mix range samplings - ALOS FBD (14 MHz) with FBS (28 MHz) - and the reader of the FBD scene took no <code>oversample_to_fbs</code> flag, so the pair is coregistered at different range samplings: the geometry is right (the offsets are in each scene's own pixels) but the range spectra overlap by half, which costs coherence; a reader that oversamples silences it. (b) A zero-Doppler product (ASAR / ERS IMS, NISAR RSLC) carries no processed Doppler centroid (<code>extra["processed_doppler_centroid"]</code>), so the secondary is interpolated without demodulation: with the azimuth spectrum off centre by the processor's centroid, the sinc kernel aliases part of it (a few per cent of coherence at ASAR's typical few hundred hertz; more for a yaw-steering-free ERS-1 scene).</p>
+<h3 id="w301-orbitfromannotation">W301 OrbitFromAnnotation<a class="headerlink" href="#w301-orbitfromannotation" title="Permanent link">&para;</a></h3>
+<p>The native TOPS chain (<code>s1_coregister</code>) found no precise orbit file for a date in the project, the data roots or SNAP's cache and used the annotation's state vectors (10 s spacing, metre-level). Run <code>bosar fetch orbits</code> for the products and re-run the step.</p>
+<h3 id="w302-esdnocoherentoverlap">W302 EsdNoCoherentOverlap<a class="headerlink" href="#w302-esdnocoherentoverlap" title="Permanent link">&para;</a></h3>
+<p>Enhanced spectral diversity found no burst-overlap pixel above the coherence threshold (<code>esd_coherence</code>) for a date; the geometric coregistration (orbits + DEM) stands without the azimuth correction. Lower the threshold, widen the looks, or check the date (an empty or decorrelated scene).</p>
+<h3 id="w401-gpuunavailable">W401 GpuUnavailable<a class="headerlink" href="#w401-gpuunavailable" title="Permanent link">&para;</a></h3>
+<p>CuPy or a CUDA device was not usable; the run continues on NumPy (<code>reason</code> carries the exception text).</p>
+<h3 id="w501-snaphuunavailable">W501 SnaphuUnavailable<a class="headerlink" href="#w501-snaphuunavailable" title="Permanent link">&para;</a></h3>
+<p>No SNAPHU binary/package; unwrapping falls back to scikit-image.</p>
+<h3 id="w503-snaphunocs2">W503 SnaphuNoCs2<a class="headerlink" href="#w503-snaphunocs2" title="Permanent link">&para;</a></h3>
+<p>Retired: <code>mst</code> is the default initialisation of the <code>unwrap</code> step since v0.4.0 (every bundled SNAPHU is a NO_CS2 build, and on a real Sentinel-1 pair the two initialisations differed by one cycle on 4 of 117 888 pixels), so the substitution this warning announced no longer happens by default. An <code>init: mcf</code> asked of a binary without the solver still runs as MST; the step summary records <code>init</code> (applied) and <code>init_requested</code>, without a warning. The code is never reused. The text it carried in v0.4.0: the <code>unwrap</code> step asked SNAPHU for an initialisation the binary cannot run: it was built without the CS2 minimum-cost-flow solver (the solver has its own non-commercial licence), so <code>INITMETHOD MCF</code> is unavailable and the unwrap ran with the MST initialisation; the step summary records <code>init</code> (applied) and <code>init_requested</code>. The installers carry that SNAPHU, and so does a source checkout that uses the bundled binary or builds its own with <code>-NoCs2</code> / <code>--no-cs2</code> (<code>bosar preflight</code> reports it as "no CS2 solver (MST init)") - so with the step's default <code>init=mcf</code> this warning comes with every SNAPHU unwrap there: it records the substitution, not a fault. The result is the same optimisation from a different starting flow; on a real Sentinel-1 pair (117 888 unwrapped pixels) the two initialisations differed by one cycle on 4 pixels and nowhere by more. An unwrap step whose parameters ask for <code>init: mst</code> runs without the warning; a SNAPHU of your own that carries the solver, named with <code>BOSAR_SNAPHU_EXE</code>, runs MCF.</p>
+<h3 id="w502-snapheapfrominstall">W502 SnapHeapFromInstall<a class="headerlink" href="#w502-snapheapfrominstall" title="Permanent link">&para;</a></h3>
+<p>A <code>snap_*</code> Step ran with <code>heap_mb = 0</code>, i.e. with the <code>-Xmx</code> of the install's <code>gpt.vmoptions</code>, and that default is larger than the heap Bosar gives a job when <code>heap_mb</code> is unset (half of the RAM, at least 2 GB and at most 64 GB). SNAP fills whatever heap it is given (41-45 GB peak RSS for a three-scene subset under <code>-Xmx132G</code>), so parallel work on the machine may starve. Pass <code>heap_mb</code> / <code>--snap-heap &lt;MB&gt;</code> or leave the parameter unset.</p>
+<h3 id="w601-tier2kept">W601 Tier2Kept<a class="headerlink" href="#w601-tier2kept" title="Permanent link">&para;</a></h3>
+<p><code>storage_mode=full</code> kept intermediate products that <code>minimal</code> would have deleted.</p>
+<h3 id="w602-gcdeletefailed">W602 GcDeleteFailed<a class="headerlink" href="#w602-gcdeletefailed" title="Permanent link">&para;</a></h3>
+<p>Garbage collection could not delete a file (locked by another process or permission denied); the file is listed under <code>kept</code> with the reason and the step status is unaffected.</p>
+<h3 id="w802-postfailureactionfailed">W802 PostFailureActionFailed<a class="headerlink" href="#w802-postfailureactionfailed" title="Permanent link">&para;</a></h3>
+<p>A bookkeeping action after a failure (save, gc, report) failed itself; the original failure is preserved.</p>
+<h3 id="w803-hookfailed">W803 HookFailed<a class="headerlink" href="#w803-hookfailed" title="Permanent link">&para;</a></h3>
+<p>A client-registered hook raised; the step status is unaffected.</p>
+<h2 id="preflight-check-codes-p">Preflight check codes (P)<a class="headerlink" href="#preflight-check-codes-p" title="Permanent link">&para;</a></h2>
+<p><code>P1xx</code> system · <code>P2xx</code> gpu · <code>P3xx</code> dependencies · <code>P4xx</code> binaries · <code>P5xx</code> credentials · <code>P6xx</code> network · <code>P7xx</code> project.
+Version 0.4.0 added <code>P202 gpu.plugin</code> (the GPU plug-in of an installed build: present, absent with an NVIDIA driver seen, or not needed) and <code>P305 deps.build</code> (the build record of an installed build: id, platform, time, commit, SNAPHU solver); <code>P401</code> now says whether the SNAPHU binary carries the CS2 solver.
+The full list with the check ids lives in <code>src/bosar/preflight/model.py</code> (<code>CHECK_CODES</code>) and is
+printed by <code>bosar preflight</code>; blocking failures raise E701.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../data/mexico_city_esa_products/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mexico City ESA products">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Mexico City ESA products
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../LOG_SCHEMA/" class="md-footer__link md-footer__link--next" aria-label="Next: Log schema">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Log schema
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jiashu Hu. Free for non-commercial use (PolyForm Noncommercial 1.0.0); commercial licences on request.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

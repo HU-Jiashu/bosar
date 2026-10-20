@@ -1,0 +1,3782 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Install-and-run SAR interferometry for Windows and macOS">
+      
+      
+      
+        <link rel="canonical" href="https://hu-jiashu.github.io/bosar/data/formats/">
+      
+      
+        <link rel="prev" href="../../tour/zh/">
+      
+      
+        <link rel="next" href="../sensor_download_plan/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/icons/app.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Formats - Bosar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#supported-input-formats-and-the-quirks-found-on-real-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bosar" class="md-header__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../../assets/icons/app.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bosar
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Formats
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../install/" class="md-tabs__link">
+          
+  
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tour/" class="md-tabs__link">
+          
+  
+  
+  Feature tour
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ERRORS/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bosar" class="md-nav__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../../assets/icons/app.png" alt="logo">
+
+    </a>
+    Bosar
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WALKTHROUGH_zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough (中文)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LICENSING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature tour
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Feature tour
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/project_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project and data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/system_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/dinsar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DInSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/gacos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GACOS correction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/ccd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coherence change detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/amplitude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplitude change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Result viewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/sbas_prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/sbas_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/psds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PS / DS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/psi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic PS-InSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/snap_bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNAP bridge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/fetch_slc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLC download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/native_s1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Sentinel-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logs and failures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    功能导览（中文）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formats
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gamma-stamps-export-written-by-snap-datagamma_stampspy-reader-gamma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GAMMA / StaMPS export written by SNAP (data/gamma_stamps.py, reader gamma)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GAMMA / StaMPS export written by SNAP (data/gamma_stamps.py, reader gamma)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deburst-grid-timing-and-height-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deburst grid timing and height reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar-crop-datacroppy-reader-crop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bosar crop (data/crop.py, reader crop)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentinel-1-safe-datasentinel1_safepy-reader-safe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentinel-1 SAFE (data/sentinel1_safe.py, reader safe)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentinel-1 SAFE (data/sentinel1_safe.py, reader safe)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#burst-quirks-the-native-tops-chain-databurstpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Burst quirks (the native TOPS chain; data/burst.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentinel-1d-next-to-sentinel-1a-and-newer-processor-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentinel-1D next to Sentinel-1A, and newer processor versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range-shift-of-a-date-by-ipf-version-and-what-it-really-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Range shift of a date by IPF version, and what it really is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-noise-annotation-and-ipf-versions-datanoisepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal-noise annotation and IPF versions (data/noise.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snap-beam-dimap-databeam_dimappy-reader-dimap-synthetic-fixtures-only-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNAP BEAM-DIMAP (data/beam_dimap.py, reader dimap) — synthetic fixtures only so far
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isce2-topsstack-dataisce_stackpy-reader-isce-synthetic-fixtures-only-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISCE2 topsStack (data/isce_stack.py, reader isce) — synthetic fixtures only so far
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ionex-10-global-ionosphere-maps-dataionexpy-synthetic-fixtures-only-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IONEX 1.0 global ionosphere maps (data/ionex.py) - synthetic fixtures only so far
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nisar-l1-rslc-datanisarpy-reader-nisar-real-granules-opened-a-real-pair-through-the-stripmap-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NISAR L1 RSLC (data/nisar.py, reader nisar) - real granules opened, a real pair through the stripmap chain
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NISAR L1 RSLC (data/nisar.py, reader nisar) - real granules opened, a real pair through the stripmap chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-real-granules-provisional-l1-rslc-nisar_l1_rslc_provisional_v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The real granules (provisional L1 RSLC, NISAR_L1_RSLC_PROVISIONAL_V1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-first-pair-through-the-stripmap-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The first pair through the stripmap chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reachability-probe-2026-10-16-asf_search-1403-metadata-only-no-login-nothing-downloaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reachability probe (2026-10-16, asf_search 14.0.3, metadata only, no login, nothing downloaded)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-what-was-verified-against-which-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout: what was verified against which source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#envisat-asar-ims-and-ers-ims-in-the-envisat-format-dataasarpy-readers-asar-ers_envisat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ENVISAT ASAR IMS and ERS IMS in the Envisat format (data/asar.py, readers asar / ers_envisat)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ENVISAT ASAR IMS and ERS IMS in the Envisat format (data/asar.py, readers asar / ers_envisat)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-products-say" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the products say
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quirks-and-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quirks and decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometry-convention-and-the-measured-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry convention and the measured agreement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ers-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ERS caveats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pairs-for-the-stripmap-chain-from-the-product-orbits-scriptsvalidate_asar_productspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pairs for the stripmap chain (from the product orbits, scripts/validate_asar_products.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doris-and-prc-precise-orbits-datadorispy-pipelineauxdataesa_orbitspy-real-files-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DORIS and PRC precise orbits (data/doris.py, pipeline/auxdata/esa_orbits.py) - real files read
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alos-2-palsar-2-l11-ceos-dataceos_alospy-the-same-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALOS-2 PALSAR-2 L1.1 (CEOS) (data/ceos_alos.py, the same reader)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alos-1-palsar-l11-ceos-dataceos_alospy-stripmap-reader-ceos_alos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALOS-1 PALSAR L1.1 (CEOS) (data/ceos_alos.py, stripmap reader ceos_alos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sensor_download_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor download plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mexico_city_esa_products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexico City ESA products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ERRORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Errors, warnings, preflight codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LOG_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Log schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - data and readers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gamma-stamps-export-written-by-snap-datagamma_stampspy-reader-gamma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GAMMA / StaMPS export written by SNAP (data/gamma_stamps.py, reader gamma)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GAMMA / StaMPS export written by SNAP (data/gamma_stamps.py, reader gamma)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deburst-grid-timing-and-height-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deburst grid timing and height reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar-crop-datacroppy-reader-crop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bosar crop (data/crop.py, reader crop)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentinel-1-safe-datasentinel1_safepy-reader-safe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentinel-1 SAFE (data/sentinel1_safe.py, reader safe)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentinel-1 SAFE (data/sentinel1_safe.py, reader safe)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#burst-quirks-the-native-tops-chain-databurstpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Burst quirks (the native TOPS chain; data/burst.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentinel-1d-next-to-sentinel-1a-and-newer-processor-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentinel-1D next to Sentinel-1A, and newer processor versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range-shift-of-a-date-by-ipf-version-and-what-it-really-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Range shift of a date by IPF version, and what it really is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-noise-annotation-and-ipf-versions-datanoisepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal-noise annotation and IPF versions (data/noise.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snap-beam-dimap-databeam_dimappy-reader-dimap-synthetic-fixtures-only-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNAP BEAM-DIMAP (data/beam_dimap.py, reader dimap) — synthetic fixtures only so far
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isce2-topsstack-dataisce_stackpy-reader-isce-synthetic-fixtures-only-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISCE2 topsStack (data/isce_stack.py, reader isce) — synthetic fixtures only so far
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ionex-10-global-ionosphere-maps-dataionexpy-synthetic-fixtures-only-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IONEX 1.0 global ionosphere maps (data/ionex.py) - synthetic fixtures only so far
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nisar-l1-rslc-datanisarpy-reader-nisar-real-granules-opened-a-real-pair-through-the-stripmap-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NISAR L1 RSLC (data/nisar.py, reader nisar) - real granules opened, a real pair through the stripmap chain
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NISAR L1 RSLC (data/nisar.py, reader nisar) - real granules opened, a real pair through the stripmap chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-real-granules-provisional-l1-rslc-nisar_l1_rslc_provisional_v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The real granules (provisional L1 RSLC, NISAR_L1_RSLC_PROVISIONAL_V1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-first-pair-through-the-stripmap-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The first pair through the stripmap chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reachability-probe-2026-10-16-asf_search-1403-metadata-only-no-login-nothing-downloaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reachability probe (2026-10-16, asf_search 14.0.3, metadata only, no login, nothing downloaded)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-what-was-verified-against-which-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout: what was verified against which source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#envisat-asar-ims-and-ers-ims-in-the-envisat-format-dataasarpy-readers-asar-ers_envisat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ENVISAT ASAR IMS and ERS IMS in the Envisat format (data/asar.py, readers asar / ers_envisat)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ENVISAT ASAR IMS and ERS IMS in the Envisat format (data/asar.py, readers asar / ers_envisat)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-products-say" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the products say
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quirks-and-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quirks and decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometry-convention-and-the-measured-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry convention and the measured agreement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ers-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ERS caveats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pairs-for-the-stripmap-chain-from-the-product-orbits-scriptsvalidate_asar_productspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pairs for the stripmap chain (from the product orbits, scripts/validate_asar_products.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doris-and-prc-precise-orbits-datadorispy-pipelineauxdataesa_orbitspy-real-files-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DORIS and PRC precise orbits (data/doris.py, pipeline/auxdata/esa_orbits.py) - real files read
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alos-2-palsar-2-l11-ceos-dataceos_alospy-the-same-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALOS-2 PALSAR-2 L1.1 (CEOS) (data/ceos_alos.py, the same reader)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alos-1-palsar-l11-ceos-dataceos_alospy-stripmap-reader-ceos_alos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALOS-1 PALSAR L1.1 (CEOS) (data/ceos_alos.py, stripmap reader ceos_alos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="supported-input-formats-and-the-quirks-found-on-real-data">Supported input formats and the quirks found on real data<a class="headerlink" href="#supported-input-formats-and-the-quirks-found-on-real-data" title="Permanent link">&para;</a></h1>
+<p>One section per reader. "Quirk" means something the files say that is not true or not what the
+format documentation promises; Bosar reports each one (W-code) and never corrects it
+silently. Started in v0.1.0.</p>
+<h2 id="gamma-stamps-export-written-by-snap-datagamma_stampspy-reader-gamma">GAMMA / StaMPS export written by SNAP (<code>data/gamma_stamps.py</code>, reader <code>gamma</code>)<a class="headerlink" href="#gamma-stamps-export-written-by-snap-datagamma_stampspy-reader-gamma" title="Permanent link">&para;</a></h2>
+<p>Layout: <code>rslc/&lt;date&gt;.rslc(.par)</code>, <code>diff0/&lt;ref&gt;_&lt;sec&gt;.diff(.par|.base)</code>, <code>geo/&lt;ref&gt;.lat|.lon</code>,
+<code>geo/elevation_dem.rdc</code>, <code>dem/</code>. Big-endian FCOMPLEX / REAL*4, read through <code>np.memmap</code> windows.
+Validated on the author's Indianapolis IW2 stack (29 dates, reference 20240821, 25925 × 12239).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Quirk</th>
+<th>What the file says</th>
+<th>What is true</th>
+<th>Bosar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Nominal slant-range axis</strong></td>
+<td><code>range_pixel_spacing 2.0 m</code>; <code>near_range_slc</code> / <code>far_range_slc</code> = <code>center_range_slc</code> ∓ (N−1)/2 × 2 m (819528.6 / 871376.6 m)</td>
+<td>spacing <code>c / (2 · rangeSamplingRate)</code> = 2.329562 m; <code>center_range_slc</code> (845452.572 m) is the <strong>first-pixel</strong> range of the SAFE annotation to the millimetre</td>
+<td>W201 on the stack; <code>data import --annotation &lt;SAFE&gt;</code> overwrites spacing, near/mid/far range and stamps <code>geometry.provenance = safe-annotation:&lt;file&gt;</code> (I201)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Earth radius under the sensor</strong></td>
+<td><code>earth_radius_below_sensor 6358256.3 m</code></td>
+<td>6369807.5 m from the annotation orbit (WGS-84 radius at the sub-satellite latitude); the par value is 11.5 km too small and shifts every incidence angle by ≈ 1.5° and B⊥ by ≈ 8 m</td>
+<td>same W201 / <code>--annotation</code> (both radii replaced, incidence taken from the geolocation grid)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Copied reference header</strong></td>
+<td>every <code>&lt;date&gt;.rslc.par</code> carries the reference scene's <code>title</code>, <code>date</code> (2024 8 21) and <code>start/center/end_time</code>; only the state vectors differ per scene</td>
+<td>the scene date is the file name</td>
+<td>W201 once per stack; <code>acq_utc</code> = file-name date at day precision (<code>2024-09-02</code>); with <code>--annotation</code> the SAFE <code>startTime</code> of every date that has a SAFE</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Half-seconds times</strong></td>
+<td><code>start_time 42612.60 s</code>, <code>center_time 42618.89 s</code>, <code>end_time 42625.18 s</code> (of day)</td>
+<td>the SAFE says 23:40:25 – 23:40:52 UTC = 85225 – 85252 s of day: the par values are exactly half</td>
+<td>not used at all (see 3); documented here, not fixed — one stack is not enough to code a rule</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Geo layer <code>.par</code> is a copy of the SLC par</strong></td>
+<td><code>geo/&lt;ref&gt;.lat.par</code> says <code>image_format FCOMPLEX</code>, <code>range_samples/azimuth_lines</code></td>
+<td>the layer is REAL*4</td>
+<td>the reader accepts <code>width/nlines</code> <strong>or</strong> <code>range_samples/azimuth_lines</code> and never trusts <code>image_format</code> for a geo layer; the file size check guards the dtype (E203)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Malformed <code>.base</code> sidecars</strong></td>
+<td><code>initial_baseline(TCN)</code> of 20240821_20240809, _20241231, _20250524 hold 1e11 – 1e15 m</td>
+<td>garbage (the same three dates MintPy dropped)</td>
+<td>E205 from <code>parse_base</code>; W202 on the stack, the interferogram is kept, the pair has no baseline row until v0.2.0 recomputes B⊥ from orbits</td>
+</tr>
+</tbody>
+</table>
+<p>Baselines: B⊥ = B_C cos θ − B_N sin θ with θ the look angle at the scene-centre range (from the
+radii and the range axis — hence quirks 1–2 move B⊥: 223.8 m nominal vs 216.1 m in SNAP's own
+metadata for 20240821_20240704).</p>
+<p><strong>MintPy's <code>bperp</code> of this stack is not a perpendicular baseline.</strong> The author's
+<code>ifgramStack.h5</code> stores, per pair, the raw C (cross-track) component of the <code>.base</code> TCN vector
+(<code>gamma_utils.read_baseline</code>; 261.21 m for 20240821_20240704 where the projected B⊥ is
+213.9 m). Bosar always stores the projected B⊥ above. answer 4: the MintPy
+exporter writes the projected value; a <code>--mintpy-legacy-bperp</code> flag will reproduce
+the raw C component when a result has to be compared with the author's existing MintPy runs.</p>
+<h3 id="deburst-grid-timing-and-height-reference">Deburst grid timing and height reference<a class="headerlink" href="#deburst-grid-timing-and-height-reference" title="Permanent link">&para;</a></h3>
+<p>Verified against SNAP's <code>geo/20240821.lat/.lon</code> with Bosar's own <code>rdr2geo</code> (probe p21, median
+0.046 px, p95 0.086 px over 198 594 samples):</p>
+<table>
+<thead>
+<tr>
+<th>quantity</th>
+<th>where it comes from</th>
+<th>value (IW2, 20240821)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>first line UTC</td>
+<td>annotation <code>productFirstLineUtcTime</code> (= SAFE <code>startTime</code>; the par's <code>start_time</code> is <strong>half</strong> the seconds of day, quirk 4)</td>
+<td>23:40:25.206955</td>
+</tr>
+<tr>
+<td>line interval</td>
+<td>annotation <code>azimuthTimeInterval</code> (= par <code>azimuth_line_time</code>, correct)</td>
+<td>2.0555563 ms</td>
+</tr>
+<tr>
+<td>number of lines</td>
+<td><code>(productLastLineUtcTime − productFirstLineUtcTime) / interval + 1</code></td>
+<td>12239 = <code>azimuth_lines</code></td>
+</tr>
+<tr>
+<td>near range</td>
+<td>annotation <code>slantRangeTime · c / 2</code> (the par's <code>center_range_slc</code>; its <code>near_range_slc</code> is centre − (N−1)/2 × a nominal 2 m)</td>
+<td>845 452.572 m</td>
+</tr>
+<tr>
+<td>range spacing</td>
+<td><code>c / (2 · rangeSamplingRate)</code> (= annotation <code>rangePixelSpacing</code>)</td>
+<td>2.329562 m</td>
+</tr>
+<tr>
+<td><code>elevation_dem.rdc</code></td>
+<td><strong>ellipsoidal</strong> heights (SNAP applies the geoid before writing); a ±33.5 m shift moves the solution by 11 px in range</td>
+<td>112–332 m over the scene</td>
+</tr>
+<tr>
+<td>look side</td>
+<td>right: nadir × velocity</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bosar-crop-datacroppy-reader-crop">Bosar crop (<code>data/crop.py</code>, reader <code>crop</code>)<a class="headerlink" href="#bosar-crop-datacroppy-reader-crop" title="Permanent link">&para;</a></h2>
+<p><code>crop.json</code> + little-endian tiled GeoTIFFs written by <code>bosar data crop</code>. Carries the source
+sha256, the window, the shifted geometry and its <code>provenance</code> (so a crop made with
+<code>--annotation</code> keeps the corrected scalars). No quirks — it is our own format.</p>
+<h2 id="sentinel-1-safe-datasentinel1_safepy-reader-safe">Sentinel-1 SAFE (<code>data/sentinel1_safe.py</code>, reader <code>safe</code>)<a class="headerlink" href="#sentinel-1-safe-datasentinel1_safepy-reader-safe" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The author's unzipped SAFEs are VV-only and have no <code>annotation/calibration/</code> (W203); the VH
+  files listed in the manifest are absent (warning, VV opens).</li>
+<li>The 20240704 IW1 measurement TIFF is a 1-byte placeholder → E203 naming SAFE, swath, file,
+  actual and expected bytes; <code>--swaths IW2,IW3</code> opens the rest.</li>
+<li>Times in the annotation are UTC with microseconds; the geolocation grid holds degrees
+  (converted to radians on read).</li>
+</ul>
+<h3 id="burst-quirks-the-native-tops-chain-databurstpy">Burst quirks (the native TOPS chain; <code>data/burst.py</code>)<a class="headerlink" href="#burst-quirks-the-native-tops-chain-databurstpy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A burst's <code>azimuthTime</code> is the zero-Doppler time of its line 0 (<code>sensingTime</code> is the raw
+  acquisition start); the bursts of one date share the azimuth grid, so the start differences
+  are integer multiples of <code>azimuthTimeInterval</code> to ~1e-9 lines.</li>
+<li>The valid region is per line: <code>firstValidSample</code> / <code>lastValidSample</code> arrays with <code>-1</code> on the
+  invalid lines at both ends; ISCE2's rectangle (the run of valid lines, the samples common to
+  its first and last line) is what the merge and ESD use. Consecutive bursts overlap by about
+  100 lines; the merged grid cuts the overlap in the middle.</li>
+<li><code>azimuthFmRate</code> and <code>dcEstimate</code> are lists of polynomials in <code>τ − t0</code> with <code>τ = 2 r / c</code>;
+  each burst takes the entry nearest its mid time (ISCE2). <code>azimuthSteeringRate</code> is in deg/s.</li>
+<li>The PRF lives in <code>generalAnnotation/downlinkInformationList/downlinkInformation/prf</code> (older
+  annotations may lack it; the model keeps <code>prf_hz=None</code>) — <code>azimuthTimeInterval</code>, not the
+  PRF, is the line spacing of the focused product.</li>
+<li>The raw pool's zips store the measurement TIFFs deflate-compressed (1.4 GB → 0.9 GB), so
+  random access through the zip is not possible: <code>extract_safe_members</code> inflates manifest,
+  annotation and measurement of one sub-swath into <code>&lt;project&gt;/cache/safe/&lt;name&gt;.SAFE/</code> once.</li>
+<li>Orbit state vectors in the annotation are seconds of day; a product near midnight gets
+  vectors of the previous / next day (unwrapped by ±86400 s against the product start).</li>
+</ul>
+<h3 id="sentinel-1d-next-to-sentinel-1a-and-newer-processor-versions">Sentinel-1D next to Sentinel-1A, and newer processor versions<a class="headerlink" href="#sentinel-1d-next-to-sentinel-1a-and-newer-processor-versions" title="Permanent link">&para;</a></h3>
+<p>Track 121 (ascending) over Indianapolis, sub-swath IW2, as read from the products on disk:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>S1A 2024-08-21</th>
+<th>S1A 2026-06-24</th>
+<th>S1D 2026-07-13</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IPF version</td>
+<td>003.80</td>
+<td>004.03</td>
+<td>004.03</td>
+</tr>
+<tr>
+<td>radar frequency [Hz]</td>
+<td>5 405 000 454.33</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>range sampling rate [Hz]</td>
+<td>64 345 238.13</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>azimuth time interval [s]</td>
+<td>2.0555563e-3</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>azimuth steering rate [deg/s]</td>
+<td>0.97986</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>processed range bandwidth [Hz]</td>
+<td>48.3e6</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>lines x samples per burst</td>
+<td>1505 x 25925</td>
+<td>1504 x 25389</td>
+<td>1504 x 25389</td>
+</tr>
+<tr>
+<td>slant range time of sample 0 [s]</td>
+<td>5.6402524e-3</td>
+<td>5.6406765e-3</td>
+<td>5.6406747e-3</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>S1D is handled like S1A / S1C</strong>: the same annotation schema, the same relative-orbit
+  track (121), precise orbits named <code>S1D_OPER_AUX_POEORB_...</code> (ASF mirror, CDSE), product names
+  <code>S1D_IW_SLC__...</code>. Nothing in the reader or the burst model is platform specific; the
+  platform is recorded per date (<code>secondaries.&lt;date&gt;.mission</code> in the stack record) so that
+  cross-platform interferograms can be told apart.</li>
+<li><strong>The burst size is not a constant of the track.</strong> The 2026 products (IPF 004.03, S1A and
+  S1D alike) have one line and 536 samples fewer per burst and start 63.5 m farther in slant
+  range than the 2024 ones. The native chain resamples every secondary onto the reference's
+  burst grid from the geometry, so the mix needs no special case; a reader that assumes one
+  burst shape per stack would fail.</li>
+<li><strong>Azimuth timing of S1D against S1A.</strong> ESD on the two S1D dates coregistered to the S1A
+  reference converged to +0.0455 and +0.0468 lines (94 microseconds, about 0.65 m along track),
+  against 0.0001 ... 0.009 lines (absolute) for the 49 converged S1A dates of the same stack: a constant
+  along-track timing offset between the platforms, removed by ESD. Without ESD (geometry only)
+  a cross-platform interferogram would carry a burst-edge phase jump of about
+  <code>2 pi * 0.046 * dt * 4.5 kHz = 2.7 rad</code>.</li>
+<li>Range: the cross-correlation check gives -0.063 and -0.048 px for the S1D dates, inside the
+  scatter of the S1A dates (-0.19 ... +0.12 px).</li>
+<li>S1D phases 7 days after S1A on this track in mid 2026 (S1A 2026-06-24, S1D 2026-07-13 =
+  +19 days = 12 + 7): cross-platform pairs have temporal baselines of 7 + 12 k days.</li>
+</ul>
+<h3 id="range-shift-of-a-date-by-ipf-version-and-what-it-really-is">Range shift of a date by IPF version, and what it really is<a class="headerlink" href="#range-shift-of-a-date-by-ipf-version-and-what-it-really-is" title="Permanent link">&para;</a></h3>
+<p>The amplitude cross-correlation of every date against the reference (20240821) on the
+downtown crop of track 121, IW2 bursts 6–8, 88 secondaries 2023-07-10 … 2026-09-23
+(<code>scripts/range_shift_by_ipf.py</code>):</p>
+<table>
+<thead>
+<tr>
+<th>IPF</th>
+<th>platform</th>
+<th>dates</th>
+<th>first – last</th>
+<th>median shift [px]</th>
+<th>min / max [px]</th>
+<th>max burst spread [px]</th>
+<th>applied</th>
+<th>&gt; 0.1 px (W209)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>003.61</td>
+<td>S1A</td>
+<td>9</td>
+<td>20230710 – 20231014</td>
+<td>+0.013</td>
+<td>−0.067 / +0.048</td>
+<td>0.014</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>003.71</td>
+<td>S1A</td>
+<td>20</td>
+<td>20231026 – 20240610</td>
+<td>−0.027</td>
+<td>−0.195 / +0.087</td>
+<td>0.014</td>
+<td>13</td>
+<td>5</td>
+</tr>
+<tr>
+<td>003.80</td>
+<td>S1A</td>
+<td>12</td>
+<td>20240622 – 20241113</td>
+<td>+0.036</td>
+<td>−0.064 / +0.122</td>
+<td>0.018</td>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td>003.90</td>
+<td>S1A</td>
+<td>8</td>
+<td>20241125 – 20250217</td>
+<td>−0.100</td>
+<td>−0.128 / +0.018</td>
+<td>0.020</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>003.91</td>
+<td>S1A</td>
+<td>9</td>
+<td>20250301 – 20250605</td>
+<td>+0.018</td>
+<td>−0.103 / +0.100</td>
+<td>0.012</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>003.92</td>
+<td>S1A</td>
+<td>10</td>
+<td>20250617 – 20251003</td>
+<td>−0.002</td>
+<td>−0.102 / +0.076</td>
+<td>0.013</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>004.00</td>
+<td>S1A</td>
+<td>5</td>
+<td>20251015 – 20251202</td>
+<td>−0.078</td>
+<td>−0.173 / +0.007</td>
+<td>0.022</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>004.01</td>
+<td>S1A</td>
+<td>1</td>
+<td>20251214</td>
+<td>−0.188</td>
+<td>—</td>
+<td>0.007</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>004.02</td>
+<td>S1A</td>
+<td>1</td>
+<td>20260107</td>
+<td>−0.129</td>
+<td>—</td>
+<td>0.004</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>004.03</td>
+<td>S1A, S1D</td>
+<td>13</td>
+<td>20260224 – 20260923</td>
+<td>−0.063</td>
+<td>−0.155 / +0.030</td>
+<td>0.024</td>
+<td>7</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The shifts do not cluster by IPF version</strong> — within almost every version they span ±0.1 px.
+They are <strong>propagation delays</strong> (<code>scripts/range_shift_vs_era5.py</code>): the change of the
+tropospheric delay (ERA5 zenith total delay at the crop centre, 1 / cos θ) and of the
+ionospheric <strong>group</strong> delay (40.31 TEC / f², 1.38 cm per TECU at 5.405 GHz; slant TEC from the
+CODE rapid GIM at the pierce point) between the date and the reference:</p>
+<table>
+<thead>
+<tr>
+<th>predictor (87 dates)</th>
+<th>r</th>
+<th>R²</th>
+<th>residual std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>troposphere only</td>
+<td>0.36</td>
+<td>0.13</td>
+<td>0.064 px</td>
+</tr>
+<tr>
+<td>ionosphere only</td>
+<td>0.70</td>
+<td>0.49</td>
+<td>0.049 px</td>
+</tr>
+<tr>
+<td>troposphere + ionosphere</td>
+<td><strong>0.87</strong></td>
+<td><strong>0.76</strong></td>
+<td><strong>0.034 px (7.8 cm)</strong></td>
+</tr>
+<tr>
+<td>both with free coefficients</td>
+<td>—</td>
+<td>0.77</td>
+<td>0.033 px; coefficients 0.94 and 0.83</td>
+</tr>
+</tbody>
+</table>
+<p>The ionosphere dominates (±0.18 px: slant TEC differences of up to ±30 TECU between dates near
+the 2024–2025 solar maximum; the reference date has 46 TECU). The coregistration geometry has no
+atmosphere, so the envelope of a secondary sits where its group delay puts it; the range
+correction moves the envelope back and leaves the carrier phase alone (verified with the two
+versions of one date: 0.005 rad across the crop). The measured shift is thus also an
+independent, if coarse, estimate of the TEC difference of each date (0.03 px ≈ 5 TECU).</p>
+<p><strong>v0.4.0: the implied ΔSTEC per date is a product.</strong> <code>bosar aux range-shift &lt;project&gt;
+--stack &lt;id&gt; [--era5-dir] [--ionex-dir] --write</code> (<code>pipeline/auxdata/rangeshift.py</code>, which
+supersedes the v0.3.0 script) computes per secondary date the ERA5 zenith delay at the crop
+centre on the date and on the reference (the two hourly files around the acquisition, no
+download), <code>tropo_px = Δztd / cos θ / Δr</code>, <code>residual_px = measured − tropo</code>, and
+<code>implied_dstec_tecu = residual_px × Δr f₀² / (40.31 × 10¹⁶)</code> (168.8 TECU per pixel at 2.33 m and
+5.405 GHz); with IONEX maps on disk the GIM slant-TEC difference at the pierce point stands next
+to it (<code>gim_dstec_tecu</code>), and the summary carries the regressions of v0.3.0 plus
+<code>implied_vs_gim</code>. <code>--write</code> stores the values in every date's <code>coreg.json</code>
+(<code>record.range_cc.delay</code>, with the sign convention) and in the coregistration step's summary
+(<code>range_shift_delay</code>, <code>range_shift_delay_fit</code>); <code>bosar sbas quality</code> then prints the
+<code>shift[px]</code>, <code>dSTEC[TECU]</code> and <code>GIM[TECU]</code> columns in its per-date table. Sign: a positive shift
+is a later echo (more delay on the date than on the reference); ΔSTEC = STEC(date) −
+STEC(reference).</p>
+<h3 id="thermal-noise-annotation-and-ipf-versions-datanoisepy">Thermal-noise annotation and IPF versions (<code>data/noise.py</code>)<a class="headerlink" href="#thermal-noise-annotation-and-ipf-versions-datanoisepy" title="Permanent link">&para;</a></h3>
+<p><code>annotation/calibration/noise-&lt;mission&gt;-&lt;swath&gt;-&lt;product&gt;-&lt;pol&gt;-&lt;start&gt;-...xml</code>, one per
+sub-swath and polarisation, named like the calibration XML; read from the zip without
+extraction. Values are noise power in DN^2 (the unit of <code>|DN|^2</code>), linear. Two layouts:</p>
+<table>
+<thead>
+<tr>
+<th>IPF</th>
+<th>elements</th>
+<th>noise power</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.90 and later (from March 2018)</td>
+<td><code>noiseRangeVectorList/noiseRangeVector</code>: <code>azimuthTime</code>, <code>line</code>, <code>pixel</code> (list), <code>noiseRangeLut</code> (list); <code>noiseAzimuthVectorList/noiseAzimuthVector</code>: <code>swath</code>, <code>firstAzimuthLine</code>, <code>firstRangeSample</code>, <code>lastAzimuthLine</code>, <code>lastRangeSample</code> (inclusive), <code>line</code> (list), <code>noiseAzimuthLut</code> (list)</td>
+<td>range(line, sample) x azimuth(line) inside each block</td>
+</tr>
+<tr>
+<td>before 2.90</td>
+<td><code>noiseVectorList/noiseVector</code>: <code>azimuthTime</code>, <code>line</code>, <code>pixel</code>, <code>noiseLut</code></td>
+<td>range only</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The IPF version is in <code>manifest.safe</code>: <code>&lt;safe:software name="Sentinel-1 IPF"
+  version="003.80"/&gt;</code> under the <code>processing</code> metadata object (the annotation XML does not
+  carry it). The Indianapolis products are 003.80 (2024) and 004.03 (2026).</li>
+<li>IW SLC (xarray-sentinel's S1B 2021-04-01 test product, IPF 003.31, IW1, 9 bursts of 1501
+  lines, 21632 samples): one range vector per burst, 542 pixels every 40 samples ending at
+  21631, plus one vector at the product stop time; one azimuth block over the whole sub-swath
+  (lines 0-13508, samples 0-21631) with a value every 10 lines that follows the TOPS
+  scalloping (about 1.16 at a burst edge).</li>
+<li><strong>Quirk: the range vectors' <code>line</code> is one burst early in TOPS SLC.</strong> The vector whose
+  <code>azimuthTime</code> equals burst k's <code>azimuthTime</code> has <code>line</code> = first line of burst k-1 (-1501 for
+  burst 0; the calibration vectors of the same product map time to line correctly). Bosar picks
+  each burst's range vector by azimuth time, as SNAP does; interpolating by <code>line</code> would give
+  every burst its successor's vector (a few percent of noise power, tenths of a dB near the
+  noise floor).</li>
+<li>The azimuth <code>line</code> list and the block bounds are image lines of the sub-swath (burst k
+  starts at <code>k x linesPerBurst</code>), the same frame as the calibration LUT.</li>
+<li><code>tests/synthetic/safe.py</code> writes <code>&lt;noise/&gt;</code> placeholders with <code>with_calibration=True</code>: an
+  unusable annotation (E205 when read; <code>thermal_noise=auto</code> then skips the subtraction).</li>
+</ul>
+<h2 id="snap-beam-dimap-databeam_dimappy-reader-dimap-synthetic-fixtures-only-so-far">SNAP BEAM-DIMAP (<code>data/beam_dimap.py</code>, reader <code>dimap</code>) — synthetic fixtures only so far<a class="headerlink" href="#snap-beam-dimap-databeam_dimappy-reader-dimap-synthetic-fixtures-only-so-far" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>Abstracted_Metadata/radar_frequency</code> is in <strong>MHz</strong>; <code>.img</code> bands are big-endian ENVI.</li>
+</ul>
+<h2 id="isce2-topsstack-dataisce_stackpy-reader-isce-synthetic-fixtures-only-so-far">ISCE2 topsStack (<code>data/isce_stack.py</code>, reader <code>isce</code>) — synthetic fixtures only so far<a class="headerlink" href="#isce2-topsstack-dataisce_stackpy-reader-isce-synthetic-fixtures-only-so-far" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>los.rdr</code> band 0 is the incidence angle in degrees, band 1 the azimuth angle; <code>reference/IW*.xml</code>
+  is needed for the wavelength and the slant-range axis.</li>
+<li>Bosar's native TOPS chain (<code>s1_coregister</code>) writes this layout itself, with the
+  addition <code>DATA_TYPE = CINT16</code> (int16 I/Q pairs, BIP; half the bytes of CFLOAT) when asked
+  for; the reader returns complex64 either way.</li>
+<li>The stripmap chain (<code>stripmap_coregister</code>) writes the same
+  layout with <code>reference/&lt;MODE&gt;.xml</code> (<code>FBS.xml</code>, <code>IMS.xml</code>, ...; the reader takes any
+  <code>reference/*.xml</code>, <code>IW*</code> first) carrying <code>dopplerCentroid</code> (the JSON of the slant-range Doppler
+  polynomial, <code>{"r0_m", "coeffs_hz"}</code>; absent = zero-Doppler), <code>azimuthPixelSize</code>, <code>prf</code>,
+  <code>lookSide</code>, <code>mission</code>; <code>orbits/&lt;date&gt;.json</code> (each date's state vectors, so <code>slc_flatten</code> and the
+  baselines need no project orbit file) and a <code>coreg.json</code> next to every SLC with that date's own
+  centroid, offsets and refinement.</li>
+</ul>
+<h2 id="ionex-10-global-ionosphere-maps-dataionexpy-synthetic-fixtures-only-so-far">IONEX 1.0 global ionosphere maps (<code>data/ionex.py</code>) - synthetic fixtures only so far<a class="headerlink" href="#ionex-10-global-ionosphere-maps-dataionexpy-synthetic-fixtures-only-so-far" title="Permanent link">&para;</a></h2>
+<p>Read for the order-of-magnitude test of the split-spectrum ionosphere (<code>docs/design/ionosphere.md</code>
+section 4). Format description: Schaer, Gurtner &amp; Feltens (1998), "IONEX: The IONosphere Map
+EXchange Format Version 1".</p>
+<ul>
+<li><strong>Fixed columns.</strong> Every header and map record carries its label in columns 61-80. Header
+  records read: <code>EPOCH OF FIRST MAP</code> / <code>EPOCH OF LAST MAP</code> (6I6, UTC), <code>INTERVAL</code> (I6, s),
+  <code># OF MAPS IN FILE</code>, <code>MAPPING FUNCTION</code> (COSZ / QFAC / NONE), <code>BASE RADIUS</code> (F8.1, km),
+  <code>MAP DIMENSION</code> (only 2 is supported: a single layer), <code>HGT1 / HGT2 / DHGT</code>,
+  <code>LAT1 / LAT2 / DLAT</code>, <code>LON1 / LON2 / DLON</code> (2X,3F6.1; km, degrees), <code>EXPONENT</code> (I6, default
+  -1). <code>START OF AUX DATA</code> ... <code>END OF AUX DATA</code> blocks (differential code biases) are skipped.</li>
+<li><strong>Maps.</strong> <code>START OF TEC MAP</code> (I6 index), <code>EPOCH OF CURRENT MAP</code>, then per latitude band a
+  <code>LAT/LON1/LON2/DLON/H</code> record (2X,5F6.1) followed by the band's values, 16 per line (I5); <code>END
+  OF TEC MAP</code>. RMS maps the same (<code>START OF RMS MAP</code>); height maps (3-D files) are skipped.
+  Values are in <code>10**EXPONENT</code> TECU - an <code>EXPONENT</code> record inside a map overrides the header's
+  for that map; <code>9999</code> = no value (NaN). Latitudes usually run north to south (<code>DLAT &lt; 0</code>); a
+  global grid repeats -180 as +180.</li>
+<li><strong>End of day.</strong> CODE writes the last map of a daily file as hour 24 of that day
+  (<code>2024 12  3 24  0  0</code>); the reader accepts hour 24. An acquisition after the last map is
+  served by merging the next day's file (<code>merge_maps</code>).</li>
+<li><strong>Interpolation</strong> (<code>IonexMaps.vtec_at</code>): bilinear between the four nodes; between two maps
+  linear in time with the maps rotated by 360 deg/day (the "rotated maps" of the format
+  description: a point keeps its local solar time); NaN off the grid or next to a missing node.</li>
+<li><strong>Single layer.</strong> Shell height = <code>HGT1</code> (450 km for CODE / IGS), radius = <code>BASE RADIUS</code>
+  (6371 km); <code>sin z' = R / (R + H) sin z</code>, slant TEC = VTEC(pierce point) / cos z', the pierce
+  point <code>z - z'</code> of earth-central angle from the ground point toward the sensor.</li>
+<li><strong>Files.</strong> CODE final GIMs at <code>http://ftp.aiub.unibe.ch/CODE/YYYY/</code>:
+  <code>COD0OPSFIN_YYYYDDD0000_01D_01H_GIM.INX.gz</code> (25 hourly maps, 00:00-24:00 UTC) since GPS week
+  2238 (2022-11-27), <code>CODGDDD0.YYI.Z</code> before (<code>code_gim_candidates</code>). Plain and gzip files are
+  read; Unix-compress <code>.Z</code> files are refused with a hint (decompress them first). The library
+  never downloads; <code>scripts/validate_iono_winter.py</code> does, into its default <code>data/aux/ionex</code> (another
+  folder only with <code>--download</code>).</li>
+</ul>
+<h2 id="nisar-l1-rslc-datanisarpy-reader-nisar-real-granules-opened-a-real-pair-through-the-stripmap-chain">NISAR L1 RSLC (<code>data/nisar.py</code>, reader <code>nisar</code>) - real granules opened, a real pair through the stripmap chain<a class="headerlink" href="#nisar-l1-rslc-datanisarpy-reader-nisar-real-granules-opened-a-real-pair-through-the-stripmap-chain" title="Permanent link">&para;</a></h2>
+<p>One HDF5 granule -&gt; one <code>StripmapScene</code> per polarisation and frequency sub-band
+(<code>open_stripmap(path, polarisation="HH", frequency="A", band="L")</code>; <code>frequency</code> defaults to
+<code>auto</code> - A when the granule holds it, else the frequency it holds; <code>polarisation</code> to the first
+of the frequency's <code>listOfPolarizations</code>; <code>band</code> to the band the file holds, L before S).
+Registered as <code>nisar</code>; the sniffer accepts an HDF5 file (signature at offset 0 or after a
+power-of-two user block of 512 B to 64 KiB) that holds <code>/science/LSAR/RSLC/swaths</code> (or <code>SSAR</code>).</p>
+<h3 id="the-real-granules-provisional-l1-rslc-nisar_l1_rslc_provisional_v1">The real granules (provisional L1 RSLC, <code>NISAR_L1_RSLC_PROVISIONAL_V1</code>)<a class="headerlink" href="#the-real-granules-provisional-l1-rslc-nisar_l1_rslc_provisional_v1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>granule (cycle, track, frame, date)</th>
+<th>mode / pol code</th>
+<th>content</th>
+<th>size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cycle 33, track 40, frame 50, 2026-10-14</td>
+<td><code>0005</code> / <code>NASV</code></td>
+<td>frequency B alone: VV, 5 MHz, 13680 x 6393</td>
+<td>0.38 GB</td>
+</tr>
+<tr>
+<td>cycle 23, track 58, frame 53, 2026-06-18</td>
+<td><code>0505</code> / <code>SHSV</code></td>
+<td>frequency A: HH, 5 MHz; frequency B: VV, 5 MHz; 41040 x 6381 each</td>
+<td>2.19 GB</td>
+</tr>
+<tr>
+<td>cycle 24, track 58, frame 53, 2026-06-30</td>
+<td><code>0505</code> / <code>SHSV</code></td>
+<td>as above (the 12-day repeat of the same frame)</td>
+<td>2.19 GB</td>
+</tr>
+</tbody>
+</table>
+<p>What the reader found in them:</p>
+<ul>
+<li><strong>L band, left-looking, descending</strong> (<code>lookDirection</code> = <code>Left</code>, <code>orbitPassDirection</code> =
+  <code>Descending</code>). The track 58 / frame 53 granules hold 41040 lines x 6381 samples per
+  frequency, at a slant-range spacing of 24.98 m (25 m range pixels; the derived range
+  sampling rate <code>c / (2 dr)</code> is 6.0 MHz for the 5 MHz processed bandwidth).</li>
+<li><strong>A zero-Doppler grid with its own line rate</strong>: <code>zeroDopplerTimeSpacing</code> is 1/1520 s
+  (0.658 ms) while <code>nominalAcquisitionPRF</code> is 1911.1 Hz - the RSLC lines are not the radar
+  pulses. The reader takes the line interval from <code>zeroDopplerTimeSpacing</code>
+  (<code>azimuth_time_interval_s</code>) and keeps the PRF as <code>prf_hz</code>.</li>
+<li><strong>The mode and polarisation codes of the file name</strong>, read from these two kinds of granule
+  (not from a specification): two digits of processed bandwidth in MHz per frequency, A then
+  B (<code>0005</code>: no frequency A, 5 MHz on B; <code>0505</code>: 5 MHz on both), and two letters per
+  frequency (<code>NA</code>: not acquired; <code>SH</code> / <code>SV</code>: single polarisation HH / VV).</li>
+<li><strong>The centre frequency belongs to the frequency group</strong>, not to the letter: 1221.5 MHz on
+  frequency A and 1236.5 MHz on frequency B of the <code>0505</code> granules, 1221.5 MHz on the
+  frequency B of the <code>0005</code> granule (24.98 m slant spacing, the same first slant range - so
+  the stacks of frequency A and B coregistered with the same crop are cell-for-cell
+  comparable, which the two-band ionosphere estimator of <code>iono_split --source bands</code> relies
+  on). The wavelength is each scene's own
+  (<code>processedCenterFrequency</code> of the frequency opened). The stripmap chain does not compare
+  the scenes' wavelengths: pair granules of one mode (with <code>frequency="auto"</code>, a granule that
+  holds frequency A and one that holds frequency B alone open different sub-bands).</li>
+<li><strong>Orbit</strong>: <code>orbitType</code> = <code>MOE</code> (medium-precision) in all three.</li>
+</ul>
+<p><code>fetch slc</code> has no NISAR mission: the track 58 / frame 53 pair was found with <code>asf_search</code> and
+downloaded by Bosar's download loop (<code>bosar.fetch.slc</code>, resumable, the size and MD5 of the ASF record
+checked) with the Earthdata login. Two things of the ASF records were new: a NISAR record
+lists <code>bytes</code> <strong>per file of the granule</strong> (a dictionary - the HDF5's entry is the scene's
+size), and the scene name keeps its <code>.h5</code> extension.</p>
+<h3 id="the-first-pair-through-the-stripmap-chain">The first pair through the stripmap chain<a class="headerlink" href="#the-first-pair-through-the-stripmap-chain" title="Permanent link">&para;</a></h3>
+<p>Track 58 / frame 53, 2026-06-18 / 2026-06-30 (12 days), frequency A HH, cropped to
+69.05-69.30 N, 131.3-130.7 W (tundra, lakes and channels; 8186 lines x 957 samples after the crop),
+GLO-30 DEM: <code>pipeline stripmap-coregister --reader nisar</code> on the CPU in 308 s. Geometric offsets +556.5
+lines / +1.66 samples; the amplitude refinement adds a constant of +0.35 / -0.24 px (azimuth
+rms 0.96 px over 258 patches - the lakes and channels decorrelate; range rms 0.03 px).
+<code>B_perp</code> 60 m. The interferogram: coherence median 0.51 (67 % of the pixels &gt;= 0.4) at 12 days
+of L band in summer.</p>
+<p><strong>Left-looking geometry (fixed).</strong> The first interferogram showed about 28 fringes of
+flat-earth phase across 24 km of range (an unwrapped std of 49.8 rad): the imported stack's
+geometry carried no look side, so the flattening steps (<code>slc_flatten</code>, <code>ifg_flatten</code>), the
+stack's orbit geometry and the orbit baselines solved the ground point on the right of the
+track - the reader and the coregistration had the scene's side right. The stack geometry now
+carries the look side of its reference scene and every ground-point solution of a stack uses
+it. Re-flattened, the range ramp is gone (unwrapped std 5.2 rad). What remains is a smooth
+azimuth gradient of about 17 rad over 28 km (2.7 cycles); the ionosphere at 69 N in June or
+the medium-precision orbit are the candidates - not corrected.</p>
+<h3 id="reachability-probe-2026-10-16-asf_search-1403-metadata-only-no-login-nothing-downloaded">Reachability probe (2026-10-16, <code>asf_search</code> 14.0.3, metadata only, no login, nothing downloaded)<a class="headerlink" href="#reachability-probe-2026-10-16-asf_search-1403-metadata-only-no-login-nothing-downloaded" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>asf.search(platform="NISAR", processingLevel="RSLC", maxResults=25)</code> <strong>does return L1 RSLC
+  products</strong>: dataset <code>NISAR_L1_RSLC_PROVISIONAL_V1</code>, files at
+  <code>https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L1_RSLC_PROVISIONAL_V1/&lt;granule&gt;/&lt;granule&gt;.h5</code>
+  (the search was marked incomplete at 25, i.e. the archive holds more). <code>platform="NISAR"</code> alone
+  also lists <code>NISAR_L0B_RRSD_PROVISIONAL_V1</code> (L0B raw, 43 MB samples). A download needs an
+  Earthdata login (<code>bosar auth</code>), as for Sentinel-1; the pair above came through Bosar's
+  download loop that way.</li>
+<li>The newest 25 RSLC granules were all of 2026-10-14, cycle 033, tracks 032 and 033, ascending and
+  descending, frames 013-155, <strong>0.76-30.4 GB per <code>.h5</code></strong>, each with a <code>_LATLON.png</code> quick-look,
+  <code>_LATLON</code> / <code>_NATIVE</code> / <code>_NATIVE_A_&lt;pol&gt;</code> KMLs, an <code>.iso.xml</code>, a QA report (PDF), QA stats
+  (HDF5), a <code>_QA_SUMMARY.csv</code> and an <code>.rc.yaml</code> run configuration. Example (3.6 GB):
+  <code>NISAR_L1_PR_RSLC_033_033_A_045_0505_SVSH_A_20261014T114317_20261014T114401_P05023_N_F_J_001.h5</code>.
+  Name fields as observed: <code>&lt;cycle&gt;_&lt;track&gt;_&lt;A|D&gt;_&lt;frame&gt;_&lt;mode 0005|0505|2005|4005&gt;_&lt;pol code
+  NASV|NADV|SVSH|DHDH&gt;_&lt;A|M&gt;_&lt;start&gt;_&lt;stop&gt;_P&lt;orbit&gt;_N_&lt;F|P&gt;_J_&lt;version&gt;</code> - the meaning of the mode
+  and polarisation codes is not in a specification on disk; what the granules opened since
+  show is in the section above.</li>
+<li>A later search listed more than 600 RSLC granules, and one frame repeats every 12 days:
+  the pair above is such a repeat.</li>
+</ul>
+<h3 id="layout-what-was-verified-against-which-source">Layout: what was verified against which source<a class="headerlink" href="#layout-what-was-verified-against-which-source" title="Permanent link">&para;</a></h3>
+<p>The product specification (JPL D-102274) is not on disk; the paths in the reader's docstring
+table were reconstructed from the open ISCE3 sources (Apache-2.0; read, nothing copied):</p>
+<table>
+<thead>
+<tr>
+<th>item</th>
+<th>source</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dataset names, dtypes and <code>units</code> strings under <code>RSLC/swaths/</code>, <code>RSLC/swaths/frequencyA/</code>, <code>RSLC/metadata/orbit/</code>, <code>metadata/processingInformation/parameters/frequencyA/</code>, <code>metadata/calibrationInformation/</code></td>
+<td>ISCE3 writer <code>python/packages/nisar/products/writers/SLC.py</code></td>
+<td>verified in source</td>
+</tr>
+<tr>
+<td>which datasets the ISCE3 swath / metadata loader reads (<code>zeroDopplerTime</code>, <code>zeroDopplerTimeSpacing</code> in the swaths group; <code>slantRange</code>, <code>processedCenterFrequency</code>, <code>nominalAcquisitionPRF</code>, <code>processedRangeBandwidth</code>, <code>processedAzimuthBandwidth</code>, <code>numberOfSubSwaths</code>, <code>validSamplesSubSwathN</code> in the frequency group)</td>
+<td><code>cxx/isce3/product/Serialization.h</code></td>
+<td>verified in source</td>
+</tr>
+<tr>
+<td>identification datasets (<code>zeroDopplerStartTime</code>, <code>zeroDopplerEndTime</code>, <code>lookDirection</code>, <code>orbitPassDirection</code>, <code>absoluteOrbitNumber</code>, <code>listOfFrequencies</code>, <code>boundingPolygon</code>, <code>missionId</code>, <code>productType</code>; bytes scalars)</td>
+<td><code>python/packages/nisar/products/readers/Base/Identification.py</code></td>
+<td>verified in source; <code>trackNumber</code> (uint32) and <code>frameNumber</code> (uint16) from the writer</td>
+</tr>
+<tr>
+<td>reference epoch of every time axis: attribute <code>units</code> = <code>seconds since YYYY-MM-DDTHH:MM:SS</code> (integer seconds) or <code>...:SS.fffffffff</code></td>
+<td><code>cxx/isce3/io/Serialization.h</code> (<code>setRefEpoch</code> / <code>getRefEpoch</code>)</td>
+<td>verified in source; the reader accepts both, and a space instead of the <code>T</code></td>
+</tr>
+<tr>
+<td>orbit group: <code>time</code>, <code>position</code> (meters), <code>velocity</code> (meters / second), <code>orbitType</code> (FOE / NOE / MOE / POE / Custom, default <code>Undefined</code>), <code>interpMethod</code> (Hermite / Legendre)</td>
+<td><code>cxx/isce3/core/Serialization.h</code></td>
+<td>verified in source</td>
+</tr>
+<tr>
+<td>image dtype <code>complex32</code> = compound <code>('r', float16), ('i', float16)</code>; <code>complex64</code> also possible</td>
+<td><code>python/packages/isce3/core/types.py</code>; probe with h5py 3.16 (<code>.dtype</code> returns the compound, no <code>c4</code> error; <code>ds.astype(complex32)[window]</code> slices lazily)</td>
+<td>verified</td>
+</tr>
+<tr>
+<td><code>lookDirection</code> / <code>orbitPassDirection</code> spellings</td>
+<td>writer asserts <code>Ascending</code> / <code>Descending</code>; <code>lookDirection</code> is copied from the L0B</td>
+<td>seen on the real granules: <code>Left</code>, <code>Descending</code>; the reader compares case-insensitively</td>
+</tr>
+<tr>
+<td>the image grid is zero-Doppler (<code>doppler</code> = zero polynomial); the <code>dopplerCentroid</code> LUT under <code>processingInformation/parameters/frequencyA/</code> is the raw-data Doppler used in focusing</td>
+<td>ISCE3 focusing design</td>
+<td><strong>assumed</strong>; consistent with the real pair (the geometric coregistration from the zero-Doppler grid is within 0.35 lines of the amplitude refinement); the LUT's max</td>
+</tr>
+<tr>
+<td>SLC phase sign = ISCE's <code>-4 pi R / lambda</code> (Bosar's convention), no conjugation</td>
+<td>-</td>
+<td><strong>assumed</strong>; consistent with the real pair (its flat-earth phase cancels on flattening, where the opposite sign would double it); the reader still sets <code>extra["phase_sign_verified"] = False</code></td>
+</tr>
+<tr>
+<td>range sampling rate: the product has none; <code>range_sampling_rate_hz = c / (2 slantRangeSpacing)</code></td>
+<td>-</td>
+<td>derivation, noted in <code>extra["range_sampling_rate_source"]</code></td>
+</tr>
+<tr>
+<td><code>calibration_db</code>: none - the RSLC carries linear <code>scaleFactor</code> / <code>differentialDelay</code> / <code>differentialPhase</code> per polarisation</td>
+<td>writer</td>
+<td><code>scaleFactor</code> kept in <code>extra["calibration_scale_factor"]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Checks the reader makes (all E205 / E204 with the HDF5 path in <code>dataset</code>): every required path
+present; <code>zeroDopplerTime</code> and <code>slantRange</code> uniform at their stated spacings (1e-6 of the step
+plus 16 ulp of the stored values, so a reference epoch months before the scene passes);
+<code>processedCenterFrequency</code> between 0.1 and 100 GHz; image shape equal to the axes; the orbit
+usable (&gt;= 4 vectors, increasing times); the polarisation listed and present; the frequency in
+<code>listOfFrequencies</code>. Times are converted from the product's reference epochs (one per time axis)
+to seconds after midnight UTC of the <code>zeroDopplerStartTime</code> date; the orbit is rebased to the
+same epoch. Non-finite samples are read as <code>0 + 0j</code>.</p>
+<p>Fixture: <code>tests/synthetic/nisar.py</code> writes the layout above from a <code>synthetic_scene</code> (complex32
+or complex64 images, several polarisations, frequency A or B, distinct reference epochs for the
+time axis and the orbit, <code>omit=</code> for the missing-path tests). The quirks of the real granules
+(frequency B alone, the line rate below the PRF, the left look side, the per-file sizes of the
+ASF records) are in the sections above; the fixture writes one frequency per granule, so a
+<code>0505</code>-style granule with two frequencies at different centre frequencies exists only as real
+data.</p>
+<h2 id="envisat-asar-ims-and-ers-ims-in-the-envisat-format-dataasarpy-readers-asar-ers_envisat">ENVISAT ASAR IMS and ERS IMS in the Envisat format (<code>data/asar.py</code>, readers <code>asar</code> / <code>ers_envisat</code>)<a class="headerlink" href="#envisat-asar-ims-and-ers-ims-in-the-envisat-format-dataasarpy-readers-asar-ers_envisat" title="Permanent link">&para;</a></h2>
+<p>The author's 26 products over Mexico City (track 255, descending, frame 3213; catalogue in
+<code>mexico_city_esa_products.md</code>): 20 <code>ASA_IMS_1P...N1</code> (ENVISAT ASAR, IS2, VV, 2003-03-07 ...
+2010-06-18) and 6 <code>SAR_IMS_1P...E1/.E2</code> (ERS-1 1996-05-16, ERS-2 1996-05-17 ... 2000-03-17).
+All were produced by ESA's on-the-fly service in October 2026 with <code>SOFTWARE_VER="ASAR/7.00"</code>:
+the ERS scenes come from the ASAR processor in the ASAR product format, so one parser serves
+both flavours, with a sensor table (<code>asar.SENSORS</code>) for the nominal constants that are only
+checked (W223), never substituted. The ESA specification (PO-RS-MDA-GS-2009 vol. 8) was not on
+disk: ISCE2's <code>EnviSAT_SLC.py</code> gave the MPH / SPH / DSD scheme and the first offsets of three
+records, the rest of the layout was reconstructed on the products (the <code>data/asar.py</code> module
+docstring lists every offset read; big-endian throughout). Opened through
+<code>bosar.data.stripmap.open_stripmap</code> as a <code>StripmapScene</code>; <code>scripts/validate_asar_products.py</code>
+prints the report below for a folder.</p>
+<h3 id="what-the-products-say">What the products say<a class="headerlink" href="#what-the-products-say" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ASAR IMS (IS2, VV)</th>
+<th>ERS-1 IMS</th>
+<th>ERS-2 IMS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>radar frequency [Hz] (MPP 987)</td>
+<td>5 331 004 416 (float32 of 5.331004416 GHz)</td>
+<td>5 299 999 744 (float32 of 5.3 GHz)</td>
+<td>same</td>
+</tr>
+<tr>
+<td>range sampling rate [Hz] (MPP 983)</td>
+<td>19 207 680</td>
+<td>18 962 468</td>
+<td>same</td>
+</tr>
+<tr>
+<td>chirp / processed range bandwidth [Hz] (MPP 743 / 1024)</td>
+<td>16.0e6 / 16.0e6</td>
+<td>15.55e6 / 15.55e6</td>
+<td>same</td>
+</tr>
+<tr>
+<td>PRF [Hz] (MPP 703) = 1 / <code>line_time_interval</code></td>
+<td>1652.4156 (6.0517463e-4 s)</td>
+<td>1679.9023 (5.9527281e-4 s)</td>
+<td>same</td>
+</tr>
+<tr>
+<td>processed azimuth bandwidth [Hz] (MPP 1274)</td>
+<td>1316</td>
+<td>1378</td>
+<td>1378</td>
+</tr>
+<tr>
+<td>lines x samples; MDS record</td>
+<td>30 334-30 377 x 5168, 20 689 B (20090911: 29 431 x 5160)</td>
+<td>30 940 x 4992, 19 985 B</td>
+<td>29 114-30 940 x 4991-4992</td>
+</tr>
+<tr>
+<td>first-pixel two-way time [ns] (grid) / slant range [m]</td>
+<td>5 502 445.0 / 824 795.8</td>
+<td>5 522 634.5 / 827 822.1</td>
+<td>same</td>
+</tr>
+<tr>
+<td>range spreading-loss reference <code>range_ref</code> [m] (MPP 979)</td>
+<td>800 000</td>
+<td>847 000</td>
+<td>847 000</td>
+</tr>
+<tr>
+<td>external calibration constant K (MPP 1381)</td>
+<td>32 284.94</td>
+<td>65 026.0</td>
+<td>93 325.3</td>
+</tr>
+<tr>
+<td>processing scaling factor (MPP 1377)</td>
+<td>120 000</td>
+<td>403 597.7</td>
+<td>same</td>
+</tr>
+<tr>
+<td>filters, looks</td>
+<td>HAMMING 0.75 range and azimuth, 1 x 1</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>scene height of the geolocation grid [m] (MPP 1541)</td>
+<td>2527.35 (20090911: 0.0)</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>state vectors (MPP 1765 + 36 k)</td>
+<td>5, first to last line, 4.59 s apart, 1e-2 m / 1e-5 m/s, Earth-fixed</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td><code>VECTOR_SOURCE</code>; <code>ORBIT STATE VECTOR 1</code> DSD</td>
+<td><code>DP</code>; <code>DOR_VOR_AXVF-P...</code></td>
+<td><code>PC</code>; <code>DOR_VOR_AXVF-P1996...</code></td>
+<td><code>PC</code>; <code>DOR_VOR_...</code></td>
+</tr>
+<tr>
+<td>mid-swath Doppler centroid [Hz] (DOP ADS)</td>
+<td>-15 ... -143 (confidence 0.99)</td>
+<td>+133</td>
+<td>-91 ... -349 (0.97-0.98)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quirks-and-decisions">Quirks and decisions<a class="headerlink" href="#quirks-and-decisions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Quirk</th>
+<th>What the file says</th>
+<th>What is true / what Bosar does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Signed MJD days</strong></td>
+<td>MJD fields are <code>days, seconds, microseconds</code> since 2000-01-01</td>
+<td>the day is a signed i32 (<code>-1325</code> for 1996-05-16); ISCE2 unpacks <code>&gt;3L</code> and would date the ERS scenes in 2117. Bosar reads <code>&gt;iII</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Scene height of the geolocation grid</strong></td>
+<td>the ASAR grids' lat / lon (and the SPH corners) sit at <code>avg_scene_height_ellpsoid</code> = 2527.35 m (MPP offset 1541; ISCE2 reads 1537, four bytes early, as it reads the state vectors at 1761 instead of 1765)</td>
+<td>with h = 0 the ASAR tie points are 6.0 km off cross-track (6050 m on the ground = 2300 m along the line of sight at 23 deg); ERS grids and ASA 20090911 are at 0 m. <code>tie_point_agreement</code> and the chain's geocoding must use <code>extra["geolocation_grid"]["height_m"]</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>ERS products labelled <code>SWATH="IS2"</code></strong></td>
+<td>SPH <code>SWATH="IS2"</code> on ERS too (processor label)</td>
+<td><code>mode="IM"</code> from the flavour, the swath string kept in <code>extra["swath"]</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>State vectors span exactly the frame</strong></td>
+<td>five vectors at the first, last and three intermediate line times</td>
+<td>no margin for the geometry kernels: the reader extends them by <code>orbit_margin_s</code> (10 s) on both sides with two-body + J2 propagation in the Earth-fixed frame (<code>core.orbit.extend_orbit</code>); the model reproduces vector 4 from vector 0 (18.4 s) to 0.01-0.03 m on ASAR and 0.17-0.24 m on ERS (two-body alone: 1.5-1.8 m), and the MPH vector 20-60 s earlier to 0.01-0.35 m, which also confirms the Earth-fixed frame</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Doppler polynomial units</strong></td>
+<td><code>DOP CENTROID COEFFS ADS</code>: origin <code>slant_range_time</code> in ns, five coefficients</td>
+<td>the coefficients are Hz, Hz/s, Hz/s^2, ... of <code>tau - tau0</code> in <strong>seconds</strong> (c1 = -8.5e5 Hz/s on ASAR, -230 Hz across the swath); the origin is 5 samples past the first-sample time. Converted to slant range into <code>extra["processed_doppler_centroid"]</code>; the scene's own <code>doppler</code> is zero (zero-Doppler product)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Line timing</strong></td>
+<td><code>line_time_interval</code> float32 6.0517463e-4 s; every MDS line carries its own MJD stamp</td>
+<td>the stamps follow the interval to &lt; 1 us over the frame; the reader takes <code>(last - first) / (lines - 1)</code> (double precision, consistent with both ends) and reports the ADS value in <code>extra["line_time_interval_ads_s"]</code>; a disagreement above the stamp resolution is W223</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Zero-filled edges</strong></td>
+<td>first lines and last samples hold 0 + 0j (<code>quality_flag</code> 0 everywhere)</td>
+<td>no-data stays 0 + 0j as the contract says; the chain's valid mask comes from the samples</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Frame sizes vary</strong></td>
+<td>30 334-30 377 lines; 20090911 has 29 431 x 5160 and a 0 m grid; ERS 20000317 has 4991 samples, 19960517 29 114 lines</td>
+<td>every product carries its own geometry; nothing is assumed per track</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Float32 constants</strong></td>
+<td>radar frequency 5 299 999 744 Hz on ERS</td>
+<td>the product value is used as read (5e-8 relative to 5.3 GHz); the nominal table only checks it</td>
+</tr>
+</tbody>
+</table>
+<h3 id="geometry-convention-and-the-measured-agreement">Geometry convention and the measured agreement<a class="headerlink" href="#geometry-convention-and-the-measured-agreement" title="Permanent link">&para;</a></h3>
+<p>The products are focused to zero Doppler (<code>ALGORITHM="RAN/DOP"</code>, lines stamped with zero-Doppler
+times): line <code>row</code> is at <code>first_zero_doppler_time + row * dt</code>, sample <code>col</code> at the two-way time
+of the first grid sample plus <code>col / range_samp_rate</code>. Acceptance test
+(<code>tests/test_integration_asar_real.py</code>, <code>asar.tie_point_agreement</code>): <code>rdr2geo</code> of all 286 tie
+points (13 records x first and last line x 11 samples; 264 on the two short frames) from the
+product state vectors, at the grid's scene height, against the tie points' own lat / lon:</p>
+<table>
+<thead>
+<tr>
+<th>products</th>
+<th>max [m]</th>
+<th>median [m]</th>
+<th>along-track mean [m]</th>
+<th>cross-track mean [m]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20 ASAR</td>
+<td>0.35 ... 0.53</td>
+<td>0.14 ... 0.28</td>
+<td>-0.01 ... +0.09</td>
+<td>-0.23 ... -0.07</td>
+</tr>
+<tr>
+<td>6 ERS</td>
+<td>0.90 ... 1.25</td>
+<td>0.18 ... 0.28</td>
+<td>0.00 ... +0.07</td>
+<td>-0.09 ... -0.06</td>
+</tr>
+</tbody>
+</table>
+<p>(2026-10-16, all 26 products; the quantisation of the vectors and of the float32 range times is
+~0.1 m.) The zero-Doppler claim, the signed MJD, the 1-based lines and samples, the Earth-fixed
+frame and the scene height are all settled by this number; before the height was found the
+ASAR products were 7.4 km off.</p>
+<h3 id="calibration">Calibration<a class="headerlink" href="#calibration" title="Permanent link">&para;</a></h3>
+<p><code>calibration_db = -10 log10(K)</code> with <code>K = ext_cal_fact</code> (MPP 1381). The ESA convention for
+single-look complex ASAR products (Rosich &amp; Meadows 2004, ENVI-CLVL-EOPG-TN-03-0010) is
+<code>sigma0 = |z|^2 / K * (R / range_ref)^3 * sin(incidence)</code>; the per-pixel range and incidence
+terms are the caller's (<code>extra["calibration"]</code> carries K and <code>range_ref</code>). With it the mid-image
+<code>|z|^2</code> of 20030307 (mean |z| 66) gives -10.8 dB and that of ERS-1 19960516 (mean |z| 57) gives
+-15.4 dB for the same lake-bed area; the 4.6 dB gap is close to the 4.1 dB of <code>1 / sin 23 deg</code>
+of the ERS convention (reference incidence 23 deg, Laur et al. 2004), so the ERS constant may
+follow the ERS formula. Not verified on a target: an open point for the data report.</p>
+<h3 id="ers-caveats">ERS caveats<a class="headerlink" href="#ers-caveats" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ERS-2 lost its gyroscopes in January 2001; scenes from 2001-01-01 on get W224 (the Doppler
+  centroid may be ambiguities large; the annotation less reliable). All six ERS scenes on disk
+  predate that date. ERS-2 had already switched to one-gyro piloting in February 2000, and the
+  one scene after that switch, 2000-03-17, carries a mid-swath Doppler of -349 Hz (0.21 PRF)
+  against -91 ... -148 Hz on the 1996-2000-01 scenes (its tie points still agree to 1.25 m):
+  W224 follows the January 2001 rule of the task, so that scene is <em>not</em> flagged - check its
+  Doppler against its pair partner before trusting the azimuth spectra (the common-band filter
+  reads <code>extra["processed_doppler_centroid"]["mid_swath_hz"]</code> of both scenes).</li>
+<li>The 1996 tandem pair (ERS-1 1996-05-16, ERS-2 1996-05-17, 1 day): B_perp +128 m at the scene
+  centre from the product orbits; the two satellites share the 5.3 GHz carrier but carry
+  different calibration constants (65 026 / 93 325).</li>
+<li>Doppler centroids of -91 ... -349 Hz (ERS-2) and +133 Hz (ERS-1): the azimuth spectra of a
+  pair are offset by up to 0.3 PRF; the common-band filter of the chain needs the processed
+  Doppler of both scenes (<code>extra["processed_doppler_centroid"]</code>).</li>
+<li>ESA's reprocessed ERS orbits come as <code>DOR_VOR_AX</code> files (the ERS products' <code>ORBIT STATE VECTOR
+  1</code> DSD names <code>DOR_VOR_AXVF-P1996...</code>): the DORIS reader below serves ERS too; PRC is the legacy
+  D-PAF format, and the one the public mirror serves for ERS (<code>fetch orbits --mission ers</code>,
+  below).</li>
+</ul>
+<h3 id="pairs-for-the-stripmap-chain-from-the-product-orbits-scriptsvalidate_asar_productspy">Pairs for the stripmap chain (from the product orbits, <code>scripts/validate_asar_products.py</code>)<a class="headerlink" href="#pairs-for-the-stripmap-chain-from-the-product-orbits-scriptsvalidate_asar_productspy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>pair</th>
+<th>days</th>
+<th>B_perp [m]</th>
+<th>B_par [m]</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20100514 / 20100618</td>
+<td>35</td>
+<td>+168</td>
+<td>-73</td>
+<td>the only 35-day ASAR pair on disk: first ASAR pair</td>
+</tr>
+<tr>
+<td>20091225 / 20100305</td>
+<td>70</td>
+<td>+37</td>
+<td>+20</td>
+<td>smallest ASAR baseline with a short span</td>
+</tr>
+<tr>
+<td>20050624 / 20051111</td>
+<td>140</td>
+<td>+13</td>
+<td>+17</td>
+<td>smallest baseline overall</td>
+</tr>
+<tr>
+<td>19960516 / 19960517</td>
+<td>1</td>
+<td>+128</td>
+<td>-69</td>
+<td>ERS-1 / ERS-2 tandem pair</td>
+</tr>
+<tr>
+<td>20000107 / 20000317</td>
+<td>70</td>
+<td>-88</td>
+<td>+37</td>
+<td>ERS-2 / ERS-2</td>
+</tr>
+</tbody>
+</table>
+<p><code>B_perp</code> is the component of the secondary-minus-reference satellite vector along
+<code>v_hat x los_hat</code> at the reference scene centre (signed); the critical baseline at C band with
+16 MHz is about 1.1 km.</p>
+<h2 id="doris-and-prc-precise-orbits-datadorispy-pipelineauxdataesa_orbitspy-real-files-read">DORIS and PRC precise orbits (<code>data/doris.py</code>, <code>pipeline/auxdata/esa_orbits.py</code>) - real files read<a class="headerlink" href="#doris-and-prc-precise-orbits-datadorispy-pipelineauxdataesa_orbitspy-real-files-read" title="Permanent link">&para;</a></h2>
+<p>The readers were written against synthetic files (<code>tests/synthetic/envisat.py</code>, still the
+fixtures of the tests); the real files now come from ESA's public mirror and have been read
+for the ASAR and ERS pairs of the stripmap chain.</p>
+<p><strong>Where the files come from.</strong> ESA's own orbit servers need an EO Sign In account and FTP over
+TLS; the SNAP auxdata mirror (<code>step.esa.int</code>) serves the same files without a login, one zip
+per year:</p>
+<ul>
+<li>ENVISAT DORIS: <code>https://step.esa.int/auxdata/orbits/Doris/vor/&lt;YYYY&gt;.zip</code> (<code>DOR_VOR_AX</code>,
+  2002-2012). Inside: <code>&lt;YYYYMM&gt;/DOR_VOR_AX..._&lt;start&gt;_&lt;stop&gt;.zip</code>, one inner zip per file;
+  each file spans about 26.5 h (one state vector every 60 s) and is filed under the year and
+  month of its <strong>stop</strong> date, so a file starting on 30 or 31 December sits in the next year's
+  archive.</li>
+<li>ERS PRC: <code>https://step.esa.int/auxdata/orbits/ers_precise_orb/ERS&lt;1|2&gt;/&lt;YYYY&gt;.zip</code> (1991-2011).
+  Inside: <code>&lt;YYYY&gt;/PRC_&lt;yymmdd&gt;_&lt;orbit&gt;_rev2.zip</code>, one inner zip per file; each file is named by
+  the day of its first state vector, spans four to eight days (one vector every 30 s) and is
+  filed under the year of its <strong>start</strong>, so the last file of a year runs into January.</li>
+</ul>
+<p><code>bosar fetch orbits &lt;project&gt; --mission envisat|ers --product &lt;IMS product&gt;</code> (or <code>--date
+YYYYMMDD</code>, with <code>--satellite ERS1|ERS2</code> for ERS) downloads the year archives once into
+<code>&lt;project&gt;/aux/orbits/esa/&lt;mission&gt;/</code> (the neighbouring year's archive too for a date next to
+the year boundary; a short or corrupt download is not cached, a cached archive that no longer
+opens is downloaded again), extracts the inner files that may cover each date into
+<code>&lt;project&gt;/aux/orbits/esa/&lt;mission&gt;/files/</code>, reads them back and keeps those that touch the
+date. A row is <code>ok</code> when one file covers a product's sensing window (the files together the
+whole day of a bare date), <code>partial</code> when files touch the day but leave a gap, <code>missing</code> when
+none does. That <code>files</code> folder is what the stripmap chain takes as <code>--orbits &lt;folder&gt;</code>.</p>
+<p><strong>The formats.</strong></p>
+<ul>
+<li><strong>DORIS</strong> <code>DOR_VOR_AX...</code> (precise) / <code>DOR_POR_AX...</code> (preliminary): Envisat format (MPH,
+  SPH, one <code>DS_TYPE=M</code> data set named <code>DORIS PRECISE ORBIT</code> / <code>DORIS PRELIMINARY ORBIT</code>) of
+  ASCII records <code>dd-MMM-yyyy hh:mm:ss.ffffff  delta-UT1  abs-orbit  X Y Z  VX VY VZ  quality</code>,
+  one state vector per record (60 s apart in the real files), read by whitespace splitting
+  (tokens 0-1, 4-6, 7-9, 10) as ISCE2's <code>DOR</code> class does. Earth-fixed frame, UTC.</li>
+<li><strong>PRC</strong> (D-PAF / DLR, "DGM-E04"): 130-byte ASCII records. The real files open with a
+  <code>DSIDP</code> record before the <code>STATE</code> record (<code>DSIDP ERS1.ORB.PRC</code> / <code>DSIDP ERS2.ORB.PRC</code>): the
+  sniffer accepts a file that starts with either. <code>STATE</code> carries the arc's first / last
+  epoch (0.1 days since J2000) and the TDT - UTC offset in ms at bytes 47-52; <code>STTERR</code>
+  records carry the day (bytes 14-20, 0.1 days since J2000 noon, + 0.5 day), the TDT seconds of
+  day in microseconds (20-31), x / y / z in mm (31-67) and vx / vy / vz in micrometres per second
+  (67-100), the quality character at byte 127; <code>STTINE</code> (inertial) records are skipped. Columns
+  and the J2000 / TDT bookkeeping reconstructed from ISCE2's <code>Orbit/PRC.py</code>; the real files
+  bear the day convention (ISCE2's <code>+ 0.5</code>) out - their vectors agree with the products' own
+  to about 10 m at mid scene. <code>.Z</code> files are refused with a hint.</li>
+<li><strong>The satellite</strong> of every file is recorded (<code>OrbitRecords.satellite</code>: <code>ENVISAT</code>, <code>ERS1</code>,
+  <code>ERS2</code>, or none when the file does not say): PRC from the <code>DSIDP</code> record, else from the
+  COSPAR id of the state-vector records (<code>9105001</code> ERS-1, <code>9502101</code> ERS-2); DORIS from the
+  SPH descriptor (<code>ORBITE POE_REST SAT ENV1</code> on the mirror's files). It matters for ERS: the
+  ERS-1 and ERS-2 files of a year share one <code>files</code> folder and cover the same times in the
+  tandem months.</li>
+</ul>
+<p><strong>How a product takes its orbit.</strong></p>
+<ul>
+<li><code>open_asar(path, orbit_file=...)</code> replaces the product's five vectors by the file's, windowed
+  to the scene +- 60 s with four extra vectors on each side (<code>orbit_source = "VOR:&lt;name&gt;"</code> /
+  <code>"POR:..."</code> / <code>"PRC:..."</code>); a file that does not cover the scene is E205.</li>
+<li><code>open_asar(path, orbit_dir=...)</code> - the stripmap chain's <code>--orbits &lt;folder&gt;</code> - takes the
+  file of the folder that covers the scene with 60 s to spare: VOR before POR before PRC, the
+  longer span first within a kind; files that name another satellite than the product's are
+  left out (files that name none are kept); none covering the scene is E201, with the
+  <code>fetch orbits</code> command as the hint.</li>
+<li>The chosen file is checked against the product's own state vectors at mid scene: more than
+  100 m apart is a W223; more than 1 km is not this product's orbit - a named <code>orbit_file</code> is
+  refused (E204), a folder's file is skipped for the next covering one (W223), and E204
+  follows when none is left.</li>
+</ul>
+<p>On the real pairs: the DORIS VOR files of the ASAR pair 2009-12-25 / 2010-03-05 are 3-7 cm
+from the products' own vectors at mid scene (the Envisat products carry DORIS-derived
+vectors); the PRC files of the ERS-1 / ERS-2 tandem pair 1996-05-16 / 05-17 are 9.6-9.7 m
+from them (9.1-9.2 m along track, the same on both dates), and <code>B_perp</code> moves from -141.54 m
+(product vectors) to -141.58 m. The other ERS satellite's PRC file of the tandem day covers
+the same times about 11 950 km away - the case the satellite match and the 1-km check exist
+for.</p>
+<h2 id="alos-2-palsar-2-l11-ceos-dataceos_alospy-the-same-reader">ALOS-2 PALSAR-2 L1.1 (CEOS) (<code>data/ceos_alos.py</code>, the same reader)<a class="headerlink" href="#alos-2-palsar-2-l11-ceos-dataceos_alospy-the-same-reader" title="Permanent link">&para;</a></h2>
+<p>JAXA's L1.1 product is the ALOS-1 CEOS product with the PALSAR-2 layout
+(<code>PALSAR-2_xx_Format_CEOS_E.pdf</code>); the reader tells the missions apart by the scene id and
+reads both. Validated on JAXA's free Greenland sample pair (<code>730_greenland</code>: FBS, right-looking,
+ascending, 2017-03-07 and 2017-03-21, 18265 × 9990 samples, 1.4 GB zips, every member
+deflated - the chain extracts them once; <code>bosar fetch slc --mission alos2 --sample 730_greenland</code>
+fetches them, <code>--sample list</code> names the 22 sets; ASF's ALOS-2 collection, searched with
+<code>--mission alos2</code> without <code>--sample</code>, held ScanSAR WBD / WBS L1.1 only (30-60 GB a scene) in
+October 2026).</p>
+<p><strong>Names.</strong> Scene id <code>ALOS2&lt;orbit 5&gt;&lt;frame 4&gt;-&lt;YYMMDD&gt;</code>, then the product id
+<code>&lt;mode&gt;&lt;L|R&gt;&lt;level&gt;&lt;option&gt;&lt;projection&gt;&lt;A|D&gt;</code> (<code>ALOS2150521570-170307-FBSR1.1__A</code>; JAXA's zips
+are <code>&lt;order 10&gt;_&lt;item 6&gt;_&lt;scene id&gt;.zip</code>, the folder holds <code>VOL- / LED- / IMG-HH- / TRL-</code>, a
+<code>BRS-</code> quick-look and <code>summary.txt</code>). The <strong>mode</strong> comes from the product id (<code>ALOS2_MODES</code>):
+stripmap UBS / UBD (nominal 84 MHz, 104.79 MHz sampling), HBS / HBD / HBQ (42 MHz, 52.40 MHz),
+FBS / FBD / FBQ (28 MHz, 34.93 MHz) are read; the spotlight (SBS) and the ScanSAR products
+(WBS / WBD / WWS / WWD / VBS / VBD, one image file per scan and polarisation:
+<code>IMG-&lt;pol&gt;-&lt;scene id&gt;-&lt;product id&gt;-F&lt;n&gt;</code> next to the plain <code>VOL- / LED- / TRL-&lt;scene
+id&gt;-&lt;product id&gt;</code>, as ISCE2's <code>contrib/stack/alosStack/read_data.py</code> globs them) are recognised
+and refused with E205 naming the mode - they are not stripmap scenes; image files named per
+scan are refused as ScanSAR (E205) whatever the product id says. A level other than 1.1 is
+refused the same way. The leader's sensor id (<code>ALOS2 -L -0315-</code>: operation mode <code>03</code> = fine, calibration mode
+<code>15</code> = during observation) is kept in <code>extra</code>. The quad modes are given their single-pol
+bandwidths (assumption: no quad product seen).</p>
+<p><strong>Records.</strong> Data set summary, platform position (28 ECR vectors 60 s apart, <code>high
+precision</code>), attitude (16384 B), radiometric (CF at 20/16, −83.0 dB) and the image descriptor
+have the ALOS-1 offsets; five facility records of 3-728 kB are skipped by length. The signal
+data record's prefix is <strong>544 bytes</strong> (descriptor field <code>prefix bytes</code>): the ALOS-1 fields to
+byte 216 plus the <strong>microseconds of day</strong> (uint64 at 84) and the ALOS-2 frame number at 284;
+the samples (<code>COMPLEX*8</code>, two big-endian float32) follow at 544. <code>_prefix_dtype(prefix_bytes)</code>
+builds either layout from the descriptor; nothing is assumed from the mission.</p>
+<p><strong>What differs from ALOS-1 and how the reader takes it:</strong></p>
+<ul>
+<li><em>Time.</em> The microsecond stamps give the line times directly (<code>stamp_unit = "us"</code> in
+  <code>extra["line_time_fit"]</code>); the millisecond field is the truncated microsecond value (ALOS-1's
+  is rounded). On both Greenland scenes the stamps' own clock runs <strong>8.8e-6 faster</strong> than the
+  leader's PRF (1826.4173 against 1826.4012 Hz: the line steps are 547 / 548 µs where
+  1 / PRF is 547.53 µs; ±44 µs at the scene ends over 10 s) - <strong>W221</strong> reports it; the leader's
+  PRF is used (the per-line PRF field agrees with it to the millihertz) with the centre-weighted
+  fit of the stamps, so the scene centre matches the leader's centre time to the microsecond
+  and the ends are off by 0.08 lines, which the coregistration's refinement absorbs. The check
+  runs only on scenes spanning ≥ 1 s (<code>STAMP_CLOCK_MIN_SPAN_S</code>): below that the microsecond
+  rounding alone exceeds the tolerance.</li>
+<li><em>Range.</em> The leader's <code>range gate delay</code> (132.53 µs) is <strong>not</strong> the two-way delay to the
+  first sample (757 926 m = 5055.8 µs): it is counted inside a pulse interval (547.5 µs) and
+  does not even equal the delay modulo the interval (128.0 µs). The line headers' integer
+  metres are the starting range (as ISCE2's <code>MultiMode/ALOS2.py</code> reads it); the leader's value
+  is kept in <code>extra["range_gate_leader_us"]</code> and not checked. Spacing <code>c / (2 × 34.93 MHz)</code> =
+  4.2913 m; the two Greenland scenes share the PRF, the starting range and the width (the
+  lines differ by one).</li>
+<li><em>Doppler.</em> The cross-track centroid polynomial (1478, 3 × F16.7) is in <strong>Hz per pixel</strong> as
+  on ALOS-1 (−35.36 Hz, −1.1e-4 Hz/px on the first scene) and, unlike ALOS-1, the <code>Doppler
+  center frequency</code> fields at 1734 / 1750 (<code>f = a + b R[km]</code>: −19.49 Hz, −0.02096 Hz/km) agree
+  with it at the first sample to 0.01 Hz; the reader checks that (<strong>W222</strong> beyond
+  <code>DOPPLER_CHECK_HZ</code> = 5 Hz) and uses the polynomial.</li>
+<li><em>Pass and side.</em> Clock angle +90 = right as on ALOS-1; the product id's <code>A</code> / <code>D</code> must agree
+  with the orbit's vertical velocity at mid scene (E204 otherwise); the first line's centre
+  geolocation must lie on the clock angle's side of the track (E204, as on ALOS-1).</li>
+<li><em>Calibration.</em> σ⁰ [dB] = 10 log10 |DN|² + CF − 32.0 with the leader's CF = −83.0 dB, as
+  JAXA's format document states for L1.1 (<code>calibration_db = −115.0</code>; −11.3 dB on the Greenland
+  ice at 36° incidence).</li>
+<li>
+<p><em>Bandwidth.</em> <code>range_bandwidth_hz</code> is the leader's chirp |rate| × pulse length (24.9 MHz
+  on both Greenland FBS scenes: 693.97 GHz/s × 35.88 µs), <strong>not</strong> the mode's nominal 28 MHz:
+  the leader's total processor bandwidth in range (1254, 24900 kHz) and bandwidth per look say
+  the same, and the measured range spectrum of the SLC is flat to ±12.45 MHz (−3 dB width
+  24.89 MHz) and 32-35 dB down at ±13 MHz (ISCE2's <code>MultiMode/ALOS2.py</code>
+  takes the chirp too). The chirp is taken when it is plausible: positive, not above the
+  sampling rate and within <code>ALOS2_BANDWIDTH_TOLERANCE</code> = 25 % of the mode's nominal value;
+  else the leader's total processor bandwidth when it is plausible, else the nominal value,
+  each fallback with a <strong>W222</strong>. The total processor bandwidth cross-checks a plausible chirp:
+  more than <code>BANDWIDTH_CHECK_REL</code> = 2 % apart is a W222, and when both are plausible the
+  <strong>narrower</strong> of the two is used, min(chirp, total) - the processed range spectrum is no
+  wider than either (<code>range_bandwidth_source</code> = <code>total_bandwidth_range</code> when the total is the
+  narrower; an implausible total leaves the chirp). In short:</p>
+<table>
+<thead>
+<tr>
+<th>chirp</th>
+<th>total (leader)</th>
+<th>used</th>
+<th>W222</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plausible</td>
+<td>blank, or within 2 %</td>
+<td>chirp</td>
+<td>no</td>
+</tr>
+<tr>
+<td>plausible</td>
+<td>plausible, &gt; 2 % apart</td>
+<td>min(chirp, total)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>plausible</td>
+<td>implausible, &gt; 2 % apart</td>
+<td>chirp</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>implausible / blank</td>
+<td>plausible</td>
+<td>total</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>implausible / blank</td>
+<td>implausible / blank</td>
+<td>the mode's nominal value</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p><code>extra</code> keeps <code>chirp_bandwidth_hz</code>, <code>total_bandwidth_range_leader_hz</code>, <code>nominal_bandwidth_hz</code>
+and <code>range_bandwidth_source</code> (<code>chirp</code> / <code>total_bandwidth_range</code> / <code>nominal</code>); the warning is
+in <code>extra["warnings"]</code>. The value reaches <code>coreg.json</code> and so the ionosphere step's
+sub-bands and the coregistration's interpolation kernel. <code>oversample_to_fbs</code> does nothing
+on an ALOS-2 scene (its FBD shares the FBS sampling). The ionosphere step's
+nominal-bandwidth table (<code>NOMINAL_RANGE_BANDWIDTH_HZ</code>, a fallback for <code>coreg.json</code> records
+written without a bandwidth) carries the ALOS-2 stripmap modes under mission <code>ALOS-2</code>: the
+fine modes FBS / FBD / FBQ take the 24.9 MHz measured on the JAXA fine-mode product (FBD /
+FBQ assumed the same, no such product seen), the ultra-fine and high-sensitive modes their
+nominal 84 / 42 MHz.</p>
+</li>
+<li>
+<p><em>Polarisation.</em> PALSAR-2 stripmap products may be VV or VV + VH (single HH / HV / VH / VV,
+  dual HH + HV / VV + VH): without <code>pol</code> the reader opens HH, else VV, else the first
+  polarisation listed (<code>default_polarisation</code>, <code>extra["polarisation_source"]</code> = <code>default</code> or
+  <code>requested</code>), so <code>open_stripmap</code> and the stripmap chain open a VV product as they open an HH
+  one. The stripmap chain refuses a product list whose scenes do not share one polarisation
+  (E101, the dates and polarisations named: an HH product next to a VV-only one); its <code>pol</code>
+  parameter opens one named polarisation of every product (handed to the reader as
+  <code>polarisation=</code>, which the CEOS reader takes for <code>pol</code>).</p>
+</li>
+<li><em>One product per listing.</em> <code>list_product</code> groups the files of a zip or a folder by their
+  name tail (scene id + product id, <code>ALOS2150521570-170307-FBSR1.1__A</code>); a per-scan image
+  <code>IMG-&lt;pol&gt;-&lt;tail&gt;-F&lt;n&gt;</code> joins the <code>LED-&lt;tail&gt;</code> product (so a ScanSAR product is <strong>one</strong>
+  product, refused as ScanSAR, not 1 + N products). Only a tail with a <code>LED-</code> <strong>and</strong> an
+  <code>IMG-</code> file is a product: a GDAL sidecar (<code>IMG-HH-&lt;tail&gt;.aux.xml</code>, written when QGIS
+  computes statistics) or a stray file of an incomplete product is not one and is left out.
+  Exactly one product per listing is opened: a folder or zip holding two products is E101
+  (naming them), a member file (<code>LED-</code> / <code>IMG-</code> / <code>VOL-</code> / <code>TRL-</code>) opens its own product (see
+  "One product at a time" in the ALOS-1 section, which shares the rule).</li>
+<li><em>Mission check.</em> The file names say which mission; the leader's mission id (<code>ALOS2</code>) must
+  agree (E205). The scene is <code>mission="ALOS-2"</code>, <code>sensor="PALSAR-2"</code>, wavelength 0.2424525 m,
+  so the L-band quality profile applies as for ALOS-1.</li>
+</ul>
+<h2 id="alos-1-palsar-l11-ceos-dataceos_alospy-stripmap-reader-ceos_alos">ALOS-1 PALSAR L1.1 (CEOS) (<code>data/ceos_alos.py</code>, stripmap reader <code>ceos_alos</code>)<a class="headerlink" href="#alos-1-palsar-l11-ceos-dataceos_alospy-stripmap-reader-ceos_alos" title="Permanent link">&para;</a></h2>
+<p>ASF's L1.1 products: the zip <code>ALPSRP&lt;orbit 5&gt;&lt;frame 4&gt;-H1.1__A.zip</code> (FBD: members
+<code>VOL- / LED- / IMG-HH- / IMG-HV- / TRL-&lt;id&gt;-H1.1__A</code>, a quick-look and <code>summary.txt</code>, all
+<strong>stored</strong>) or <code>ALPSRP&lt;id&gt;-L1.1.zip</code> (FBS: the same files inside a folder <code>&lt;id&gt;-L1.1/</code> with the
+processor's <code>workreport</code> and logs, all <strong>deflated</strong>), or the extracted folder. Opened with
+<code>open_stripmap(path)</code> / <code>open_alos(path, pol=None)</code> (HH, else VV, else the first polarisation
+of the product; ALOS-2 shares the rule); <code>open_alos_scenes</code> gives every polarisation.
+Validated on seven Mexico City scenes (frame 370, ascending, 2007-2011).</p>
+<p><strong>One product at a time</strong> (both missions). The product files are grouped by
+their name tail (scene id + product id: <code>ALPSRP082730370-H1.1__A</code>,
+<code>ALOS2150521570-170307-FBSR1.1__A</code>). ASF's H1.1 zips and JAXA's ALOS-2 zips are flat, so two
+of them unzipped into one folder put two products side by side: a member file (<code>LED-</code> /
+<code>IMG-</code> / <code>VOL-</code> / <code>TRL-</code>) opens its own product - the scene's <code>path</code> is then that file, which
+re-opens the same product -, the folder itself is <strong>E101</strong> naming the products, and so is a zip
+holding two products. Before the review the folder's files were merged by kind (the last
+product's files under the first one's scene id: a silent wrong scene on ALOS-1, a misleading
+E205 on ALOS-2). <code>extract_product</code> puts every zip into a folder of its own
+(<code>&lt;dest&gt;/&lt;zip stem&gt;/</code>). Only a name tail with a <code>LED-</code> and at least one <code>IMG-</code> file counts as
+a product (second fix of the review): a GDAL <code>.aux.xml</code> sidecar or the stray image file of an
+incomplete product next to a product is left out instead of making the folder E101, and a
+folder with no such pair is E201 listing the files found. ALOS-2 ScanSAR per-scan images
+(<code>-F&lt;n&gt;</code>) join their <code>LED-</code> product (ALOS-2 section).</p>
+<p><strong>Record layout relied on</strong> (offsets in bytes from the record start; ISCE2 <code>alos_slc/*.xml</code>,
+every binary field big-endian, every number in a text field Fortran-style):</p>
+<table>
+<thead>
+<tr>
+<th>record</th>
+<th>identified by</th>
+<th>fields read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>any record</td>
+<td>bytes 0-12: record number (uint32), subtype (uint8), <strong>type code</strong> (uint8), two subtypes, record <strong>length</strong> (uint32)</td>
+<td>the leader is walked record by record on these headers</td>
+</tr>
+<tr>
+<td>volume descriptor (<code>VOL-</code>, 360-byte records)</td>
+<td>first record; the records of the file are told apart by the <strong>first subtype</strong> byte (192 descriptor, 219 file pointer, 18 text), every one of them with type code 192 on the real products (the text record is not type 63)</td>
+<td>specification (16/12), ids; then one file pointer record per product file (file id at 20/16, record count 100/8, length 108/8) and the text record (product type at 16/40, <code>PRODUCT:H1.1__A</code>)</td>
+</tr>
+<tr>
+<td>leader file descriptor (<code>LED-</code>, 720)</td>
+<td>type 192</td>
+<td>the record counts and lengths at 180-360 (6+6 each: data set summary, map projection, platform position, attitude, radiometric, ..., GCP) and the five facility records at 420-490</td>
+</tr>
+<tr>
+<td>data set summary</td>
+<td>type 10 (4096)</td>
+<td>scene id 20/16, scene centre time 68/32 (<code>YYYYMMDDhhmmssmmm</code>), pass flag 100/16 (blank on the real products), centre lat / lon 116, 132 (blank on the real products), centre line / pixel 324, 332 (8 each), channels 388/4, mission 396/16, orbit 444/8, clock angle 476/8 (+90 = right), incidence 484/8, <strong>wavelength</strong> 500/16, chirp amplitude coefficients 534 (3 × 16: constant [Hz], <strong>rate [Hz/s]</strong>), <strong>range sampling rate [MHz]</strong> 710/16, <strong>range gate delay [µs]</strong> 726/16, pulse length [µs] 742/16, baseband / range-compressed flags 758, 762, <strong>PRF [mHz]</strong> 934/16, processing facility / system / version 1046, 1062, 1070, product level 1094/16, looks 1174, 1190, bandwidth per look 1206, 1222, total bandwidth 1238, 1254 (azimuth [Hz], range [kHz]), <strong>cross-track Doppler centroid</strong> 1478 (3 × 16), time direction 1526, 1534 (the real products carry <code>ASCEND</code> / <code>DESCEND</code> in the second), cross-track FM rate 1606 (3 × 16), line / pixel spacing 1686, 1702</td>
+</tr>
+<tr>
+<td>platform position</td>
+<td>type 30 (4680)</td>
+<td>designator 12/32, elements 44 (6 × 16), <strong>count</strong> 140/4, year / month / day / day-of-year 144-160 (4 each), <strong>seconds of day</strong> 160/22, <strong>interval</strong> 182/22, frame 204/64 (<code>ECR</code>), then per point six F22 fields from 386 (x, y, z [m], vx, vy, vz [m/s])</td>
+</tr>
+<tr>
+<td>attitude</td>
+<td>type 40 (8192)</td>
+<td>count 12/4, per point from 16 (120 bytes): day 0/4, ms 4/8, flags, pitch / roll / yaw 24, 38, 52 (14 each, deg), rates</td>
+</tr>
+<tr>
+<td>radiometric</td>
+<td>type 50 (9860)</td>
+<td><strong>calibration factor [dB]</strong> 20/16 (the distortion matrices are blank)</td>
+</tr>
+<tr>
+<td>data quality, facility (types 60, 200)</td>
+<td>skipped by length</td>
+<td>-</td>
+</tr>
+<tr>
+<td>image file descriptor (<code>IMG-</code>, 720)</td>
+<td>type 192</td>
+<td>records 180/6, <strong>record length</strong> 186/6, <strong>bits per sample</strong> 216/4, <strong>samples per group</strong> 220/4, <strong>bytes per group</strong> 224/4, lines 236/8, pixels 248/8, <strong>prefix bytes</strong> 276/4, data bytes 280/8, suffix 288/4, format type 400/28, <strong>code</strong> 428/4</td>
+</tr>
+<tr>
+<td>signal data record (one per line)</td>
+<td>type 10, prefix of 412 bytes</td>
+<td>line number 12, year 36, day-of-year 40, <strong>milliseconds of day</strong> 44 (uint32), channel 48, tx / rx polarisation 52, 54 (uint16: 0 = H, 1 = V), <strong>PRF [mHz]</strong> 56, chirp length [ns] 68, receiver gain 92, invalid-line flag 96, <strong>slant range to first sample [m]</strong> 116, lat / lon of the first / centre / last pixel 192-216 (int32, micro-degrees); the samples follow at 412</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample format, decided from the descriptor</strong> (never assumed): <code>32</code> bits per sample, <code>2</code>
+samples per group, <code>8</code> bytes per group, format <code>COMPLEX*8</code> / <code>C*8</code> → two big-endian IEEE
+float32 per complex sample (I, Q). A product declaring 16 bits / 4 bytes would be read as
+int16 pairs; anything else is E204. The amplitudes are of order 1e5 (|DN|² ≈ 6e10).</p>
+<p><strong>Conventions and checks:</strong></p>
+<ul>
+<li><em>Time.</em> Every line carries its UTC stamp as integer milliseconds of day (half a line of
+  quantisation at 2160 Hz); <code>sensing_start_s</code> is the least-squares intercept of the stamps
+  against <code>line / PRF</code> (residuals uniform in ±0.5 ms, std 0.289 ms on the real product, which
+  says the stamps are rounded, not truncated - a truncation would bias the start by 0.5 ms,
+  one line; both the <code>floor</code> and the <code>round</code> writer modes are tested). The leader's scene
+  centre time must agree (W222 beyond 2 ms, E205 beyond 1 s; the real products agree within
+  the millisecond). The epoch is the midnight of the first line's day.</li>
+<li><em>PRF.</em> The leader's <code>Pulse Repetition Frequency in mHz</code> with decimals (2159.8272138 Hz) is
+  used; the per-line field is the same number rounded to the millihertz (1e-7 relative). A
+  variation across the lines above 1e-6 is E205 (one scene has one PRF), below it W221.
+  ALOS-1 changed its PRF between scenes (2159.8 Hz on all seven Mexico City scenes, 1900-2200
+  Hz in general): pairs of different PRFs are the chain's business.</li>
+<li><em>Range.</em> <code>starting_range_m</code> is the leader's range gate delay × c/2 (845 217.56 m); the
+  per-line field is the same in integer metres (W222 beyond 1 m, E205 beyond 100 m; constant
+  across the lines or E205). Spacing <code>c / (2 fs)</code>: 9.3685 m (FBD, 16 MHz) and 4.6843 m (FBS,
+  32 MHz). The FBS frame 370 scenes have 9344 samples where the FBD ones have 4640 (9280
+  oversampled) and start 300 m nearer: the grids coincide only after coregistration.</li>
+<li><em>Doppler.</em> The leader's cross-track Doppler centroid polynomial is in <strong>Hz per range pixel</strong>
+  (<code>f = c0 + c1 p + c2 p²</code>, <code>p</code> the 0-based sample; the quadratic term is 0 and the linear one
+  has four significant digits in the F16.7 field). Checked on the real product: the correlation
+  Doppler estimator on 4096 × 256 blocks gives +89.0 / +87.7 / +86.8 Hz at near / mid / far
+  range against the leader's +76.4 / +75.0 / +73.6 Hz - the slope −2.8 Hz across the swath is
+  the per-pixel reading (per metre it would be −26 Hz); the 12 Hz offset is the scene's
+  spectral centroid (antenna pattern × backscatter), not the processor's reference. The
+  leader's <code>Doppler center frequency</code> fields at 1734 / 1750 are a different quantity (136.3 Hz
+  and −0.0707 Hz/km) and are not used. The scene stores the polynomial in slant range
+  (<code>p = (r − r0) / Δr</code>), unchanged by the FBD oversampling. The L1.1 image is <strong>not</strong>
+  zero-Doppler: <code>rdr2geo</code> of the scene-centre line at zero Doppler lands 0.8-1.2 km from the
+  prefix's centre geolocation on every scene, and <code>geo2rdr</code> of that geolocation lands
+  <code>−f_dc / f_rate</code> = 0.11-0.17 s (250-370 lines) later and within 1-2 samples in range, i.e.
+  a target on line <code>l</code> has its zero-Doppler time at <code>t_l − f_dc(r) / f_rate</code> (the FM rate is
+  the leader's cross-track rate, −518.9 Hz/s at the first pixel).</li>
+<li><em>Orbit.</em> The platform position record: 28 ECR state vectors 60 s apart, metres and m/s,
+  <code>high precision</code> designator, covering 27 min around the scene; rebased to the scene epoch
+  and densified to 10 s by 8th-order Lagrange so that the chain's cubic Hermite stays below a
+  millimetre (0.3 m at 60 s). <code>pass_direction</code> from the vertical velocity at mid scene (the
+  leader's pass flag is blank; its time-direction field says <code>ASCEND</code> and is kept as a hint).</li>
+<li><em>Look side.</em> Clock angle +90 → right (ISCE2's reading), confirmed geometrically: the first
+  line's centre-pixel geolocation lies on the right of the ground track (E204 otherwise).</li>
+<li><em>Calibration.</em> σ⁰ [dB] = 10 log10 |DN|² + CF − A with the leader's CF = −83.0 dB (products
+  processed after 2009-04-09; Shimada et al. 2009, IEEE TGRS 47(12)) and the L1.1 conversion
+  A = 32.0 dB: <code>calibration_db = −115.0</code>, CF and A in <code>extra</code>. With −83 dB alone the Mexico
+  City scenes would read +25 dB; with −115 dB a 256 × 256 centre window reads −6.0 to −7.8 dB
+  (HH, urban / agricultural), which is the published range.</li>
+<li><em>Mode.</em> From the sampling rate (32 MHz FBS, 16 MHz FBD; four polarisations at 16 MHz would
+  be PLR); <code>range_bandwidth_hz</code> is the mode's nominal 28 / 14 MHz (<code>range_bandwidth_source</code>
+  <code>nominal</code>): the chirp bandwidth |rate × pulse length| (28.0 / 14.0 MHz on the real leaders,
+  in <code>extra</code> with the leader's total processor bandwidth in range) agrees with it.
+  <code>oversample_to_fbs=True</code> serves an FBD scene on the 32 MHz grid by zero-padding the range
+  spectrum of whole lines (<code>core/range_oversample.py</code>; original samples kept, the band
+  centred, the Nyquist bin split; the last block of lines is cached so column tiles do not
+  re-read): <code>n_samples</code>, <code>range_pixel_spacing_m</code> and <code>range_sampling_rate_hz</code> are the
+  oversampled grid's, <code>range_bandwidth_hz</code> stays 14 MHz. On the real FBD scene the
+  oversampled spectrum holds 1.4 % of the in-band power between 7 and 8 MHz (the chirp's
+  roll-off) and 0.04 % above 8 MHz (the split Nyquist bin).</li>
+<li><em>Reading.</em> One seek per line, the prefix skipped, only the requested samples; a stored zip
+  is read in place through the member's absolute offset (2 ms for a 256 × 256 window), the
+  deflated FBS zips through <code>zipfile</code>'s seekable stream, which inflates the member from its
+  start for every window (1.5 s at the scene centre, 2.5 s to open): <code>extract_product</code> puts
+  the four files into a cache folder once (the chain does this, as for SAFE zips), and
+  <code>extra["deflated_members"]</code> names the members concerned.</li>
+</ul>
+<p>Quirks found on the real products (frame 370, 2007-2011, processor <code>EOC-ALOS-DPS 1.00</code>):
+the data set summary leaves the pass flag and the centre latitude / longitude blank (the
+reader takes the centre line's prefix geolocation); the FBS zips are packaged differently
+from the FBD ones (folder inside, deflated, extra files); the chirp phase coefficients and
+the distortion matrices are blank; the volume directory's record count and product id fields
+are blank.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../tour/zh/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 功能导览（中文）">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                功能导览（中文）
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../sensor_download_plan/" class="md-footer__link md-footer__link--next" aria-label="Next: Sensor download plan">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Sensor download plan
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jiashu Hu. Free for non-commercial use (PolyForm Noncommercial 1.0.0); commercial licences on request.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,6615 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Install-and-run SAR interferometry for Windows and macOS">
+      
+      
+      
+        <link rel="canonical" href="https://hu-jiashu.github.io/bosar/api/pipeline/">
+      
+      
+        <link rel="prev" href="../core/">
+      
+      
+        <link rel="next" href="../data/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/icons/app.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>API - pipeline - Bosar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-pipeline" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bosar" class="md-header__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../../assets/icons/app.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bosar
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API - pipeline
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../install/" class="md-tabs__link">
+          
+  
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tour/" class="md-tabs__link">
+          
+  
+  
+  Feature tour
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/formats/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../ERRORS/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bosar" class="md-nav__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../../assets/icons/app.png" alt="logo">
+
+    </a>
+    Bosar
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WALKTHROUGH_zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough (中文)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LICENSING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature tour
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Feature tour
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/project_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project and data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/system_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/dinsar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DInSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/gacos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GACOS correction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/ccd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coherence change detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/amplitude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplitude change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Result viewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/sbas_prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/sbas_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/psds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PS / DS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/psi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic PS-InSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/snap_bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNAP bridge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/fetch_slc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLC download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/native_s1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Sentinel-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logs and failures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tour/zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    功能导览（中文）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/sensor_download_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor download plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/mexico_city_esa_products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexico City ESA products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ERRORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Errors, warnings, preflight codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LOG_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Log schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - pipeline
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-and-the-runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps and the runner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        step
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.ProductKind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProductKind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.Tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StepContext
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="StepContext">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext.product_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        product_path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext.scratch_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scratch_path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext.tiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tiler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext.progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        progress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepResult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StepResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.Step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        registry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="registry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.register_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register_step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.register_alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register_alias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.resolve_kind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolve_kind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.list_aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list_aliases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.unregister_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unregister_step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.get_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.load_builtin_steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_builtin_steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        runner
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="runner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.WARNINGS_RECORDED_PER_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WARNINGS_RECORDED_PER_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.ChainStep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChainStep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.Runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runner
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.Runner.add_hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        add_hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.Runner.run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.Runner.run_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.product_stats_for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        product_stats_for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.declared_products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        declared_products
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.rss_peak_mb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rss_peak_mb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.tier_of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tier_of
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#products-planning-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Products, planning, storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        products
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.products.StackMember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StackMember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.products.write_reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        write_reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.products.open_source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open_source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.products.source_tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        source_tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.DECLARING_KINDS" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECLARING_KINDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.Plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.plan_from_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan_from_chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.declare_plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        declare_plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.complete_plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        complete_plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.declared_step_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        declared_step_ids
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.declared_dependents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        declared_dependents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.SHA256_MAX_BYTES" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHA256_MAX_BYTES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StorageManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="StorageManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager.key_for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        key_for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager.register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager.plan_gc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan_gc
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager.gc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.resolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolve
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="resolve">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.resolve.auto_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        auto_value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.resolve.auto_hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        auto_hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        profiles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="profiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.profiles.band_of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        band_of
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.profiles.profile_for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        profile_for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.profiles.profile_label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        profile_label
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-installed-build-and-its-plug-ins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The installed build and its plug-ins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        build
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.BuildInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BuildInfo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BuildInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.BuildInfo.line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.module_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        module_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.utf8_requested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        utf8_requested
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.ensure_utf8_streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ensure_utf8_streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.run_module_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_module_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.is_frozen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_frozen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.bundle_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bundle_dir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.read_build_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        read_build_info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.plugins_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plugins_dir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.plugin_site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plugin_site
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.plugin_manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plugin_manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.activate_plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        activate_plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.dll_folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dll_folders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.register_dll_folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register_dll_folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plugins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.BUNDLED_DISTS" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BUNDLED_DISTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.WheelChoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WheelChoice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.fetch_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fetch_json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        download
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.compatible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        compatible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.resolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.wheel_requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wheel_requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.wanted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wanted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.installed_dists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        installed_dists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        licenses
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="licenses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.licenses.about_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        about_line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.licenses.licence_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        licence_text
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - data and readers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-and-the-runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps and the runner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        step
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.ProductKind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProductKind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.Tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StepContext
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="StepContext">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext.product_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        product_path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext.scratch_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scratch_path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext.tiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tiler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepContext.progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        progress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.StepResult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StepResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.step.Step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        registry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="registry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.register_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register_step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.register_alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register_alias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.resolve_kind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolve_kind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.list_aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list_aliases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.unregister_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unregister_step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.get_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.registry.load_builtin_steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_builtin_steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        runner
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="runner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.WARNINGS_RECORDED_PER_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WARNINGS_RECORDED_PER_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.ChainStep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChainStep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.Runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runner
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.Runner.add_hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        add_hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.Runner.run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.Runner.run_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.product_stats_for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        product_stats_for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.declared_products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        declared_products
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.rss_peak_mb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rss_peak_mb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.runner.tier_of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tier_of
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#products-planning-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Products, planning, storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        products
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.products.StackMember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StackMember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.products.write_reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        write_reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.products.open_source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open_source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.products.source_tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        source_tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.DECLARING_KINDS" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECLARING_KINDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.Plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.plan_from_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan_from_chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.declare_plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        declare_plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.complete_plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        complete_plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.declared_step_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        declared_step_ids
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.plan.declared_dependents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        declared_dependents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.SHA256_MAX_BYTES" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHA256_MAX_BYTES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StorageManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="StorageManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager.key_for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        key_for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager.register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager.plan_gc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan_gc
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.storage.StorageManager.gc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.resolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolve
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="resolve">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.resolve.auto_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        auto_value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.resolve.auto_hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        auto_hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.pipeline.profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        profiles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="profiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.profiles.band_of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        band_of
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.profiles.profile_for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        profile_for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.pipeline.profiles.profile_label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        profile_label
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-installed-build-and-its-plug-ins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The installed build and its plug-ins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        build
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.BuildInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BuildInfo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BuildInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.BuildInfo.line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.module_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        module_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.utf8_requested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        utf8_requested
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.ensure_utf8_streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ensure_utf8_streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.run_module_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_module_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.is_frozen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_frozen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.bundle_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bundle_dir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.read_build_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        read_build_info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.plugins_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plugins_dir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.plugin_site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plugin_site
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.plugin_manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plugin_manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.activate_plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        activate_plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.dll_folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dll_folders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.build.register_dll_folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register_dll_folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plugins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.BUNDLED_DISTS" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BUNDLED_DISTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.WheelChoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WheelChoice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.fetch_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fetch_json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        download
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.compatible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        compatible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.resolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.wheel_requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wheel_requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.wanted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wanted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.installed_dists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        installed_dists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.plugins.status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bosar.licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        licenses
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="licenses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bosar.licenses.about_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        about_line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bosar.licenses.licence_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        licence_text
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="api-pipeline">API — pipeline<a class="headerlink" href="#api-pipeline" title="Permanent link">&para;</a></h1>
+<p>Every processing operation is a <code>Step</code> (a parameter model, what it requires, what it produces,
+<code>run(ctx)</code>) registered in <code>bosar.pipeline.registry</code>. The <code>Runner</code> — not the step — does the
+timing, the logging, the project-file updates and the garbage collection of intermediates.</p>
+<h2 id="steps-and-the-runner">Steps and the runner<a class="headerlink" href="#steps-and-the-runner" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.pipeline.step" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.pipeline.step</span>
+
+
+<a href="#bosar.pipeline.step" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>The Step contract (docs/ARCHITECTURE.md §3.3) and what a step receives and returns.</p>
+<p>A step declares <code>kind</code>, <code>version</code> (bump when the algorithm changes → cached outputs invalid),
+a pydantic <code>Params</code> model, the product kinds it <code>requires</code> and the <code>(kind, tier)</code> pairs it
+<code>produces</code>; <code>run(ctx)</code> does the work. Timing, logging, project updates and garbage collection
+belong to the Runner, never to the step.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="bosar.pipeline.step.ProductKind" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">ProductKind</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#bosar.pipeline.step.ProductKind" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">ProductKind</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s1">'ProductKind'</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>A product kind such as <code>raster/float32</code> or <code>dummy/scaled</code> (slashes → sub-directories).</p>
+
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.step.Tier" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">Tier</span>
+
+
+<a href="#bosar.pipeline.step.Tier" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="enum.IntEnum">IntEnum</span></code></p>
+
+
+
+        <p>Storage tiers (ARCHITECTURE §3.2): 1 final, 2 intermediate, 3 scratch.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.step.StepContext" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">StepContext</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#bosar.pipeline.step.StepContext" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">StepContext</span><span class="p">(</span>
+    <span class="n">project_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">step_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">BaseModel</span><span class="p">,</span>
+    <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">ProductKind</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
+    <span class="n">xp</span><span class="p">:</span> <span class="n">ModuleType</span><span class="p">,</span>
+    <span class="n">device</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">products_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">scratch_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">storage_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"minimal"</span><span class="p">,</span>
+    <span class="n">last_progress</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(),</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>What a step may touch: validated params, resolved inputs, array module, dirs, logger.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.step.StepContext.product_path" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">product_path</span>
+
+
+<a href="#bosar.pipeline.step.StepContext.product_path" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">product_path</span><span class="p">(</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="n">ProductKind</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">".tif"</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>&lt;project&gt;/products/&lt;kind&gt;/&lt;step_id&gt;&lt;suffix&gt;</code> (directory created).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.step.StepContext.scratch_path" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">scratch_path</span>
+
+
+<a href="#bosar.pipeline.step.StepContext.scratch_path" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">scratch_path</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>&lt;project&gt;/scratch/&lt;step_id&gt;/&lt;name&gt;</code> (directory created).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.step.StepContext.tiler" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">tiler</span>
+
+
+<a href="#bosar.pipeline.step.StepContext.tiler" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">tiler</span><span class="p">(</span>
+    <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">halo</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">tile</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_arrays</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="s2">"float32"</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tiler</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>A <code>Tiler</code> for <code>shape</code> (units: pixels): explicit <code>tile</code> or sized from memory.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.step.StepContext.progress" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">progress</span>
+
+
+<a href="#bosar.pipeline.step.StepContext.progress" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">progress</span><span class="p">(</span>
+    <span class="n">done</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">total</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">tile</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Report progress (throttled by the logger); the Runner remembers the last tile.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.step.StepResult" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">StepResult</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#bosar.pipeline.step.StepResult" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">StepResult</span><span class="p">(</span>
+    <span class="n">outputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">ProductKind</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
+    <span class="n">summary</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(),</span>
+    <span class="n">tiers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">ProductKind</span><span class="p">,</span> <span class="n">Tier</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(),</span>
+    <span class="n">units</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">ProductKind</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(),</span>
+    <span class="n">figures</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>What a step produced: <code>outputs</code> keyed by kind, per-kind tiers/units, a summary, figures.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.step.Step" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">Step</span>
+
+
+<a href="#bosar.pipeline.step.Step" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="typing.Protocol">Protocol</span></code></p>
+
+
+
+        <p>Contract every processing operation implements (registered with <code>register_step</code>).</p>
+<p>Optional hook: <code>produces_for(params) -&gt; list[(ProductKind, Tier)]</code> (a classmethod or
+staticmethod) narrows <code>produces</code> to what this parameter set will actually write; every
+entry must also appear in <code>produces</code>. The Runner checks and records the narrowed list.
+A <code>produces</code> kind may be a family pattern (<code>amp_db/*</code>: one product per date); the
+Runner then requires at least one matching output and gives every member its tier.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.pipeline.registry" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.pipeline.registry</span>
+
+
+<a href="#bosar.pipeline.registry" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Step registry: <code>@register_step</code> validates the contract; <code>get_step</code> names the known kinds
+(an alias registered with <code>register_alias</code> resolves to its kind).</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.registry.register_step" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">register_step</span>
+
+
+<a href="#bosar.pipeline.registry.register_step" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">register_step</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Class decorator: validate the Step ClassVars and register the kind (unique).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.registry.register_alias" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">register_alias</span>
+
+
+<a href="#bosar.pipeline.registry.register_alias" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">register_alias</span><span class="p">(</span><span class="n">alias</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Accept <code>alias</code> wherever a step kind is resolved (<code>offset_tracking</code>); an alias never shadows a registered kind.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.registry.resolve_kind" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">resolve_kind</span>
+
+
+<a href="#bosar.pipeline.registry.resolve_kind" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">resolve_kind</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The step kind named by <code>name</code> (a kind or an alias of one).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.registry.list_aliases" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">list_aliases</span>
+
+
+<a href="#bosar.pipeline.registry.list_aliases" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">list_aliases</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>{alias: kind}</code> of the registered aliases.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.registry.unregister_step" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">unregister_step</span>
+
+
+<a href="#bosar.pipeline.registry.unregister_step" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">unregister_step</span><span class="p">(</span><span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Remove a kind (tests).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.registry.get_step" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">get_step</span>
+
+
+<a href="#bosar.pipeline.registry.get_step" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">get_step</span><span class="p">(</span><span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The step class for <code>kind</code>; E102 listing the known kinds otherwise.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.registry.load_builtin_steps" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">load_builtin_steps</span>
+
+
+<a href="#bosar.pipeline.registry.load_builtin_steps" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">load_builtin_steps</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Import the built-in step modules so their <code>@register_step</code> decorators run.</p>
+<p>Keyed on a flag, not on an empty registry: a caller that imported one Step module directly
+(or registered its own Step) must still get every built-in kind.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.pipeline.runner" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.pipeline.runner</span>
+
+
+<a href="#bosar.pipeline.runner" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>The Runner: the only place that times, logs, updates the project and garbage-collects.</p>
+<p>Sequence:
+validate params → run logger + <code>run_start</code> → backend (W401) → offline preflight (blocking →
+<code>run_end(blocked)</code> + E701, project untouched) → interrupted-step recovery (E802 + W104) → skip
+rule (W101) → step record <code>running</code> + save → <code>step_start</code> → <code>Step.run</code> inside a warnings
+capture (W000) → outputs verified (E607) and registered → <code>step_end</code> (seq) → <code>done</code> +
+<code>log_seq</code> + save → gc → guarded hooks (W803) → <code>run_end</code> + report. On failure the record is
+written <em>before</em> the project is saved, partial tier-2 outputs are kept and listed, every
+post-failure action is guarded (W802 never masks the original error) and <code>StepFailedError</code>
+(E801) is raised with the original exception as <code>__cause__</code>.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="bosar.pipeline.runner.WARNINGS_RECORDED_PER_KEY" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">WARNINGS_RECORDED_PER_KEY</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#bosar.pipeline.runner.WARNINGS_RECORDED_PER_KEY" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">WARNINGS_RECORDED_PER_KEY</span> <span class="o">=</span> <span class="mi">10</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Identical warnings of a step recorded one by one up to this count; then once with a count.</p>
+
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.runner.ChainStep" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">ChainStep</span>
+
+
+<a href="#bosar.pipeline.runner.ChainStep" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="typing.NamedTuple">NamedTuple</span></code></p>
+
+
+
+        <p>One step of :meth:<code>Runner.run_chain</code>: id, kind, params, and what it requires.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.runner.Runner" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">Runner</span>
+
+
+<a href="#bosar.pipeline.runner.Runner" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">Runner</span><span class="p">(</span>
+    <span class="n">project_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">app_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">force_cpu</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">offline</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">preflight</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">preflight_report</span><span class="p">:</span> <span class="n">PreflightReport</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">argv</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">save_on_start</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Run one step of a project (see the module docstring for the exact sequence).</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.runner.Runner.add_hook" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">add_hook</span>
+
+
+<a href="#bosar.pipeline.runner.Runner.add_hook" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">add_hook</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">HookName</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Hook</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Register a client callback (viz, GUI); hooks never affect the step status (W803).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.runner.Runner.run" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">run</span>
+
+
+<a href="#bosar.pipeline.runner.Runner.run" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">run</span><span class="p">(</span>
+    <span class="n">project</span><span class="p">:</span> <span class="n">Project</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">step_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BaseModel</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">requires</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
+    <span class="n">inputs</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">raise_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">clean_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">collect_garbage</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">_shared</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">RunLogger</span><span class="p">,</span> <span class="n">RunReport</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StepRecord</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run <code>step_id</code> of <code>kind</code> with <code>params</code>; returns the step record (raises on fail).</p>
+<p><code>collect_garbage=False</code> and <code>_shared</code> are used by :meth:<code>run_chain</code>, which owns the
+run log/report and garbage-collects once at the end of the chain.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.runner.Runner.run_chain" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">run_chain</span>
+
+
+<a href="#bosar.pipeline.runner.Runner.run_chain" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">run_chain</span><span class="p">(</span>
+    <span class="n">steps</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">ChainStep</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">clean_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">StepRecord</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run <code>steps</code> in order under ONE run log/report; garbage-collect once at the end.</p>
+<p>A standalone <code>run()</code> in <code>storage_mode=minimal</code> deletes a tier-2 product as soon as
+every dependent step known <em>so far</em> is done; a chain declares its steps up front, so
+intermediates survive until the last step and are collected together.
+The first failing step stops the chain; its failure is recorded as usual and re-raised.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.runner.product_stats_for" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">product_stats_for</span>
+
+
+<a href="#bosar.pipeline.runner.product_stats_for" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">product_stats_for</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Array statistics of a raster product (used by steps for their summaries).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.runner.declared_products" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">declared_products</span>
+
+
+<a href="#bosar.pipeline.runner.declared_products" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">declared_products</span><span class="p">(</span>
+    <span class="n">step_cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">params</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">ProductKind</span><span class="p">,</span> <span class="n">Tier</span><span class="p">]]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The products a Step will write for <code>params</code>: <code>Step.produces_for(params)</code> when the class
+defines it (Steps whose product set depends on a parameter, e.g. <code>geocode --source</code>),
+otherwise the static <code>Step.produces</code>. Every entry must also be in <code>produces</code> (the tier
+table and the garbage collector read the static list).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.runner.rss_peak_mb" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">rss_peak_mb</span>
+
+
+<a href="#bosar.pipeline.runner.rss_peak_mb" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">rss_peak_mb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Peak resident set of this process so far [MiB] (<code>peak_wset</code> on Windows, <code>ru_maxrss</code>
+elsewhere); None when neither is available. Logged with every step summary.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.runner.tier_of" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">tier_of</span>
+
+
+<a href="#bosar.pipeline.runner.tier_of" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">tier_of</span><span class="p">(</span><span class="n">step_cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tier</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Tier of a product kind from <code>Step.produces</code> — exact entry first, then a family pattern
+such as <code>amp_db/*</code>; INTERMEDIATE when the Step does not declare it.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="products-planning-storage">Products, planning, storage<a class="headerlink" href="#products-planning-storage" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.pipeline.products" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.pipeline.products</span>
+
+
+<a href="#bosar.pipeline.products" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Product references: a tier-1 product that points at an imported stack's file without a copy.</p>
+<p><code>ifg_import</code> records the SNAP <code>.diff</code> of a pair — 2.5 GB on the full stack —
+as <code>products/ifg_flat/&lt;step&gt;.ref.json</code>; later Steps open it with :func:<code>open_source</code>, which
+returns a windowed accessor (a :class:<code>RasterSource</code> for GeoTIFF products, a
+:class:<code>StackMember</code> for references) so kernels never know where the pixels come from.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.products.StackMember" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">StackMember</span>
+
+
+<a href="#bosar.pipeline.products.StackMember" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">StackMember</span><span class="p">(</span>
+    <span class="n">reference</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">ref_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Windowed complex64 accessor over one interferogram or scene of an imported stack.</p>
+<p>Opens the stack on construction and closes it with :meth:<code>close</code>; exposes the stack's
+<code>geometry</code> and the member's <code>dates</code> so a Step can fetch the SLC powers and the geometry
+layers of the same grid.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.products.write_reference" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">write_reference</span>
+
+
+<a href="#bosar.pipeline.products.write_reference" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">write_reference</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">role</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">stack_root</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">reader</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">source_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Write the JSON descriptor; <code>role</code> is <code>ifg</code> (<code>key</code> = <code>d1_d2</code>, a stored pair of the
+stack), <code>slc</code> (<code>key</code> = date) or <code>derived</code> (the data
+in <code>source_path</code> - a raster Bosar wrote - with the SLCs and geometry of the stack).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.products.open_source" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">open_source</span>
+
+
+<a href="#bosar.pipeline.products.open_source" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">open_source</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>A windowed accessor (<code>shape</code>, <code>dtype</code>, <code>[rows, cols]</code>, <code>close()</code>) for any product.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.products.source_tags" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">source_tags</span>
+
+
+<a href="#bosar.pipeline.products.source_tags" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">source_tags</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Tags of a product: the reference's <code>tags</code> or the raster's <code>bosar</code> tags.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.pipeline.plan" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.pipeline.plan</span>
+
+
+<a href="#bosar.pipeline.plan" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Declared plans of multi-command chains.</p>
+<p>A chain such as <code>bosar sbas prep</code> → <code>bosar pipeline sbas</code> runs over several commands and
+processes. In <code>storage_mode=minimal</code> the Runner collects a tier-2 product as soon as every
+<em>known</em> dependent step is done - a dependent that has not been created yet does not count, so
+the multilooked interferograms of a network were deleted before its unwrap phase, the flattened
+stack before the PSI step, and so on. A <strong>plan</strong> declares the ordered steps of a
+chain up front (<code>step_id</code>, <code>kind</code>, <code>requires</code>) in <code>project.json</code> under
+<code>aux.plans[&lt;name&gt;]</code>; a declared dependent that is not done yet keeps the products of the steps
+it requires. The plan is removed when its last step is done (<code>complete_plan</code>), and the normal
+collection follows.</p>
+<p>A time-series step run in a minimal-storage project outside any declared plan is refused with
+<code>E310</code> (:class:<code>bosar.errors.ChainUndeclaredError</code>): the one-line remedy is
+<code>bosar project new --storage-mode full</code> or one of the chain commands, which declare.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="bosar.pipeline.plan.DECLARING_KINDS" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">DECLARING_KINDS</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#bosar.pipeline.plan.DECLARING_KINDS" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">DECLARING_KINDS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">"psds_link"</span><span class="p">,</span>
+        <span class="s2">"psds_pairs"</span><span class="p">,</span>
+        <span class="s2">"pair_batch"</span><span class="p">,</span>
+        <span class="s2">"closure"</span><span class="p">,</span>
+        <span class="s2">"unw_correct"</span><span class="p">,</span>
+        <span class="s2">"unw_star"</span><span class="p">,</span>
+        <span class="s2">"sbas_invert"</span><span class="p">,</span>
+        <span class="s2">"ts_correct"</span><span class="p">,</span>
+        <span class="s2">"psi_classic"</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Step kinds that belong to a multi-command chain: in minimal storage they run only inside a
+declared plan (E310 otherwise).</p>
+
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.plan.Plan" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">Plan</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#bosar.pipeline.plan.Plan" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">Plan</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">steps</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">PlanStep</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>The ordered steps of one chain; <code>name</code> is the chain's own name (<code>sbas:&lt;network&gt;</code>,
+<code>psds:&lt;network&gt;</code>, <code>psi:&lt;name&gt;</code>).</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.plan.plan_from_chain" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">plan_from_chain</span>
+
+
+<a href="#bosar.pipeline.plan.plan_from_chain" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">plan_from_chain</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">chain</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Plan</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>A plan from <code>ChainStep</code> specs (anything with <code>step_id</code>, <code>kind</code>, <code>requires</code>).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.plan.declare_plan" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">declare_plan</span>
+
+
+<a href="#bosar.pipeline.plan.declare_plan" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">declare_plan</span><span class="p">(</span>
+    <span class="n">project_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">plan</span><span class="p">:</span> <span class="n">Plan</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">extend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Write <code>plan</code> into <code>project.json</code> (<code>aux.plans[plan.name]</code>). With <code>extend</code> the
+steps join those of an earlier declaration of the same name (a chain run in two commands
+declares twice). Returns the stored document.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.plan.complete_plan" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">complete_plan</span>
+
+
+<a href="#bosar.pipeline.plan.complete_plan" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">complete_plan</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Remove the plan <code>name</code> (its chain is done); True when one was removed.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.plan.declared_step_ids" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">declared_step_ids</span>
+
+
+<a href="#bosar.pipeline.plan.declared_step_ids" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">declared_step_ids</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Every step id named by a declared plan of <code>project</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.plan.declared_dependents" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">declared_dependents</span>
+
+
+<a href="#bosar.pipeline.plan.declared_dependents" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">declared_dependents</span><span class="p">(</span>
+    <span class="n">project</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">step_id</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Declared steps that require <code>step_id</code> and are not done (they still need its
+products); a declared step that exists and is done no longer holds anything.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.pipeline.storage" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.pipeline.storage</span>
+
+
+<a href="#bosar.pipeline.storage" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>StorageManager: registers products with their tier and garbage-collects by the tier rules.</p>
+<p>Rules (ARCHITECTURE §3.2, author decisions D-tier): tier 3 of a step is deleted when the step
+ends — also when it fails; tier 2 is deleted only in <code>storage_mode="minimal"</code> and only when the
+producing step has at least one dependent and every dependent is <code>done</code> (zero dependents would
+be vacuously "all done"); tier 1 is never deleted; nothing outside the project directory is ever
+touched. Files are deleted one by one (<code>safe_unlink</code>), never with a recursive remove.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="bosar.pipeline.storage.SHA256_MAX_BYTES" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">SHA256_MAX_BYTES</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#bosar.pipeline.storage.SHA256_MAX_BYTES" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">SHA256_MAX_BYTES</span> <span class="o">=</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">20</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Hash only tier-1 products or files up to this size (hashing multi-GB intermediates dominates).</p>
+
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.pipeline.storage.StorageManager" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">StorageManager</span>
+
+
+<a href="#bosar.pipeline.storage.StorageManager" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">StorageManager</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'minimal'</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Product bookkeeping for one project directory.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.storage.StorageManager.key_for" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">key_for</span>
+
+
+<a href="#bosar.pipeline.storage.StorageManager.key_for" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">key_for</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Project-relative POSIX key of a product path (must be inside the project).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.storage.StorageManager.register" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">register</span>
+
+
+<a href="#bosar.pipeline.storage.StorageManager.register" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">register</span><span class="p">(</span>
+    <span class="n">project</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">step_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">tier</span><span class="p">:</span> <span class="n">Tier</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">units</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">partial</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProductRecord</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Record a product (bytes; sha256 for tier 1 or small files) under its relative key.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.storage.StorageManager.plan_gc" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">plan_gc</span>
+
+
+<a href="#bosar.pipeline.storage.StorageManager.plan_gc" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">plan_gc</span><span class="p">(</span>
+    <span class="n">project</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span>
+    <span class="n">after_step_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">failed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Pure decision: <code>(to_delete, kept)</code> entries with reasons; nothing is touched.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.pipeline.storage.StorageManager.gc" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">gc</span>
+
+
+<a href="#bosar.pipeline.storage.StorageManager.gc" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">gc</span><span class="p">(</span>
+    <span class="n">project</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span>
+    <span class="n">after_step_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">failed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GcReport</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Delete what <code>plan_gc</code> selected, file by file; locked files are reported, not fatal.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.pipeline.resolve" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.pipeline.resolve</span>
+
+
+<a href="#bosar.pipeline.resolve" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>What an <em>unset</em> optional Step parameter resolves to, as text ("auto (resolved value)").</p>
+<p>The GUI shows this next to every optional field that is left at <code>None</code>; the same rules the
+Steps apply at run time are evaluated here from the project's stack record, so the form never
+claims something the run would not do. Pure Python (no Qt); the GUI imports it, the Steps do
+not depend on it.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.resolve.auto_value" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">auto_value</span>
+
+
+<a href="#bosar.pipeline.resolve.auto_value" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">auto_value</span><span class="p">(</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">stack</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">values</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Text of the value <code>kind.field</code> takes when left unset; None when nothing is known.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.resolve.auto_hints" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">auto_hints</span>
+
+
+<a href="#bosar.pipeline.resolve.auto_hints" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">auto_hints</span><span class="p">(</span>
+    <span class="n">kinds</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">stack</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">values</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>{kind: {field: text}}</code> for every <code>(kind, field)</code> listed in <code>kinds</code>.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.pipeline.profiles" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.pipeline.profiles</span>
+
+
+<a href="#bosar.pipeline.profiles" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Quality profiles and radar bands for the thin clients.</p>
+<p>The GUI and the CLI may not import <code>bosar.core</code> directly (the layering of
+<code>docs/ARCHITECTURE.md</code>); this module serves the few pure helpers they show: the band letter
+of a wavelength, the quality profile name and label the verdict will use.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.profiles.band_of" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">band_of</span>
+
+
+<a href="#bosar.pipeline.profiles.band_of" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">band_of</span><span class="p">(</span><span class="n">wavelength_m</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The radar band letter of a wavelength: <code>"X"</code> below 0.04 m, <code>"C"</code> to 0.08, <code>"S"</code> to
+0.15, <code>"L"</code> to 0.6, <code>"P"</code> above; <code>"?"</code> when unknown. Units: metres in.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.profiles.profile_for" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">profile_for</span>
+
+
+<a href="#bosar.pipeline.profiles.profile_for" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">profile_for</span><span class="p">(</span><span class="n">wavelength_m</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The profile name of a wavelength: <code>l_band</code> above 0.15 m (ALOS-1/2, NISAR, SAOCOM),
+<code>c_band</code> otherwise and when unknown (X band has no profile of its own). Units: metres
+in.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.pipeline.profiles.profile_label" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">profile_label</span>
+
+
+<a href="#bosar.pipeline.profiles.profile_label" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">profile_label</span><span class="p">(</span><span class="n">wavelength_m</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The label of the quality profile of a wavelength (<code>"L-band"</code>, <code>"C-band (default)"</code>).
+Units: metres in.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="the-installed-build-and-its-plug-ins">The installed build and its plug-ins<a class="headerlink" href="#the-installed-build-and-its-plug-ins" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.build" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.build</span>
+
+
+<a href="#bosar.build" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>The frozen build and its plug-ins.</p>
+<p>A PyInstaller one-folder build carries <code>bosar_build.json</code> next to the collected modules
+(<code>sys._MEIPASS</code>): the build id, the version, the platform tag, the git commit, the build time,
+whether the bundled SNAPHU was built without CS2. <code>bosar preflight</code> and <code>bosar version</code>
+report it; a source checkout reports none.</p>
+<p>Plug-ins are wheels unpacked under <code>&lt;user data dir&gt;/bosar/plugins/&lt;name&gt;/site-packages</code> by
+<code>bosar gpu install</code> (:mod:<code>bosar.plugins</code>); :func:<code>activate_plugin</code> appends such a folder to
+<code>sys.path</code> before the package that needs it is imported (CuPy in <code>backends</code>). The bundle's
+own packages stay ahead on the path, so a plug-in never shadows them.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.build.BuildInfo" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">BuildInfo</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#bosar.build.BuildInfo" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">BuildInfo</span><span class="p">(</span>
+    <span class="n">build_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">platform</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">git_sha</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">built_at</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">python</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">pyinstaller</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">snaphu_cs2</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"release"</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>What <code>scripts/build_app.py</code> wrote into the bundle.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="bosar.build.BuildInfo.line" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">line</span>
+
+
+<a href="#bosar.build.BuildInfo.line" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">line</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>build win-x64 2026-10-16T18:00:00Z a1b2c3d</code> for the version line.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.module_request" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">module_request</span>
+
+
+<a href="#bosar.build.module_request" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">module_request</span><span class="p">(</span>
+    <span class="n">argv</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>(module, arguments)</code> when a frozen executable is called as if it were the
+interpreter - <code>bosar.exe [-X &lt;opt&gt;]... -m &lt;module&gt; [arguments]</code> - which is what
+cuda-pathfinder's canary probe (<code>sys.executable -m cuda.pathfinder...</code>, CuPy 14) and
+Bosar's own child processes (<code>sys.executable -X utf8 -m bosar ...</code>) do; None for an
+ordinary command line. <code>-X</code> options are accepted and dropped here: the bootloader cannot
+take interpreter options from the command line, the frozen interpreter gets them from the
+build - <code>bosar.spec</code> passes <code>('X utf8', None, 'OPTION')</code> to both executables, so a
+build runs in UTF-8 mode like <code>python -X utf8</code> (the bootloader's isolated configuration
+ignores <code>PYTHONUTF8</code>) - and :func:<code>utf8_requested</code> tells :func:<code>run_module_request</code> that
+the caller asked for UTF-8. Units: none.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.utf8_requested" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">utf8_requested</span>
+
+
+<a href="#bosar.build.utf8_requested" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">utf8_requested</span><span class="p">(</span><span class="n">argv</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>True when the interpreter-style command line asks for UTF-8 mode: <code>-X utf8</code> (or
+<code>-X utf8=1</code>; the last <code>utf8</code> option wins, as in CPython) among the <code>-X</code> options
+before <code>-m</code>. Units: none.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.ensure_utf8_streams" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">ensure_utf8_streams</span>
+
+
+<a href="#bosar.build.ensure_utf8_streams" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">ensure_utf8_streams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Switch <code>sys.stdout</code> / <code>sys.stderr</code> to UTF-8 when the interpreter is not in UTF-8
+mode - the fallback for a bundle whose interpreter did not get the spec's <code>X utf8</code>
+option: Bosar's parents read their children's output as UTF-8 (<code>-X utf8</code> children).
+Each stream keeps its error handler (<code>reconfigure(encoding=...)</code> alone would reset it
+to <code>strict</code>); one on <code>strict</code> gets the handler of UTF-8 mode - <code>surrogateescape</code> for
+stdout, <code>backslashreplace</code> for stderr - so a lone surrogate (an undecodable file name)
+never raises. Streams without <code>reconfigure</code> (None in a windowed build, a test capture)
+are left alone. Returns the names of the streams switched. Units: none.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.run_module_request" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">run_module_request</span>
+
+
+<a href="#bosar.build.run_module_request" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">run_module_request</span><span class="p">(</span>
+    <span class="n">module</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">arguments</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">utf8</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run <code>module</code> as <code>python -m module arguments</code> would inside this process (the frozen
+executable standing in for the interpreter), through :func:<code>runpy.run_module</code> with
+<code>sys.argv</code> set - the package itself too: <code>bosar/__main__.py</code> runs the CLI (the spec
+bundles it), so this module never imports the CLI (<code>build</code> sits below <code>cli</code> in the
+layering). <code>utf8</code> (the caller gave <code>-X utf8</code>, :func:<code>utf8_requested</code>) makes sure the
+standard streams write UTF-8 even when the interpreter is not in UTF-8 mode
+(:func:<code>ensure_utf8_streams</code>).</p>
+<p>Returns the exit code as the interpreter would make it: the module's <code>SystemExit</code> code
+(None is 0; a message other than an integer goes to stderr and gives 1), 0 when it
+returns, 1 with one line on stderr when the module cannot be found or is a package
+without <code>__main__</code>. An exception raised while the module runs propagates (a traceback,
+exit code 1). Units: none.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.is_frozen" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">is_frozen</span>
+
+
+<a href="#bosar.build.is_frozen" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">is_frozen</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>True inside a PyInstaller build (<code>sys.frozen</code> is set by its bootloader).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.bundle_dir" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">bundle_dir</span>
+
+
+<a href="#bosar.build.bundle_dir" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">bundle_dir</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The folder of the collected modules and data of a frozen build (<code>_internal</code> of a
+one-folder build), None in a source checkout. <code>BOSAR_BUNDLE_DIR</code> overrides it (tests).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.read_build_info" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">read_build_info</span>
+
+
+<a href="#bosar.build.read_build_info" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">read_build_info</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BuildInfo</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The build record of a frozen build (<code>BOSAR_BUILD_FILE</code> names another file for tests),
+None when there is none or it is unreadable.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.plugins_dir" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">plugins_dir</span>
+
+
+<a href="#bosar.build.plugins_dir" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">plugins_dir</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>&lt;user data dir&gt;/bosar/plugins</code> (<code>BOSAR_PLUGINS_DIR</code> overrides it).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.plugin_site" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">plugin_site</span>
+
+
+<a href="#bosar.build.plugin_site" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">plugin_site</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The <code>site-packages</code> folder of one plug-in.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.plugin_manifest" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">plugin_manifest</span>
+
+
+<a href="#bosar.build.plugin_manifest" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">plugin_manifest</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>plugin.json</code> of an installed plug-in (what was unpacked, when, from where).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.activate_plugin" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">activate_plugin</span>
+
+
+<a href="#bosar.build.activate_plugin" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">activate_plugin</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Append the plug-in's <code>site-packages</code> to <code>sys.path</code> (once); returns it when present.</p>
+<p>Appended, not inserted: the application's own packages win. On Windows the folder is also
+registered for DLL loading so wheels that ship shared libraries next to their modules load.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.dll_folders" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">dll_folders</span>
+
+
+<a href="#bosar.build.dll_folders" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">dll_folders</span><span class="p">(</span><span class="n">site</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The folders of shared libraries a plug-in's wheels carry: the site itself and the
+<code>nvidia/&lt;library&gt;/bin</code> (Windows) / <code>lib</code> (Linux) folders of the CUDA runtime wheels.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.build.register_dll_folder" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">register_dll_folder</span>
+
+
+<a href="#bosar.build.register_dll_folder" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">register_dll_folder</span><span class="p">(</span><span class="n">folder</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Make <code>folder</code> searchable for shared libraries loaded by name: <code>os.add_dll_directory</code>
+and the front of <code>PATH</code> on Windows (CuPy opens the CUDA libraries through <code>ctypes</code> by
+bare name); <code>LD_LIBRARY_PATH</code> cannot be changed for a running process on Linux, where
+the CUDA wheels are found by CuPy's own path finder.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.plugins" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.plugins</span>
+
+
+<a href="#bosar.plugins" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Plug-ins of a frozen build: wheels fetched from PyPI and unpacked under the user's data
+folder. The first and only plug-in is the GPU backend: <code>cupy-cuda12x</code> with
+its <code>[ctk]</code> extra (the NVIDIA runtime wheels), which the installers do not carry.</p>
+<p>No pip inside a PyInstaller build - so this module resolves the wheels itself: the PyPI JSON
+API lists every file of a release; the newest release that has a wheel compatible with this
+interpreter (<code>packaging.tags.sys_tags</code>) is chosen; the wheel is downloaded, its SHA-256
+checked against the index, unpacked; its <code>Requires-Dist</code> lines are followed (markers
+evaluated with the requested extras) except for the distributions the application already
+bundles. A manifest records what was unpacked. Network code lives here, never in <code>core</code>.</p>
+<p>The functions take their fetch and download callables as parameters so the tests run the whole
+resolution on a fake index without a socket.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="bosar.plugins.BUNDLED_DISTS" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">BUNDLED_DISTS</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#bosar.plugins.BUNDLED_DISTS" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">BUNDLED_DISTS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">"numpy"</span><span class="p">,</span> <span class="s2">"scipy"</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Distributions the application carries; a plug-in never fetches them (canonical names).</p>
+
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="bosar.plugins.WheelChoice" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">WheelChoice</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#bosar.plugins.WheelChoice" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">WheelChoice</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">sha256</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>One wheel picked from the index.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.fetch_json" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">fetch_json</span>
+
+
+<a href="#bosar.plugins.fetch_json" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">fetch_json</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">timeout_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">60.0</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>GET a JSON document (the PyPI JSON API).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.download" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">download</span>
+
+
+<a href="#bosar.plugins.download" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">download</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">dest</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">timeout_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">600.0</span><span class="p">,</span>
+    <span class="n">chunk</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Stream <code>url</code> into <code>dest</code> (a <code>.part</code> file renamed at the end).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.compatible" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">compatible</span>
+
+
+<a href="#bosar.plugins.compatible" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">compatible</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>True when the wheel's tags intersect this interpreter's (<code>packaging.tags.sys_tags</code>).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.resolve" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">resolve</span>
+
+
+<a href="#bosar.plugins.resolve" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">resolve</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">specifier</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">fetch</span><span class="p">:</span> <span class="n">FetchJson</span> <span class="o">=</span> <span class="n">fetch_json</span><span class="p">,</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">PYPI_JSON</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WheelChoice</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The newest release of <code>name</code> that satisfies <code>specifier</code> and has a compatible wheel.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.wheel_requirements" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">wheel_requirements</span>
+
+
+<a href="#bosar.plugins.wheel_requirements" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">wheel_requirements</span><span class="p">(</span><span class="n">wheel</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Requirement</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The <code>Requires-Dist</code> lines of a wheel's METADATA.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.wanted" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">wanted</span>
+
+
+<a href="#bosar.plugins.wanted" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">wanted</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">Requirement</span><span class="p">,</span> <span class="n">extras</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Whether a dependency applies: no marker, or its marker holds for one of <code>extras</code>
+(an extra-less evaluation covers plain markers such as <code>python_version</code>).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.installed_dists" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">installed_dists</span>
+
+
+<a href="#bosar.plugins.installed_dists" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">installed_dists</span><span class="p">(</span><span class="n">site</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Canonical names of the distributions whose <code>*.dist-info</code> sits in <code>site</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.install" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">install</span>
+
+
+<a href="#bosar.plugins.install" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">install</span><span class="p">(</span>
+    <span class="n">spec</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">GPU_SPEC</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">GPU_PLUGIN</span><span class="p">,</span>
+    <span class="n">site</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">fetch</span><span class="p">:</span> <span class="n">FetchJson</span> <span class="o">=</span> <span class="n">fetch_json</span><span class="p">,</span>
+    <span class="n">fetcher</span><span class="p">:</span> <span class="n">Download</span> <span class="o">=</span> <span class="n">download</span><span class="p">,</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">dry_run</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">BUNDLED_DISTS</span><span class="p">,</span>
+    <span class="n">log</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="nb">print</span><span class="p">,</span>
+    <span class="n">index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">PYPI_JSON</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Resolve <code>spec</code> and its dependency closure, unpack the wheels under the plug-in's
+<code>site-packages</code>, write the manifest. <code>dry_run</code> resolves and reports only.</p>
+<p>Returns the manifest: <code>name</code>, <code>spec</code>, <code>installed_at</code> (UTC), <code>python</code>, <code>wheels</code>
+(each with name, version, filename, sha256, size), <code>skipped</code> (bundled or present),
+<code>bytes</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.remove" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">remove</span>
+
+
+<a href="#bosar.plugins.remove" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">remove</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">GPU_PLUGIN</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Delete the plug-in folder; True when something was removed.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.plugins.status" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">status</span>
+
+
+<a href="#bosar.plugins.status" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">status</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">GPU_PLUGIN</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>present</code>, <code>site</code>, <code>manifest</code> (or None) and the size on disk of a plug-in.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="bosar.licenses" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">bosar.licenses</span>
+
+
+<a href="#bosar.licenses" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>The licence of Bosar as the application states it.</p>
+<p><code>licence_text(name)</code> returns the text of <code>LICENSE</code>, <code>NOTICE</code> or <code>THIRD_PARTY_NOTICES.md</code>
+from the installed distribution's <code>licenses/</code> metadata folder (a wheel, a PyInstaller bundle
+with the metadata collected), falling back to the repository root of a development checkout.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.licenses.about_line" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">about_line</span>
+
+
+<a href="#bosar.licenses.about_line" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">about_line</span><span class="p">(</span><span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p><code>Bosar &lt;version&gt; — © 2026 Jiashu Hu — free for non-commercial use (PolyForm NC 1.0.0)
+— commercial licences: &lt;contact&gt;</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="bosar.licenses.licence_text" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">licence_text</span>
+
+
+<a href="#bosar.licenses.licence_text" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">licence_text</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The text of one of the licence files shipped with Bosar; a one-line note when the file
+is not reachable (the About dialog then still names the licence).</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../core/" class="md-footer__link md-footer__link--prev" aria-label="Previous: API - core">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                API - core
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../data/" class="md-footer__link md-footer__link--next" aria-label="Next: API - data and readers">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                API - data and readers
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jiashu Hu. Free for non-commercial use (PolyForm Noncommercial 1.0.0); commercial licences on request.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

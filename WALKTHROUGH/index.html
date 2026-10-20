@@ -1,0 +1,3807 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Install-and-run SAR interferometry for Windows and macOS">
+      
+      
+      
+        <link rel="canonical" href="https://hu-jiashu.github.io/bosar/WALKTHROUGH/">
+      
+      
+        <link rel="prev" href="../install/">
+      
+      
+        <link rel="next" href="../WALKTHROUGH_zh/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/icons/app.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Walkthrough - Bosar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bosar-walkthrough-from-a-fresh-clone-to-the-downtown-displacement-map-and-damage-proxy-map" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bosar" class="md-header__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../assets/icons/app.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bosar
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Walkthrough
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../install/" class="md-tabs__link">
+          
+  
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../tour/" class="md-tabs__link">
+          
+  
+  
+  Feature tour
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../data/formats/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ERRORS/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bosar" class="md-nav__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../assets/icons/app.png" alt="logo">
+
+    </a>
+    Bosar
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-0-edit-these-three-variables-for-your-machine-the-only-place-that-needs-changing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 0: Edit these three variables for your machine (the only place that needs changing)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-clone-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Clone the code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-create-the-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the Python environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-development-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Development environment variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-self-check-with-preflight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Self-check with preflight
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-put-snaphu-in-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Put SNAPHU in place
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-create-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Create a project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-crop-downtown-out-of-the-full-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Crop downtown out of the full stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-import-the-crop-and-the-full-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Import the crop and the full stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-dinsar-pipeline-geo_disp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: DInSAR pipeline → geo_disp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-look-at-the-quick-looks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 10: Look at the quick-looks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11-coherence-change-detection-geo_dpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 11: Coherence change detection → geo_dpm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-12-amplitude-change-log-ratio-and-rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12: Amplitude change (log-ratio and RGB)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-13-export-clipped-to-500-m-either-side-of-the-highways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13: Export (clipped to 500 m either side of the highways)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-14-where-the-logs-are-and-how-to-read-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14: Where the logs are and how to read them
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-15-gacos-request-card-and-validation-of-existing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 15: GACOS request card and validation of existing files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-16-the-graphical-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 16: The graphical interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-17-account-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 17: Account credentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-18-orbit-files-local-first-then-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 18: Orbit files: local first, then download
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-19-dem-local-tile-mosaic-ellipsoidal-height-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 19: DEM: local tile mosaic, ellipsoidal height by default
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-20-quick-coherence-preview-and-baselines-from-orbits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 20: Quick coherence preview and baselines from orbits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-21-gacos-atmospheric-correction-tropo-gacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 21: GACOS atmospheric correction (--tropo gacos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-22-sbas-network-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 22: SBAS network design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-23-derive-the-small-baseline-interferograms-common-reference-point-batch-unwrapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 23: Derive the small-baseline interferograms, common reference point, batch unwrapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-24-triplet-closure-b4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 24: Triplet closure (B4)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-25-preprocessing-with-snap-requires-an-installed-esa-snap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 25: Preprocessing with SNAP (requires an installed ESA SNAP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-26-which-pairs-and-pixels-are-dropped-when-coherence-is-insufficient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 26: Which pairs and pixels are dropped when coherence is insufficient
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-27-sbas-time-series-pipeline-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 27: SBAS time series (pipeline sbas)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-28-export-for-comparison-with-mintpy-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 28: Export for comparison with MintPy (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-29-viewing-time-series-stacking-layers-and-exporting-figures-in-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 29: Viewing time series, stacking layers and exporting figures in the GUI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-30-is-the-result-usable-quality-verdict-and-data-health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 30: Is the result usable? Quality verdict and data health check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-31-ps-ds-time-series-pipeline-psds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 31: PS / DS time series (pipeline psds)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-32-classic-ps-insar-as-an-independent-cross-check-pipeline-psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 32: Classic PS-InSAR as an independent cross-check (pipeline psi)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-33-viewing-psds-results-in-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 33: Viewing PS/DS results in the GUI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-34-downloading-raw-slcs-from-asf-fetch-slc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 34: Downloading raw SLCs from ASF (fetch slc)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-35-native-tops-coregistration-from-zip-to-stack-without-snap-pipeline-s1-coregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 35: Native TOPS coregistration: from zip to stack without SNAP (pipeline s1-coregister)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-36-empty-scene-health-check-at-import-and-per-band-quality-thresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 36: Empty-scene health check at import and per-band quality thresholds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-37-classic-psi-and-the-point-layer-in-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 37: Classic PSI and the point layer in the GUI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-38-multi-year-native-stack-every-zip-in-a-directory-cropped-to-the-aoi-resumable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 38: Multi-year native stack: every zip in a directory, cropped to the AOI, resumable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-39-calibration-and-terrain-flattening-calibration-terrain-flatten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 39: Calibration and terrain flattening (--calibration, --terrain-flatten)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-40-three-sub-swaths-and-swath-merging-subswath-iw1iw2iw3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 40: Three sub-swaths and swath merging (--subswath IW1,IW2,IW3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-41-split-spectrum-ionosphere-estimation-iono_split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 41: Split-spectrum ionosphere estimation (iono_split)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-42-gui-the-coregister-workflow-and-download-batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 42: GUI: the Coregister workflow and download batches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-43-temporal-reference-date-and-outlier-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 43: Temporal reference date and outlier dates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-44-stec-implied-by-the-range-shifts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 44: ΔSTEC implied by the range shifts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-45-ionospheric-model-correction-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 45: Ionospheric model correction (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-46-sequential-phase-linking-for-long-series-and-the-star-unwrapping-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 46: Sequential phase linking for long series and the star-unwrapping experiment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-47-alos-1-envisat-ers-nisar-readers-and-the-stripmap-coregistration-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 47: ALOS-1 / ENVISAT / ERS / NISAR readers and the stripmap coregistration chain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-48-comparing-two-chains-the-4k-tour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 48: Comparing two chains, the 4K tour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-limitations-and-what-comes-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current limitations and what comes next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-49-quality-verdict-for-deforming-areas-linking-coherence-gate-two-safeguards-on-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 49: Quality verdict for deforming areas, linking-coherence gate, two safeguards on downloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-50-the-installed-version-starting-from-exe-dmg-without-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 50: The installed version: starting from .exe / .dmg without the source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-51-alos-2-palsar-2-reader-and-jaxas-free-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 51: ALOS-2 PALSAR-2 reader and JAXA's free samples
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WALKTHROUGH_zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough (中文)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LICENSING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature tour
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Feature tour
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/project_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project and data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/system_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/dinsar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DInSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/gacos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GACOS correction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/ccd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coherence change detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/amplitude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplitude change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Result viewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sbas_prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sbas_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/psds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PS / DS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/psi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic PS-InSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/snap_bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNAP bridge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/fetch_slc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLC download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/native_s1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Sentinel-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logs and failures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    功能导览（中文）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/sensor_download_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor download plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/mexico_city_esa_products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexico City ESA products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ERRORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Errors, warnings, preflight codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LOG_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Log schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - data and readers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-0-edit-these-three-variables-for-your-machine-the-only-place-that-needs-changing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 0: Edit these three variables for your machine (the only place that needs changing)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-clone-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Clone the code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-create-the-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the Python environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-development-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Development environment variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-self-check-with-preflight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Self-check with preflight
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-put-snaphu-in-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Put SNAPHU in place
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-create-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Create a project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-crop-downtown-out-of-the-full-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Crop downtown out of the full stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-import-the-crop-and-the-full-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Import the crop and the full stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-dinsar-pipeline-geo_disp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: DInSAR pipeline → geo_disp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-look-at-the-quick-looks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 10: Look at the quick-looks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11-coherence-change-detection-geo_dpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 11: Coherence change detection → geo_dpm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-12-amplitude-change-log-ratio-and-rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12: Amplitude change (log-ratio and RGB)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-13-export-clipped-to-500-m-either-side-of-the-highways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13: Export (clipped to 500 m either side of the highways)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-14-where-the-logs-are-and-how-to-read-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14: Where the logs are and how to read them
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-15-gacos-request-card-and-validation-of-existing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 15: GACOS request card and validation of existing files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-16-the-graphical-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 16: The graphical interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-17-account-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 17: Account credentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-18-orbit-files-local-first-then-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 18: Orbit files: local first, then download
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-19-dem-local-tile-mosaic-ellipsoidal-height-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 19: DEM: local tile mosaic, ellipsoidal height by default
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-20-quick-coherence-preview-and-baselines-from-orbits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 20: Quick coherence preview and baselines from orbits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-21-gacos-atmospheric-correction-tropo-gacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 21: GACOS atmospheric correction (--tropo gacos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-22-sbas-network-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 22: SBAS network design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-23-derive-the-small-baseline-interferograms-common-reference-point-batch-unwrapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 23: Derive the small-baseline interferograms, common reference point, batch unwrapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-24-triplet-closure-b4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 24: Triplet closure (B4)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-25-preprocessing-with-snap-requires-an-installed-esa-snap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 25: Preprocessing with SNAP (requires an installed ESA SNAP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-26-which-pairs-and-pixels-are-dropped-when-coherence-is-insufficient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 26: Which pairs and pixels are dropped when coherence is insufficient
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-27-sbas-time-series-pipeline-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 27: SBAS time series (pipeline sbas)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-28-export-for-comparison-with-mintpy-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 28: Export for comparison with MintPy (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-29-viewing-time-series-stacking-layers-and-exporting-figures-in-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 29: Viewing time series, stacking layers and exporting figures in the GUI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-30-is-the-result-usable-quality-verdict-and-data-health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 30: Is the result usable? Quality verdict and data health check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-31-ps-ds-time-series-pipeline-psds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 31: PS / DS time series (pipeline psds)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-32-classic-ps-insar-as-an-independent-cross-check-pipeline-psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 32: Classic PS-InSAR as an independent cross-check (pipeline psi)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-33-viewing-psds-results-in-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 33: Viewing PS/DS results in the GUI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-34-downloading-raw-slcs-from-asf-fetch-slc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 34: Downloading raw SLCs from ASF (fetch slc)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-35-native-tops-coregistration-from-zip-to-stack-without-snap-pipeline-s1-coregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 35: Native TOPS coregistration: from zip to stack without SNAP (pipeline s1-coregister)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-36-empty-scene-health-check-at-import-and-per-band-quality-thresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 36: Empty-scene health check at import and per-band quality thresholds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-37-classic-psi-and-the-point-layer-in-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 37: Classic PSI and the point layer in the GUI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-38-multi-year-native-stack-every-zip-in-a-directory-cropped-to-the-aoi-resumable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 38: Multi-year native stack: every zip in a directory, cropped to the AOI, resumable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-39-calibration-and-terrain-flattening-calibration-terrain-flatten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 39: Calibration and terrain flattening (--calibration, --terrain-flatten)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-40-three-sub-swaths-and-swath-merging-subswath-iw1iw2iw3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 40: Three sub-swaths and swath merging (--subswath IW1,IW2,IW3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-41-split-spectrum-ionosphere-estimation-iono_split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 41: Split-spectrum ionosphere estimation (iono_split)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-42-gui-the-coregister-workflow-and-download-batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 42: GUI: the Coregister workflow and download batches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-43-temporal-reference-date-and-outlier-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 43: Temporal reference date and outlier dates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-44-stec-implied-by-the-range-shifts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 44: ΔSTEC implied by the range shifts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-45-ionospheric-model-correction-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 45: Ionospheric model correction (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-46-sequential-phase-linking-for-long-series-and-the-star-unwrapping-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 46: Sequential phase linking for long series and the star-unwrapping experiment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-47-alos-1-envisat-ers-nisar-readers-and-the-stripmap-coregistration-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 47: ALOS-1 / ENVISAT / ERS / NISAR readers and the stripmap coregistration chain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-48-comparing-two-chains-the-4k-tour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 48: Comparing two chains, the 4K tour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-limitations-and-what-comes-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current limitations and what comes next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-49-quality-verdict-for-deforming-areas-linking-coherence-gate-two-safeguards-on-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 49: Quality verdict for deforming areas, linking-coherence gate, two safeguards on downloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-50-the-installed-version-starting-from-exe-dmg-without-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 50: The installed version: starting from .exe / .dmg without the source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-51-alos-2-palsar-2-reader-and-jaxas-free-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 51: ALOS-2 PALSAR-2 reader and JAXA's free samples
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="bosar-walkthrough-from-a-fresh-clone-to-the-downtown-displacement-map-and-damage-proxy-map">Bosar walkthrough: from a fresh clone to the downtown displacement map and damage proxy map<a class="headerlink" href="#bosar-walkthrough-from-a-fresh-clone-to-the-downtown-displacement-map-and-damage-proxy-map" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Using an installed build?</strong> This walkthrough was written on a source checkout. The steps that use the source tree (<code>git clone</code>, <code>pip install -e</code>, <code>scripts/...</code>, <code>pytest</code>) need the source code, which is not published and is available only under a source licence from the author (see <a href="../LICENSING/">Licensing</a>). With the installers, start at <a href="../install/">Install</a> and at step 50 (the installed version); the <code>bosar</code> commands of the other steps are the commands of the installed build.</p>
+</blockquote>
+<p>This is the English edition of the Chinese walkthrough <code>WALKTHROUGH_zh.md</code>; the screenshots are
+shared between the two editions.</p>
+<p>Applies to: <code>v0.1.0-alpha.1</code> (end of phase 1). This manual answers "how far does the
+software go right now": every command was run verbatim while the manual was written, and the full
+output is in the release notes. There is no graphical
+interface yet; everything is done in PowerShell.</p>
+<p>Goal: on a 7.2 × 10.8 km crop of downtown Indianapolis, starting from a GAMMA/StaMPS stack
+exported by SNAP, obtain the geocoded line-of-sight displacement map <code>geo_disp</code>, the
+coherence-change damage proxy map <code>geo_dpm</code>, the amplitude log-ratio and RGB composite, then clip
+them to 500 m either side of the highways and export them as COG + GeoPackage. The whole process
+takes about 8 minutes on the CPU, most of it the pip install of step 2; the processing itself is
+under 2 minutes.</p>
+<hr />
+<h2 id="step-0-edit-these-three-variables-for-your-machine-the-only-place-that-needs-changing">Step 0: Edit these three variables for your machine (the only place that needs changing)<a class="headerlink" href="#step-0-edit-these-three-variables-for-your-machine-the-only-place-that-needs-changing" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nv">$DATA</span> <span class="p">=</span> <span class="s2">"&lt;data-root&gt;"</span>                  <span class="c"># read-only data pool (this walkthrough only reads from it, never writes)</span>
+<span class="nv">$MAIN</span> <span class="p">=</span> <span class="s2">"&lt;repo&gt;"</span>       <span class="c"># the main working copy, where SNAPHU is already built</span>
+<span class="nv">$WORK</span> <span class="p">=</span> <span class="s2">"&lt;repo&gt;\data\walkthrough_bosar"</span>   <span class="c"># where the fresh clone goes</span>
+</code></pre></div>
+<p>Files used under <code>$DATA</code>: the GAMMA stack <code>01_Preprocessed\01_IW2\</code>, the original zip
+<code>00_RawData\S1A_IW_SLC__1SDV_20240821T..._E05B.zip</code> (only the geometry annotation is read, nothing
+is extracted), the highway lines <code>04_GIS\indianapolis_highways.geojson</code>, and the GACOS folder
+<code>05_Auxiliary\00_GACOS\</code>.</p>
+<h2 id="step-1-clone-the-code">Step 1: Clone the code<a class="headerlink" href="#step-1-clone-the-code" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span> <span class="nv">$WORK</span> <span class="p">|</span> <span class="nb">Out-Null</span>
+<span class="nb">Set-Location</span> <span class="nv">$WORK</span>
+<span class="n">git</span> <span class="n">-c</span> <span class="n">safe</span><span class="p">.</span><span class="n">directory</span><span class="p">=*</span> <span class="n">clone</span> <span class="p">-</span><span class="n">-quiet</span> <span class="nv">$MAIN</span> <span class="n">bosar_walk</span>
+<span class="nb">Set-Location</span> <span class="n">bosar_walk</span>
+<span class="n">git</span> <span class="n">-c</span> <span class="n">safe</span><span class="p">.</span><span class="n">directory</span><span class="p">=*</span> <span class="n">log</span> <span class="p">-</span><span class="n">-oneline</span> <span class="p">-</span><span class="n">1</span>
+</code></pre></div>
+<p>The clone comes from the main working copy of step 0 (<code>$MAIN</code>); the public repository on
+GitHub carries the documentation and the installers, not the source. Readers who were given
+the address of the source repository put it in place of <code>$MAIN</code>. On a disk that does not record file ownership, git
+reports "dubious ownership" (exit code 128) on a fresh clone; the command above allows it for this
+one call only and does not touch your global configuration. To allow it permanently, run
+<code>git config --global --add safe.directory &lt;clone directory&gt;</code> yourself.</p>
+<h2 id="step-2-create-the-python-environment">Step 2: Create the Python environment<a class="headerlink" href="#step-2-create-the-python-environment" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="p">.</span><span class="n">venv</span>
+<span class="p">.\.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+<span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-quiet</span> <span class="n">-e</span> <span class="s2">".[dev,unwrap,viz]"</span>
+<span class="n">python</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+<ul>
+<li><code>unwrap</code> installs scikit-image (the unwrapping fallback when SNAPHU is absent), <code>viz</code> installs
+  matplotlib (quick-look figures).</li>
+<li>With an NVIDIA GPU, also run <code>python -m pip install -e ".[gpu]"</code> and the software uses CuPy
+  automatically; this manual does not install it and runs everything on the CPU (<code>preflight</code>
+  reports W401, which is normal).</li>
+</ul>
+<h2 id="step-3-development-environment-variables">Step 3: Development environment variables<a class="headerlink" href="#step-3-development-environment-variables" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p">.</span> <span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">dev_env</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+<p>Puts the ruff / pytest / CuPy caches inside the repository's <code>.cache\</code> and reminds you that only
+one process should use the GPU at a time (do not run the full test suite while a pipeline is
+running).</p>
+<h2 id="step-4-self-check-with-preflight">Step 4: Self-check with <code>preflight</code><a class="headerlink" href="#step-4-self-check-with-preflight" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">version</span>
+<span class="n">bosar</span> <span class="n">preflight</span>
+</code></pre></div>
+<p>Checks Python, dependencies, GPU, disk, SNAPHU and so on item by item; <code>OK</code> passes, <code>WARN</code> lets you
+continue, <code>FAIL</code> blocks the run. A fresh clone has no SNAPHU executable yet, so P401 shows <code>WARN</code>
+(W501: it will fall back to scikit-image).</p>
+<h2 id="step-5-put-snaphu-in-place">Step 5: Put SNAPHU in place<a class="headerlink" href="#step-5-put-snaphu-in-place" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span> <span class="n">packaging</span><span class="p">\</span><span class="n">bin</span><span class="p">\</span><span class="n">win-x64</span> <span class="p">|</span> <span class="nb">Out-Null</span>
+<span class="nb">Copy-Item</span> <span class="s2">"$MAIN\packaging\bin\win-x64\snaphu.exe"</span> <span class="n">packaging</span><span class="p">\</span><span class="n">bin</span><span class="p">\</span><span class="n">win-x64</span><span class="p">\</span>
+<span class="n">bosar</span> <span class="n">preflight</span> <span class="p">|</span> <span class="nb">Select-String</span> <span class="s2">"P401"</span>
+</code></pre></div>
+<p>SNAPHU 2.0.6 is compiled by <code>packaging\snaphu\build.ps1</code> with MinGW-w64; on the same input it gives pixel-identical
+results to the SNAPHU the author runs in WSL. The binary is not in git (licence and platform
+reasons), so a fresh clone copies it from the main directory or compiles it. After the copy, P401
+is <code>OK</code>.</p>
+<h2 id="step-6-create-a-project">Step 6: Create a project<a class="headerlink" href="#step-6-create-a-project" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">project</span> <span class="n">new</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-name</span> <span class="n">walk_demo</span> <span class="p">-</span><span class="n">-storage-mode</span> <span class="n">full</span>
+</code></pre></div>
+<p>A project is just a folder: <code>project.json</code> (steps, parameters, product inventory), <code>products\</code>,
+<code>logs\</code>, <code>scratch\</code>. <code>full</code> keeps every intermediate product (handy for inspection); the default
+<code>minimal</code> deletes the regenerable intermediate files when the chain finishes.</p>
+<h2 id="step-7-crop-downtown-out-of-the-full-stack">Step 7: Crop downtown out of the full stack<a class="headerlink" href="#step-7-crop-downtown-out-of-the-full-stack" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">data</span> <span class="n">crop</span> <span class="s2">"$DATA\01_Preprocessed\01_IW2"</span> <span class="p">-</span><span class="n">-window</span> <span class="n">7904</span><span class="p">,</span><span class="n">8672</span><span class="p">,</span><span class="n">2590</span><span class="p">,</span><span class="n">5662</span> <span class="p">-</span><span class="n">-dates</span> <span class="n">20240704</span><span class="p">,</span><span class="n">20240821</span><span class="p">,</span><span class="n">20240902</span><span class="p">,</span><span class="n">20240914</span><span class="p">,</span><span class="n">20250723</span> <span class="p">-</span><span class="n">-annotation</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240821T234025_20240821T234052_055318_06BEBA_E05B.zip"</span> <span class="p">-</span><span class="n">-out</span> <span class="n">data</span><span class="p">\</span><span class="n">indy_downtown_crop</span>
+</code></pre></div>
+<p>Reads a 768 × 3072 pixel window for 5 dates out of the 12239 × 25925 IW2 stack (read-only,
+windowed reads, the full scene is never loaded) and writes GeoTIFFs + <code>crop.json</code> under this
+repository's <code>data\</code>. <code>--annotation</code> reads the SAFE annotation straight from the original zip and
+replaces the nominal geometry of the SNAP export (2 m range spacing, Earth radius 11.5 km too
+small) with the real values (2.33 m and so on); <code>crop.json</code> records I201.</p>
+<h2 id="step-8-import-the-crop-and-the-full-stack">Step 8: Import the crop and the full stack<a class="headerlink" href="#step-8-import-the-crop-and-the-full-stack" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">data</span> <span class="n">import</span> <span class="n">walk</span> <span class="n">data</span><span class="p">\</span><span class="n">indy_downtown_crop</span>
+<span class="n">bosar</span> <span class="n">data</span> <span class="n">import</span> <span class="n">walk</span> <span class="s2">"$DATA\01_Preprocessed\01_IW2"</span> <span class="p">-</span><span class="n">-annotation</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240821T234025_20240821T234052_055318_06BEBA_E05B.zip"</span>
+<span class="n">bosar</span> <span class="n">project</span> <span class="n">info</span> <span class="n">walk</span>
+</code></pre></div>
+<p>Import only registers metadata (dates, geometry, baselines, footprint); the raw data stays where
+it is. The full stack has 29 scenes; the B⊥ of 20240821_20240704 is corrected from the nominal
+geometry's 223.8 m to 213.9 m (SNAP itself gives 216.1 m). The project now holds two stacks, and
+the pipelines below name one with <code>--stack</code>.</p>
+<h2 id="step-9-dinsar-pipeline-geo_disp">Step 9: DInSAR pipeline → <code>geo_disp</code><a class="headerlink" href="#step-9-dinsar-pipeline-geo_disp" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">dinsar</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-all-pairs</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-backend</span> <span class="n">snaphu</span> <span class="p">-</span><span class="n">-geocode-coh</span>
+</code></pre></div>
+<p>Each interferogram pair runs in turn: <code>ifg_import</code> (references the differential interferogram in
+the stack) → <code>multilook</code> (2 × 10 looks, 28 × 23 m) → <code>coherence</code> (since v0.1.0 DInSAR defaults
+to the <code>slc-box</code> recipe: a 5 × 5 window at full resolution, then averaged inside the 2 × 10
+block, consistent with MintPy's coherence; <code>--recipe looks</code> is the standard estimator with 20
+samples per multilook block. CCD defaults to <code>looks</code>, see step 11) → <code>goldstein</code> (filtering) →
+<code>unwrap</code> (SNAPHU, single tile) → <code>geocode_unw</code> → <code>displacement</code> (<code>d = −λφ/4π</code>, metres, <strong>positive
+toward the satellite</strong>, 0 at the reference point) → <code>geocode_disp</code> → <code>geocode_coh</code>. One line per
+step on screen; the last line is the location of the run log. Four pairs make 36 steps, about 25
+seconds on the CPU (results agree with the GPU to 1e-6).</p>
+<h2 id="step-10-look-at-the-quick-looks">Step 10: Look at the quick-looks<a class="headerlink" href="#step-10-look-at-the-quick-looks" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-ChildItem</span> <span class="n">walk</span><span class="p">\</span><span class="n">products</span><span class="p">\</span><span class="n">figure</span> <span class="n">-Name</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">12</span>
+</code></pre></div>
+<ul>
+<li><code>*_coherence.png</code>: coherence (black 0 → white 1); river channels and vegetation are dark,
+  buildings and roads bright.</li>
+<li><code>*_unwrapped.png</code>: unwrapped phase (radians, symmetric red-blue).</li>
+<li><code>*_displacement.png</code>: line-of-sight displacement (millimetres, red = toward the satellite,
+  blue = away from the satellite, colour scale symmetric over the 2–98 % range); on 12–48 day
+  short pairs this is mostly atmosphere (centimetre level), not ground subsidence.</li>
+<li>The <code>geo_*</code> products (<code>walk\products\geo_disp\</code> and so on) are EPSG:4326 GeoTIFFs that can be
+  dragged straight into QGIS.</li>
+</ul>
+<h2 id="step-11-coherence-change-detection-geo_dpm">Step 11: Coherence change detection → <code>geo_dpm</code><a class="headerlink" href="#step-11-coherence-change-detection-geo_dpm" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">ccd</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-pre</span> <span class="n">20240821_20240902</span> <span class="n">20240821_20240914</span> <span class="p">-</span><span class="n">-co</span> <span class="n">20240821_20240704</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">ccd</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-pre</span> <span class="n">20240821_20240902</span> <span class="n">20240821_20240914</span> <span class="p">-</span><span class="n">-co</span> <span class="n">20240821_20250723</span>
+</code></pre></div>
+<p><code>--pre</code> gives the two pre-event pairs (summer, 12/24 days), <code>--co</code> the "event" pair. There is no
+real destructive event, so: the first command is a <strong>null test</strong> (another pair of the same season);
+the second is a <strong>seasonal pseudo-event</strong> (336 days, across winter). Measured results (with the standard estimator <code>looks</code>, details in the release notes): 2 % exceed the
+quantile threshold, about 0.36 % remain on the map after despeckling; but in both cases the map
+concentrates on coherent urban targets rather than vegetation: in C-band 12/24 day summer pairs,
+fields and woodland are already decorrelated before the event, there is no coherence left to lose,
+so the land-cover-map failure mode the review expected does not appear on this data. The null test
+is not pure noise either: the 48 day event pair is itself more decorrelated than the 12/24 day
+pre-event pairs, and a fixed threshold z ≥ 3 flags about 5 %. Products: <code>ccd_delta</code> (coherence
+drop), <code>ccd_z</code> (standardised by the spread between the pre-event pairs, positive = drop), <code>dpm</code>
+(1 = significant drop, 0 = none, 255 = masked where pre-event coherence &lt; 0.3), and the geocoded
+<code>geo_ccd</code>, <code>geo_dpm</code>. An artificially injected 200 m damage block is detected (test
+<code>tests/test_ccd.py</code>, precision and recall ≥ 0.9 under <code>looks</code>).
+The trade-off between the two coherence recipes: the 5-row azimuth window
+of <code>slc-box</code> is larger than 2 looks, neighbouring multilook pixels share samples, <code>ccd_z</code> is
+spatially correlated (Moran's I about 0.37 in the null test, &lt; 0.1 under <code>looks</code>), and the edge of
+the damage block gets an extra ring of flagged pixels (recall still 1, precision about 0.72):
+small bias but blurred boundaries; <code>looks</code> pixels are independent of each other with crisp
+boundaries, slightly more bias at low coherence. For damage mapping localisation matters more than
+bias, so <strong><code>pipeline ccd</code> and the GUI's CCD workflow default to <code>looks</code></strong> (DInSAR still defaults
+to <code>slc-box</code>). If CCD reads <code>slc-box</code> coherence, the log records a W106 note; to use it anyway, add
+<code>--recipe slc-box</code> explicitly (a freshly computed coherence step should get a <code>--tag</code> so the two
+sets of results coexist).</p>
+<h2 id="step-12-amplitude-change-log-ratio-and-rgb">Step 12: Amplitude change (log-ratio and RGB)<a class="headerlink" href="#step-12-amplitude-change-log-ratio-and-rgb" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">run</span> <span class="n">walk</span> <span class="n">amplitude</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">amplitude_crop</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span>
+<span class="n">bosar</span> <span class="n">run</span> <span class="n">walk</span> <span class="n">log_ratio</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">log_ratio_20240821_20250723</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">amplitude_crop</span> <span class="p">-</span><span class="n">-pre</span> <span class="n">20240821</span> <span class="p">-</span><span class="n">-post</span> <span class="n">20250723</span>
+<span class="n">bosar</span> <span class="n">run</span> <span class="n">walk</span> <span class="n">rgb_composite</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">rgb_20240821_20250723</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">amplitude_crop</span> <span class="p">-</span><span class="n">-pre</span> <span class="n">20240821</span> <span class="p">-</span><span class="n">-post</span> <span class="n">20250723</span>
+<span class="n">bosar</span> <span class="n">run</span> <span class="n">walk</span> <span class="n">geocode</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">geocode_log_ratio_20240821_20250723</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">amplitude_crop</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">log_ratio_20240821_20250723</span> <span class="p">-</span><span class="n">-source</span> <span class="n">log_ratio</span>
+</code></pre></div>
+<p>The GAMMA stack has no radiometric calibration, so amplitude change is <strong>relative</strong>: each date is
+first normalised on "stable scatterers" (the 95 % of pixels with the lowest amplitude dispersion),
+then <code>10·log10(I_post/I_pre)</code> is computed (positive = brighter). In the RGB composite red = pre,
+green and blue = post: red means darkening, cyan brightening, grey unchanged. The calibration
+look-up tables (σ⁰) can already be read straight from the original zips (all 33 zips readable) and
+are used in the native SAFE workflow of v0.2.0.</p>
+<h2 id="step-13-export-clipped-to-500-m-either-side-of-the-highways">Step 13: Export (clipped to 500 m either side of the highways)<a class="headerlink" href="#step-13-export-clipped-to-500-m-either-side-of-the-highways" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">export</span> <span class="n">walk</span> <span class="n">all</span> <span class="p">-</span><span class="n">-aoi</span> <span class="s2">"$DATA\04_GIS\indianapolis_highways.geojson"</span> <span class="p">-</span><span class="n">-buffer-m</span> <span class="n">500</span> <span class="p">-</span><span class="n">-out</span> <span class="n">walk</span><span class="p">\</span><span class="n">export</span>
+<span class="nb">Get-Content</span> <span class="n">walk</span><span class="p">\</span><span class="n">export</span><span class="p">\</span><span class="n">README</span><span class="p">.</span><span class="n">txt</span> <span class="n">-TotalCount</span> <span class="n">25</span>
+</code></pre></div>
+<p>Each geocoded product is written as a cloud-optimised GeoTIFF (COG) with nodata beyond 500 m from
+the highways; the vectors (product extent, reference point, AOI, stack footprint) go into one
+GeoPackage; <code>README.txt</code> and <code>export.json</code> state each file's units, sign convention, reference
+point, date pair and run id.</p>
+<h2 id="step-14-where-the-logs-are-and-how-to-read-them">Step 14: Where the logs are and how to read them<a class="headerlink" href="#step-14-where-the-logs-are-and-how-to-read-them" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">logs</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-tail</span> <span class="n">3</span>
+<span class="nb">Get-ChildItem</span> <span class="n">walk</span><span class="p">\</span><span class="n">logs</span> <span class="n">-Name</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Last</span> <span class="n">3</span>
+</code></pre></div>
+<p>Each run writes one <code>logs\run_*.jsonl</code> (one JSON record per line, UTC time to the microsecond, with
+parameters, inputs, outputs, duration, peak memory), next to a human-readable <code>.log</code> and a Markdown
+report <code>.md</code>. <code>bosar logs walk --failure</code> shows the cause and hint of the most recent failure.</p>
+<h2 id="step-15-gacos-request-card-and-validation-of-existing-files">Step 15: GACOS request card and validation of existing files<a class="headerlink" href="#step-15-gacos-request-card-and-validation-of-existing-files" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">aux</span> <span class="n">gacos-request</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">gamma_01_IW2</span>
+<span class="n">bosar</span> <span class="n">aux</span> <span class="n">gacos-check</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">gamma_01_IW2</span> <span class="p">-</span><span class="n">-dir</span> <span class="s2">"$DATA\05_Auxiliary\00_GACOS"</span>
+</code></pre></div>
+<p>GACOS has no API: the software computes from the project what to type into the gacos.net form,
+the extent (N/W/E/S), the time (23:40 UTC, from the SAFE startTime, not the halved 11:50 in the
+SNAP-exported par), the dates (at most 20 per request, so the 29 go in two batches); you submit the
+form, and once the e-mail arrives you put the <code>.ztd/.rsc</code> files into <code>walk\aux\gacos\</code> and validate
+them with <code>gacos-check</code>. All 29 dates already present in <code>&lt;data-root&gt;</code> pass (time difference 0.4 min,
+edge margin 0.10°, no missing values). The tropospheric correction itself is added in v0.2.0.</p>
+<h2 id="step-16-the-graphical-interface">Step 16: The graphical interface<a class="headerlink" href="#step-16-the-graphical-interface" title="Permanent link">&para;</a></h2>
+<p>Start the GUI from the same PowerShell window (the virtual environment and <code>dev_env.ps1</code> are both
+in effect):</p>
+<div class="highlight"><pre><span></span><code>bosar gui walk
+</code></pre></div>
+<p>You can also run <code>bosar-gui walk</code> directly (the launcher without a console window). This step is
+<strong>not executed</strong> by the automated check above, because the window stays open; closing the window
+ends it. The interface settings (theme, recent projects, SNAPHU path, and so on) live in the INI
+file pointed to by <code>$env:BOSAR_CONFIG_DIR</code> (in the development environment that is <code>.cache\config</code>
+inside the repository); nothing is written to the registry.</p>
+<p>The GUI does no computation of its own: <strong>every action is one <code>bosar …</code> command</strong>, shown in the
+command bar at the bottom of the window, which can be copied to PowerShell with one click; the
+results are exactly those of steps 6–15 above. Processing runs in a separate process, and the
+interface reads the same <code>project.json</code> and <code>logs\run_*.jsonl</code>.</p>
+<ul>
+<li><strong>Project</strong>: create / open a project; the summary card lists the data stacks, step status and the
+  disk usage of each product level.</li>
+<li><strong>Check</strong>: the <code>preflight</code> of step 4, grouped by system / GPU / dependencies / programs /
+  credentials / network / project, in green, yellow and red.</li>
+<li><strong>Data</strong>: dataset table, baseline table (Δt and B⊥ coloured by threshold), baseline network plot,
+  stack footprints on a Natural Earth basemap, and the amplitude image of a date when it is
+  selected; drag a stack folder in to import it (step 8).</li>
+<li><strong>Run</strong>: pick a workflow (DInSAR / CCD / amplitude change) and the pairs; the parameter form is
+  generated automatically from each step's parameter definition (common items on top, the rest
+  under "Advanced"); the command about to run is shown live on the right. <strong>Run</strong> starts it,
+  <strong>Stop</strong> first requests cancellation (the current step is recorded as cancelled) and, if nothing
+  has stopped within 5 seconds, ends the whole process tree (including SNAPHU).</li>
+</ul>
+<p><img alt="Running" src="../assets/tour/dinsar/03_running_light.png" /></p>
+<ul>
+<li><strong>View</strong>: the product tree on the left, two linked image views on the right; colour tables are
+  fixed per product type (coherence grey 0–1, displacement symmetric red-blue in mm, red = toward
+  the satellite); the full-resolution value, unit and lat/lon are shown under the mouse; the damage
+  proxy map can be overlaid, and export is available (the <code>bosar export</code> of step 13).</li>
+</ul>
+<p><img alt="Result" src="../assets/tour/dinsar/04_result_dark.png" /></p>
+<ul>
+<li><strong>Logs</strong>: one row per run; the record table can be filtered by level / event / step / text; a
+  failed run shows a failure card: WHAT (error code and message), WHERE (step, code location,
+  file), HINT (what to do), LOG (log file and line number).</li>
+</ul>
+<p><img alt="Failure card" src="../assets/tour/logs/02_failure_dark.png" /></p>
+<ul>
+<li><strong>Aux</strong>: the GACOS request card of step 15, with a copy button on every field; "Copy request k"
+  copies one batch of dates in the order of the website form; the folder holding the files is
+  re-validated automatically whenever it changes. The orbit and DEM cards are enabled in v0.2.0.</li>
+<li><strong>Settings</strong> (gear icon, top right): theme (dark / light / follow system), compute device
+  (auto / CPU / GPU), SNAPHU path, storage mode for new projects, read-only data directory;
+  credentials <strong>only show whether they exist</strong>, never their content.</li>
+</ul>
+<hr />
+<h2 id="step-17-account-credentials">Step 17: Account credentials<a class="headerlink" href="#step-17-account-credentials" title="Permanent link">&para;</a></h2>
+<p>Credentials enter by two routes only: <code>bosar auth set &lt;service&gt;</code> in the terminal (hidden input, or
+<code>--from-file yourfile.txt</code>, the file is read once and not copied), or in the GUI
+<strong>Settings → Credentials → Set…</strong> (which first prompts you to register, explains where to find
+the key, then lets you type it or "import from file"). The value is stored in the system
+credential store (Windows Credential Manager / macOS Keychain) and never appears on the command
+line, in logs or in release packages. To see the status:</p>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">auth</span> <span class="n">status</span>
+<span class="n">bosar</span> <span class="n">auth</span> <span class="n">services</span>
+</code></pre></div>
+<p>None of the downloads used in these steps need an account: orbits come from local folders and the
+SNAP cache, with the ASF public mirror for what is missing; the DEM comes from the AWS public
+bucket. A <code>cdse</code> (Copernicus Data Space) account is an optional faster source.</p>
+<h2 id="step-18-orbit-files-local-first-then-download">Step 18: Orbit files: local first, then download<a class="headerlink" href="#step-18-orbit-files-local-first-then-download" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">fetch</span> <span class="n">orbits</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-local-dir</span> <span class="p">&lt;</span><span class="n">data-root</span><span class="p">&gt;/</span><span class="n">05_Auxiliary</span><span class="p">/</span><span class="n">03_Orbits</span> <span class="p">-</span><span class="n">-no-download</span>
+</code></pre></div>
+<p>For each date one POEORB covering the acquisition time (±60 s) is chosen (RESORB only when there
+is none), looked up first in <code>--local-dir</code> (recorded in <code>project.json</code>), <code>BOSAR_ORBIT_DIRS</code> and the
+SNAP cache <code>~/.snap/auxdata/Orbits/Sentinel-1</code>; a file found there is referenced in place with its
+sha256 recorded; drop <code>--no-download</code> and the missing dates are downloaded to <code>walk/aux/orbits/</code>.
+The project has two stacks (the crop and the full frame), so <code>--stack</code> is required; all 5 dates of
+this crop are hits locally, 0 downloads.</p>
+<h2 id="step-19-dem-local-tile-mosaic-ellipsoidal-height-by-default">Step 19: DEM: local tile mosaic, ellipsoidal height by default<a class="headerlink" href="#step-19-dem-local-tile-mosaic-ellipsoidal-height-by-default" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">fetch</span> <span class="n">dem</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-tile-dir</span> <span class="p">&lt;</span><span class="n">data-root</span><span class="p">&gt;/</span><span class="n">05_Auxiliary</span><span class="p">/</span><span class="n">02_DEM</span><span class="p">/</span><span class="n">tiles</span> <span class="p">-</span><span class="n">-no-download</span>
+</code></pre></div>
+<p>Finds the 1°×1° GLO-30 tiles for the stack footprint plus 0.1°; when all are present locally they
+are mosaicked directly (no network) and written to <code>walk/aux/dem/glo30_&lt;W&gt;_&lt;S&gt;_&lt;E&gt;_&lt;N&gt;.tif</code> with a
+<code>.json</code> of the same name (which tiles were used, sha256, geoid model). The default is
+<strong>ellipsoidal height</strong> (GLO-30 is EGM2008 orthometric; the program adds the geoid undulation, here
+about −33 m); <code>--height orthometric</code> keeps the orthometric height.</p>
+<h2 id="step-20-quick-coherence-preview-and-baselines-from-orbits">Step 20: Quick coherence preview and baselines from orbits<a class="headerlink" href="#step-20-quick-coherence-preview-and-baselines-from-orbits" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">data</span> <span class="n">preview</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-pair</span> <span class="n">20240821_20240914</span>
+<span class="n">bosar</span> <span class="n">data</span> <span class="n">baselines</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-from-orbits</span>
+</code></pre></div>
+<p>The preview gives a coarse coherence map of one pair in a few seconds
+(<code>walk/preview/coh_&lt;pair&gt;.tif</code>, with Δt and B⊥); in the GUI, select a pair on the Data page and
+press <strong>Preview coherence</strong>. <code>--from-orbits</code> uses the orbits of step 18 to compute B⊥/B∥ on a
+10×10 grid of targets, compares them pair by pair with the TCN values in <code>.base</code>, and fills in the
+pairs that have no <code>.base</code> (method <code>orbit</code>). The 4 pairs of the crop all differ by less than 3 m;
+the same command on the full stack <code>gamma_01_IW2</code> (29 epochs) gives 21 of 25 pairs within 1 m.</p>
+<h2 id="step-21-gacos-atmospheric-correction-tropo-gacos">Step 21: GACOS atmospheric correction (<code>--tropo gacos</code>)<a class="headerlink" href="#step-21-gacos-atmospheric-correction-tropo-gacos" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">dinsar</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-pair</span> <span class="n">20240821_20240914</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-backend</span> <span class="n">snaphu</span> <span class="p">-</span><span class="n">-tropo</span> <span class="n">gacos</span> <span class="p">-</span><span class="n">-gacos-dir</span> <span class="p">&lt;</span><span class="n">data-root</span><span class="p">&gt;/</span><span class="n">05_Auxiliary</span><span class="p">/</span><span class="n">00_GACOS</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">gacos</span>
+</code></pre></div>
+<p>One extra step <code>tropo_gacos</code> after <code>unwrap</code>: each pixel is sampled bilinearly on the ZTD grids of
+the two dates, divided by the cosine of that pixel's incidence angle to give the slant delay,
+<code>φ_tropo = 4π/λ (S_sec − S_ref)</code> (a larger delay on the secondary = longer range = positive
+phase), <code>unw_tropo = unw − φ_tropo</code> (the reference point stays 0), and <code>displacement</code> switches to
+<code>unw_tropo</code>. The step summary gives the displacement RMS on coherent pixels before and after the
+correction (this pair 6.25 → 5.09 mm; the same pair on the full IW2 30.2 → 22.3 mm). If a date's
+file is missing, the time does not match or the grid does not cover the scene, the step raises
+E201/E204 naming the date and the file. <code>bosar aux status walk --for dinsar+gacos</code> lists in
+advance what is missing, what can be fetched automatically (with the command) and what you have to
+do by hand.</p>
+<h2 id="step-22-sbas-network-design">Step 22: SBAS network design<a class="headerlink" href="#step-22-sbas-network-design" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="n">network</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-max-dt</span> <span class="n">400</span> <span class="p">-</span><span class="n">-max-bperp</span> <span class="n">300</span> <span class="p">-</span><span class="n">-k</span> <span class="n">2</span> <span class="p">-</span><span class="n">-name</span> <span class="n">crop</span>
+</code></pre></div>
+<p>Selects pairs by the Δt / |B⊥| thresholds, then adds for each date the <code>--k</code> nearest connections
+in time (so gaps stay connected), and reports the connected components, the redundancy (pairs /
+dates) and the number of triplets; rejected pairs are recorded with their reason in
+<code>project.json</code> (<code>aux.sbas.networks</code>). Your own <code>network_design.csv</code> can be imported with
+<code>--from-csv</code> (B⊥ taken from the stack's orbital baselines). The 5 dates of the crop: 9 pairs, 1
+rejected (|B⊥| 392 m but kept as a sequential connection), 7 triplets, connected. In the GUI,
+choose <strong>SBAS prep</strong> on the Run page to design the network and view the network plot (selected
+pairs solid, rejected pairs dashed).</p>
+<h2 id="step-23-derive-the-small-baseline-interferograms-common-reference-point-batch-unwrapping">Step 23: Derive the small-baseline interferograms, common reference point, batch unwrapping<a class="headerlink" href="#step-23-derive-the-small-baseline-interferograms-common-reference-point-batch-unwrapping" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="n">prep</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-backend</span> <span class="n">snaphu</span> <span class="p">-</span><span class="n">-workers</span> <span class="n">3</span> <span class="p">-</span><span class="n">-nproc</span> <span class="n">2</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span>
+</code></pre></div>
+<p>Step ids carry the network name (<code>coherence_&lt;pair&gt;_crop_sbas</code>), so the networks of the two stacks
+in one project do not interfere. Four resumable phases: <strong>prepare</strong>: for each pair
+<code>ifg_derive → multilook → coherence</code> (<code>ifg_derive</code> computes the flattened (i, j) pair from the
+star-stack <code>diff(ref,i)</code>, <code>diff(ref,j)</code> and the reference image power; the coherence uses the same
+numerator and the two SLC powers); <strong>reference</strong>: among the pixels coherent (≥ 0.3) in every pair,
+the one with the highest mean coherence becomes the common reference point (written into the
+network record); <strong>unwrap</strong>: SNAPHU for each pair (<code>smooth</code> cost), unified reference;
+<strong>closure</strong>: see the next step. <code>--workers 3</code> runs three pairs in parallel (subprocesses, CPU), and
+the concurrent writes to <code>project.json</code> are merged by revision number. The 9 pairs of the crop:
+prepare about 1 minute per pair, unwrap 1–3 seconds per pair, reference pixel (20, 167).</p>
+<h2 id="step-24-triplet-closure-b4">Step 24: Triplet closure (B4)<a class="headerlink" href="#step-24-triplet-closure-b4" title="Permanent link">&para;</a></h2>
+<p>The last phase of <code>sbas prep</code> is <code>closure</code>; it can also be run on its own:</p>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="n">prep</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-phase</span> <span class="n">closure</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span>
+</code></pre></div>
+<p>Each closed triangle gets two quantities: the wrapped-phase closure <code>arg(c_ij c_jk conj(c_ik))</code>
+(phase bias) and the integer closure of the unwrapped phase <code>round((u_ij + u_jk − u_ik − w)/2π)</code>
+(unwrapping errors); products <code>closure/wrapped_rms</code>, <code>closure/integer_count</code>; the summary has
+per-triplet, per-pair (with a "systematic error" flag) and coherent-pixels-only statistics. The 7
+triplets of the crop: median wrapped closure RMS 0.94 rad (0.43–0.52 rad on pixels coherent in all
+three pairs), 9–24 % of pixels with non-zero integer closure (2–11 % on coherent pixels; the summer
+triplet 20240821-0902-0914 is best, 2.2 %).</p>
+<h2 id="step-25-preprocessing-with-snap-requires-an-installed-esa-snap">Step 25: Preprocessing with SNAP (requires an installed ESA SNAP)<a class="headerlink" href="#step-25-preprocessing-with-snap-requires-an-installed-esa-snap" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">preflight</span> <span class="p">-</span><span class="n">-offline</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">preprocess</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-engine</span> <span class="n">snap</span> <span class="p">-</span><span class="n">-product</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240821T234025_20240821T234052_055318_06BEBA_E05B.zip"</span> <span class="p">-</span><span class="n">-product</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240902T234025_20240902T234052_055493_06C53E_B90F.zip"</span> <span class="p">-</span><span class="n">-product</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240914T234026_20240914T234052_055668_06CC28_B2FF.zip"</span> <span class="p">-</span><span class="n">-subswath</span> <span class="n">IW2</span> <span class="p">-</span><span class="n">-aoi-wkt</span> <span class="s2">"POLYGON((-86.30 39.65,-86.00 39.65,-86.00 39.90,-86.30 39.90,-86.30 39.65))"</span> <span class="p">-</span><span class="n">-threads</span> <span class="n">8</span> <span class="p">-</span><span class="n">-cache-mb</span> <span class="n">8192</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">subset</span>
+</code></pre></div>
+<p>Preflight's P402 reports SNAP's <code>gpt</code>, toolboxes and heap memory. The command calls SNAP as a
+separate program (no SNAP code is copied or imported): TOPSAR-Split (bursts chosen by the AOI) →
+Apply-Orbit-File (the local orbits found in step 18, copied to <code>walk/snap/userdir</code>) →
+Back-Geocoding (external DEM = the ellipsoidal mosaic of step 19, <code>walk/aux/dem</code>) → ESD →
+Interferogram (flat-earth + topographic phase, coherence, elevation, lat/lon) → Deburst; the
+product is BEAM-DIMAP and is then imported automatically (<code>data import --reader dimap --ifg-dim</code>)
+as the stack <code>snap_subset</code>, which every command from step 8 onward can use. Everything SNAP writes
+is under <code>walk/snap/</code> and <code>walk/products/dimap/</code>; not one file in <code>~/.snap</code> is touched. On this
+machine: stack 90 s, interferogram 344 s, gpt peak memory 45 GB (the -Xmx132G in <code>gpt.vmoptions</code>
+allows it). Note: the DEM is mosaicked only for the AOI box, and Back-Geocoding blanks every pixel
+without elevation, so the subset has data only inside the AOI box.</p>
+<h2 id="step-26-which-pairs-and-pixels-are-dropped-when-coherence-is-insufficient">Step 26: Which pairs and pixels are dropped when coherence is insufficient<a class="headerlink" href="#step-26-which-pairs-and-pixels-are-dropped-when-coherence-is-insufficient" title="Permanent link">&para;</a></h2>
+<p>How good an SBAS result is depends mostly on how trustworthy the unwrapped phase fed into it is.
+Bosar makes "dropping" a set of explicit rules, each leaving a record in the command output and in
+<code>project.json</code>, and each can be loosened or tightened individually:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Rule</th>
+<th>Where to adjust</th>
+<th>Where it is recorded</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Whole pair</td>
+<td><strong>Empty pair</strong>: coherence is 0 everywhere (the interferogram or SLC of that date is all zeros in the export; W206 at import)</td>
+<td>not adjustable</td>
+<td>network record <code>empty_pairs</code></td>
+</tr>
+<tr>
+<td>Whole pair</td>
+<td><strong>Weak pair</strong>: fewer than 5 % of pixels with coherence ≥ 0.4; but each date keeps its best forward and backward connection</td>
+<td><code>sbas prep --min-coherent-fraction 0.05</code> (0 = do not drop)</td>
+<td><code>weak_pairs</code>, <code>weak_pairs_kept</code>, <code>pair_quality</code></td>
+</tr>
+<tr>
+<td>Whole pair</td>
+<td><strong>Unreliable pair</strong>: in every triplet it takes part in, more than 30 % of coherent pixels have non-zero integer closure (a scene-wide decorrelated or badly coregistered date)</td>
+<td><code>unw_correct --pair-max-error 0.3</code></td>
+<td><code>unreliable_pairs</code> in the <code>unw_correct</code> summary</td>
+</tr>
+<tr>
+<td>Pixel</td>
+<td>the pair's coherence at this pixel is below the threshold</td>
+<td><code>pipeline sbas --coh-min 0.3</code></td>
+<td><code>sbas_invert</code> summary <code>pair_pixels_dropped.coherence</code></td>
+</tr>
+<tr>
+<td>Pixel</td>
+<td>the pixel is not in the unwrapping connected component that holds the reference point</td>
+<td><code>--any-component</code> disables this rule</td>
+<td><code>pair_pixels_dropped.component</code></td>
+</tr>
+<tr>
+<td>Pixel</td>
+<td>after closure correction the triplet containing this pair still does not close</td>
+<td><code>--keep-unclosed</code> disables this rule</td>
+<td><code>pair_pixels_dropped.unclosed_triplet</code></td>
+</tr>
+</tbody>
+</table>
+<p>A pixel needs at least 2 remaining pairs to get a time series (<code>--min-pairs</code>); only when its
+network connects all dates into one piece and its temporal coherence is ≥ 0.7 does it enter the
+default mask (product <code>ts_mask</code>). If the whole-pair rules break the network into several segments
+(as happens when all the winter pairs are unreliable), <code>sbas_invert</code> reports <strong>W107</strong>: the offsets
+between segments are unknown, and the velocity is fitted as "one rate + one intercept per
+segment"; to bridge the break, keep more pairs across it (raise <code>sbas network --k</code>, lower
+<code>--min-coherent-fraction</code>, or choose yourself with <code>sbas_invert --exclude-pairs</code>). Network design
+has two more options: <code>--sequential-only</code> (only the k nearest connections in time for each date)
+and <code>--season-months 5-10</code> (reject pairs that cross seasons, sequential connections excepted).</p>
+<h2 id="step-27-sbas-time-series-pipeline-sbas">Step 27: SBAS time series (<code>pipeline sbas</code>)<a class="headerlink" href="#step-27-sbas-time-series-pipeline-sbas" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span> <span class="p">-</span><span class="n">-tropo</span> <span class="n">gacos</span> <span class="p">-</span><span class="n">-gacos-dir</span> <span class="p">&lt;</span><span class="n">data-root</span><span class="p">&gt;/</span><span class="n">05_Auxiliary</span><span class="p">/</span><span class="n">00_GACOS</span>
+</code></pre></div>
+<p>On the network prepared in step 23, in turn: <code>unw_correct</code> (corrects 2π unwrapping errors from
+closure loops, the phase-closure method of Yunjun et al. 2019, deduplicated by "closure pattern"
+so each pattern is solved once) → <code>sbas_invert</code> (weighted least squares / minimum-norm solution
+of the per-pixel network, Berardino et al. 2002; weights from coherence and the number of looks;
+outputs <code>ts_los</code> (one band per date, metres, positive toward the satellite), <code>velocity</code> (m/yr)
+with its standard deviation, <code>temporal_coherence</code>, <code>n_pairs_used</code>, <code>ts_rank</code>, <code>ts_mask</code>) →
+<code>ts_correct</code> (the GACOS slant delay of each date, referenced to the reference point and reference
+date; <code>--deramp</code> additionally removes a plane per date; <code>--tropo era5</code> uses ERA5 pressure-level
+data and needs a CDS key) → geocoding (velocity, temporal coherence, time series). Inside the
+products everything is metres and metres per year; only the GUI, CSV and summaries switch to
+millimetres. The correction method is written into the step id (<code>ts_correct_crop_sbas_gacos</code>), so
+uncorrected, GACOS and ERA5 results can coexist for comparison. This 5-scene crop has only 9
+pairs, and the result only demonstrates the workflow; the 26-scene crop (<code>data/indy_downtown_ts</code>,
+see the release notes) is where a proper time series appears.</p>
+<h2 id="step-28-export-for-comparison-with-mintpy-optional">Step 28: Export for comparison with MintPy (optional)<a class="headerlink" href="#step-28-export-for-comparison-with-mintpy-optional" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="nb">export-mintpy</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span> <span class="p">-</span><span class="n">-out</span> <span class="n">walk</span><span class="p">\</span><span class="n">mintpy</span>
+</code></pre></div>
+<p>Writes <code>inputs/ifgramStack.h5</code>, <code>inputs/geometryRadar.h5</code> and a minimal <code>smallbaselineApp.cfg</code>
+(file formats follow the MintPy manual; no MintPy code is used). MintPy, run as a separate program
+on these files (<code>ifgram_inversion.py inputs/ifgramStack.h5 -w var</code>), can then be compared with
+Bosar on exactly the same input; <code>--mintpy-legacy-bperp</code> writes the baselines as the <code>.base</code>
+values of the export, consistent with your earlier MintPy data set.</p>
+<h2 id="step-29-viewing-time-series-stacking-layers-and-exporting-figures-in-the-gui">Step 29: Viewing time series, stacking layers and exporting figures in the GUI<a class="headerlink" href="#step-29-viewing-time-series-stacking-layers-and-exporting-figures-in-the-gui" title="Permanent link">&para;</a></h2>
+<p><code>bosar gui walk</code> → Results page:</p>
+<ul>
+<li>Select <code>geo_velocity</code> (the velocity map): in the <strong>Layers</strong> panel at the bottom left choose a
+  basemap (default "none"; since v0.4.0 the release no longer connects to any tile server by
+  default; the 2016 Sentinel-2 cloudless mosaic is CC BY and can be used directly, OpenStreetMap
+  and Esri each have terms of use, and a custom XYZ takes its template, key and attribution in
+  Settings); the basemap can be dimmed; each layer has a visibility switch, 0–100 % opacity
+  (70 % by default over a basemap), stacking order and a "transparent where coherence / temporal
+  coherence is below the threshold" mask; "Add selected as layer" stacks another geocoded product
+  selected in the tree. Radar-geometry products are never silently reprojected; instead a
+  "Geocode for the map" button runs the <code>geocode</code> step.</li>
+<li>Click a pixel on the velocity map: the LOS displacement time series of that pixel (millimetres)
+  appears below with its linear fit and rate (mm/yr); several pixels can be clicked, different
+  corrections ticked (uncorrected / GACOS / ERA5) and a CSV exported; in the radar-geometry view
+  the reference point is marked with a star.</li>
+<li>"Export view…" saves the current view as PNG or PDF: with colour bar, one legend row per layer,
+  scale bar, north arrow and basemap attribution; the commands that produced each layer are
+  written into the file metadata.</li>
+</ul>
+<h2 id="step-30-is-the-result-usable-quality-verdict-and-data-health-check">Step 30: Is the result usable? Quality verdict and data health check<a class="headerlink" href="#step-30-is-the-result-usable-quality-verdict-and-data-health-check" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="n">quality</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span>
+</code></pre></div>
+<p>Every time-series chain (<code>pipeline sbas</code>, <code>pipeline psds</code>) prints a <strong>quality verdict</strong> when it
+finishes: <code>USABLE</code> / <code>MARGINAL</code> (readable only within the stated limits) / <code>NOT USABLE</code> (must not
+be interpreted as deformation). The verdict comes from measured metrics, each with a warning code,
+the measured value, the threshold and a <strong>concrete remedy</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Metric</th>
+<th>Marginal</th>
+<th>Not usable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W108</td>
+<td>fraction of pixels connected and meeting the temporal-coherence threshold</td>
+<td>&lt; 20 %</td>
+<td>&lt; 2 %</td>
+</tr>
+<tr>
+<td>W109</td>
+<td>fraction of dropped interferogram pairs, or dates lost entirely</td>
+<td>&gt; 30 % or a date lost</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W107</td>
+<td>network broken into segments</td>
+<td>yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W110</td>
+<td>velocity spread of the usable pixels</td>
+<td>&gt; 4 mm/yr</td>
+<td>&gt; 10 mm/yr</td>
+</tr>
+<tr>
+<td>W111</td>
+<td>fraction of triplets still unclosed after correction</td>
+<td>&gt; 15 %</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W112</td>
+<td>median velocity clearly offset from the reference point (a scene-wide ramp or a bad reference point)</td>
+<td>yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W113</td>
+<td>fraction of pixels with a jump of nearly half a wavelength between adjacent epochs (and from which date it starts)</td>
+<td>&gt; 3 %</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><code>bosar sbas quality</code> also prints a <strong>per-date data health table</strong>: how many pairs each date has,
+how many are empty (all zeros), how many too weak, how many judged unreliable by the closure
+check, the mean coherent-pixel fraction. A date whose pairs are all empty is a data problem (that
+scene is empty in the export; tuning parameters will not help, only re-coregistration or
+exclusion); a date whose pairs all fail was decorrelated that day (snow, rain, leaf fall). In the
+GUI, the Results page shows the same verdict in a banner above the map.</p>
+<h2 id="step-31-ps-ds-time-series-pipeline-psds">Step 31: PS / DS time series (<code>pipeline psds</code>)<a class="headerlink" href="#step-31-ps-ds-time-series-pipeline-psds" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psds</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-strides</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-workers</span> <span class="n">3</span> <span class="p">-</span><span class="n">-backend</span> <span class="n">snaphu</span>
+</code></pre></div>
+<p>Where vegetation is dense, multilooked SBAS keeps few pixels. This chain uses two kinds of
+scatterers instead: <strong>distributed scatterers (DS)</strong>: around each pixel, find statistically
+homogeneous neighbours (SHP, a GLRT test on amplitude), estimate the N×N coherence matrix over
+those neighbours, and estimate the phases of all N dates at once by <strong>phase linking</strong> (EMI);
+<strong>persistent scatterers (PS)</strong>: points with amplitude dispersion D_A ≤ 0.25 keep their own phase.
+The two are merged into one "hybrid stack", which then goes through the same unwrapping, closure
+and inversion as steps 23–27. In order: <code>slc_flatten</code> (flattens each SLC with Bosar's own
+flat-earth phase; it also scans every date, and <strong>a date with a missing band is detected and
+dropped by default</strong>, W207) → <code>psds_link</code> (SHP, phase linking, PS selection; 26 scenes of 768×3072
+take only a dozen seconds on the GPU) → the interferogram of each pair → unwrapping → closure
+correction → inversion → geocoding → quality verdict. Common options: <code>--shp glrt|ks</code>,
+<code>--method emi|evd</code>, <code>--ps-da 0.25</code>, <code>--strides azimuth,range</code> (decimation of the output grid),
+<code>--ds-tcoh 0.6</code> (the phase-linking temporal coherence a DS needs; pure noise reaches at most 0.36
+on this stack), <code>--keep-partial-dates</code>. The 5-scene crop only demonstrates the workflow (with so
+few dates phase linking means little); results on the 26-scene test area are in
+the release notes.</p>
+<h2 id="step-32-classic-ps-insar-as-an-independent-cross-check-pipeline-psi">Step 32: Classic PS-InSAR as an independent cross-check (<code>pipeline psi</code>)<a class="headerlink" href="#step-32-classic-ps-insar-as-an-independent-cross-check-pipeline-psi" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psi</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-name</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-max-arc-m</span> <span class="n">3000</span>
+</code></pre></div>
+<p>Classic PSI re-implemented after Ferretti et al. 2001 / Kampes 2006, with neither phase linking
+nor spatial unwrapping: PS candidates (D_A) → the edges of a Delaunay triangulation → each edge
+estimates height error and rate jointly with a periodogram (batched in one matrix multiplication)
+→ integration from the reference point along the most coherent path → atmospheric phase screen
+estimated from the residuals and removed → final estimate per point. The result is a GeoPackage
+point layer (<code>products/psi_points/</code>): LOS velocity (positive toward the satellite), height error,
+temporal coherence and the displacement of each date. The acceptance threshold is raised
+automatically above the "99th percentile of pure noise" for this stack's number of dates (with
+few dates, noise alone can produce a high temporal coherence). It reuses the flattened stack
+<code>slc_flatten_psds</code> of the previous step.</p>
+<h2 id="step-33-viewing-psds-results-in-the-gui">Step 33: Viewing PS/DS results in the GUI<a class="headerlink" href="#step-33-viewing-psds-results-in-the-gui" title="Permanent link">&para;</a></h2>
+<p><code>bosar gui walk</code> → choose <strong>PS / DS time series</strong> on the Run page to run the command above
+directly; on the Results page, with a PS/DS velocity map selected, tick <strong>PS points</strong> to draw the
+persistent scatterers as points (colour = velocity, size = quality) and click one to see its time
+series; the quality maps <code>psds_temporal_coherence</code>, <code>shp_count</code>, <code>psds_type</code>, <code>amp_dispersion</code> can
+be viewed directly. When the network is broken into segments, the time series is drawn as one line
+per segment with one offset each (the displacement between segments is unknown).</p>
+<h2 id="step-34-downloading-raw-slcs-from-asf-fetch-slc">Step 34: Downloading raw SLCs from ASF (<code>fetch slc</code>)<a class="headerlink" href="#step-34-downloading-raw-slcs-from-asf-fetch-slc" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">fetch</span> <span class="n">slc</span> <span class="p">-</span><span class="n">-project</span> <span class="n">demo_dinsar</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">gamma_01_IW2</span> <span class="p">-</span><span class="n">-range</span> <span class="n">2025</span><span class="p">-</span><span class="n">08</span><span class="p">-</span><span class="n">01</span><span class="p">:</span><span class="n">2026</span><span class="p">-</span><span class="n">09</span><span class="p">-</span><span class="n">30</span> <span class="p">-</span><span class="n">-dry-run</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">slc</span> <span class="p">-</span><span class="n">-project</span> <span class="n">demo_dinsar</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">gamma_01_IW2</span> <span class="p">-</span><span class="n">-range</span> <span class="n">2025</span><span class="p">-</span><span class="n">08</span><span class="p">-</span><span class="n">01</span><span class="p">:</span><span class="n">2026</span><span class="p">-</span><span class="n">09</span><span class="p">-</span><span class="n">30</span> <span class="p">-</span><span class="n">-range</span> <span class="n">2023</span><span class="p">-</span><span class="n">07</span><span class="p">-</span><span class="n">01</span><span class="p">:</span><span class="n">2024</span><span class="p">-</span><span class="n">06</span><span class="p">-</span><span class="n">30</span> <span class="p">-</span><span class="n">-dest</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">s1</span> <span class="p">-</span><span class="n">-detach</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">status</span> <span class="p">-</span><span class="n">-dest</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">s1</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">stop</span> <span class="p">-</span><span class="n">-dest</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">s1</span>
+</code></pre></div>
+<p>Searches ASF for scenes by the stack's relative orbit, frame and footprint (or
+<code>--aoi "POINT(lon lat)"</code> + <code>--relative-orbit</code>); <code>--dry-run</code> only lists the scenes and sizes; the
+real download is Bosar's own loop: resumable (Range), verified by size and MD5, one <code>&lt;name&gt;.json</code>
+provenance record per scene, stops when free space falls below <code>--min-free-gb</code> (default 150 GB),
+and the second batch starts only when free space exceeds <code>--continue-if-free-gb</code>. <code>--detach</code> runs
+it in the background and continues across sessions; the progress file <code>fetch_slc_progress.json</code>
+and <code>fetch_slc.log</code> are in the destination directory. Earthdata credentials go through <code>~/.netrc</code>
+or the keychain, never through chat. The Aux page has the same card. The destination refuses a
+read-only data root.</p>
+<h2 id="step-35-native-tops-coregistration-from-zip-to-stack-without-snap-pipeline-s1-coregister">Step 35: Native TOPS coregistration: from zip to stack without SNAP (<code>pipeline s1-coregister</code>)<a class="headerlink" href="#step-35-native-tops-coregistration-from-zip-to-stack-without-snap-pipeline-s1-coregister" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar project new demo_native
+bosar fetch dem demo_native --bbox -86.52,39.27,-85.06,40.28 --margin-deg 0
+bosar pipeline s1-coregister demo_native --product &lt;zip1&gt; --product &lt;zip2&gt; --product &lt;zip3&gt; --subswath IW2 --pol VV --aoi-wkt "POLYGON((-86.30 39.65,-86.00 39.65,-86.00 39.90,-86.30 39.90,-86.30 39.65))" --tag r11
+bosar fetch orbits demo_native --stack native_r11 --no-download
+bosar run demo_native slc_flatten --step-id slc_flatten_r11 --stack native_r11
+</code></pre></div>
+<p>The first zip is the reference. One step does it all: extract the sub-swath's annotation and image
+from the zip into <code>cache/safe/</code> (once), build the burst model from the annotation, precise orbits
+(those recorded in the project, else the data root / SNAP cache, else the annotation ephemeris with
+W301), topo on a grid with the DEM for each reference burst, deramp of each secondary burst →
+Knab-window sinc resampling by the orbit + DEM offsets → reramp, ESD in the burst overlaps
+iterated to within 0.001 lines, stitching along the overlap mid-lines (deburst), written in the
+ISCE <code>merged/</code> layout (<code>--output cint16</code> halves the space) and imported automatically as the stack
+<code>native_&lt;tag&gt;</code>. On an RTX 3090 one 1500 × 25000 burst takes under 1 second (CPU 55 seconds).
+<code>products/native/stack/&lt;step&gt;.json</code> records the burst parameters, the stitching plan, the ESD
+table and offsets of each date, and the timings. The comparison with SNAP on the same three scenes
+(<code>scripts/validate_native_tops.py</code>, <code>scripts/validate_native_flat.py</code>) is in
+the release notes.</p>
+<h2 id="step-36-empty-scene-health-check-at-import-and-per-band-quality-thresholds">Step 36: Empty-scene health check at import and per-band quality thresholds<a class="headerlink" href="#step-36-empty-scene-health-check-at-import-and-per-band-quality-thresholds" title="Permanent link">&para;</a></h2>
+<p><code>bosar data import</code> now scans each date by sampling (16 rows out of every 128): an all-zero date
+gets W206, a date whose zero fraction exceeds the "common floor" (the region that is zero on every
+date, scene edges and burst gaps; the minimum zero fraction across dates, W208) by more than 2
+percentage points gets W207, recorded in the stack record's warnings and in each date record's
+<code>zero_fraction</code> / <code>partially_empty</code> / <code>empty</code>; the time-series chains still drop W207 dates by
+default. The quality verdict picks thresholds by band: C-band is the default, L-band is a draft
+(the millimetre-scale thresholds scaled by the wavelength ratio), and the second output line says
+<code>thresholds: C-band (default)</code>.</p>
+<h2 id="step-37-classic-psi-and-the-point-layer-in-the-gui">Step 37: Classic PSI and the point layer in the GUI<a class="headerlink" href="#step-37-classic-psi-and-the-point-layer-in-the-gui" title="Permanent link">&para;</a></h2>
+<p><code>bosar gui walk</code> → the Run page gains <strong>Classic PS-InSAR (periodogram)</strong> (the command of step 32,
+with D_A, point count, longest edge and temporal coherence as basic parameters; in the plan it is
+<code>slc_flatten_psi</code> + <code>psi_classic_psi</code>); on the Results page, with a PSI result selected, tick
+<strong>PS points</strong> and the points in the GeoPackage are drawn coloured by velocity and sized by
+temporal coherence, by the same mechanism as the PS/DS point layer.</p>
+<h2 id="step-38-multi-year-native-stack-every-zip-in-a-directory-cropped-to-the-aoi-resumable">Step 38: Multi-year native stack: every zip in a directory, cropped to the AOI, resumable<a class="headerlink" href="#step-38-multi-year-native-stack-every-zip-in-a-directory-cropped-to-the-aoi-resumable" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar project new demo_multi
+bosar fetch dem demo_multi --bbox -86.52,39.27,-85.06,40.28 --margin-deg 0
+bosar fetch orbits demo_multi --product &lt;reference zip&gt; --product &lt;other zips…&gt;
+bosar pipeline s1-coregister demo_multi --product &lt;reference zip&gt; --products-from &lt;data-root&gt;/00_RawData --products-from data/raw/s1 --subswath IW2 --aoi-wkt "POLYGON((-86.30 39.65,-86.00 39.65,-86.00 39.90,-86.30 39.90,-86.30 39.65))" --crop-wkt "POLYGON((-86.245 39.692,-86.078 39.692,-86.078 39.813,-86.245 39.813,-86.245 39.692))" --drop-cache --tag multi
+bosar pipeline psds demo_multi --stack native_multi --workers 6 --tropo era5 --ref-latlon 39.7684,-86.1581 --no-correct --keep-unclosed
+bosar pipeline psi demo_multi --stack native_multi --name psds --max-arc-m 3000
+</code></pre></div>
+<p><code>--products-from</code> takes every <code>S1?_IW_SLC__*.zip</code> in the folder sorted by date (S1A and S1D alike); bursts are selected by the <strong>intersection</strong> of the AOI polygon with each burst footprint;
+<code>--crop-wkt</code> writes only the bounding box of the polygon to disk (bursts are still coregistered
+whole). One date is processed at a time: open → deramp → geometric offsets → range
+cross-correlation check → ESD → stitch → write → close, so memory does not grow with the number of
+dates; each date writes a <code>merged/SLC/&lt;date&gt;/coreg.json</code> (the signature of the settings), and
+<strong>running the same command again processes only the newly downloaded dates</strong> (<code>n_reused</code> in the
+summary). The default output is CINT16 (<code>--output cfloat</code> switches back). <code>fetch orbits --product</code>
+fetches precise orbits by product name before any stack exists. 53 dates (2024-07 to 2026-07,
+including 2 S1D scenes) take about 53 seconds per scene on an RTX 3090. The third line of the
+quality verdict gives "measured velocity spread vs the spread expected from the number of dates
+and the time span": <code>sigma_v = sigma_d * sqrt(12 (N-1) / (N (N+1))) / T</code>.
+On long stacks (two years, nearly 200 pairs) add <code>--no-correct --keep-unclosed</code>: the closure
+correction step corrupts the unwrapped result on a network this large (to be
+fixed), and the unclosed pairs are kept and judged by temporal coherence. With that, on two years
+of data PS/DS is USABLE (26.5 % of pixels reliable, velocity spread 1.45 mm/yr, expected 1.1),
+classic PSI is USABLE too (1.26 mm/yr), and the two chains differ by 0.4–0.6 mm/yr on reliable
+pixels. Do not read relative velocities across coherence gaps (for example the two banks of a
+river). Time-series projects are best created with <code>bosar project new --storage-mode full</code>.</p>
+<h2 id="step-39-calibration-and-terrain-flattening-calibration-terrain-flatten">Step 39: Calibration and terrain flattening (<code>--calibration</code>, <code>--terrain-flatten</code>)<a class="headerlink" href="#step-39-calibration-and-terrain-flattening-calibration-terrain-flatten" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar pipeline s1-coregister demo_native --product &lt;zip1&gt; --product &lt;zip2&gt; --subswath IW2 --bursts 6,8 --output cfloat --calibration sigma0 --terrain-flatten --tag cal
+bosar pipeline amplitude demo_native --stack native_cal --pre 20240821 --post 20240902
+</code></pre></div>
+<p>The SLC keeps its DN unchanged; <code>merged/calibrated/&lt;date&gt;/&lt;date&gt;.sigma0.rdr</code> (or beta0 / gamma0)
+is linear power computed with the SAFE calibration LUT, <code>gamma0_flat.rdr</code> = beta0 × area factor
+(Small 2011; the factor is computed in radar geometry from DEM facets, equals tan(incidence angle)
+on flat ground, and is NaN in layover and shadow), and the factor itself is in
+<code>geom_reference/gamma_flat_factor.rdr</code>. When a native stack carries calibration layers, the
+amplitude-change chain switches automatically to absolute backscatter (<code>dB (sigma0)</code>, no more
+relative normalisation). The comparison with SNAP's Calibration / Terrain-Flattening:
+<code>scripts/validate_native_cal.py</code>.</p>
+<h2 id="step-40-three-sub-swaths-and-swath-merging-subswath-iw1iw2iw3">Step 40: Three sub-swaths and swath merging (<code>--subswath IW1,IW2,IW3</code>)<a class="headerlink" href="#step-40-three-sub-swaths-and-swath-merging-subswath-iw1iw2iw3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar project new demo_full
+bosar fetch dem demo_full --bbox -87.65,38.40,-84.001,40.75 --margin-deg 0
+bosar pipeline s1-coregister demo_full --product &lt;zip1&gt; --product &lt;zip2&gt; --subswath IW1,IW2,IW3 --tag full --id native_full
+</code></pre></div>
+<p>Each sub-swath is coregistered once (steps <code>s1_coregister_full_iw1…3</code>; without <code>--bursts</code> /
+<code>--aoi-wkt</code> that means all bursts), then <code>s1_swath_merge_full</code> merges the three stacks onto one
+range / azimuth grid: whole-pixel placement (as in ISCE2), cut along the overlap mid-line, no
+interpolation at all; the geometry layers are merged the same way, so every pixel carries its own
+lat/lon. The <code>seams</code> in the summary give the phase, coherence and amplitude step of each seam for
+each date. The DEM mosaic is read by window, so even a full scene is never loaded whole into
+memory.</p>
+<h2 id="step-41-split-spectrum-ionosphere-estimation-iono_split">Step 41: Split-spectrum ionosphere estimation (<code>iono_split</code>)<a class="headerlink" href="#step-41-split-spectrum-ionosphere-estimation-iono_split" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">run</span> <span class="n">demo_full</span> <span class="n">slc_flatten</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">slc_flatten_full</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">native_full</span>
+<span class="n">bosar</span> <span class="n">run</span> <span class="n">demo_full</span> <span class="n">iono_split</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">iono_full</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">slc_flatten_full</span> <span class="p">-</span><span class="n">-pair</span> <span class="n">20240821_20240902</span>
+</code></pre></div>
+<p>On the <strong>flattened</strong> SLC stack: the upper and lower thirds of the range spectrum are each
+extracted to form sub-band interferograms, the full band is unwrapped only once, the dispersive
+term is computed from the two sub-band phases (Gomba 2016), and a coherence-weighted Gaussian
+low-pass is applied. The output is <code>iono_phase/&lt;pair&gt;</code> (the ionospheric phase at the carrier
+frequency, radians, multilook grid); the summary has the plane slope of the unwrapped phase before
+and after correction. Noise is amplified about 120 times, hence the default 64 × 256 looks. The
+constant term cannot be determined (like every interferometric phase, it is relative).</p>
+<h2 id="step-42-gui-the-coregister-workflow-and-download-batches">Step 42: GUI: the Coregister workflow and download batches<a class="headerlink" href="#step-42-gui-the-coregister-workflow-and-download-batches" title="Permanent link">&para;</a></h2>
+<p><code>bosar gui demo_multi</code> → <strong>Coregister (Bosar)</strong> on the Run page: Engine <code>bosar</code> (the native chain,
+the command of step 38) or <code>snap</code> (the SNAP bridge of step 25); ticking "all three sub-swaths"
+gives step 40; the form has output type, calibration and terrain flattening. The
+<strong>Sentinel-1 SLC scenes (ASF)</strong> card on the Aux page now lists the progress of each batch, the
+file being transferred and the remaining time estimated from the rate of the last minute;
+<code>bosar fetch slc --parallel 3</code> downloads in parallel, and scenes interrupted by the network are
+retried automatically on a later attempt.</p>
+<h2 id="step-43-temporal-reference-date-and-outlier-dates">Step 43: Temporal reference date and outlier dates<a class="headerlink" href="#step-43-temporal-reference-date-and-outlier-dates" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-no-correct</span> <span class="p">-</span><span class="n">-ref-latlon</span> <span class="n">39</span><span class="p">.</span><span class="n">7684</span><span class="p">,-</span><span class="n">86</span><span class="p">.</span><span class="n">1581</span> <span class="p">-</span><span class="n">-tropo</span> <span class="n">era5</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">ex5</span> <span class="p">-</span><span class="n">-no-correct</span> <span class="p">-</span><span class="n">-ref-latlon</span> <span class="n">39</span><span class="p">.</span><span class="n">7684</span><span class="p">,-</span><span class="n">86</span><span class="p">.</span><span class="n">1581</span> <span class="p">-</span><span class="n">-fit</span> <span class="n">huber</span> <span class="p">-</span><span class="n">-exclude-dates</span> <span class="n">20230803</span><span class="p">,</span><span class="n">20240330</span><span class="p">,</span><span class="n">20240622</span><span class="p">,</span><span class="n">20250325</span><span class="p">,</span><span class="n">20250816</span>
+</code></pre></div>
+<p>Without <code>--ref-date</code>, the zero date of the series is no longer the first scene but follows the
+"common-mode median" rule: for each date take the spatial median of the good pixels (the amount by
+which the whole scene moves relative to the reference pixel, mostly atmosphere) and pick the date
+closest to the median of those medians, which is never an outlier day. The summary records
+<code>ref_date_rule</code>, <code>common_mode_mm</code>. W117 names the dates that "deviate from the fitted line by more
+than 3 robust standard deviations on more than 20 % of pixels"; <code>--exclude-dates</code> removes them with
+all their pairs, <code>--fit huber</code> estimates the velocity with a Huber estimator, and the quality
+report prints both the least-squares and the Huber spread. <code>--tag</code> can now name a variant of the
+time-series part only, with the pair products reusing the network's own.</p>
+<h2 id="step-44-stec-implied-by-the-range-shifts">Step 44: ΔSTEC implied by the range shifts<a class="headerlink" href="#step-44-stec-implied-by-the-range-shifts" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">aux</span> <span class="n">range-shift</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">native_multi</span> <span class="p">-</span><span class="n">-ionex-dir</span> <span class="n">data</span><span class="p">/</span><span class="n">aux</span><span class="p">/</span><span class="n">ionex</span> <span class="p">-</span><span class="n">-write</span>
+<span class="n">bosar</span> <span class="n">sbas</span> <span class="n">quality</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span>
+</code></pre></div>
+<p>For each date: the shift predicted by the ERA5 troposphere, the residual, and the slant TEC
+difference obtained by treating the residual as ionospheric group delay (one 2.33 m pixel
+≈ 169 TECU); when IONEX maps are present the GIM value is given alongside. <code>--write</code> writes them
+into each date's <code>coreg.json</code> and the coregistration step summary, and the per-date table of
+<code>sbas quality</code> gains three columns <code>shift[px]</code>, <code>dSTEC[TECU]</code>, <code>GIM[TECU]</code>.</p>
+<h2 id="step-45-ionospheric-model-correction-optional">Step 45: Ionospheric model correction (optional)<a class="headerlink" href="#step-45-ionospheric-model-correction-optional" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-iono</span> <span class="p">-</span><span class="n">-iono-model</span> <span class="n">plane</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psds</span> <span class="n">demo_alos</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">alos_mx</span> <span class="p">-</span><span class="n">-network</span> <span class="n">l</span> <span class="p">-</span><span class="n">-iono</span> <span class="p">-</span><span class="n">-iono-looks</span> <span class="n">32</span><span class="p">,</span><span class="n">32</span>
+</code></pre></div>
+<p>Without <code>--iono</code> nothing happens. With it, each interferogram pair gets one split-spectrum
+estimate and a model fit (C-band defaults to <code>plane</code>, L-band to <code>filtered</code>), and the model is
+subtracted at the read-in stage of the inversion; at the end of the chain it prints the model
+span, the number of W220 pairs and the triplet closure. Every model passes a plausibility gate
+first (span, gradient, triplet closure; <code>--no-iono-gate</code> switches it off): a model that fails
+is skipped and counted (W227), so a bad estimate never enters the inversion.</p>
+<p>What the correction is worth, measured on real stacks (0.4.1): at C band (Sentinel-1,
+Indianapolis, 88 winter dates) no measurable benefit - the gate passes a handful of pairs and
+the velocities change by less than their own noise; at L band (ALOS-1, Mexico City) the gate
+keeps about half of the models and the product is unchanged within 0.01 mm/yr. The gate is
+on by default because a <code>filtered</code> model can follow the deformation it sits on, and that is
+what the gate's span and closure rules catch. Use <code>--iono</code> with the gate, compare the velocity
+map with and without it, and keep the run whose residuals and landmark series you can defend;
+it stays opt-in.</p>
+<p>NISAR records two frequency bands in one granule (mode <code>0505</code>: 1221.5 MHz on frequency A,
+1236.5 MHz on B, 5 MHz each, one grid). Coregister the second band as its own stack
+(<code>pipeline stripmap-coregister … --reader nisar --frequency B --tag b</code>) and name it:</p>
+<div class="highlight"><pre><span></span><code>bosar pipeline sbas demo_nisar --network l --iono --iono-band-stack stripmap_b
+</code></pre></div>
+<p>The ionosphere then comes from the two full bands instead of the outer thirds of one (the
+<code>bands</code> source of the <code>iono_split</code> step): 15 MHz between the carriers against 3.3 MHz, a
+noise gain of 58 instead of 259 - four to five times less noise for the same looks. The two
+stacks may carry different polarisations (HH on A, VV on B in that mode); each band's
+interferogram is formed within itself. The estimator is verified on synthetic bands; on the
+provisional <code>0505</code> granules of 2026 (track 58, frame 53) frequency B held no signal, so look
+at <code>band.coherence_median</code> in the <code>iono_split</code> summary before trusting a run.</p>
+<h2 id="step-46-sequential-phase-linking-for-long-series-and-the-star-unwrapping-experiment">Step 46: Sequential phase linking for long series and the star-unwrapping experiment<a class="headerlink" href="#step-46-sequential-phase-linking-for-long-series-and-the-star-unwrapping-experiment" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psds</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">native_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds_seq</span> <span class="p">-</span><span class="n">-method</span> <span class="n">sequential</span> <span class="p">-</span><span class="n">-ministack</span> <span class="n">15</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psds</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-unwrap</span> <span class="n">star</span>
+</code></pre></div>
+<p><code>sequential</code>: one ministack of 15 scenes at a time, each linked on its own, with compressed SLCs
+chaining the datums together; the matrix never exceeds "ministack + number of earlier ministacks"
+dates (N/L drops from 0.9 to 0.2); the summary reports <code>n_over_l_median</code>. <code>--unwrap star</code>: only the
+star pairs with the first scene are measurements, the remaining pairs are derived from the star
+(closure identically zero), and independently unwrapped adjacent pairs are used only to vote on
+integer-cycle errors.</p>
+<p>Measured on 88 scenes: <code>sequential</code> links 7 times faster and selects 68 % more DS,
+doubling the product coverage (73 % vs 37 %), but the velocity spread goes from 0.54 to
+0.80 mm/yr and 6 % of pixels show integer-cycle jumps: interferogram pairs derived from linked
+phases close by construction, so the inversion's temporal coherence is identically 1.0 for them
+and cannot act as a gate. The default remains <code>auto</code>; <code>sequential</code> is an option, to be re-evaluated
+in v0.4.0 once the linking coherence is used as the mask.
+<code>--unwrap star</code> is also a negative result on 88 scenes: the star pairs centred on the first scene
+span up to 1171 days, the far pairs carry whole-scene integer-cycle errors, and the vote of three
+adjacent pairs per scene cannot hold them (five dates had 91–98 % of pixels changed), velocity
+spread 3.6 mm/yr. The default remains <code>pairs</code>.</p>
+<h2 id="step-47-alos-1-envisat-ers-nisar-readers-and-the-stripmap-coregistration-chain">Step 47: ALOS-1 / ENVISAT / ERS / NISAR readers and the stripmap coregistration chain<a class="headerlink" href="#step-47-alos-1-envisat-ers-nisar-readers-and-the-stripmap-coregistration-chain" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar fetch slc --mission alos --path 186 --frame 370 --flight-direction ascending --range 2007-01-01:2011-12-31 --dry-run
+bosar project new demo_alos --storage-mode full
+bosar fetch dem demo_alos --bbox -99.30,19.15,-98.85,19.60 --tile-dir data/aux/dem_tiles
+bosar pipeline stripmap-coregister demo_alos --product A.zip --product B.zip --reader alos --crop-wkt "POLYGON((...))" --id alos_pair
+bosar sbas network demo_alos --stack alos_pair --name pair --max-dt 400 --max-bperp 5000
+bosar run demo_alos slc_flatten --step-id slc_flatten_alos_pair --stack alos_pair --mode orbits
+bosar sbas prep demo_alos --stack alos_pair --network pair --flat-step slc_flatten_alos_pair
+</code></pre></div>
+<p>ALOS-1 PALSAR L1.1 (CEOS, ASF's zip read directly), ENVISAT ASAR IMS and ERS IMS (Envisat format,
+<code>--reader asar</code> / <code>ers_envisat</code>), and NISAR RSLC (HDF5, no real data seen yet) are all read into
+the same <code>StripmapScene</code>; the stripmap coregistration chain carries the Doppler centroid (the
+geometry uses the Doppler term of <code>rdr2geo</code>/<code>geo2rdr</code>, resampling demodulates first and
+remodulates after) and writes the same ISCE directory as the TOPS chain. A native stack has no
+stored interferograms, so pairs must be flattened first and derived with <code>--flat-step</code>; with three
+or more scenes go straight to <code>pipeline psds</code>. One pair of each of the three sensors was run over
+Mexico City; the 16-scene ALOS series
+(<code>pipeline psds demo_alos --stack alos_mx --network l --k 3</code>, then <code>pipeline sbas --tag ex --ref-latlon 19.342,-99.088
+--exclude-dates 20100522 --fit huber</code>) gives Nezahualcóyotl −223 mm/yr (LOS, roughly −290
+vertical), the airport −192, the volcanic-rock reference point −4 ± 3, consistent in pattern and
+magnitude with Chaussard 2014. Two cautions: the default reference pixel (the best DS) lands in
+the subsidence basin, so point <code>--ref-latlon</code> at stable ground; and the W110/W113 of the quality
+verdict are designed for stable areas and will judge the deformation itself NOT USABLE on a
+30 cm/yr basin.</p>
+<h2 id="step-48-comparing-two-chains-the-4k-tour">Step 48: Comparing two chains, the 4K tour<a class="headerlink" href="#step-48-comparing-two-chains-the-4k-tour" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="nb">compare </span><span class="n">demo_multi</span> <span class="p">-</span><span class="n">-list</span>
+<span class="n">bosar</span> <span class="nb">compare </span><span class="n">demo_multi</span> <span class="n">products</span><span class="p">/</span><span class="n">geo_velocity</span><span class="p">/</span><span class="n">geocode_velocity_psds_era5</span><span class="p">.</span><span class="n">tif</span> <span class="n">ps</span><span class="p">:</span><span class="n">psds_link_psds</span> <span class="p">-</span><span class="n">-out</span> <span class="n">compare_out</span>
+<span class="n">python</span> <span class="n">scripts</span><span class="p">/</span><span class="n">gui_tour</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-project</span> <span class="n">tour</span><span class="p">/</span><span class="n">indy_crop</span> <span class="p">-</span><span class="n">-size</span> <span class="n">1920x1080</span> <span class="p">-</span><span class="n">-scale</span> <span class="n">2</span>
+</code></pre></div>
+<p><code>bosar compare</code> is the command-line version of "Compare two chains" on the Results page; the tour
+screenshots are rendered at 2× scale to 3840 × 2160, each step gains one animated "where to click"
+hint, and the DInSAR demo is additionally saved as a 4K MP4.</p>
+<h2 id="current-limitations-and-what-comes-next">Current limitations and what comes next<a class="headerlink" href="#current-limitations-and-what-comes-next" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Input can be a GAMMA/StaMPS stack exported by SNAP, SNAP-bridged preprocessing (step 25), or,
+  since v0.3.0, Bosar's own native TOPS coregistration (steps 35, 38–40: multi-year stacks,
+  calibration, three-swath merging).</li>
+<li>There are three time-series chains: SBAS (steps 22–27), the PS/DS hybrid stack (step 31) and
+  classic PSI (step 32). On this vegetated C-band area the velocity noise is of the order of
+  2–5 mm/yr, and one year of data cannot resolve millimetre-level deformation; the quality verdict
+  tells you so explicitly.</li>
+<li>Split-spectrum ionosphere estimation is wired into the time-series chains (step 45, optional);
+  the ALOS-1, ENVISAT and ERS readers and the stripmap coregistration chain ran on real data in
+  v0.4.0 (step 47), NISAR only on synthetic data; offset tracking and speckle filtering are in
+  v0.3.0; the installers in v0.4.0.</li>
+</ul>
+<h2 id="step-49-quality-verdict-for-deforming-areas-linking-coherence-gate-two-safeguards-on-downloads">Step 49: Quality verdict for deforming areas, linking-coherence gate, two safeguards on downloads<a class="headerlink" href="#step-49-quality-verdict-for-deforming-areas-linking-coherence-gate-two-safeguards-on-downloads" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_alos</span> <span class="p">-</span><span class="n">-network</span> <span class="n">l</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">ex2</span> <span class="p">-</span><span class="n">-area</span> <span class="n">deforming</span> <span class="p">-</span><span class="n">-exclude-dates</span> <span class="n">20100522</span> <span class="p">-</span><span class="n">-fit</span> <span class="n">huber</span> <span class="p">-</span><span class="n">-no-geocode</span>
+<span class="n">bosar</span> <span class="n">sbas</span> <span class="n">quality</span> <span class="n">demo_alos</span> <span class="p">-</span><span class="n">-network</span> <span class="n">l</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">ex2</span>
+<span class="n">bosar</span> <span class="n">sbas</span> <span class="n">quality</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-step</span> <span class="n">ts_correct_psds_era5</span> <span class="p">-</span><span class="n">-area</span> <span class="n">deforming</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds_seq</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">gate</span> <span class="p">-</span><span class="n">-link-coherence-min</span> <span class="n">0</span><span class="p">.</span><span class="n">7</span> <span class="p">-</span><span class="n">-tropo</span> <span class="n">era5</span> <span class="p">-</span><span class="n">-no-geocode</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">dem</span> <span class="n">demo_alos</span> <span class="p">-</span><span class="n">-bbox</span> <span class="p">-</span><span class="n">99</span><span class="p">.</span><span class="n">30</span><span class="p">,</span><span class="n">19</span><span class="p">.</span><span class="n">15</span><span class="p">,-</span><span class="n">98</span><span class="p">.</span><span class="n">85</span><span class="p">,</span><span class="n">19</span><span class="p">.</span><span class="n">60</span> <span class="p">-</span><span class="n">-timeout-s</span> <span class="n">120</span>
+</code></pre></div>
+<ul>
+<li><code>--area stable | deforming | auto</code>: the stable-area rules (the default) judge a 30 cm/yr
+  subsidence basin NOT USABLE, because the velocity spread is itself deformation and so are the
+  integer-cycle steps between adjacent dates. In <code>deforming</code> mode W110 looks at the residual
+  spread after subtracting a 1 km smoothed field from the velocity, W113 at cycle slips relative
+  to each pixel's fitted line, W114 at the detrended common-mode steps, and W112 is no longer
+  reported; when no reference point is given, it moves automatically to the cell with the densest
+  coherent neighbourhood inside the "most stable quintile" of the velocity field
+  (<code>--stable-end max</code> for subsidence scenes, <code>min</code> for uplift). <code>auto</code> switches to <code>deforming</code>
+  when the spread exceeds 3 times the stable-area expectation. The 16-scene Mexico City series is
+  thereby judged USABLE, with the reference point landing automatically on the volcanic rock of
+  Cerro de la Estrella.</li>
+<li>Two levels of W117: a date with more than 20 % outlier pixels is only recorded (marked
+  <code>(info)</code> in the report), ≥ 35 % is marginal, and only more than two marginal dates lower the
+  verdict; <code>sbas quality</code> now re-judges the stored metrics against the current thresholds,
+  <code>--step</code> names the step to report on, and <code>--area</code> applies a different rule set to the same
+  product.</li>
+<li><code>--link-coherence-min 0.7</code>: the reliable mask of PS/DS products is gated once more by the
+  temporal coherence of phase linking; a sequentially linked stack has an inversion coherence
+  identically 1, so this gate is mandatory, and <code>pipeline psds --method sequential</code> therefore
+  carries 0.7 by default (<code>--link-coherence-min 0</code> turns it off). On the three-year stack the
+  gate keeps 82.5 % of pixels, the verdict is still marginal, and the landmark velocities differ
+  from the ungated product by less than 0.15 mm/yr: the gate replaces the definition of
+  "reliable", not the product.</li>
+<li><code>fetch dem --timeout-s</code> (the only path since v0.4.0): downloads the missing GLO-30
+  tiles straight from the Copernicus public bucket into <code>&lt;project&gt;/aux/dem/tiles/</code> and then
+  mosaics them; <code>fetch slc</code> checks an existing file by MD5 once and afterwards by a tail hash (the
+  last 1 MiB) for a quick check, no longer by size alone.</li>
+</ul>
+<h2 id="step-50-the-installed-version-starting-from-exe-dmg-without-the-source">Step 50: The installed version: starting from .exe / .dmg without the source<a class="headerlink" href="#step-50-the-installed-version-starting-from-exe-dmg-without-the-source" title="Permanent link">&para;</a></h2>
+<p>Since v0.4.0 Bosar has installers; the commands below run on the <strong>installed version</strong> (not this
+development checkout), so they are written as plain text blocks and <code>check_walkthrough.py</code> does
+not execute them.</p>
+<ol>
+<li>Download from <a href="https://github.com/HU-Jiashu/bosar/releases">Releases</a>: on Windows
+   <code>bosar-&lt;version&gt;-win-x64-setup.exe</code> (per-user install, no administrator needed; tick "Add the
+   bosar command line to the user PATH" in the wizard), on macOS <code>bosar-&lt;version&gt;-mac-arm64.dmg</code>
+   (Apple silicon only; on first launch right-click → Open, or
+   <code>xattr -dr com.apple.quarantine /Applications/Bosar.app</code>).</li>
+<li>Open a new terminal (so PATH takes effect) and check the version and environment:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>bosar version                      # with the build id: bosar 0.4.0b0 (build 2026…-win-x64 …)
+bosar preflight --offline          # P305 shows the build record; P401 reports SNAPHU as "no CS2 solver (MST init)"
+</code></pre></div>
+<ol>
+<li>With no data at all, run the demo first (a synthetic pair of images, project creation, import,
+   the full DInSAR chain, about a minute):</li>
+</ol>
+<div class="highlight"><pre><span></span><code>bosar demo my_demo                 # 8 steps done; my_demo/project is an ordinary project that opens in the GUI
+bosar-gui my_demo/project          # or open Bosar from the Start menu / Applications
+</code></pre></div>
+<ol>
+<li>Machines with an NVIDIA GPU: the GPU is a plug-in, installed once (about 1.5 GB, CuPy and the
+   CUDA 12 runtime libraries from PyPI, no pip needed):</li>
+</ol>
+<div class="highlight"><pre><span></span><code>bosar gpu install                  # or --no-ctk (when a CUDA 12 toolkit is already installed)
+bosar preflight --offline          # P202 gpu.plugin ok, P201 gpu.backend shows the graphics card
+</code></pre></div>
+<p>Apple-silicon Macs have no CUDA; Bosar runs on the CPU (NumPy).
+5. From there, the workflow of steps 1–10 is exactly the same on the installed version
+   (<code>bosar project new</code>, <code>bosar data import</code>, <code>bosar pipeline dinsar …</code>); PS-InSAR (the
+   <code>pipeline psi</code> of step 32) and two-scene differential interferometry are included as well. The
+   installed version's SNAPHU has no CS2 solver; unwrapping uses the MST initialisation, which
+   is the default everywhere since 0.4.1 (<code>init: mst</code> in the step summary) and the same
+   optimisation problem started from a different point; if you need MCF initialisation, use the
+   CS2 build from the source checkout (<code>packaging/snaphu/build.ps1</code>) with <code>unwrap.init=mcf</code>.
+6. Licence: the "About Bosar" card on the Settings page shows the licence line (PolyForm
+   Noncommercial 1.0.0; contact the author for a commercial licence) and three files
+   (Licence… / Notice… / Third-party licences…); the same texts are in <code>_internal/licenses/</code> in
+   the installation directory.</p>
+<h2 id="step-51-alos-2-palsar-2-reader-and-jaxas-free-samples">Step 51: ALOS-2 PALSAR-2 reader and JAXA's free samples<a class="headerlink" href="#step-51-alos-2-palsar-2-reader-and-jaxas-free-samples" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">fetch</span> <span class="n">slc</span> <span class="p">-</span><span class="n">-mission</span> <span class="n">alos2</span> <span class="p">-</span><span class="n">-sample</span> <span class="n">list</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">slc</span> <span class="p">-</span><span class="n">-mission</span> <span class="n">alos2</span> <span class="p">-</span><span class="n">-sample</span> <span class="n">730_greenland</span>
+<span class="n">bosar</span> <span class="n">project</span> <span class="n">new</span> <span class="n">demo_alos2</span> <span class="p">-</span><span class="n">-storage-mode</span> <span class="n">full</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">dem</span> <span class="n">demo_alos2</span> <span class="p">-</span><span class="n">-bbox</span> <span class="p">-</span><span class="n">71</span><span class="p">.</span><span class="n">5</span><span class="p">,</span><span class="n">77</span><span class="p">.</span><span class="n">4</span><span class="p">,-</span><span class="n">67</span><span class="p">.</span><span class="n">0</span><span class="p">,</span><span class="n">78</span><span class="p">.</span><span class="n">5</span> <span class="p">-</span><span class="n">-tile-dir</span> <span class="n">data</span><span class="p">/</span><span class="n">aux</span><span class="p">/</span><span class="n">dem_tiles</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">stripmap-coregister</span> <span class="n">demo_alos2</span> <span class="p">-</span><span class="n">-product</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">alos2</span><span class="p">/</span><span class="n">ALOS2150521570</span><span class="p">-</span><span class="n">170307</span> <span class="p">-</span><span class="n">-product</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">alos2</span><span class="p">/</span><span class="n">ALOS2152591570</span><span class="p">-</span><span class="n">170321</span> <span class="p">-</span><span class="n">-reader</span> <span class="n">alos2</span> <span class="p">-</span><span class="n">-crop-wkt</span> <span class="s2">"POLYGON((-70.1 77.85,-69.1 77.85,-69.1 78.05,-70.1 78.05,-70.1 77.85))"</span> <span class="p">-</span><span class="n">-id</span> <span class="n">alos2_pair</span>
+</code></pre></div>
+<p>ALOS-2 L1.1 CEOS products are read by the same <code>ceos_alos</code> reader (told apart by the scene id
+<code>ALOS2…</code>): the mode comes from the product id (the FBS/FBD/FBQ, HBS/HBD/HBQ and UBS/UBD stripmap
+modes are readable; spotlight SBS and ScanSAR are recognised and refused by name), the 544-byte
+line prefix carries microsecond time stamps, and the starting slant range is taken from the line
+headers rather than the leader's range gate (which on ALOS-2 is not the delay to the first
+sample). JAXA's 22 free sample sets can be fetched by anonymous FTP (<code>--sample list</code> lists them);
+ASF's ALOS-2 collection currently holds only ScanSAR (30–60 GB per scene). The result of the
+Greenland FBS pair (2017-03-07 / 03-21, 14 days) through the stripmap coregistration chain is in
+the v0.4.0 release notes.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../install/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Install
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../WALKTHROUGH_zh/" class="md-footer__link md-footer__link--next" aria-label="Next: Walkthrough (中文)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Walkthrough (中文)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jiashu Hu. Free for non-commercial use (PolyForm Noncommercial 1.0.0); commercial licences on request.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

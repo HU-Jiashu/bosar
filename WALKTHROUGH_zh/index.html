@@ -1,0 +1,3618 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Install-and-run SAR interferometry for Windows and macOS">
+      
+      
+      
+        <link rel="canonical" href="https://hu-jiashu.github.io/bosar/WALKTHROUGH_zh/">
+      
+      
+        <link rel="prev" href="../WALKTHROUGH/">
+      
+      
+        <link rel="next" href="../LICENSING/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/icons/app.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Walkthrough (中文) - Bosar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bosar" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bosar" class="md-header__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../assets/icons/app.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bosar
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Walkthrough (中文)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../install/" class="md-tabs__link">
+          
+  
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../tour/" class="md-tabs__link">
+          
+  
+  
+  Feature tour
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../data/formats/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ERRORS/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bosar" class="md-nav__button md-logo" aria-label="Bosar" data-md-component="logo">
+      
+  <img src="../assets/icons/app.png" alt="logo">
+
+    </a>
+    Bosar
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/HU-Jiashu/bosar" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HU-Jiashu/bosar
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough (中文)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough (中文)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 0 步：按你的机器修改这三个变量（唯一需要改的地方）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 步：克隆代码
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2 步：建立 Python 环境
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 3 步：开发环境变量
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-preflight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 4 步：自检 preflight
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-snaphu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 5 步：放入 SNAPHU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 6 步：新建项目
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 7 步：从全栈裁出市中心
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 8 步：导入裁剪区和全栈
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-dinsar-geo_disp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 9 步：DInSAR 流水线 → geo_disp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 10 步：看快视图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-geo_dpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 11 步：相干变化检测 → geo_dpm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 12 步：幅度变化（对数比与 RGB）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-500-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 13 步：导出（裁到高速公路两侧 500 m）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 14 步：日志在哪里、怎么看
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-gacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 15 步：GACOS 申请卡与已有文件的校验
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 16 步：图形界面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 17 步：账号凭据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 18 步：轨道文件——先找本地，再下载
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-dem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 19 步：DEM——本地瓦片拼接，默认椭球高
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 20 步：快速相干预览与用轨道算基线
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-gacos-tropo-gacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 21 步：GACOS 大气改正（--tropo gacos）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 22 步：SBAS 网络设计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 23 步：派生小基线干涉图、公共参考点、批量解缠
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-b4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 24 步：三元环闭合（B4）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-snap-esa-snap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 25 步：用 SNAP 做预处理（需要装好 ESA SNAP）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 26 步：相干不够时哪些对、哪些像元会被剔除
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-sbas-pipeline-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 27 步：SBAS 时间序列（pipeline sbas）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-mintpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 28 步：导出给 MintPy 对比（可选）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 29 步：在界面里看时间序列、叠图层、导出图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 30 步：结果能不能用？——质量判定和数据体检
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-ps-ds-pipeline-psds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 31 步：PS / DS 时间序列（pipeline psds）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-ps-insar-pipeline-psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 32 步：经典 PS-InSAR 作为独立对照（pipeline psi）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-psds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 33 步：在界面里看 PS/DS 结果
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-asf-slcfetch-slc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 34 步：从 ASF 下载原始 SLC（fetch slc）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-tops-snap-zip-pipeline-s1-coregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 35 步：原生 TOPS 配准——不经 SNAP 从 zip 到栈（pipeline s1-coregister）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 36 步：导入时的空景体检与分波段质量阈值
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 37 步：界面里的经典 PSI 与点图层
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-zip-aoi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 38 步：多年原生栈——目录里所有 zip、按 AOI 裁剪、可续跑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-calibration-terrain-flatten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 39 步：定标与地形展平（--calibration、--terrain-flatten）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-subswath-iw1iw2iw3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 40 步：三个子条带与条带拼接（--subswath IW1,IW2,IW3）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-iono_split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 41 步：电离层分频估计（iono_split）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-coregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 42 步：界面——Coregister 工作流与下载批次
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 43 步：时间参考日期与离群日期
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-stec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 44 步：距离向偏移隐含的 ΔSTEC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 45 步：电离层模型改正（可选）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 46 步：长序列的顺序相位连接与星形解缠实验
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-alos-1-envisat-ers-nisar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 47 步：ALOS-1 / ENVISAT / ERS / NISAR 读取器与条带配准链
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-4k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 48 步：比较两条链、4K 导览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        现在的局限与接下来的工作
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 49 步：形变区的质量判定、连接相干门限、下载的两处保险
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#50-exe-dmg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 50 步：安装版——不用源码，从 .exe / .dmg 开始
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-alos-2-palsar-2-jaxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 51 步：ALOS-2 PALSAR-2 读取器与 JAXA 免费样例
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LICENSING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature tour
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Feature tour
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/project_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project and data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/system_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/dinsar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DInSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/gacos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GACOS correction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/ccd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coherence change detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/amplitude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplitude change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Result viewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sbas_prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sbas_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBAS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/psds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PS / DS time series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/psi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic PS-InSAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/snap_bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNAP bridge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/fetch_slc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLC download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/native_s1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Sentinel-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logs and failures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    功能导览（中文）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/sensor_download_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor download plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/mexico_city_esa_products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexico City ESA products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ERRORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Errors, warnings, preflight codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LOG_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Log schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API - data and readers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 0 步：按你的机器修改这三个变量（唯一需要改的地方）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 步：克隆代码
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2 步：建立 Python 环境
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 3 步：开发环境变量
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-preflight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 4 步：自检 preflight
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-snaphu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 5 步：放入 SNAPHU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 6 步：新建项目
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 7 步：从全栈裁出市中心
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 8 步：导入裁剪区和全栈
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-dinsar-geo_disp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 9 步：DInSAR 流水线 → geo_disp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 10 步：看快视图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-geo_dpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 11 步：相干变化检测 → geo_dpm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 12 步：幅度变化（对数比与 RGB）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-500-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 13 步：导出（裁到高速公路两侧 500 m）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 14 步：日志在哪里、怎么看
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-gacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 15 步：GACOS 申请卡与已有文件的校验
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 16 步：图形界面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 17 步：账号凭据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 18 步：轨道文件——先找本地，再下载
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-dem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 19 步：DEM——本地瓦片拼接，默认椭球高
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 20 步：快速相干预览与用轨道算基线
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-gacos-tropo-gacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 21 步：GACOS 大气改正（--tropo gacos）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 22 步：SBAS 网络设计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 23 步：派生小基线干涉图、公共参考点、批量解缠
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-b4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 24 步：三元环闭合（B4）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-snap-esa-snap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 25 步：用 SNAP 做预处理（需要装好 ESA SNAP）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 26 步：相干不够时哪些对、哪些像元会被剔除
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-sbas-pipeline-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 27 步：SBAS 时间序列（pipeline sbas）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-mintpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 28 步：导出给 MintPy 对比（可选）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 29 步：在界面里看时间序列、叠图层、导出图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 30 步：结果能不能用？——质量判定和数据体检
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-ps-ds-pipeline-psds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 31 步：PS / DS 时间序列（pipeline psds）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-ps-insar-pipeline-psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 32 步：经典 PS-InSAR 作为独立对照（pipeline psi）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-psds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 33 步：在界面里看 PS/DS 结果
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-asf-slcfetch-slc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 34 步：从 ASF 下载原始 SLC（fetch slc）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-tops-snap-zip-pipeline-s1-coregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 35 步：原生 TOPS 配准——不经 SNAP 从 zip 到栈（pipeline s1-coregister）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 36 步：导入时的空景体检与分波段质量阈值
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 37 步：界面里的经典 PSI 与点图层
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-zip-aoi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 38 步：多年原生栈——目录里所有 zip、按 AOI 裁剪、可续跑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-calibration-terrain-flatten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 39 步：定标与地形展平（--calibration、--terrain-flatten）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-subswath-iw1iw2iw3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 40 步：三个子条带与条带拼接（--subswath IW1,IW2,IW3）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-iono_split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 41 步：电离层分频估计（iono_split）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-coregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 42 步：界面——Coregister 工作流与下载批次
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 43 步：时间参考日期与离群日期
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-stec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 44 步：距离向偏移隐含的 ΔSTEC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 45 步：电离层模型改正（可选）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 46 步：长序列的顺序相位连接与星形解缠实验
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-alos-1-envisat-ers-nisar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 47 步：ALOS-1 / ENVISAT / ERS / NISAR 读取器与条带配准链
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-4k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 48 步：比较两条链、4K 导览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        现在的局限与接下来的工作
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 49 步：形变区的质量判定、连接相干门限、下载的两处保险
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#50-exe-dmg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 50 步：安装版——不用源码，从 .exe / .dmg 开始
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-alos-2-palsar-2-jaxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 51 步：ALOS-2 PALSAR-2 读取器与 JAXA 免费样例
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="bosar">Bosar 上手手册：从全新克隆到市中心的形变图与损毁代理图<a class="headerlink" href="#bosar" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>用的是安装版？</strong> 这份手册是在源码检出上写的。用到源码树的步骤（<code>git clone</code>、<code>pip install -e</code>、<code>scripts/...</code>、<code>pytest</code>）需要源码；源码不公开，只按作者的源码许可提供（见 <a href="../LICENSING/">Licensing</a>）。用安装包的读者从 <a href="../install/">Install</a> 和第 50 步（安装版）开始；其余各步的 <code>bosar</code> 命令就是安装版的命令。</p>
+</blockquote>
+<p>适用版本：<code>v0.1.0-alpha.1</code>（第 1 阶段结束）。这份手册回答"软件现在做到哪一步"：
+每一条命令都在写手册时逐字运行过，完整输出在
+发布说明。没有图形界面，
+所有操作都在 PowerShell 里完成。</p>
+<p>目标：在 Indianapolis 市中心 7.2 × 10.8 km 的裁剪区上，从 SNAP 导出的 GAMMA/StaMPS 栈出发，
+得到地理编码的视线向形变图 <code>geo_disp</code>、相干变化的损毁代理图 <code>geo_dpm</code>、幅度对数比与 RGB 合成图，
+再把它们裁到高速公路两侧 500 m 的范围导出成 COG + GeoPackage。整个过程在 CPU 上约 8 分钟，
+其中大部分是第 2 步的 pip 安装；处理本身不到 2 分钟。</p>
+<hr />
+<h2 id="0">第 0 步：按你的机器修改这三个变量（唯一需要改的地方）<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nv">$DATA</span> <span class="p">=</span> <span class="s2">"&lt;data-root&gt;"</span>                  <span class="c"># 只读数据池（本手册只读取，不写入）</span>
+<span class="nv">$MAIN</span> <span class="p">=</span> <span class="s2">"&lt;repo&gt;"</span>       <span class="c"># 已经编译过 SNAPHU 的主工作目录</span>
+<span class="nv">$WORK</span> <span class="p">=</span> <span class="s2">"&lt;repo&gt;\data\walkthrough_bosar"</span>   <span class="c"># 放新克隆的位置</span>
+</code></pre></div>
+<p><code>$DATA</code> 下用到的文件：GAMMA 栈 <code>01_Preprocessed\01_IW2\</code>、原始 zip
+<code>00_RawData\S1A_IW_SLC__1SDV_20240821T..._E05B.zip</code>（只读几何注释，不解压）、高速公路线
+<code>04_GIS\indianapolis_highways.geojson</code>、GACOS 文件夹 <code>05_Auxiliary\00_GACOS\</code>。</p>
+<h2 id="1">第 1 步：克隆代码<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span> <span class="nv">$WORK</span> <span class="p">|</span> <span class="nb">Out-Null</span>
+<span class="nb">Set-Location</span> <span class="nv">$WORK</span>
+<span class="n">git</span> <span class="n">-c</span> <span class="n">safe</span><span class="p">.</span><span class="n">directory</span><span class="p">=*</span> <span class="n">clone</span> <span class="p">-</span><span class="n">-quiet</span> <span class="nv">$MAIN</span> <span class="n">bosar_walk</span>
+<span class="nb">Set-Location</span> <span class="n">bosar_walk</span>
+<span class="n">git</span> <span class="n">-c</span> <span class="n">safe</span><span class="p">.</span><span class="n">directory</span><span class="p">=*</span> <span class="n">log</span> <span class="p">-</span><span class="n">-oneline</span> <span class="p">-</span><span class="n">1</span>
+</code></pre></div>
+<p>克隆来自第 0 步的主工作副本（<code>$MAIN</code>）；GitHub 上的公开仓库只放文档和安装包，不放源码。拿到源码仓库地址的读者把它换到 <code>$MAIN</code> 的位置。在不记录文件所有者的
+磁盘上，git 会对新克隆报 "dubious ownership"（退出码 128）；上面这条命令只对这一次放行，不改你的全局配置。
+想长期放行，可以自己执行 <code>git config --global --add safe.directory &lt;克隆目录&gt;</code>。</p>
+<h2 id="2-python">第 2 步：建立 Python 环境<a class="headerlink" href="#2-python" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="p">.</span><span class="n">venv</span>
+<span class="p">.\.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+<span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-quiet</span> <span class="n">-e</span> <span class="s2">".[dev,unwrap,viz]"</span>
+<span class="n">python</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+<ul>
+<li><code>unwrap</code> 装 scikit-image（没有 SNAPHU 时的解缠后备），<code>viz</code> 装 matplotlib（快视图）。</li>
+<li>有 NVIDIA 显卡时再装 <code>python -m pip install -e ".[gpu]"</code>，软件自动用 CuPy；本手册不装，
+  全部在 CPU 上跑（<code>preflight</code> 会提示 W401，属正常）。</li>
+</ul>
+<h2 id="3">第 3 步：开发环境变量<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p">.</span> <span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">dev_env</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+<p>把 ruff / pytest / CuPy 的缓存都放进仓库内的 <code>.cache\</code>，并提醒：同一时间只应有一个使用 GPU
+的进程（跑流水线时不要同时跑完整测试）。</p>
+<h2 id="4-preflight">第 4 步：自检 <code>preflight</code><a class="headerlink" href="#4-preflight" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">version</span>
+<span class="n">bosar</span> <span class="n">preflight</span>
+</code></pre></div>
+<p>逐项检查 Python、依赖、GPU、磁盘、SNAPHU 等；<code>OK</code> 通过、<code>WARN</code> 可以继续、<code>FAIL</code> 会阻止运行。
+全新克隆里还没有 SNAPHU 可执行文件，P401 显示 <code>WARN</code>（W501：会退回 scikit-image）。</p>
+<h2 id="5-snaphu">第 5 步：放入 SNAPHU<a class="headerlink" href="#5-snaphu" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span> <span class="n">packaging</span><span class="p">\</span><span class="n">bin</span><span class="p">\</span><span class="n">win-x64</span> <span class="p">|</span> <span class="nb">Out-Null</span>
+<span class="nb">Copy-Item</span> <span class="s2">"$MAIN\packaging\bin\win-x64\snaphu.exe"</span> <span class="n">packaging</span><span class="p">\</span><span class="n">bin</span><span class="p">\</span><span class="n">win-x64</span><span class="p">\</span>
+<span class="n">bosar</span> <span class="n">preflight</span> <span class="p">|</span> <span class="nb">Select-String</span> <span class="s2">"P401"</span>
+</code></pre></div>
+<p>SNAPHU 2.0.6 由 <code>packaging\snaphu\build.ps1</code> 用 MinGW-w64 编译；它和 author 在 WSL 里跑的 SNAPHU 对同样输入给出逐像素相同的结果。
+二进制文件不进 git（许可证与平台原因），所以新克隆要从主目录复制或自己编译。复制后 P401 为 <code>OK</code>。</p>
+<h2 id="6">第 6 步：新建项目<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">project</span> <span class="n">new</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-name</span> <span class="n">walk_demo</span> <span class="p">-</span><span class="n">-storage-mode</span> <span class="n">full</span>
+</code></pre></div>
+<p>项目就是一个文件夹：<code>project.json</code>（步骤、参数、产品清单）、<code>products\</code>、<code>logs\</code>、<code>scratch\</code>。
+<code>full</code> 保留全部中间产品（便于查看）；默认的 <code>minimal</code> 会在链结束后删除可再生的中间文件。</p>
+<h2 id="7">第 7 步：从全栈裁出市中心<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">data</span> <span class="n">crop</span> <span class="s2">"$DATA\01_Preprocessed\01_IW2"</span> <span class="p">-</span><span class="n">-window</span> <span class="n">7904</span><span class="p">,</span><span class="n">8672</span><span class="p">,</span><span class="n">2590</span><span class="p">,</span><span class="n">5662</span> <span class="p">-</span><span class="n">-dates</span> <span class="n">20240704</span><span class="p">,</span><span class="n">20240821</span><span class="p">,</span><span class="n">20240902</span><span class="p">,</span><span class="n">20240914</span><span class="p">,</span><span class="n">20250723</span> <span class="p">-</span><span class="n">-annotation</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240821T234025_20240821T234052_055318_06BEBA_E05B.zip"</span> <span class="p">-</span><span class="n">-out</span> <span class="n">data</span><span class="p">\</span><span class="n">indy_downtown_crop</span>
+</code></pre></div>
+<p>从 12239 × 25925 的 IW2 栈里按窗口读出 768 × 3072 像素、5 个日期（只读，窗口读取，不载入整景），
+写成本仓库 <code>data\</code> 下的 GeoTIFF + <code>crop.json</code>。<code>--annotation</code> 直接从原始 zip 里读 SAFE 注释，
+把 SNAP 导出里的名义几何（距离向 2 m、地球半径小 11.5 km）改成真实值（2.33 m 等），
+<code>crop.json</code> 里记 I201。</p>
+<h2 id="8">第 8 步：导入裁剪区和全栈<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">data</span> <span class="n">import</span> <span class="n">walk</span> <span class="n">data</span><span class="p">\</span><span class="n">indy_downtown_crop</span>
+<span class="n">bosar</span> <span class="n">data</span> <span class="n">import</span> <span class="n">walk</span> <span class="s2">"$DATA\01_Preprocessed\01_IW2"</span> <span class="p">-</span><span class="n">-annotation</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240821T234025_20240821T234052_055318_06BEBA_E05B.zip"</span>
+<span class="n">bosar</span> <span class="n">project</span> <span class="n">info</span> <span class="n">walk</span>
+</code></pre></div>
+<p>导入只登记元数据（日期、几何、基线、足迹），原始数据留在原地。全栈 29 景，20240821_20240704 的
+B⊥ 从名义几何的 223.8 m 校正为 213.9 m（SNAP 自己给 216.1 m）。项目里有两个栈，后面的流水线
+用 <code>--stack</code> 指明。</p>
+<h2 id="9-dinsar-geo_disp">第 9 步：DInSAR 流水线 → <code>geo_disp</code><a class="headerlink" href="#9-dinsar-geo_disp" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">dinsar</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-all-pairs</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-backend</span> <span class="n">snaphu</span> <span class="p">-</span><span class="n">-geocode-coh</span>
+</code></pre></div>
+<p>每一对干涉图依次运行：<code>ifg_import</code>（引用栈里的差分干涉图）→ <code>multilook</code>（2 × 10 视，28 × 23 m）
+→ <code>coherence</code>（DInSAR v0.1.0 起默认用 <code>slc-box</code> 配方：全分辨率 5 × 5 窗口，再在 2 × 10 块里平均，
+与 MintPy 的相干一致；<code>--recipe looks</code> 是标准估计，每个多视块 20 个样本。CCD 则默认 <code>looks</code>，见第 11 步）→ <code>goldstein</code>（滤波）
+→ <code>unwrap</code>（SNAPHU，
+单块）→ <code>geocode_unw</code> → <code>displacement</code>（<code>d = −λφ/4π</code>，米，<strong>朝向卫星为正</strong>，参考点为 0）→
+<code>geocode_disp</code> → <code>geocode_coh</code>。屏幕上每行一步，最后一行是运行日志的位置。
+四对共 36 步，CPU 上约 25 秒（结果与 GPU 一致到 1e-6）。</p>
+<h2 id="10">第 10 步：看快视图<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-ChildItem</span> <span class="n">walk</span><span class="p">\</span><span class="n">products</span><span class="p">\</span><span class="n">figure</span> <span class="n">-Name</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">12</span>
+</code></pre></div>
+<ul>
+<li><code>*_coherence.png</code>：相干（黑 0 → 白 1），河道、植被暗，建筑、道路亮。</li>
+<li><code>*_unwrapped.png</code>：解缠相位（弧度，红蓝对称）。</li>
+<li><code>*_displacement.png</code>：视线向形变（毫米，红 = 朝向卫星，蓝 = 远离卫星，色标取 2–98 % 对称），
+  12–48 天的短对上主要是大气（厘米级），不是地面沉降。</li>
+<li><code>geo_*</code> 产品（<code>walk\products\geo_disp\</code> 等）是 EPSG:4326 的 GeoTIFF，可直接拖进 QGIS。</li>
+</ul>
+<h2 id="11-geo_dpm">第 11 步：相干变化检测 → <code>geo_dpm</code><a class="headerlink" href="#11-geo_dpm" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">ccd</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-pre</span> <span class="n">20240821_20240902</span> <span class="n">20240821_20240914</span> <span class="p">-</span><span class="n">-co</span> <span class="n">20240821_20240704</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">ccd</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-pre</span> <span class="n">20240821_20240902</span> <span class="n">20240821_20240914</span> <span class="p">-</span><span class="n">-co</span> <span class="n">20240821_20250723</span>
+</code></pre></div>
+<p><code>--pre</code> 是事件前的两对（夏季，12/24 天），<code>--co</code> 是"事件"对。没有真实的破坏事件，所以：
+第一条是<strong>空检验</strong>（同一季节的另一对）；第二条是<strong>季节伪事件</strong>（336 天，跨过冬季）。实测结果
+（用的是标准估计 <code>looks</code>，详见发布说明）：按分位阈值 2 % 超阈、去斑点后约 0.36 % 留在图上；但两种情况的图
+都集中在相干的城区目标上，而不是植被——在 C 波段 12/24 天的夏季对里，农田和林地在事件前就已经
+失相干，没有可失去的相干，所以审查预期的像土地覆盖图这种失效方式在这批数据上不会出现。空检验也
+不是纯噪声：48 天的事件对本身比 12/24 天的事件前对更失相干，固定阈值 z ≥ 3 会标出约 5 %。产品：<code>ccd_delta</code>（相干下降量）、<code>ccd_z</code>（按事件前各对之间的离散度标准化，正 = 下降）、
+<code>dpm</code>（1 = 显著下降，0 = 无，255 = 事件前相干 &lt; 0.3 被屏蔽），以及地理编码的 <code>geo_ccd</code>、<code>geo_dpm</code>。
+人工注入的 200 m 损毁块能被检出（测试 <code>tests/test_ccd.py</code>，<code>looks</code> 下精度与召回 ≥ 0.9）。
+两种相干配方的取舍：<code>slc-box</code> 方位向 5 行的窗口大于 2 视，相邻多视像素共用样本，
+<code>ccd_z</code> 在空间上相关（空检验的 Moran's I 约 0.37，<code>looks</code> 下 &lt; 0.1），损毁块边缘会多标出一圈像素（召回
+仍为 1，精度约 0.72）——偏差小但边界发虚；<code>looks</code> 像素彼此独立、边界清晰，低相干处偏差略大。做损毁
+制图时定位比偏差更要紧，所以 <strong><code>pipeline ccd</code> 和界面的 CCD 工作流默认 <code>looks</code></strong>（DInSAR 仍默认
+<code>slc-box</code>）。如果 CCD 读到的是 <code>slc-box</code> 相干，日志里会记一条 W106 说明；想用它就显式加
+<code>--recipe slc-box</code>（新算的相干步骤建议加 <code>--tag</code>，两套结果并存）。</p>
+<h2 id="12-rgb">第 12 步：幅度变化（对数比与 RGB）<a class="headerlink" href="#12-rgb" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">run</span> <span class="n">walk</span> <span class="n">amplitude</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">amplitude_crop</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span>
+<span class="n">bosar</span> <span class="n">run</span> <span class="n">walk</span> <span class="n">log_ratio</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">log_ratio_20240821_20250723</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">amplitude_crop</span> <span class="p">-</span><span class="n">-pre</span> <span class="n">20240821</span> <span class="p">-</span><span class="n">-post</span> <span class="n">20250723</span>
+<span class="n">bosar</span> <span class="n">run</span> <span class="n">walk</span> <span class="n">rgb_composite</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">rgb_20240821_20250723</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">amplitude_crop</span> <span class="p">-</span><span class="n">-pre</span> <span class="n">20240821</span> <span class="p">-</span><span class="n">-post</span> <span class="n">20250723</span>
+<span class="n">bosar</span> <span class="n">run</span> <span class="n">walk</span> <span class="n">geocode</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">geocode_log_ratio_20240821_20250723</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">amplitude_crop</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">log_ratio_20240821_20250723</span> <span class="p">-</span><span class="n">-source</span> <span class="n">log_ratio</span>
+</code></pre></div>
+<p>GAMMA 栈没有辐射定标，所以幅度变化是<strong>相对的</strong>：每个日期先在"稳定散射体"（幅度离散度最低的 95 %
+像素）上归一化，再算 <code>10·log10(I_后/I_前)</code>（正 = 变亮）。RGB 合成里红 = 事前、绿蓝 = 事后：
+红色是变暗，青色是变亮，灰色是不变。定标查找表（σ⁰）已经能直接从原始 zip 读出（33 个 zip 全部可读），
+在 v0.2.0 的原生 SAFE 流程里使用。</p>
+<h2 id="13-500-m">第 13 步：导出（裁到高速公路两侧 500 m）<a class="headerlink" href="#13-500-m" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">export</span> <span class="n">walk</span> <span class="n">all</span> <span class="p">-</span><span class="n">-aoi</span> <span class="s2">"$DATA\04_GIS\indianapolis_highways.geojson"</span> <span class="p">-</span><span class="n">-buffer-m</span> <span class="n">500</span> <span class="p">-</span><span class="n">-out</span> <span class="n">walk</span><span class="p">\</span><span class="n">export</span>
+<span class="nb">Get-Content</span> <span class="n">walk</span><span class="p">\</span><span class="n">export</span><span class="p">\</span><span class="n">README</span><span class="p">.</span><span class="n">txt</span> <span class="n">-TotalCount</span> <span class="n">25</span>
+</code></pre></div>
+<p>每个地理编码产品写成一个云优化 GeoTIFF（COG），高速公路 500 m 以外设为无数据；矢量（产品范围、
+参考点、AOI、栈足迹）写进一个 GeoPackage；<code>README.txt</code> 和 <code>export.json</code> 写明每个文件的单位、
+符号约定、参考点、日期对和运行编号。</p>
+<h2 id="14">第 14 步：日志在哪里、怎么看<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">logs</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-tail</span> <span class="n">3</span>
+<span class="nb">Get-ChildItem</span> <span class="n">walk</span><span class="p">\</span><span class="n">logs</span> <span class="n">-Name</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Last</span> <span class="n">3</span>
+</code></pre></div>
+<p>每次运行一个 <code>logs\run_*.jsonl</code>（每行一条 JSON，UTC 时间精确到微秒，含参数、输入、输出、用时、
+峰值内存），旁边是给人看的 <code>.log</code> 和 Markdown 报告 <code>.md</code>。<code>bosar logs walk --failure</code> 显示
+最近一次失败的原因和提示。</p>
+<h2 id="15-gacos">第 15 步：GACOS 申请卡与已有文件的校验<a class="headerlink" href="#15-gacos" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">aux</span> <span class="n">gacos-request</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">gamma_01_IW2</span>
+<span class="n">bosar</span> <span class="n">aux</span> <span class="n">gacos-check</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">gamma_01_IW2</span> <span class="p">-</span><span class="n">-dir</span> <span class="s2">"$DATA\05_Auxiliary\00_GACOS"</span>
+</code></pre></div>
+<p>GACOS 没有 API：软件根据项目算出要填进 gacos.net 表单的范围（N/W/E/S）、时间（23:40 UTC，来自
+SAFE 的 startTime，而不是 SNAP 导出 par 里被减半的 11:50）、日期（每次最多 20 个，29 个分两次），
+你提交表单、收到邮件后把 <code>.ztd/.rsc</code> 放进 <code>walk\aux\gacos\</code>，再用 <code>gacos-check</code> 校验。
+<code>&lt;data-root&gt;</code> 里已有的 29 个日期全部通过（时间差 0.4 分钟、边缘余量 0.10°、无缺值）。
+对流层改正本身在 v0.2.0 加入。</p>
+<h2 id="16">第 16 步：图形界面<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<p>同一个 PowerShell 窗口里（虚拟环境和 <code>dev_env.ps1</code> 都已生效）启动图形界面：</p>
+<div class="highlight"><pre><span></span><code>bosar gui walk
+</code></pre></div>
+<p>也可以直接运行 <code>bosar-gui walk</code>（不带控制台窗口的启动器）。这一步在上面的自动核对里<strong>不执行</strong>，因为
+窗口会一直开着；关掉窗口即结束。界面的设置（主题、最近的项目、SNAPHU 路径等）存在
+<code>$env:BOSAR_CONFIG_DIR</code> 指向的 INI 文件里（开发环境是仓库内的 <code>.cache\config</code>），不写注册表。</p>
+<p>图形界面不做任何计算：<strong>每一个操作都是一条 <code>bosar …</code> 命令</strong>，显示在窗口底部的命令条里，可以一键
+复制到 PowerShell 执行，结果与上面第 6–15 步完全相同；处理在单独的进程里运行，界面读取的是同一个
+<code>project.json</code> 和 <code>logs\run_*.jsonl</code>。</p>
+<ul>
+<li><strong>Project</strong>：新建 / 打开项目，摘要卡片列出数据栈、步骤状态和各级产品的占用空间。</li>
+<li><strong>Check</strong>：第 4 步的 <code>preflight</code>，按系统 / GPU / 依赖 / 程序 / 凭据 / 网络 / 项目分组，绿黄红三色。</li>
+<li><strong>Data</strong>：数据集表、基线表（Δt 与 B⊥ 按阈值着色）、基线网络图、Natural Earth 底图上的数据栈足迹，
+  选中日期时显示该日期的幅度图；把栈文件夹拖进来即可导入（第 8 步）。</li>
+<li><strong>Run</strong>：选流程（DInSAR / CCD / 幅度变化）、选像对，参数表由各步骤的参数定义自动生成（常用项在上，
+  其余在"Advanced"里），右边实时显示将要运行的那条命令；<strong>Run</strong> 启动，<strong>Stop</strong> 先请求取消（当前步骤
+  记为 cancelled），5 秒内没有停下再结束整个进程树（包括 SNAPHU）。</li>
+</ul>
+<p><img alt="运行中" src="../assets/tour/dinsar/03_running_light.png" /></p>
+<ul>
+<li><strong>View</strong>：左边是产品树，右边两个可联动的图像视图；色表按产品类型固定（相干灰度 0–1、形变红蓝对称、
+  单位 mm，红 = 朝向卫星），鼠标下方显示全分辨率的数值、单位和经纬度；可叠加损毁代理图，可导出
+  （第 13 步的 <code>bosar export</code>）。</li>
+</ul>
+<p><img alt="结果" src="../assets/tour/dinsar/04_result_dark.png" /></p>
+<ul>
+<li><strong>Logs</strong>：每次运行一行，记录表可按级别 / 事件 / 步骤 / 文字筛选；失败的运行显示失败卡片：
+  WHAT（错误码与信息）、WHERE（步骤、代码位置、文件）、HINT（怎么办）、LOG（日志文件与行号）。</li>
+</ul>
+<p><img alt="失败卡片" src="../assets/tour/logs/02_failure_dark.png" /></p>
+<ul>
+<li><strong>Aux</strong>：第 15 步的 GACOS 申请卡，每个字段都有复制按钮，"Copy request k" 按网站表单的顺序复制一批
+  日期；放文件的文件夹一有变化就自动重新校验。轨道和 DEM 的卡片在 v0.2.0 启用。</li>
+<li><strong>Settings</strong>（右上角齿轮）：主题（深色 / 浅色 / 跟随系统）、计算设备（自动 / CPU / GPU）、SNAPHU
+  路径、新项目的存储模式、只读数据目录；凭据<strong>只显示有没有</strong>，从不显示内容。</li>
+</ul>
+<hr />
+<h2 id="17">第 17 步：账号凭据<a class="headerlink" href="#17" title="Permanent link">&para;</a></h2>
+<p>凭据只走两条路：终端里 <code>bosar auth set &lt;service&gt;</code>（隐藏输入，或 <code>--from-file 你的文件.txt</code>，文件
+只读一次不复制），或者图形界面 <strong>Settings → Credentials → Set…</strong>（先提示注册、说明去哪里找 key、
+再填写或"从文件导入"）。值存进系统凭据库（Windows 凭据管理器 / macOS 钥匙串），从不出现在命令行、
+日志和交付包里。看状态：</p>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">auth</span> <span class="n">status</span>
+<span class="n">bosar</span> <span class="n">auth</span> <span class="n">services</span>
+</code></pre></div>
+<p>这几步用到的下载都不需要账号：轨道走本地文件夹和 SNAP 缓存，缺的走 ASF 公开镜像；DEM 走 AWS 公开桶。
+<code>cdse</code>（Copernicus Data Space）账号是可选的加速来源。</p>
+<h2 id="18">第 18 步：轨道文件——先找本地，再下载<a class="headerlink" href="#18" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">fetch</span> <span class="n">orbits</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-local-dir</span> <span class="p">&lt;</span><span class="n">data-root</span><span class="p">&gt;/</span><span class="n">05_Auxiliary</span><span class="p">/</span><span class="n">03_Orbits</span> <span class="p">-</span><span class="n">-no-download</span>
+</code></pre></div>
+<p>每个日期挑一个覆盖采集时刻（±60 s）的 POEORB（没有才用 RESORB），先在 <code>--local-dir</code>（会记进
+<code>project.json</code>）、<code>BOSAR_ORBIT_DIRS</code> 和 SNAP 的缓存 <code>~/.snap/auxdata/Orbits/Sentinel-1</code> 里找，找到的
+原地引用并记 sha256；缺的日期去掉 <code>--no-download</code> 就会下载到 <code>walk/aux/orbits/</code>。项目里有两个栈
+（裁剪栈和整幅栈），所以要用 <code>--stack</code> 指明；这个裁剪栈的 5 个日期在本地全部命中，0 下载。</p>
+<h2 id="19-dem">第 19 步：DEM——本地瓦片拼接，默认椭球高<a class="headerlink" href="#19-dem" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">fetch</span> <span class="n">dem</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-tile-dir</span> <span class="p">&lt;</span><span class="n">data-root</span><span class="p">&gt;/</span><span class="n">05_Auxiliary</span><span class="p">/</span><span class="n">02_DEM</span><span class="p">/</span><span class="n">tiles</span> <span class="p">-</span><span class="n">-no-download</span>
+</code></pre></div>
+<p>按栈的足迹加 0.1° 找 1°×1° 的 GLO-30 瓦片，本地齐全就直接拼接（不联网），写到
+<code>walk/aux/dem/glo30_&lt;W&gt;_&lt;S&gt;_&lt;E&gt;_&lt;N&gt;.tif</code> 和同名 <code>.json</code>（用了哪些瓦片、sha256、大地水准面模型）。
+默认 <strong>椭球高</strong>（GLO-30 是 EGM2008 正高，程序加上大地水准面差距，这里约 −33 m）；<code>--height orthometric</code>
+保留正高。</p>
+<h2 id="20">第 20 步：快速相干预览与用轨道算基线<a class="headerlink" href="#20" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">data</span> <span class="n">preview</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-pair</span> <span class="n">20240821_20240914</span>
+<span class="n">bosar</span> <span class="n">data</span> <span class="n">baselines</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-from-orbits</span>
+</code></pre></div>
+<p>预览几秒钟给出一对的粗相干图（<code>walk/preview/coh_&lt;pair&gt;.tif</code>，带 Δt 与 B⊥），界面里在 Data 页选中
+一对按 <strong>Preview coherence</strong>。<code>--from-orbits</code> 用第 18 步的轨道在 10×10 个目标上算 B⊥/B∥，和
+<code>.base</code> 里的 TCN 值逐对比较，没有 <code>.base</code> 的对补上（method <code>orbit</code>）。裁剪栈的 4 对差都在 3 m 以内；对整幅栈
+<code>gamma_01_IW2</code>（29 期）跑同一条命令，25 对里 21 对差 1 m 以内。</p>
+<h2 id="21-gacos-tropo-gacos">第 21 步：GACOS 大气改正（<code>--tropo gacos</code>）<a class="headerlink" href="#21-gacos-tropo-gacos" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">dinsar</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-pair</span> <span class="n">20240821_20240914</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-backend</span> <span class="n">snaphu</span> <span class="p">-</span><span class="n">-tropo</span> <span class="n">gacos</span> <span class="p">-</span><span class="n">-gacos-dir</span> <span class="p">&lt;</span><span class="n">data-root</span><span class="p">&gt;/</span><span class="n">05_Auxiliary</span><span class="p">/</span><span class="n">00_GACOS</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">gacos</span>
+</code></pre></div>
+<p>在 <code>unwrap</code> 之后多一步 <code>tropo_gacos</code>：每个像素在两个日期的 ZTD 网格上双线性取值，除以该像素入射角的
+余弦得斜距延迟，<code>φ_tropo = 4π/λ (S_sec − S_ref)</code>（次影像延迟更大 = 距离变长 = 相位为正），
+<code>unw_tropo = unw − φ_tropo</code>（参考点保持 0），<code>displacement</code> 改用 <code>unw_tropo</code>。步骤摘要里有改正前后
+相干像素的位移 RMS（这一对 6.25 → 5.09 mm；整幅 IW2 同一对 30.2 → 22.3 mm）。缺哪个日期的文件、时刻
+对不上或网格不覆盖，步骤会报 E201/E204 并说明是哪个日期哪个文件。<code>bosar aux status walk --for
+dinsar+gacos</code> 提前列出缺什么、哪些能自动取（给出命令）、哪些要你动手。</p>
+<h2 id="22-sbas">第 22 步：SBAS 网络设计<a class="headerlink" href="#22-sbas" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="n">network</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-max-dt</span> <span class="n">400</span> <span class="p">-</span><span class="n">-max-bperp</span> <span class="n">300</span> <span class="p">-</span><span class="n">-k</span> <span class="n">2</span> <span class="p">-</span><span class="n">-name</span> <span class="n">crop</span>
+</code></pre></div>
+<p>按 Δt / |B⊥| 阈值选对，再给每个日期补 <code>--k</code> 条按时间最近的连接（跨越空档也能连通），报告连通分量、
+冗余度（对数 / 日期数）和三元环数；被拒绝的对连同原因一起记进 <code>project.json</code>（<code>aux.sbas.networks</code>）。
+你自己的 <code>network_design.csv</code> 可以用 <code>--from-csv</code> 导入（B⊥ 以栈里的轨道基线为准）。裁剪栈 5 个日期：
+9 对、1 对被拒（|B⊥| 392 m 但作为顺序连接保留）、7 个三元环、连通。界面里在 Run 页选 <strong>SBAS prep</strong>，
+可以直接设计网络、看网络图（选中的对实线、被拒的对虚线）。</p>
+<h2 id="23">第 23 步：派生小基线干涉图、公共参考点、批量解缠<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="n">prep</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-backend</span> <span class="n">snaphu</span> <span class="p">-</span><span class="n">-workers</span> <span class="n">3</span> <span class="p">-</span><span class="n">-nproc</span> <span class="n">2</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span>
+</code></pre></div>
+<p>步骤 id 带网络名（<code>coherence_&lt;对&gt;_crop_sbas</code>），同一项目里两个栈的网络互不干扰。四个可续跑的阶段：<strong>prepare</strong>——每对 <code>ifg_derive → multilook → coherence</code>（<code>ifg_derive</code> 用星形栈
+<code>diff(ref,i)</code>、<code>diff(ref,j)</code> 与参考影像功率算出平地化的 (i, j) 对，相干用同一分子和两景 SLC 功率）；
+<strong>reference</strong>——所有对里都相干（≥ 0.3）的像元中平均相干最高的那个当公共参考点（写进网络记录）；
+<strong>unwrap</strong>——每对 SNAPHU（<code>smooth</code> 代价）、统一参考；<strong>closure</strong>——见下一步。<code>--workers 3</code> 让三对并行
+（子进程，CPU），<code>project.json</code> 的并发写入靠修订号合并。裁剪区 9 对：prepare 约 1 分钟/对，
+unwrap 1–3 秒/对，参考像元 (20, 167)。</p>
+<h2 id="24-b4">第 24 步：三元环闭合（B4）<a class="headerlink" href="#24-b4" title="Permanent link">&para;</a></h2>
+<p><code>sbas prep</code> 的最后一步就是 <code>closure</code>；也可以单独跑：</p>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="n">prep</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-phase</span> <span class="n">closure</span> <span class="p">-</span><span class="n">-looks</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span>
+</code></pre></div>
+<p>每个闭合三角算两样：缠绕相位闭合 <code>arg(c_ij c_jk conj(c_ik))</code>（相位偏差）和解缠相位的整数闭合
+<code>round((u_ij + u_jk − u_ik − w)/2π)</code>（解缠错误）；产品 <code>closure/wrapped_rms</code>、<code>closure/integer_count</code>，
+摘要里有逐三元环、逐对（含"系统性错误"标记）和只看相干像元的统计。裁剪区 7 个三元环：缠绕闭合
+RMS 中位数 0.94 rad（三对都相干的像元 0.43–0.52 rad），整数闭合非零的像元占 9–24 %（相干像元
+2–11 %；夏季三元环 20240821-0902-0914 最好，2.2 %）。</p>
+<h2 id="25-snap-esa-snap">第 25 步：用 SNAP 做预处理（需要装好 ESA SNAP）<a class="headerlink" href="#25-snap-esa-snap" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">preflight</span> <span class="p">-</span><span class="n">-offline</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">preprocess</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-engine</span> <span class="n">snap</span> <span class="p">-</span><span class="n">-product</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240821T234025_20240821T234052_055318_06BEBA_E05B.zip"</span> <span class="p">-</span><span class="n">-product</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240902T234025_20240902T234052_055493_06C53E_B90F.zip"</span> <span class="p">-</span><span class="n">-product</span> <span class="s2">"$DATA\00_RawData\S1A_IW_SLC__1SDV_20240914T234026_20240914T234052_055668_06CC28_B2FF.zip"</span> <span class="p">-</span><span class="n">-subswath</span> <span class="n">IW2</span> <span class="p">-</span><span class="n">-aoi-wkt</span> <span class="s2">"POLYGON((-86.30 39.65,-86.00 39.65,-86.00 39.90,-86.30 39.90,-86.30 39.65))"</span> <span class="p">-</span><span class="n">-threads</span> <span class="n">8</span> <span class="p">-</span><span class="n">-cache-mb</span> <span class="n">8192</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">subset</span>
+</code></pre></div>
+<p>预检的 P402 报告 SNAP 的 <code>gpt</code>、工具箱和堆内存。命令把 SNAP 当作单独的程序调用（不复制、不导入
+SNAP 的代码）：TOPSAR-Split（按 AOI 选 burst）→ Apply-Orbit-File（用第 18 步找到的本地轨道，复制到
+<code>walk/snap/userdir</code>）→ Back-Geocoding（外部 DEM = 第 19 步的椭球高拼接，<code>walk/aux/dem</code>）→ ESD →
+Interferogram（平地 + 地形相位、相干、高程、经纬度）→ Deburst，产品是 BEAM-DIMAP，随后自动导入
+（<code>data import --reader dimap --ifg-dim</code>）成栈 <code>snap_subset</code>，第 8 步之后的所有命令都能用它。SNAP
+写的每个文件都在 <code>walk/snap/</code> 和 <code>walk/products/dimap/</code> 里，<code>~/.snap</code> 一个文件都不动。本机上：栈
+90 s、干涉图 344 s、gpt 峰值内存 45 GB（<code>gpt.vmoptions</code> 的 -Xmx132G 允许它这么用）。注意：DEM 只
+拼了 AOI 那个框，Back-Geocoding 会把没有高程的像元全部置空，所以子集里只有 AOI 框内有数据。</p>
+<h2 id="26">第 26 步：相干不够时哪些对、哪些像元会被剔除<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
+<p>SBAS 的结果好不好，主要取决于喂进去的解缠相位靠不靠谱。Bosar 把"剔除"做成明确的规则，每一条都
+会在命令输出和 <code>project.json</code> 里留下记录，你可以逐条放宽或收紧：</p>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>规则</th>
+<th>在哪里调</th>
+<th>记录在哪里</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整对</td>
+<td><strong>空对</strong>：相干处处为 0（导出里该日期的干涉图或 SLC 全零，导入时报 W206）</td>
+<td>不可调</td>
+<td>网络记录 <code>empty_pairs</code></td>
+</tr>
+<tr>
+<td>整对</td>
+<td><strong>弱对</strong>：相干 ≥ 0.4 的像元不到 5 %；但每个日期保留它向前、向后最好的一条连接</td>
+<td><code>sbas prep --min-coherent-fraction 0.05</code>（0 = 不剔除）</td>
+<td><code>weak_pairs</code>、<code>weak_pairs_kept</code>、<code>pair_quality</code></td>
+</tr>
+<tr>
+<td>整对</td>
+<td><strong>不可靠对</strong>：它参与的每一个三元环里，相干像元上整数闭合不为 0 的比例都超过 30 %（整景去相干或配准坏掉的日期）</td>
+<td><code>unw_correct --pair-max-error 0.3</code></td>
+<td><code>unw_correct</code> 摘要的 <code>unreliable_pairs</code></td>
+</tr>
+<tr>
+<td>像元</td>
+<td>该对在这个像元的相干低于阈值</td>
+<td><code>pipeline sbas --coh-min 0.3</code></td>
+<td><code>sbas_invert</code> 摘要 <code>pair_pixels_dropped.coherence</code></td>
+</tr>
+<tr>
+<td>像元</td>
+<td>该像元不在参考点所在的解缠连通分量里</td>
+<td><code>--any-component</code> 关闭此规则</td>
+<td><code>pair_pixels_dropped.component</code></td>
+</tr>
+<tr>
+<td>像元</td>
+<td>闭合改正之后该对所在的三元环仍不闭合</td>
+<td><code>--keep-unclosed</code> 关闭此规则</td>
+<td><code>pair_pixels_dropped.unclosed_triplet</code></td>
+</tr>
+</tbody>
+</table>
+<p>一个像元至少剩下 2 对才有时间序列（<code>--min-pairs</code>）；只有它的网络把所有日期连成一片、并且时间相干
+≥ 0.7，才进入默认掩膜（产品 <code>ts_mask</code>）。如果整对规则把整个网络断成几段（冬季几对全不可靠时会这样），
+<code>sbas_invert</code> 报 <strong>W107</strong>：各段之间的偏移未知，速度按"同一速率 + 每段一个截距"拟合；想把断口接上，
+就多留几条跨越断口的对（<code>sbas network --k</code> 调大、<code>--min-coherent-fraction</code> 调小，或用
+<code>sbas_invert --exclude-pairs</code> 自己指定）。网络设计还有两个选项：<code>--sequential-only</code>（只要每个日期
+时间上最近的 k 条连接）和 <code>--season-months 5-10</code>（拒绝跨季节的对，顺序连接除外）。</p>
+<h2 id="27-sbas-pipeline-sbas">第 27 步：SBAS 时间序列（<code>pipeline sbas</code>）<a class="headerlink" href="#27-sbas-pipeline-sbas" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span> <span class="p">-</span><span class="n">-tropo</span> <span class="n">gacos</span> <span class="p">-</span><span class="n">-gacos-dir</span> <span class="p">&lt;</span><span class="n">data-root</span><span class="p">&gt;/</span><span class="n">05_Auxiliary</span><span class="p">/</span><span class="n">00_GACOS</span>
+</code></pre></div>
+<p>在第 23 步准备好的网络上依次做：<code>unw_correct</code>（按闭合环改正 2π 解缠错误，Yunjun 等 2019 的相位闭合
+法，按"闭合模式"去重后每种模式只解一次）→ <code>sbas_invert</code>（逐像元网络的加权最小二乘 / 最小范数解，
+Berardino 等 2002；权来自相干和视数；输出 <code>ts_los</code>（每个日期一个波段，单位 m，朝向卫星为正）、
+<code>velocity</code>（m/yr）及其标准差、<code>temporal_coherence</code>、<code>n_pairs_used</code>、<code>ts_rank</code>、<code>ts_mask</code>）→
+<code>ts_correct</code>（每个日期的 GACOS 斜距延迟，参考到参考点和参考日期；<code>--deramp</code> 再逐日期去一个平面；
+<code>--tropo era5</code> 用 ERA5 气压层数据，需要 CDS key）→ 地理编码（速度、时间相干、时间序列）。
+产品内部一律是米和米/年，界面、CSV 和摘要里才换成毫米。改正方式写进步骤 id（<code>ts_correct_crop_sbas_gacos</code>），
+所以不改正、GACOS、ERA5 的结果可以并存对比。这个 5 景裁剪只有 9 对，结果只用来演示流程；26 景的
+裁剪（<code>data/indy_downtown_ts</code>，见发布说明）才有像样的时间序列。</p>
+<h2 id="28-mintpy">第 28 步：导出给 MintPy 对比（可选）<a class="headerlink" href="#28-mintpy" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="nb">export-mintpy</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span> <span class="p">-</span><span class="n">-out</span> <span class="n">walk</span><span class="p">\</span><span class="n">mintpy</span>
+</code></pre></div>
+<p>写出 <code>inputs/ifgramStack.h5</code>、<code>inputs/geometryRadar.h5</code> 和一个最小的 <code>smallbaselineApp.cfg</code>（文件
+格式按 MintPy 手册写，没有用 MintPy 的代码）。MintPy 作为单独的程序在这些文件上运行
+（<code>ifgram_inversion.py inputs/ifgramStack.h5 -w var</code>），就能和 Bosar 在完全相同的输入上对比；
+<code>--mintpy-legacy-bperp</code> 把基线写成导出里 <code>.base</code> 的值，和你以前那套 MintPy 数据一致。</p>
+<h2 id="29">第 29 步：在界面里看时间序列、叠图层、导出图<a class="headerlink" href="#29" title="Permanent link">&para;</a></h2>
+<p><code>bosar gui walk</code> → Results 页：</p>
+<ul>
+<li>选中 <code>geo_velocity</code>（速度图）：左下 <strong>Layers</strong> 面板里选底图（默认“无”——v0.4.0 起发行版不再默认连任何瓦片服务器；Sentinel-2 无云镶嵌 2016 年是
+  CC BY、可直接用，OpenStreetMap、Esri 各有使用条款，自定义 XYZ 在 Settings 里填模板、密钥与署名），可以把底图调暗；每个图层有显示开关、0–100 % 的
+  透明度（底图上默认 70 %）、上下顺序、"相干 / 时间相干低于阈值处透明"的掩膜；"Add selected as layer"
+  把树里选中的另一个地理编码产品叠上来。雷达几何的产品不会被偷偷重投影，而是给一个
+  "Geocode for the map" 按钮去跑 <code>geocode</code> 步骤。</li>
+<li>在速度图上点像元：下方出现该像元的 LOS 位移时间序列（毫米）和线性拟合、速率（mm/yr）；可以点多个
+  像元、勾选不同改正（未改正 / GACOS / ERA5）、导出 CSV；雷达几何视图里参考点用星号标出。</li>
+<li>"Export view…" 把当前视图存成 PNG 或 PDF：带色标、每个图层一行图例、比例尺、指北针和底图署名，
+  生成各图层的命令写在文件元数据里。</li>
+</ul>
+<h2 id="30">第 30 步：结果能不能用？——质量判定和数据体检<a class="headerlink" href="#30" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">sbas</span> <span class="n">quality</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-network</span> <span class="n">crop</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">sbas</span>
+</code></pre></div>
+<p>每条时间序列链（<code>pipeline sbas</code>、<code>pipeline psds</code>）跑完都会打印一个<strong>质量判定</strong>：
+<code>USABLE</code>（可用）/ <code>MARGINAL</code>（勉强，只能在说明的限制内读）/ <code>NOT USABLE</code>（不能当形变解读）。
+判定来自实测指标，每条都带警告码、实测值、门槛和<strong>具体的补救办法</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>警告码</th>
+<th>指标</th>
+<th>勉强</th>
+<th>不可用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W108</td>
+<td>连通且时间相干达标的像元占比</td>
+<td>&lt; 20 %</td>
+<td>&lt; 2 %</td>
+</tr>
+<tr>
+<td>W109</td>
+<td>被剔除的干涉对占比，或整天丢失的日期</td>
+<td>&gt; 30 % 或有日期丢失</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W107</td>
+<td>网络断成几段</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W110</td>
+<td>可用像元的速度离散度</td>
+<td>&gt; 4 mm/yr</td>
+<td>&gt; 10 mm/yr</td>
+</tr>
+<tr>
+<td>W111</td>
+<td>改正后仍不闭合的三元环占比</td>
+<td>&gt; 15 %</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W112</td>
+<td>速度中位数相对参考点明显偏离（场景斜坡或参考点本身有问题）</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W113</td>
+<td>相邻两期之间出现接近半个波长的跳变的像元占比（并指出从哪天开始）</td>
+<td>&gt; 3 %</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><code>bosar sbas quality</code> 还会打印<strong>逐日期的数据体检表</strong>：每个日期有几对、多少是空的（全零）、多少太弱、
+多少被闭合检查判为不可靠、平均相干像元占比。所有对都是空的日期是数据问题（那一景在导出里就是空的，
+调参数没用，只能重新配准或剔除）；所有对都失败的日期是那天失相干（雪、雨、落叶）。界面里结果页会在
+地图上方用横幅显示同样的判定。</p>
+<h2 id="31-ps-ds-pipeline-psds">第 31 步：PS / DS 时间序列（<code>pipeline psds</code>）<a class="headerlink" href="#31-ps-ds-pipeline-psds" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psds</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-strides</span> <span class="n">2</span><span class="p">,</span><span class="n">10</span> <span class="p">-</span><span class="n">-workers</span> <span class="n">3</span> <span class="p">-</span><span class="n">-backend</span> <span class="n">snaphu</span>
+</code></pre></div>
+<p>植被多的地方多视 SBAS 留不下多少像元。这条链改用两类散射体：<strong>分布式散射体（DS）</strong>——在每个像元周围
+找统计上同质的邻居（SHP，幅度的 GLRT 检验），在这些邻居上估 N×N 的相干矩阵，再用<strong>相位联合</strong>（EMI）
+一次估出 N 个日期的相位；<strong>永久散射体（PS）</strong>——幅度离差 D_A ≤ 0.25 的点保留自己的相位。两者合成
+一个"混合栈"，再走第 23–27 步同样的解缠、闭合、反演。依次是：<code>slc_flatten</code>（用 Bosar 自己的平地相位
+把每景 SLC 去平；同时扫描每个日期，<strong>有一条缺失带的日期会被检出并默认剔除</strong>，W207）→ <code>psds_link</code>
+（SHP、相位联合、PS 选择；GPU 上 26 景 768×3072 只要十几秒）→ 每对的干涉图 → 解缠 → 闭合改正 →
+反演 → 地理编码 → 质量判定。常用选项：<code>--shp glrt|ks</code>、<code>--method emi|evd</code>、<code>--ps-da 0.25</code>、
+<code>--strides 方位,距离</code>（输出网格的抽稀）、<code>--ds-tcoh 0.6</code>（DS 需要的相位联合时间相干；纯噪声在这个栈上
+最高只有 0.36）、<code>--keep-partial-dates</code>。5 景的裁剪只用来演示流程（日期太少，相位联合意义不大）；
+26 景测试区的结果见发布说明。</p>
+<h2 id="32-ps-insar-pipeline-psi">第 32 步：经典 PS-InSAR 作为独立对照（<code>pipeline psi</code>）<a class="headerlink" href="#32-ps-insar-pipeline-psi" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psi</span> <span class="n">walk</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">crop_indy_downtown_crop</span> <span class="p">-</span><span class="n">-name</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-max-arc-m</span> <span class="n">3000</span>
+</code></pre></div>
+<p>按 Ferretti 等 2001 / Kampes 2006 重新实现的经典 PSI，不做相位联合也不做空间解缠：PS 候选点
+（D_A）→ Delaunay 三角网的边 → 每条边用周期图同时估高程误差和速率（一次矩阵乘法批量算）→ 从参考点沿
+最相干的路径积分 → 由残差估大气相位屏并扣除 → 每个点最终估计。结果是一个 GeoPackage 点图层
+（<code>products/psi_points/</code>）：LOS 速度（朝向卫星为正）、高程误差、时间相干和每个日期的位移。验收门槛会
+按这个栈的日期数自动抬到"纯噪声的 99 分位"之上（日期少时噪声也能凑出很高的时间相干）。它复用上一步
+<code>slc_flatten_psds</code> 的去平栈。</p>
+<h2 id="33-psds">第 33 步：在界面里看 PS/DS 结果<a class="headerlink" href="#33-psds" title="Permanent link">&para;</a></h2>
+<p><code>bosar gui walk</code> → Run 页选 <strong>PS / DS time series</strong> 可以直接跑上面的命令；Results 页选中 PS/DS 的
+速度图后，勾选 <strong>PS points</strong> 会把永久散射体画成点（颜色 = 速度，大小 = 质量），点一下看它的时间序列；
+<code>psds_temporal_coherence</code>、<code>shp_count</code>、<code>psds_type</code>、<code>amp_dispersion</code> 这几张质量图都可以直接看。网络
+断成几段时，时间序列按段分别画线、每段一个偏移量（段与段之间的位移未知）。</p>
+<h2 id="34-asf-slcfetch-slc">第 34 步：从 ASF 下载原始 SLC（<code>fetch slc</code>）<a class="headerlink" href="#34-asf-slcfetch-slc" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">fetch</span> <span class="n">slc</span> <span class="p">-</span><span class="n">-project</span> <span class="n">demo_dinsar</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">gamma_01_IW2</span> <span class="p">-</span><span class="n">-range</span> <span class="n">2025</span><span class="p">-</span><span class="n">08</span><span class="p">-</span><span class="n">01</span><span class="p">:</span><span class="n">2026</span><span class="p">-</span><span class="n">09</span><span class="p">-</span><span class="n">30</span> <span class="p">-</span><span class="n">-dry-run</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">slc</span> <span class="p">-</span><span class="n">-project</span> <span class="n">demo_dinsar</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">gamma_01_IW2</span> <span class="p">-</span><span class="n">-range</span> <span class="n">2025</span><span class="p">-</span><span class="n">08</span><span class="p">-</span><span class="n">01</span><span class="p">:</span><span class="n">2026</span><span class="p">-</span><span class="n">09</span><span class="p">-</span><span class="n">30</span> <span class="p">-</span><span class="n">-range</span> <span class="n">2023</span><span class="p">-</span><span class="n">07</span><span class="p">-</span><span class="n">01</span><span class="p">:</span><span class="n">2024</span><span class="p">-</span><span class="n">06</span><span class="p">-</span><span class="n">30</span> <span class="p">-</span><span class="n">-dest</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">s1</span> <span class="p">-</span><span class="n">-detach</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">status</span> <span class="p">-</span><span class="n">-dest</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">s1</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">stop</span> <span class="p">-</span><span class="n">-dest</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">s1</span>
+</code></pre></div>
+<p>按栈的相对轨道、帧和足迹（或 <code>--aoi "POINT(lon lat)"</code> + <code>--relative-orbit</code>）在 ASF 搜索景，<code>--dry-run</code>
+只列清单和大小；真下载是 Bosar 自己的循环：断点续传（Range）、按大小和 MD5 校验、每景一个
+<code>&lt;name&gt;.json</code> 来源记录、剩余空间低于 <code>--min-free-gb</code>（默认 150 GB）就停、第二批只有剩余空间大于
+<code>--continue-if-free-gb</code> 才开始。<code>--detach</code> 让它在后台跑、跨会话继续；进度文件
+<code>fetch_slc_progress.json</code> 和 <code>fetch_slc.log</code> 在目标目录。Earthdata 凭据走 <code>~/.netrc</code> 或钥匙串，不经
+聊天。Aux 页有同样的卡片。目标目录拒绝只读的数据根。</p>
+<h2 id="35-tops-snap-zip-pipeline-s1-coregister">第 35 步：原生 TOPS 配准——不经 SNAP 从 zip 到栈（<code>pipeline s1-coregister</code>）<a class="headerlink" href="#35-tops-snap-zip-pipeline-s1-coregister" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar project new demo_native
+bosar fetch dem demo_native --bbox -86.52,39.27,-85.06,40.28 --margin-deg 0
+bosar pipeline s1-coregister demo_native --product &lt;zip1&gt; --product &lt;zip2&gt; --product &lt;zip3&gt; --subswath IW2 --pol VV --aoi-wkt "POLYGON((-86.30 39.65,-86.00 39.65,-86.00 39.90,-86.30 39.90,-86.30 39.65))" --tag r11
+bosar fetch orbits demo_native --stack native_r11 --no-download
+bosar run demo_native slc_flatten --step-id slc_flatten_r11 --stack native_r11
+</code></pre></div>
+<p>第一个 zip 是参考。一步做完：把子条带的注记和影像从 zip 解到 <code>cache/safe/</code>（一次）、从注记建 burst 模型、
+精密轨道（项目里记录的，否则数据根 / SNAP 缓存，再否则注记星历并给 W301）、每个参考 burst 在格网上
+用 DEM 做 topo、每个副影像 burst 去斜（deramp）→ 按轨道 + DEM 的偏移量做 Knab 窗 sinc 重采样 → 加回
+斜坡（reramp）、burst 重叠区做 ESD 并迭代到 0.001 行以内、按重叠中线拼接（deburst），写成 ISCE
+<code>merged/</code> 布局（<code>--output cint16</code> 省一半空间）并自动导入成栈 <code>native_&lt;tag&gt;</code>。RTX 3090 上一个
+1500 × 25000 的 burst 不到 1 秒（CPU 55 秒）。<code>products/native/stack/&lt;step&gt;.json</code> 记录 burst 参数、
+拼接方案、每个日期的 ESD 表与偏移量、耗时。与 SNAP 在同三景上的比对（<code>scripts/validate_native_tops.py</code>、
+<code>scripts/validate_native_flat.py</code>）见发布说明。</p>
+<h2 id="36">第 36 步：导入时的空景体检与分波段质量阈值<a class="headerlink" href="#36" title="Permanent link">&para;</a></h2>
+<p><code>bosar data import</code> 现在对每个日期做抽样扫描（每 128 行读 16 行），全零的日期给 W206、比"公共底数"
+（所有日期都为零的区域——景边缘、burst 缝隙——取各日期零比例的最小值，W208）多出 2 个百分点以上的
+给 W207，并记在栈记录的 warnings 和每个日期记录的 <code>zero_fraction</code> / <code>partially_empty</code> / <code>empty</code> 里；
+时间序列链默认仍会剔除 W207 的日期。质量判定按波段选阈值：C 波段默认，L 波段草案（毫米量级的阈值按
+波长比放大），输出第二行写明 <code>thresholds: C-band (default)</code>。</p>
+<h2 id="37-psi">第 37 步：界面里的经典 PSI 与点图层<a class="headerlink" href="#37-psi" title="Permanent link">&para;</a></h2>
+<p><code>bosar gui walk</code> → Run 页多了 <strong>Classic PS-InSAR (periodogram)</strong>（对应第 32 步的命令，D_A、点数、最长
+边、时间相干作为基本参数，计划里是 <code>slc_flatten_psi</code> + <code>psi_classic_psi</code>）；Results 页选中一个 PSI
+的结果后勾选 <strong>PS points</strong>，GeoPackage 里的点会按速度着色、按时间相干定大小地画出来，与 PS/DS 的
+点图层同一套机制。</p>
+<h2 id="38-zip-aoi">第 38 步：多年原生栈——目录里所有 zip、按 AOI 裁剪、可续跑<a class="headerlink" href="#38-zip-aoi" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar project new demo_multi
+bosar fetch dem demo_multi --bbox -86.52,39.27,-85.06,40.28 --margin-deg 0
+bosar fetch orbits demo_multi --product &lt;参考 zip&gt; --product &lt;其余 zip…&gt;
+bosar pipeline s1-coregister demo_multi --product &lt;参考 zip&gt; --products-from &lt;data-root&gt;/00_RawData --products-from data/raw/s1 --subswath IW2 --aoi-wkt "POLYGON((-86.30 39.65,-86.00 39.65,-86.00 39.90,-86.30 39.90,-86.30 39.65))" --crop-wkt "POLYGON((-86.245 39.692,-86.078 39.692,-86.078 39.813,-86.245 39.813,-86.245 39.692))" --drop-cache --tag multi
+bosar pipeline psds demo_multi --stack native_multi --workers 6 --tropo era5 --ref-latlon 39.7684,-86.1581 --no-correct --keep-unclosed
+bosar pipeline psi demo_multi --stack native_multi --name psds --max-arc-m 3000
+</code></pre></div>
+<p><code>--products-from</code> 把文件夹里所有 <code>S1?_IW_SLC__*.zip</code> 按日期排进来（S1A、S1D 一视同仁）；burst 由
+AOI 多边形与每个 burst 足迹<strong>求交</strong>选出；<code>--crop-wkt</code> 只把多边形外接框那一块写盘（burst 仍整块配准）。
+一次只处理一个日期：打开 → 去斜 → 几何偏移 → 距离向互相关检查 → ESD → 拼接 → 写盘 → 关闭，
+内存不随日期数增长；每个日期写一个 <code>merged/SLC/&lt;date&gt;/coreg.json</code>（设置的签名），<strong>再跑同一条命令
+只处理新下载的日期</strong>（摘要里的 <code>n_reused</code>）。默认输出 CINT16（<code>--output cfloat</code> 可换回）。
+<code>fetch orbits --product</code> 在还没有栈的时候按产品名取精密轨道。53 个日期（2024-07 至 2026-07，
+含 2 景 S1D）在 RTX 3090 上每景约 53 秒。质量判定第三行给出"实测速度离散 vs 由日期数和时间跨度
+预期的离散"：<code>sigma_v = sigma_d * sqrt(12 (N-1) / (N (N+1))) / T</code>。
+长栈（两年、近 200 对）上要加 <code>--no-correct --keep-unclosed</code>：闭合改正步骤在这么大的网络上会把
+解缠结果改坏（待修），不闭合的对保留下来由时间相干去判定。这样两年数据上 PS/DS 判定
+USABLE（26.5 % 的像元可靠，速度离散 1.45 mm/yr，预期 1.1），经典 PSI 也是 USABLE（1.26 mm/yr），
+两条链在可靠像元上相差 0.4–0.6 mm/yr。跨相干缺口（比如河两岸）的相对速度不要读。时间序列项目
+建议用 <code>bosar project new --storage-mode full</code> 创建。</p>
+<h2 id="39-calibration-terrain-flatten">第 39 步：定标与地形展平（<code>--calibration</code>、<code>--terrain-flatten</code>）<a class="headerlink" href="#39-calibration-terrain-flatten" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar pipeline s1-coregister demo_native --product &lt;zip1&gt; --product &lt;zip2&gt; --subswath IW2 --bursts 6,8 --output cfloat --calibration sigma0 --terrain-flatten --tag cal
+bosar pipeline amplitude demo_native --stack native_cal --pre 20240821 --post 20240902
+</code></pre></div>
+<p>SLC 保持 DN 不变；<code>merged/calibrated/&lt;date&gt;/&lt;date&gt;.sigma0.rdr</code>（或 beta0 / gamma0）是用 SAFE 定标 LUT
+算出的线性功率，<code>gamma0_flat.rdr</code> = beta0 × 面积因子（Small 2011，因子在雷达几何里由 DEM 小面元算出，
+平地上等于 tan(入射角)，叠掩和阴影置 NaN），因子本身在 <code>geom_reference/gamma_flat_factor.rdr</code>。
+原生栈带定标层时，振幅变化链自动改用绝对后向散射（<code>dB (sigma0)</code>，不再做相对归一化）。
+与 SNAP 的 Calibration / Terrain-Flattening 的比对：<code>scripts/validate_native_cal.py</code>。</p>
+<h2 id="40-subswath-iw1iw2iw3">第 40 步：三个子条带与条带拼接（<code>--subswath IW1,IW2,IW3</code>）<a class="headerlink" href="#40-subswath-iw1iw2iw3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar project new demo_full
+bosar fetch dem demo_full --bbox -87.65,38.40,-84.001,40.75 --margin-deg 0
+bosar pipeline s1-coregister demo_full --product &lt;zip1&gt; --product &lt;zip2&gt; --subswath IW1,IW2,IW3 --tag full --id native_full
+</code></pre></div>
+<p>三个子条带各配准一次（步骤 <code>s1_coregister_full_iw1…3</code>，不给 <code>--bursts</code> / <code>--aoi-wkt</code> 就是全部
+burst），然后 <code>s1_swath_merge_full</code> 把三个栈并到一张距离 / 方位网格上：整像素放置（与 ISCE2 相同）、
+重叠区中线切割、不做任何插值，几何层同样拼接，所以每个像素带着自己的经纬度。摘要里的 <code>seams</code>
+给出每条接缝、每个日期的相位台阶、相干和幅度台阶。DEM 镶嵌图按窗口读取，整景也不会整幅进内存。</p>
+<h2 id="41-iono_split">第 41 步：电离层分频估计（<code>iono_split</code>）<a class="headerlink" href="#41-iono_split" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">run</span> <span class="n">demo_full</span> <span class="n">slc_flatten</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">slc_flatten_full</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">native_full</span>
+<span class="n">bosar</span> <span class="n">run</span> <span class="n">demo_full</span> <span class="n">iono_split</span> <span class="p">-</span><span class="n">-step-id</span> <span class="n">iono_full</span> <span class="p">-</span><span class="n">-requires</span> <span class="n">slc_flatten_full</span> <span class="p">-</span><span class="n">-pair</span> <span class="n">20240821_20240902</span>
+</code></pre></div>
+<p>在<strong>去平地后的</strong> SLC 栈上：把距离向频谱的上下三分之一各取出来做子带干涉图，只解缠全带一次，
+由两个子带相位算出色散项（Gomba 2016），按相干加权做高斯低通。输出 <code>iono_phase/&lt;pair&gt;</code>（载频处的
+电离层相位，弧度，多视网格）；摘要里有改正前后解缠相位的平面斜率。噪声放大约 120 倍，所以默认
+64 × 256 视。常数项不可定（与所有干涉相位一样是相对量）。</p>
+<h2 id="42-coregister">第 42 步：界面——Coregister 工作流与下载批次<a class="headerlink" href="#42-coregister" title="Permanent link">&para;</a></h2>
+<p><code>bosar gui demo_multi</code> → Run 页的 <strong>Coregister (Bosar)</strong>：Engine 选 <code>bosar</code>（原生链，对应第 38 步的
+命令）或 <code>snap</code>（第 25 步的 SNAP 桥接），勾选"all three sub-swaths"就是第 40 步，表单里有输出类型、
+定标和地形展平。Aux 页的 <strong>Sentinel-1 SLC scenes (ASF)</strong> 卡片现在列出每一批的进度、正在传输的
+文件和按最近一分钟速率估计的剩余时间；<code>bosar fetch slc --parallel 3</code> 并行下载，网络中断的景在
+之后的尝试里自动重试。</p>
+<h2 id="43">第 43 步：时间参考日期与离群日期<a class="headerlink" href="#43" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-no-correct</span> <span class="p">-</span><span class="n">-ref-latlon</span> <span class="n">39</span><span class="p">.</span><span class="n">7684</span><span class="p">,-</span><span class="n">86</span><span class="p">.</span><span class="n">1581</span> <span class="p">-</span><span class="n">-tropo</span> <span class="n">era5</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">ex5</span> <span class="p">-</span><span class="n">-no-correct</span> <span class="p">-</span><span class="n">-ref-latlon</span> <span class="n">39</span><span class="p">.</span><span class="n">7684</span><span class="p">,-</span><span class="n">86</span><span class="p">.</span><span class="n">1581</span> <span class="p">-</span><span class="n">-fit</span> <span class="n">huber</span> <span class="p">-</span><span class="n">-exclude-dates</span> <span class="n">20230803</span><span class="p">,</span><span class="n">20240330</span><span class="p">,</span><span class="n">20240622</span><span class="p">,</span><span class="n">20250325</span><span class="p">,</span><span class="n">20250816</span>
+</code></pre></div>
+<p>不给 <code>--ref-date</code> 时，序列的零日期不再是第一景，而是"共模中位数"规则：每个日期取好像元的空间
+中位数（整景一起相对参考像元动的量，多半是大气），选最接近这些中位数之中位数的那个日期——永远不是
+离群日。摘要里记 <code>ref_date_rule</code>、<code>common_mode_mm</code>。W117 点名"偏离拟合直线超过 3 倍稳健标准差且
+超过 20 % 像元"的日期；<code>--exclude-dates</code> 把它们连同所有相关对一起剔除，<code>--fit huber</code> 用 Huber 估计
+速度；质量报告同时打印最小二乘与 Huber 两种离散。<code>--tag</code> 现在可以只给时间序列部分命名变体，
+配对产品沿用网络自己的。</p>
+<h2 id="44-stec">第 44 步：距离向偏移隐含的 ΔSTEC<a class="headerlink" href="#44-stec" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">aux</span> <span class="n">range-shift</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">native_multi</span> <span class="p">-</span><span class="n">-ionex-dir</span> <span class="n">data</span><span class="p">/</span><span class="n">aux</span><span class="p">/</span><span class="n">ionex</span> <span class="p">-</span><span class="n">-write</span>
+<span class="n">bosar</span> <span class="n">sbas</span> <span class="n">quality</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span>
+</code></pre></div>
+<p>每个日期：ERA5 对流层预测的偏移、残差、以及把残差当成电离层群延迟换算的斜向 TEC 差
+（2.33 m 一个像元 ≈ 169 TECU）；有 IONEX 图时并排给出 GIM 值。<code>--write</code> 写进每个日期的
+<code>coreg.json</code> 和配准步骤摘要，<code>sbas quality</code> 的逐日期表多出 <code>shift[px]</code>、<code>dSTEC[TECU]</code>、<code>GIM[TECU]</code> 三列。</p>
+<h2 id="45">第 45 步：电离层模型改正（可选）<a class="headerlink" href="#45" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-iono</span> <span class="p">-</span><span class="n">-iono-model</span> <span class="n">plane</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psds</span> <span class="n">demo_alos</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">alos_mx</span> <span class="p">-</span><span class="n">-network</span> <span class="n">l</span> <span class="p">-</span><span class="n">-iono</span> <span class="p">-</span><span class="n">-iono-looks</span> <span class="n">32</span><span class="p">,</span><span class="n">32</span>
+</code></pre></div>
+<p>不加 <code>--iono</code> 什么都不做。加上后每个干涉对跑一次分频估计并拟合模型（C 波段默认 <code>plane</code>，L 波段
+默认 <code>filtered</code>），反演时在读入阶段减去模型；链结束时打印模型跨度、W220 对数和三元闭合。</p>
+<p>每个模型先过一道合理性门限（幅度、梯度、三元组闭合；<code>--no-iono-gate</code> 关掉它）：不过门的模型被跳过并计数
+（W227），坏估计不会进入反演。实测（0.4.1）：C 波段（Sentinel-1 印第安纳波利斯 88 个冬季日期）没有可测的
+收益——门限只放行几对，速度变化小于自身噪声；L 波段（ALOS-1 墨西哥城）门限留下约一半模型，产品在
+0.01 mm/yr 内不变。门限默认开，因为 <code>filtered</code> 模型可能跟着它所在的形变走，门限的幅度和闭合规则正是
+抓这个。用 <code>--iono</code> 时带着门限，比较加与不加的速度图，保留残差和地标序列站得住的那一次；它仍是可选项。</p>
+<p>NISAR 一景里有两个频段（<code>0505</code> 模式：A 频段 1221.5 MHz，B 频段 1236.5 MHz，各 5 MHz，同一网格）。把第二
+个频段单独配准成一个栈（<code>pipeline stripmap-coregister … --reader nisar --frequency B --tag b</code>），再指名它：</p>
+<div class="highlight"><pre><span></span><code>bosar pipeline sbas demo_nisar --network l --iono --iono-band-stack stripmap_b
+</code></pre></div>
+<p>电离层就由两个整频段估计而不是一个频段的外侧三分之一（<code>iono_split</code> 步骤的 <code>bands</code> 来源）：载波间隔
+15 MHz 对 3.3 MHz，噪声增益 58 对 259，同样视数下噪声低四到五倍。两个栈的极化可以不同（该模式下 A 为
+HH、B 为 VV），每个频段的干涉图在自己频段内形成。估计器在合成频段上验证过；2026 年的临时 <code>0505</code> 产品
+（track 58 / frame 53）B 频段没有信号，所以先看 <code>iono_split</code> 摘要里的 <code>band.coherence_median</code> 再信结果。</p>
+<h2 id="46">第 46 步：长序列的顺序相位连接与星形解缠实验<a class="headerlink" href="#46" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psds</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-stack</span> <span class="n">native_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds_seq</span> <span class="p">-</span><span class="n">-method</span> <span class="n">sequential</span> <span class="p">-</span><span class="n">-ministack</span> <span class="n">15</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">psds</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-unwrap</span> <span class="n">star</span>
+</code></pre></div>
+<p><code>sequential</code>：每 15 景一个小栈各自连接，用压缩 SLC 把基准串起来，矩阵永远不超过"小栈 + 之前小栈数"
+个日期（N/L 从 0.9 降到 0.2）；摘要报 <code>n_over_l_median</code>。<code>--unwrap star</code>：只以第一景的星形对为
+测量，其余对由星形推出（闭合恒为零），独立解缠的相邻对只用来投票整周错误。</p>
+<p>88 景实测：<code>sequential</code> 连接快 7 倍、选出的 DS 多 68 %，产品覆盖翻倍（73 % 对 37 %），
+但速度离散从 0.54 变成 0.80 mm/yr，6 % 像元出现整周跳变——由连接相位推出的干涉对天然闭合，反演的
+时间相干对它恒为 1.0，把不住关。默认仍是 <code>auto</code>；<code>sequential</code> 是可选项，v0.4.0 改用连接相干做掩膜后再评。
+<code>--unwrap star</code> 在 88 景上也是负结果：以第一景为中心的星形对最长跨 1171 天，远端对整片整周错误，
+每景三个相邻对的投票压不住（五个日期被改掉 91–98 % 的像元），速度离散 3.6 mm/yr。默认仍是 <code>pairs</code>。</p>
+<h2 id="47-alos-1-envisat-ers-nisar">第 47 步：ALOS-1 / ENVISAT / ERS / NISAR 读取器与条带配准链<a class="headerlink" href="#47-alos-1-envisat-ers-nisar" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bosar fetch slc --mission alos --path 186 --frame 370 --flight-direction ascending --range 2007-01-01:2011-12-31 --dry-run
+bosar project new demo_alos --storage-mode full
+bosar fetch dem demo_alos --bbox -99.30,19.15,-98.85,19.60 --tile-dir data/aux/dem_tiles
+bosar pipeline stripmap-coregister demo_alos --product A.zip --product B.zip --reader alos --crop-wkt "POLYGON((...))" --id alos_pair
+bosar sbas network demo_alos --stack alos_pair --name pair --max-dt 400 --max-bperp 5000
+bosar run demo_alos slc_flatten --step-id slc_flatten_alos_pair --stack alos_pair --mode orbits
+bosar sbas prep demo_alos --stack alos_pair --network pair --flat-step slc_flatten_alos_pair
+</code></pre></div>
+<p>ALOS-1 PALSAR L1.1（CEOS，ASF 的 zip 直接读）、ENVISAT ASAR IMS 与 ERS IMS（Envisat 格式，
+<code>--reader asar</code> / <code>ers_envisat</code>）、NISAR RSLC（HDF5，尚未见真数据）都读成同一个 <code>StripmapScene</code>；
+条带配准链带多普勒中心（几何用 <code>rdr2geo</code>/<code>geo2rdr</code> 的多普勒项，重采样先解调再调制），写出和
+TOPS 链一样的 ISCE 目录。原生栈没有存好的干涉图，所以配对要先展平再用 <code>--flat-step</code> 推导；
+三景以上直接走 <code>pipeline psds</code>。墨西哥城三种传感器各跑了一对；ALOS 的 16 景序列
+（<code>pipeline psds demo_alos --stack alos_mx --network l --k 3</code>，再 <code>pipeline sbas --tag ex --ref-latlon 19.342,-99.088
+--exclude-dates 20100522 --fit huber</code>）给出 Nezahualcóyotl −223 mm/yr（LOS，垂直约 −290）、机场 −192、
+火山岩参考点 −4 ± 3——与 Chaussard 2014 的图形和量级一致。注意两点：默认参考像元（最好的 DS）会落在
+沉降盆地里，要用 <code>--ref-latlon</code> 指到稳定地表；质量判定的 W110/W113 是按稳定区设计的，在 30 cm/yr 的
+盆地上会把形变本身判成 NOT USABLE。</p>
+<h2 id="48-4k">第 48 步：比较两条链、4K 导览<a class="headerlink" href="#48-4k" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="nb">compare </span><span class="n">demo_multi</span> <span class="p">-</span><span class="n">-list</span>
+<span class="n">bosar</span> <span class="nb">compare </span><span class="n">demo_multi</span> <span class="n">products</span><span class="p">/</span><span class="n">geo_velocity</span><span class="p">/</span><span class="n">geocode_velocity_psds_era5</span><span class="p">.</span><span class="n">tif</span> <span class="n">ps</span><span class="p">:</span><span class="n">psds_link_psds</span> <span class="p">-</span><span class="n">-out</span> <span class="n">compare_out</span>
+<span class="n">python</span> <span class="n">scripts</span><span class="p">/</span><span class="n">gui_tour</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-project</span> <span class="n">tour</span><span class="p">/</span><span class="n">indy_crop</span> <span class="p">-</span><span class="n">-size</span> <span class="n">1920x1080</span> <span class="p">-</span><span class="n">-scale</span> <span class="n">2</span>
+</code></pre></div>
+<p><code>bosar compare</code> 是 Results 页"Compare two chains"的命令行版本；导览截图以 2 倍缩放渲染成
+3840 × 2160，每一步多一张"点哪里"的动画提示，DInSAR 演示另存一份 4K MP4。</p>
+<h2 id="_1">现在的局限与接下来的工作<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>输入可以是 SNAP 导出的 GAMMA/StaMPS 栈、SNAP 桥接的预处理（第 25 步），或 v0.3.0 起 Bosar 自己的
+  原生 TOPS 配准（第 35、38–40 步：多年栈、定标、三条带拼接）。</li>
+<li>时间序列有三条链：SBAS（第 22–27 步）、PS/DS 混合栈（第 31 步）、经典 PSI（第 32 步）。这片 C 波段
+  植被区上速度噪声在 2–5 mm/yr 量级，一年的数据读不出毫米级形变；质量判定会明确告诉你这一点。</li>
+<li>电离层分频估计接进了时间序列链（第 45 步，可选）；ALOS-1、ENVISAT、ERS 的读取器与条带配准链在 v0.4.0
+  上了真数据（第 47 步），NISAR 只有合成数据；偏移量追踪与斑点滤波在 v0.3.0；安装包在 v0.4.0。</li>
+</ul>
+<h2 id="49">第 49 步：形变区的质量判定、连接相干门限、下载的两处保险<a class="headerlink" href="#49" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_alos</span> <span class="p">-</span><span class="n">-network</span> <span class="n">l</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">ex2</span> <span class="p">-</span><span class="n">-area</span> <span class="n">deforming</span> <span class="p">-</span><span class="n">-exclude-dates</span> <span class="n">20100522</span> <span class="p">-</span><span class="n">-fit</span> <span class="n">huber</span> <span class="p">-</span><span class="n">-no-geocode</span>
+<span class="n">bosar</span> <span class="n">sbas</span> <span class="n">quality</span> <span class="n">demo_alos</span> <span class="p">-</span><span class="n">-network</span> <span class="n">l</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">ex2</span>
+<span class="n">bosar</span> <span class="n">sbas</span> <span class="n">quality</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds</span> <span class="p">-</span><span class="n">-step</span> <span class="n">ts_correct_psds_era5</span> <span class="p">-</span><span class="n">-area</span> <span class="n">deforming</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">sbas</span> <span class="n">demo_multi</span> <span class="p">-</span><span class="n">-network</span> <span class="n">psds_seq</span> <span class="p">-</span><span class="n">-tag</span> <span class="n">gate</span> <span class="p">-</span><span class="n">-link-coherence-min</span> <span class="n">0</span><span class="p">.</span><span class="n">7</span> <span class="p">-</span><span class="n">-tropo</span> <span class="n">era5</span> <span class="p">-</span><span class="n">-no-geocode</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">dem</span> <span class="n">demo_alos</span> <span class="p">-</span><span class="n">-bbox</span> <span class="p">-</span><span class="n">99</span><span class="p">.</span><span class="n">30</span><span class="p">,</span><span class="n">19</span><span class="p">.</span><span class="n">15</span><span class="p">,-</span><span class="n">98</span><span class="p">.</span><span class="n">85</span><span class="p">,</span><span class="n">19</span><span class="p">.</span><span class="n">60</span> <span class="p">-</span><span class="n">-timeout-s</span> <span class="n">120</span>
+</code></pre></div>
+<ul>
+<li><code>--area stable | deforming | auto</code>：稳定区规则（默认）会把 30 cm/yr 的沉降盆地判成
+  NOT USABLE——速度离散本身就是形变、相邻日期之间的整周步进也是形变。<code>deforming</code> 模式下 W110 看
+  速度减去 1 km 平滑场后的残差离散，W113 看相对每个像元拟合直线的周跳，W114 看去趋势后的共模步进，
+  W112 不再报；没有指定参考点时，参考点自动移到速度场"最稳定五分位"里相干邻域最密的格元
+  （<code>--stable-end max</code> 对应沉降场景，<code>min</code> 对应隆升）。<code>auto</code> 在离散超过稳定区预期 3 倍时自动切到
+  <code>deforming</code>。墨西哥城 16 景序列由此判定 USABLE，参考点自动落在 Cerro de la Estrella 火山岩上。</li>
+<li>W117 两级：超过 20 % 像元离群的日期只记录（报告里标 <code>(info)</code>），≥ 35 % 才是 marginal，
+  两个以上 marginal 日期才降判定；<code>sbas quality</code> 现在按当前阈值重新评判存储的指标，<code>--step</code> 指定要
+  报告的步骤，<code>--area</code> 换一套规则看同一产品。</li>
+<li><code>--link-coherence-min 0.7</code>：PS/DS 产品的可靠掩膜再用相位连接的时间相干把一次关——顺序
+  连接的栈反演相干恒为 1，必须用这个门限，所以 <code>pipeline psds --method sequential</code> 默认就带 0.7
+  （<code>--link-coherence-min 0</code> 关掉）。三年栈上门限留下 82.5 % 的像元，判定仍是 marginal，地标速度
+  与不加门限的产品差 0.15 mm/yr 以内——门限换掉的是"可靠"的定义，不是产品。</li>
+<li><code>fetch dem --timeout-s</code>（v0.4.0 起唯一路径）：直接从 Copernicus 公开桶下载缺的
+  GLO-30 瓦片到 <code>&lt;project&gt;/aux/dem/tiles/</code> 再拼接；<code>fetch slc</code> 对已有文件先核一次 MD5、以后用尾
+  哈希（最后 1 MiB）快速核对，不再只看大小。</li>
+</ul>
+<h2 id="50-exe-dmg">第 50 步：安装版——不用源码，从 .exe / .dmg 开始<a class="headerlink" href="#50-exe-dmg" title="Permanent link">&para;</a></h2>
+<p>从 v0.4.0 起 Bosar 有安装程序；下面这些命令在<strong>安装版</strong>上跑（不是这个开发检出），所以写成普通文本块，
+<code>check_walkthrough.py</code> 不会执行它们。</p>
+<ol>
+<li>从 <a href="https://github.com/HU-Jiashu/bosar/releases">Releases</a> 下载：Windows 用
+   <code>bosar-&lt;版本&gt;-win-x64-setup.exe</code>（按用户安装，不需要管理员；向导里勾上"Add the bosar command line
+   to the user PATH"），macOS 用 <code>bosar-&lt;版本&gt;-mac-arm64.dmg</code>（只有 Apple 芯片版；首次打开
+   右键 → 打开，或 <code>xattr -dr com.apple.quarantine /Applications/Bosar.app</code>）。</li>
+<li>新开一个终端（PATH 生效），看版本和环境：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>bosar version                      # 带 build id：bosar 0.4.0b0 (build 2026…-win-x64 …)
+bosar preflight --offline          # P305 显示构建记录；P401 的 SNAPHU 是 "no CS2 solver (MST init)"
+</code></pre></div>
+<ol>
+<li>不要任何数据，先跑一遍演示（合成的一对影像、建项目、导入、DInSAR 全链，约一分钟）：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>bosar demo my_demo                 # 8 步 done；my_demo/project 是一个普通项目，可以在界面里打开
+bosar-gui my_demo/project          # 或从开始菜单 / Applications 打开 Bosar
+</code></pre></div>
+<ol>
+<li>有 NVIDIA 显卡的机器：GPU 是插件，装一次（约 1.5 GB，从 PyPI 取 CuPy 和 CUDA 12 运行库，不需要 pip）：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>bosar gpu install                  # 或 --no-ctk（系统已有 CUDA 12 工具包时）
+bosar preflight --offline          # P202 gpu.plugin ok，P201 gpu.backend 显示显卡
+</code></pre></div>
+<p>Apple 芯片的 Mac 没有 CUDA，Bosar 在 CPU（NumPy）上跑。
+5. 之后第 1–10 步的流程在安装版上完全一样（<code>bosar project new</code>、<code>bosar data import</code>、
+   <code>bosar pipeline dinsar …</code>）；PS-InSAR（第 32 步的 <code>pipeline psi</code>）和两景差分也都在里面。安装版
+   的 SNAPHU 没有 CS2 求解器：解缠用 MST 初始化（0.4.1 起所有地方的默认值，步骤摘要里 <code>init: mst</code>），
+   结果是同一个最优化问题从另一个起点出发；需要 MCF 初始化的话用源码检出里的 CS2 构建
+   （<code>packaging/snaphu/build.ps1</code>）并设 <code>unwrap.init=mcf</code>。
+6. 许可证：设置页的"About Bosar"卡片显示许可证行（PolyForm Noncommercial 1.0.0；商业授权联系作者）和
+   三个文件（Licence… / Notice… / Third-party licences…）；安装目录 <code>_internal/licenses/</code> 里是同样的文本。</p>
+<h2 id="51-alos-2-palsar-2-jaxa">第 51 步：ALOS-2 PALSAR-2 读取器与 JAXA 免费样例<a class="headerlink" href="#51-alos-2-palsar-2-jaxa" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">bosar</span> <span class="n">fetch</span> <span class="n">slc</span> <span class="p">-</span><span class="n">-mission</span> <span class="n">alos2</span> <span class="p">-</span><span class="n">-sample</span> <span class="n">list</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">slc</span> <span class="p">-</span><span class="n">-mission</span> <span class="n">alos2</span> <span class="p">-</span><span class="n">-sample</span> <span class="n">730_greenland</span>
+<span class="n">bosar</span> <span class="n">project</span> <span class="n">new</span> <span class="n">demo_alos2</span> <span class="p">-</span><span class="n">-storage-mode</span> <span class="n">full</span>
+<span class="n">bosar</span> <span class="n">fetch</span> <span class="n">dem</span> <span class="n">demo_alos2</span> <span class="p">-</span><span class="n">-bbox</span> <span class="p">-</span><span class="n">71</span><span class="p">.</span><span class="n">5</span><span class="p">,</span><span class="n">77</span><span class="p">.</span><span class="n">4</span><span class="p">,-</span><span class="n">67</span><span class="p">.</span><span class="n">0</span><span class="p">,</span><span class="n">78</span><span class="p">.</span><span class="n">5</span> <span class="p">-</span><span class="n">-tile-dir</span> <span class="n">data</span><span class="p">/</span><span class="n">aux</span><span class="p">/</span><span class="n">dem_tiles</span>
+<span class="n">bosar</span> <span class="n">pipeline</span> <span class="n">stripmap-coregister</span> <span class="n">demo_alos2</span> <span class="p">-</span><span class="n">-product</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">alos2</span><span class="p">/</span><span class="n">ALOS2150521570</span><span class="p">-</span><span class="n">170307</span> <span class="p">-</span><span class="n">-product</span> <span class="n">data</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">alos2</span><span class="p">/</span><span class="n">ALOS2152591570</span><span class="p">-</span><span class="n">170321</span> <span class="p">-</span><span class="n">-reader</span> <span class="n">alos2</span> <span class="p">-</span><span class="n">-crop-wkt</span> <span class="s2">"POLYGON((-70.1 77.85,-69.1 77.85,-69.1 78.05,-70.1 78.05,-70.1 77.85))"</span> <span class="p">-</span><span class="n">-id</span> <span class="n">alos2_pair</span>
+</code></pre></div>
+<p>ALOS-2 的 L1.1 CEOS 产品由同一个 <code>ceos_alos</code> 读取器读（按场景号 <code>ALOS2…</code> 区分）：模式来自产品号
+（FBS/FBD/FBQ、HBS/HBD/HBQ、UBS/UBD 条带可读，聚束 SBS 与 ScanSAR 识别后拒绝并点名），行头 544 字节带
+微秒时标，起始斜距取行头而非 leader 的 range gate（后者在 ALOS-2 上不是到首采样的延迟）。JAXA 的
+22 组免费样例可匿名 FTP 取得（<code>--sample list</code> 列出）；ASF 的 ALOS-2 集合目前只有 ScanSAR（每景
+30–60 GB）。格陵兰 FBS 对（2017-03-07 / 03-21，14 天）走条带配准链的结果见 v0.4.0 的发布说明。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../WALKTHROUGH/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Walkthrough">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Walkthrough
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../LICENSING/" class="md-footer__link md-footer__link--next" aria-label="Next: Licensing">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Licensing
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jiashu Hu. Free for non-commercial use (PolyForm Noncommercial 1.0.0); commercial licences on request.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
